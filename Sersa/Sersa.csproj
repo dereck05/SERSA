@@ -4,4 +4,17 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Formularios\" />
+    <Folder Include="Views\Historial\" />
+    <Folder Include="Views\Mapa\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\images\logo.png" />
+  </ItemGroup>
 </Project>

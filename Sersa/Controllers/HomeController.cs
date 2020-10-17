@@ -23,7 +23,17 @@ namespace Sersa.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Formularios()
+        {
+            return View();
+        }
+
+        public IActionResult Mapa()
+        {
+            return View();
+        }
+
+        public IActionResult Historial()
         {
             return View();
         }
