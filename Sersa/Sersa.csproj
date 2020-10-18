@@ -17,4 +17,7 @@
   <ItemGroup>
     <None Include="wwwroot\images\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FontAwesome" Version="4.7.0" />
+  </ItemGroup>
 </Project>
