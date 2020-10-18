@@ -2,26 +2,27 @@
     ViewData["Title"] = "Formularios";
 }
 
-<link href="~/lib/font-awesome/css/all.css" rel="stylesheet"/>
+<!-- Cards-->
+
 <div class="card-columns">
     <div class="card">
         <div class="card-header">Pozos</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
-                    <button href="#" class="btn btn-lg">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#pozos">
                         <i class="fas fa-plus-square"></i>
 
                     </button>
                 </div>
-                <div class="col-6 c">
+                <div class="col-6">
                     <button href="#" class="btn btn-lg">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
 
             </div>
-            
+
         </div>
     </div>
     <div class="card">
@@ -34,7 +35,7 @@
 
                     </button>
                 </div>
-                <div class="col-6 c">
+                <div class="col-6">
                     <button href="#" class="btn btn-lg">
                         <i class="fas fa-edit"></i>
                     </button>
@@ -53,7 +54,7 @@
 
                     </button>
                 </div>
-                <div class="col-6 c">
+                <div class="col-6">
                     <button href="#" class="btn btn-lg">
                         <i class="fas fa-edit"></i>
                     </button>
@@ -72,7 +73,7 @@
 
                     </button>
                 </div>
-                <div class="col-6 c">
+                <div class="col-6">
                     <button href="#" class="btn btn-lg">
                         <i class="fas fa-edit"></i>
                     </button>
@@ -91,7 +92,7 @@
 
                     </button>
                 </div>
-                <div class="col-6 c">
+                <div class="col-6">
                     <button href="#" class="btn btn-lg">
                         <i class="fas fa-edit"></i>
                     </button>
@@ -110,7 +111,7 @@
 
                     </button>
                 </div>
-                <div class="col-6 c">
+                <div class="col-6">
                     <button href="#" class="btn btn-lg">
                         <i class="fas fa-edit"></i>
                     </button>
@@ -129,7 +130,7 @@
 
                     </button>
                 </div>
-                <div class="col-6 c">
+                <div class="col-6">
                     <button href="#" class="btn btn-lg">
                         <i class="fas fa-edit"></i>
                     </button>
@@ -148,7 +149,7 @@
 
                     </button>
                 </div>
-                <div class="col-6 c">
+                <div class="col-6">
                     <button href="#" class="btn btn-lg">
                         <i class="fas fa-edit"></i>
                     </button>
@@ -167,7 +168,7 @@
 
                     </button>
                 </div>
-                <div class="col-6 c">
+                <div class="col-6">
                     <button href="#" class="btn btn-lg">
                         <i class="fas fa-edit"></i>
                     </button>
@@ -178,3 +179,138 @@
     </div>
 
 </div>
+
+<!-- Formulario Pozos-->
+
+
+<div id="pozos" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body step-1" data-step="1" style="display:block;">
+                <p style="text-align:center">Ficha de campo 1</p>
+                <p style="text-align:center;font-weight: bold;">Pozos</p>
+                <div id="info">
+                    <form>
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input class="form-control" type="datetime-local" id="fecha">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Nombre del acueducto</label>
+                            <input type="text" class="form-control" id="acueducto">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Nombre de encargado</label>
+                            <input type="text" class="form-control" id="encargado">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Telefono</label>
+                            <input type="text" class="form-control" id="telefono">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="funcionario">Nombre del funcionario</label>
+                            <input type="text" class="form-control" id="funcionario">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Ubicacion">Ubicación </label><br>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGps" name="radio1" oninput='on_location_change()' checked> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManual" name="radio1" oninput='on_location_change()'> Manual </label>
+                            <small id="ubihelp" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingreselo de forma manual. </small>
+                            <small id="ubihelp2" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="Latitud">Latitud</label>
+                            <input type="text" class="form-control" id="Latitud">
+
+                            <label for="Longitud">Longitud</label>
+                            <input type="text" class="form-control" id="Longitud">
+                        </div>
+                        <div class="form-group">
+                            <label for="Image">Imagen</label><br>
+                            <span class="btn btn-default btn-file">
+                                <input type="file">
+                            </span>
+                        </div>
+
+
+                        <!-- Aca termina los campos en comun-->
+
+                        <div class="form-group">
+                            <label for="pozos-spec-1">Fecha de construcción del acueducto</label>
+                            <input type="text" class="form-control" id="pozos-spec-1">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pozos-spec-2">Fecha de instalación del sistema de cloración</label>
+                            <input type="text" class="form-control" id="pozos-spec-2">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pozos-spec-3">Tipo de Sistema de Cloración </label><br>
+                            <label class="radio-inline"><input type="radio" id="gascloro" name="pozos-spec-3"> Gas Cloro </label>
+                            <label class="radio-inline"><input type="radio" id="electrosis" name="pozos-spec-3"> Electrósis </label>
+                            <label class="radio-inline"><input type="radio" id="pastillas" name="pozos-spec-3"> Pastillas(Erosión) </label>
+                            <label class="radio-inline"><input type="radio" id="otro" name="pozos-spec-3"> Otro </label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pozos-spec-4">Tipo de Dosificación </label><br>
+                            <label class="radio-inline"><input type="radio" id="programada" name="pozos-spec-4"> Tiempos programados </label>
+                            <label class="radio-inline"><input type="radio" id="continua" name="pozos-spec-4"> Continua </label>
+                        </div>
+
+
+                        <button type="submit" class="btn" style="background-color: #4f83cc;color:#ffffff">Siguiente</button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-body step-2" data-step="2" style="display:none;">
+                Dos
+            </div>
+            <div class="modal-body step-3" data-step="3" style="display:none;">
+                Tres
+            </div>
+
+        </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        on_location_change()
+    });
+    function on_location_change() {
+        if (document.getElementById('UbicacionGps').checked) {
+            showPosition()
+        } else if (document.getElementById('UbicacionManual').checked) {
+            
+            document.getElementById('Latitud').value = ""
+            document.getElementById('Longitud').value = ""
+        }
+    }
+    function showPosition() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                document.getElementById('Latitud').value = position.coords.latitude
+                document.getElementById('Longitud').value = position.coords.longitude
+               
+            });
+        } else {
+            document.getElementById('Latitud').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('Longitud').value = "GPS no disponible, por favor cambie a modo Manual"
+        }
+    }
+</script>
