@@ -26,11 +26,11 @@
         </div>
     </div>
     <div class="card text-center">
-        <div class="card-header">Almacenamiento</div>
+        <div class="card-header">Tanques de Almacenamiento</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
-                    <button href="#" class="btn btn-lg">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#almacenamiento">
                         <i class="fas fa-plus-square"></i>
 
                     </button>
@@ -45,11 +45,11 @@
         </div>
     </div>
     <div class="card text-center">
-        <div class="card-header">Captación</div>
+        <div class="card-header">Fuente Naciente</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
-                    <button href="#" class="btn btn-lg">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#fuenteNac">
                         <i class="fas fa-plus-square"></i>
 
                     </button>
@@ -83,7 +83,7 @@
         </div>
     </div>
     <div class="card text-center">
-        <div class="card-header">Distribución</div>
+        <div class="card-header">Red Distribución</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -102,7 +102,7 @@
         </div>
     </div>
     <div class="card text-center">
-        <div class="card-header">Quiebragradientes</div>
+        <div class="card-header">Quiebra-gradientes</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -121,7 +121,26 @@
         </div>
     </div>
     <div class="card text-center">
-        <div class="card-header">Limpieza</div>
+        <div class="card-header">Desinfección</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#cloracion">
+                        <i class="fas fa-plus-square"></i>
+
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button href="#" class="btn btn-lg">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="card text-center">
+        <div class="card-header">Planta Potabilización</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -140,36 +159,17 @@
         </div>
     </div>
     <div class="card text-center">
-        <div class="card-header">Potabilización</div>
+        <div class="card-header">Fuente Superficial</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
-                    <button href="#" class="btn btn-lg">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#fuenteSup">
                         <i class="fas fa-plus-square"></i>
 
                     </button>
                 </div>
                 <div class="col-6">
-                    <button href="#" class="btn btn-lg">
-                        <i class="fas fa-edit"></i>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="card text-center">
-        <div class="card-header">Toma</div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-6">
-                    <button href="#" class="btn btn-lg">
-                        <i class="fas fa-plus-square"></i>
-
-                    </button>
-                </div>
-                <div class="col-6">
-                    <button href="#" class="btn btn-lg">
+                    <button class="btn btn-lg">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
@@ -180,10 +180,8 @@
 
 </div>
 
-<!-- Formulario Pozos-->
-
-
-<div id="pozos" class="modal fade" role="dialog" tabindex="-1">
+<!-- Formulario Desinfeccion/Cloracion-->
+<div id="cloracion" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -191,9 +189,9 @@
             </div>
             <div class="modal-body">
                 <div id="modal1">
-                    <p style="text-align:center">Ficha de campo 1</p>
-                    <p style="text-align:center;font-weight: bold;">Pozos</p>
-                    <p style="font-weight: bold;">I. Información general</p>
+                    <p style="text-align:center">Ficha de campo 8</p>
+                    <p style="text-align:center;font-weight: bold;">Desinfección</p>
+                    <p style="font-weight: bold;">I. Información General</p>
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
@@ -277,9 +275,9 @@
 
                 </div>
                 <div id="modal2" class="hideModal">
-                    <p style="text-align:center">Ficha de campo 1</p>
-                    <p style="text-align:center;font-weight: bold;">Pozos</p>
-                    <p style="font-weight: bold;">II. Diagnóstico de infraestructura</p>
+                    <p style="text-align:center">Ficha de campo 8</p>
+                    <p style="text-align:center;font-weight: bold;">Desinfección</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
                     <form>
                         <div class="form-group">
                             <label for="infra1">1. ¿Se carece de una zona/caseta debidamente acondicionada para la preparación y aplicación del cloro? (critica)</label><br>
@@ -348,8 +346,8 @@
 
                 </div>
                 <div id="modal3" class="hideModal">
-                    <p style="text-align:center">Ficha de campo 1</p>
-                    <p style="text-align:center;font-weight: bold;">Pozos</p>
+                    <p style="text-align:center">Ficha de campo 8</p>
+                    <p style="text-align:center;font-weight: bold;">Desinfección</p>
                     <p style="font-weight: bold;">III. Filtro de campos</p>
                     <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
                     <div class="form-check">
@@ -381,21 +379,1129 @@
                     <button id="btnSave" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
                 </div>
             </div>
-            
+
 
         </div>
     </div>
 </div>
 
 
+<!-- Formulario Fuente Superficial-->
+
+<div id="fuenteSup" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1FS">
+                    <p style="text-align:center">Ficha de campo 1</p>
+                    <p style="text-align:center;font-weight: bold;">Fuente Superficial</p>
+                    <p style="font-weight: bold;">I. Información General</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input class="form-control" type="datetime-local" id="fechaFS">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Nombre del acueducto</label>
+                            <input type="text" class="form-control" id="acueductoFS">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Nombre toma</label>
+                            <input type="text" class="form-control" id="tomaFS">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Número de registro en MINAE</label>
+                            <input type="text" class="form-control" id="registroMFS">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Registro en Dirección de ARS</label>
+                            <input type="text" class="form-control" id="direccionFS">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Encargado del acueducto</label>
+                            <input type="text" class="form-control" id="encargadoFS">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" class="form-control" id="telefonoFS">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="funcionario">Nombre del funcionario</label>
+                            <input type="text" class="form-control" id="funcionarioFS">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Ubicacion">Ubicación </label><br>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsFS" name="radio1" oninput='on_location_changeFS()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManualFS" name="radio1" oninput='on_location_changeFS()' checked> Manual </label>
+                            <small id="ubihelpFS" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
+                            <small id="ubihelp2FS" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="Latitud">Latitud</label>
+                            <input type="text" class="form-control" id="LatitudFS">
+
+                            <label for="Longitud">Longitud</label>
+                            <input type="text" class="form-control" id="LongitudFS">
+                        </div>
+                        <div class="form-group">
+                            <label for="Image">Imagen</label><br>
+                            <span class="btn btn-default btn-file">
+                                <input type="file" id="imgFS">
+                            </span>
+                        </div>
+
+
+                        <!-- Aca termina los campos en comun-->
+
+                        <div class="form-group">
+                            <label for="FSLimpieza">Frecuencia de Limpieza </label><br>
+                            <select id="FSLimpieza" name="FSLimpieza">
+                                <option value="Nunca">Nunca</option>
+                                <option value="Mensual">Mensual</option>
+                                <option value="Semanal">Semanal</option>
+                                <option value="Diario">Diario</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="otroDescripFS">Especifique</label>
+                            <input type="text" class="form-control" id="otroDescripFS" disabled>
+                        </div>
+
+                    </form>
+                    <button id="btnNextModal1FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal2FS" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 1</p>
+                    <p style="text-align:center;font-weight: bold;">Fuente Superficial</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="infra1FS">1. ¿Está la captación fuera de un área protegida o zona de conservación? </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra1FS_si" name="infra1FS"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra1FS_no" name="infra1FS"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra2FS">2. ¿Está la toma de agua desprovista de infraestructura que la proteja? </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra2FS_si" name="infra2FS"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra2FS_no" name="infra2FS"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra3FS">3. ¿Está el área alrededor de la toma sin cerca?  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra3FS_si" name="infra3FS"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra3FS_no" name="infra3FS"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra4FS">4.  ¿Está la toma de agua ubicada dentro de alguna zona de actividad agrícola? (crítica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra4FS_si" name="infra4FS"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra4FS_no" name="infra4FS"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra5FS">5. ¿Existe alguna otra fuente de contaminación alrededor de la toma (letrinas, animales, viviendas, basura o industrias, etc.)? (Observar si aproximadamente a 200 metros a la redonda existen letrinas, animales, viviendas, basura) (crítica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra5FS_si" name="infra5FS"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra5FS_no" name="infra5FS"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra6FS">6. ¿Está la captación con acceso fácil de personas y animales?(crítica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra6FS_si" name="infra6FS"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra6FS_no" name="infra6FS"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra7FS">7. ¿Están las rejillas de la toma en malas condiciones (ausentes, quebradas y otros)? </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra7FS_si" name="infra7FS"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra7FS_no" name="infra7FS"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra8FS">8. ¿Existe presencia de plantas (raíces, hojas y otros) tapando las rejillas de la toma?  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra8FS_si" name="infra8FS"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra8FS_no" name="infra8FS"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra9FS">9. ¿Existen condiciones de deforestación y erosión en los alrededores de la toma de agua? </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra9FS_si" name="infra9FS"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra9FS_no" name="infra9FS"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra10FS">10. ¿Está ausente el desarenador después de la toma de agua? </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra10FS_si" name="infra10FS"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra10FS_no" name="infra10FS"> No </label>
+                        </div>
+
+                    </form>
+
+                    <button id="btnBackModal2FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    <button id="btnNextModal2FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal3FS" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 1</p>
+                    <p style="text-align:center;font-weight: bold;">Fuente Superficial</p>
+                    <p style="font-weight: bold;">III. Filtro de campos</p>
+                    <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_allFS">
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_fechaFS">
+                        <label class="form-check-label"> Fecha</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_acueductoFS">
+                        <label class="form-check-label"> Nombre del acueducto</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_encargadoFS">
+                        <label class="form-check-label"> Nombre del encargado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_telefonoFS">
+                        <label class="form-check-label"> Teléfono</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_funcionarioFS">
+                        <label class="form-check-label"> Nombre del funcionario</label>
+                    </div>
+                    <br />
+                    <button id="btnBackModal3FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    <button id="btnSaveFS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Formulario Fuente Naciente-->
+
+<div id="fuenteNac" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1FN">
+                    <p style="text-align:center">Ficha de campo 2</p>
+                    <p style="text-align:center;font-weight: bold;">Fuente Naciente</p>
+                    <p style="font-weight: bold;">I. Información General</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input class="form-control" type="datetime-local" id="fechaFN">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Nombre del acueducto</label>
+                            <input type="text" class="form-control" id="acueductoFN">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Nombre naciente o manantial</label>
+                            <input type="text" class="form-control" id="nacienteFN">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Número de registro en MINAE</label>
+                            <input type="text" class="form-control" id="registroMFN">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Registro en Dirección de ARS</label>
+                            <input type="text" class="form-control" id="direccionFN">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Encargado del acueducto</label>
+                            <input type="text" class="form-control" id="encargadoFN">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" class="form-control" id="telefonoFN">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="funcionario">Nombre del funcionario</label>
+                            <input type="text" class="form-control" id="funcionarioFN">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Ubicacion">Ubicación </label><br>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsFN" name="radio1" oninput='on_location_changeFN()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManualFN" name="radio1" oninput='on_location_changeFN()' checked> Manual </label>
+                            <small id="ubihelpFN" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
+                            <small id="ubihelp2FN" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="Latitud">Latitud</label>
+                            <input type="text" class="form-control" id="LatitudFN">
+
+                            <label for="Longitud">Longitud</label>
+                            <input type="text" class="form-control" id="LongitudFN">
+                        </div>
+                        <div class="form-group">
+                            <label for="Image">Imagen</label><br>
+                            <span class="btn btn-default btn-file">
+                                <input type="file" id="imgFN">
+                            </span>
+                        </div>
+
+
+                        <!-- Aca termina los campos en comun-->
+
+                        <div class="form-group">
+                            <label for="FNCaptacion">Tipo de Captación </label><br>
+                            <select id="FNCaptacion" name="FNCaptacion">
+                                <option value="Caseta">Caseta</option>
+                                <option value="ANivel">A Nivel</option>
+                                <option value="Enterrada">Enterrada</option>
+                                <option value="Semi-Enterrada">Semi-Enterrada</option>
+                            </select>
+                        </div>
+
+                    </form>
+                    <button id="btnNextModal1FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal2FN" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 2</p>
+                    <p style="text-align:center;font-weight: bold;">Fuente Naciente</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="infra1FN">1. ¿Está la naciente sin cerca de protección que impida el acceso de personas y animales a la captación (crítica)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra1FN_si" name="infra1FN"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra1FN_no" name="infra1FN"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra2FN">2. ¿Está la captación de la naciente desprotegida abierta a la contaminación ambiental? (sin tapa o sin tanque de captación).  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra2FN_si" name="infra2FN"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra2FN_no" name="infra2FN"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra3FN">3. ¿Está la tapa de la captación construida en condiciones no sanitarias?   </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra3FN_si" name="infra3FN"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra3FN_no" name="infra3FN"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra4FN">4.  ¿Están las paredes y las losas superior e inferior de la captación con grietas? (crítica)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra4FN_si" name="infra4FN"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra4FN_no" name="infra4FN"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra5FN">5. ¿Se carece de canales para desviar el agua de escorrentía? (crítica)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra5FN_si" name="infra5FN"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra5FN_no" name="infra5FN"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra6FN">6. ¿Carece la captación de respiraderos o tubería de rebalse con rejilla de protección?  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra6FN_si" name="infra6FN"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra6FN_no" name="infra6FN"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra7FN">7. ¿Se encuentran plantas (raíces, hojas, algas y otros) dentro de la captación de la naciente?  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra7FN_si" name="infra7FN"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra7FN_no" name="infra7FN"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra8FN">8. ¿Existen aguas estancadas sobre o alrededor de la captación? (crítica)   </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra8FN_si" name="infra8FN"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra8FN_no" name="infra8FN"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra9FN">9. ¿Existe alguna fuente de contaminación alrededor de la captación? (Observar si aproximadamente a 200 metros a la redonda existen letrinas, animales, viviendas, basura)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra9FN_si" name="infra9FN"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra9FN_no" name="infra9FN"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra10FN">10. ¿Se encuentra la captación ubicada en zonas con actividad agrícola o industrial? (crítica)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra10FN_si" name="infra10FN"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra10FN_no" name="infra10FN"> No </label>
+                        </div>
+
+                    </form>
+
+                    <button id="btnBackModal2FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    <button id="btnNextModal2FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal3FN" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 2</p>
+                    <p style="text-align:center;font-weight: bold;">Fuente Naciente</p>
+                    <p style="font-weight: bold;">III. Filtro de campos</p>
+                    <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_allFN">
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_fechaFN">
+                        <label class="form-check-label"> Fecha</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_acueductoFN">
+                        <label class="form-check-label"> Nombre del acueducto</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_encargadoFN">
+                        <label class="form-check-label"> Nombre del encargado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_telefonoFN">
+                        <label class="form-check-label"> Teléfono</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_funcionarioFN">
+                        <label class="form-check-label"> Nombre del funcionario</label>
+                    </div>
+                    <br />
+                    <button id="btnBackModal3FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    <button id="btnSaveFN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Formulario Fuente Pozos-->
+
+<div id="pozos" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1P">
+                    <p style="text-align:center">Ficha de campo 3</p>
+                    <p style="text-align:center;font-weight: bold;">Pozos</p>
+                    <p style="font-weight: bold;">I. Información General</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input class="form-control" type="datetime-local" id="fechaP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Nombre del acueducto</label>
+                            <input type="text" class="form-control" id="acueductoP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Nombre pozo</label>
+                            <input type="text" class="form-control" id="pozoP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Número de Conseción en MINAE</label>
+                            <input type="text" class="form-control" id="registroMP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Número dado por SENASA</label>
+                            <input type="text" class="form-control" id="senasaP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Encargado del acueducto</label>
+                            <input type="text" class="form-control" id="encargadoP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" class="form-control" id="telefonoP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="funcionario">Nombre del funcionario</label>
+                            <input type="text" class="form-control" id="funcionarioP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Ubicacion">Ubicación </label><br>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsP" name="radio1" oninput='on_location_changeP()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManualP" name="radio1" oninput='on_location_changeP()' checked> Manual </label>
+                            <small id="ubihelpP" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
+                            <small id="ubihelp2P" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="Latitud">Latitud</label>
+                            <input type="text" class="form-control" id="LatitudP">
+
+                            <label for="Longitud">Longitud</label>
+                            <input type="text" class="form-control" id="LongitudP">
+                        </div>
+                        <div class="form-group">
+                            <label for="Image">Imagen</label><br>
+                            <span class="btn btn-default btn-file">
+                                <input type="file" id="imgP">
+                            </span>
+                        </div>
+
+
+                        <!-- Aca termina los campos en comun-->
+
+                        <div class="form-group">
+                            <label for="funcionario">Profundidad del nivel</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="funcionario">Friático</label>
+                            <input type="text" class="form-control" id="pFriaticoP">
+                            <label for="funcionario">Dinámico</label>
+                            <input type="text" class="form-control" id="pDinamicoP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="diametroP">Diámetro</label>
+                            <input type="text" class="form-control" id="diametroP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="espesorP">Espesor</label>
+                            <input type="text" class="form-control" id="espesorP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pozoP">Tipo de Pozo </label><br>
+                            <select id="pozoP" name="pozoP">
+                                <option value="Excavado">Excavado</option>
+                                <option value="Perforado">Perforado</option>
+                            </select>
+                        </div>
+
+                    </form>
+                    <button id="btnNextModal1P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal2P" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 3</p>
+                    <p style="text-align:center;font-weight: bold;">Pozos</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="infra1P">1. ¿Está el pozo sin cerca de protección que impida el acceso de personas y animales (crítica)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra1P_si" name="infra1P"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra1P_no" name="infra1P"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra2P">2. ¿Está el pozo desprotegido abierto a la contaminación ambiental? (sin caseta o sin tapa). (crítica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra2P_si" name="infra2P"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra2P_no" name="infra2P"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra3P">3. ¿Está la bomba en malas condiciones (sucia, mal funcionamiento)?  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra3P_si" name="infra3P"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra3P_no" name="infra3P"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra4P">4. ¿Se carece de la curva de bombeo del fabricante de la bomba? </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra4P_si" name="infra4P"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra4P_no" name="infra4P"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra5P">5. ¿Se carece de canales para desviar el agua de escorrentía? (crítica)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra5P_si" name="infra5P"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra5P_no" name="infra5P"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra6P">6. ¿Se carece con un tubo de 25-38 mm de diámetro para efectuar la medición de niveles de agua?  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra6P_si" name="infra6P"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra6P_no" name="infra6P"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra7P">7.  ¿Se encuentran plantas (raíces, hojas, algas y otros) dentro del pozo? </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra7P_si" name="infra7P"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra7P_no" name="infra7P"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra8P">8. ¿Existen aguas estancadas sobre o alrededor del pozo? (crítica)   </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra8P_si" name="infra8P"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra8P_no" name="infra8P"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra9P">9. ¿Existe alguna fuente de contaminación alrededor del pozo? (Observar si aproximadamente a 200 metros a la redonda existen letrinas, animales, viviendas, basura) </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra9P_si" name="infra9P"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra9P_no" name="infra9P"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra10P">10. ¿Se encuentra el pozo ubicado en zonas con actividad agrícola o industrial? (crítica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra10P_si" name="infra10P"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra10P_no" name="infra10P"> No </label>
+                        </div>
+
+                    </form>
+
+                    <button id="btnBackModal2P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    <button id="btnNextModal2P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal3P" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 3</p>
+                    <p style="text-align:center;font-weight: bold;">Pozos</p>
+                    <p style="font-weight: bold;">III. Filtro de campos</p>
+                    <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_allP">
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_fechaP">
+                        <label class="form-check-label"> Fecha</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_acueductoP">
+                        <label class="form-check-label"> Nombre del acueducto</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_encargadoP">
+                        <label class="form-check-label"> Nombre del encargado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_telefonoP">
+                        <label class="form-check-label"> Teléfono</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_funcionarioP">
+                        <label class="form-check-label"> Nombre del funcionario</label>
+                    </div>
+                    <br />
+                    <button id="btnBackModal3P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    <button id="btnSaveP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Formulario Tanques de Almacenamiento-->
+
+<div id="almacenamiento" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1A">
+                    <p style="text-align:center">Ficha de campo 4</p>
+                    <p style="text-align:center;font-weight: bold;">Tanques de Almacenamiento</p>
+                    <p style="font-weight: bold;">I. Información General</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input class="form-control" type="datetime-local" id="fechaA">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Nombre del acueducto</label>
+                            <input type="text" class="form-control" id="acueductoA">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Número de registro</label>
+                            <input type="text" class="form-control" id="registroA">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Nombre del tanque</label>
+                            <input type="text" class="form-control" id="tanqueA">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Encargado del acueducto</label>
+                            <input type="text" class="form-control" id="encargadoA">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" class="form-control" id="telefonoA">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="funcionario">Nombre del funcionario</label>
+                            <input type="text" class="form-control" id="funcionarioA">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Ubicacion">Ubicación </label><br>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsA" name="radio1" oninput='on_location_changeA()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManualA" name="radio1" oninput='on_location_changeA()' checked> Manual </label>
+                            <small id="ubihelpA" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
+                            <small id="ubihelp2A" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="Latitud">Latitud</label>
+                            <input type="text" class="form-control" id="LatitudA">
+
+                            <label for="Longitud">Longitud</label>
+                            <input type="text" class="form-control" id="LongitudA">
+                        </div>
+                        <div class="form-group">
+                            <label for="Image">Imagen</label><br>
+                            <span class="btn btn-default btn-file">
+                                <input type="file" id="imgA">
+                            </span>
+                        </div>
+
+
+                        <!-- Aca termina los campos en comun-->
+
+
+                        <div class="form-group">
+                            <label for="tipoTanqueA">Tipo de Tanque </label><br>
+                            <select id="tipoTanqueA" name="tipoTanqueA">
+                                <option value="Elevado">Elevado</option>
+                                <option value="Anivel">A nivel</option>
+                                <option value="Enterrado">Enterrado</option>
+                                <option value="Semi-Enterrado">Semi-Enterrado</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="matTanqueA">Tipo de Tanque </label><br>
+                            <select id="matTanqueA" name="matTanqueA">
+                                <option value="Concreto">Concreto</option>
+                                <option value="Metálico">Metálico</option>
+                                <option value="Plástico">Plástico</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ALimpieza">Frecuencia de Limpieza </label><br>
+                            <select id="ALimpieza" name="ALimpieza">
+                                <option value="Anual">Anual</option>
+                                <option value="Semestral">Semestral</option>
+                                <option value="Trimestral">Trimestral</option>
+                                <option value="Mensual">Mensual</option>
+                                <option value="Otra">Otra</option>
+                                <option value="Nunca">No Sabe/Nunca</option>
+                            </select>
+                        </div>
+
+                    </form>
+                    <button id="btnNextModal1A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal2A" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 4</p>
+                    <p style="text-align:center;font-weight: bold;">Tanques de Almacenamiento</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="infra1A">1. ¿Están las paredes agrietadas (concreto) o herrumbradas (metálico)? (crítica)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra1A_si" name="infra1A"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra1A_no" name="infra1A"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra2A">2. ¿Está la tapa del tanque de almacenamiento, construida en  condiciones no sanitarias? (crítica)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra2A_si" name="infra2A"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra2A_no" name="infra2A"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra3A">3. ¿Es el borde de cemento alrededor del tanque menor a 1 metro?  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra3A_si" name="infra3A"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra3A_no" name="infra3A"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra4A">4.  ¿Está ausente o fuera de operación el sistema de cloración? (crítica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra4A_si" name="infra4A"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra4A_no" name="infra4A"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra5A">5. ¿Está el nivel del agua menor que 1/4 del volumen del tanque?   </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra5A_si" name="infra5A"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra5A_no" name="infra5A"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra6A">6. ¿Existen sedimentos, algas u hongos dentro del tanque?  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra6A_si" name="infra6A"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra6A_no" name="infra6A"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra7A">7. ¿Está ausente o defectuosa la cerca de protección?  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra7A_si" name="infra7A"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra7A_no" name="infra7A"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra8A">8. ¿Carece la tapa de un sistema seguro de cierre (candado, cadena, tornillo)?   </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra8A_si" name="infra8A"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra8A_no" name="infra8A"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra9A">9. ¿Carece el tanque de respiraderos o tubería de rebalse con rejilla de protección? (crítica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra9A_si" name="infra9A"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra9A_no" name="infra9A"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra10A">10. ¿Existe alguna fuente de contaminación alrededor del tanque (letrinas, animales, viviendas, basura, actividad agrícola o industrial) (crítica)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="infra10A_si" name="infra10A"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra10A_no" name="infra10A"> No </label>
+                        </div>
+
+                    </form>
+
+                    <button id="btnBackModal2A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    <button id="btnNextModal2A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal3A" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 4</p>
+                    <p style="text-align:center;font-weight: bold;">Tanques de Almacenamiento</p>
+                    <p style="font-weight: bold;">III. Filtro de campos</p>
+                    <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_allA">
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_fechaA">
+                        <label class="form-check-label"> Fecha</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_acueductoA">
+                        <label class="form-check-label"> Nombre del acueducto</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_encargadoA">
+                        <label class="form-check-label"> Nombre del encargado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_telefonoA">
+                        <label class="form-check-label"> Teléfono</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="filter_funcionarioA">
+                        <label class="form-check-label"> Nombre del funcionario</label>
+                    </div>
+                    <br />
+                    <button id="btnBackModal3A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    <button id="btnSaveA" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
 <script>
-    
+
+    $(document).ready(function () {
+        document.getElementById("FSLimpieza").addEventListener("click", habilitarDescripcion, false);
+    });
+
+    function habilitarDescripcion() {
+        var valor = document.getElementById('FSLimpieza').value;
+        if (valor == "Otro") {
+            document.getElementById("otroDescripFS").disabled = false;
+        }
+    }
+
+    function on_location_changeFS() {
+        if (document.getElementById('UbicacionGpsFS').checked) {
+            showPositionFS()
+        } else if (document.getElementById('UbicacionManualFS').checked) {
+
+            document.getElementById('LatitudFS').value = ''
+            document.getElementById('LongitudFS').value = ''
+        }
+    }
+    function showPositionFS() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                document.getElementById('LatitudFS').value = position.coords.latitude
+                document.getElementById('LongitudFS').value = position.coords.longitude
+
+            });
+        } else {
+            document.getElementById('LatitudFS').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LongitudFS').value = "GPS no disponible, por favor cambie a modo Manual"
+        }
+    }
+
+    $("#btnNextModal1FS").click(function () {
+        document.getElementById('modal1FS').style.display = 'none'
+        document.getElementById('modal2FS').style.display = 'block'
+
+    });
+    $("#btnNextModal2FS").click(function () {
+        document.getElementById('modal2FS').style.display = 'none'
+        document.getElementById('modal3FS').style.display = 'block'
+    });
+    $("#btnBackModal2FS").click(function () {
+        document.getElementById('modal2FS').style.display = 'none'
+        document.getElementById('modal1FS').style.display = 'block'
+    });
+    $("#btnBackModal3FS").click(function () {
+        document.getElementById('modal3FS').style.display = 'none'
+        document.getElementById('modal2FS').style.display = 'block'
+    });
+
+    $("#filter_allFS").click(function () {
+        if (document.getElementById('filter_allFS').checked) {
+
+            document.getElementById('filter_fechaFS').disabled = true
+            document.getElementById('filter_acueductoFS').disabled = true
+            document.getElementById('filter_encargadoFS').disabled = true
+            document.getElementById('filter_telefonoFS').disabled = true
+            document.getElementById('filter_funcionarioFS').disabled = true
+        } else {
+            $("#filter_fechaFS").removeAttr("disabled");
+            $("#filter_acueductoFS").removeAttr("disabled");
+            $("#filter_encargadoFS").removeAttr("disabled");
+            $("#filter_telefonoFS").removeAttr("disabled");
+            $("#filter_funcionarioFS").removeAttr("disabled");
+        }
+    });
+
+    function on_location_changeFN() {
+        if (document.getElementById('UbicacionGpsFN').checked) {
+            showPositionFN()
+        } else if (document.getElementById('UbicacionManualFN').checked) {
+
+            document.getElementById('LatitudFN').value = ''
+            document.getElementById('LongitudFN').value = ''
+        }
+    }
+    function showPositionFN() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                document.getElementById('LatitudFN').value = position.coords.latitude
+                document.getElementById('LongitudFN').value = position.coords.longitude
+
+            });
+        } else {
+            document.getElementById('LatitudFN').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LongitudFN').value = "GPS no disponible, por favor cambie a modo Manual"
+        }
+    }
+
+    $("#btnNextModal1FN").click(function () {
+        document.getElementById('modal1FN').style.display = 'none'
+        document.getElementById('modal2FN').style.display = 'block'
+
+    });
+    $("#btnNextModal2FN").click(function () {
+        document.getElementById('modal2FN').style.display = 'none'
+        document.getElementById('modal3FN').style.display = 'block'
+    });
+    $("#btnBackModal2FN").click(function () {
+        document.getElementById('modal2FN').style.display = 'none'
+        document.getElementById('modal1FN').style.display = 'block'
+    });
+    $("#btnBackModal3FN").click(function () {
+        document.getElementById('modal3FN').style.display = 'none'
+        document.getElementById('modal2FN').style.display = 'block'
+    });
+
+    $("#filter_allFN").click(function () {
+        if (document.getElementById('filter_allFN').checked) {
+
+            document.getElementById('filter_fechaFN').disabled = true
+            document.getElementById('filter_acueductoFN').disabled = true
+            document.getElementById('filter_encargadoFN').disabled = true
+            document.getElementById('filter_telefonoFN').disabled = true
+            document.getElementById('filter_funcionarioFN').disabled = true
+        } else {
+            $("#filter_fechaFN").removeAttr("disabled");
+            $("#filter_acueductoFN").removeAttr("disabled");
+            $("#filter_encargadoFN").removeAttr("disabled");
+            $("#filter_telefonoFN").removeAttr("disabled");
+            $("#filter_funcionarioFN").removeAttr("disabled");
+        }
+    });
+
+    function on_location_changeP() {
+        if (document.getElementById('UbicacionGpsP').checked) {
+            showPositionP()
+        } else if (document.getElementById('UbicacionManualP').checked) {
+
+            document.getElementById('LatitudP').value = ''
+            document.getElementById('LongitudP').value = ''
+        }
+    }
+    function showPositionP() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                document.getElementById('LatitudP').value = position.coords.latitude
+                document.getElementById('LongitudP').value = position.coords.longitude
+
+            });
+        } else {
+            document.getElementById('LatitudP').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LongitudP').value = "GPS no disponible, por favor cambie a modo Manual"
+        }
+    }
+
+    $("#btnNextModal1P").click(function () {
+        document.getElementById('modal1P').style.display = 'none'
+        document.getElementById('modal2P').style.display = 'block'
+
+    });
+    $("#btnNextModal2P").click(function () {
+        document.getElementById('modal2P').style.display = 'none'
+        document.getElementById('modal3P').style.display = 'block'
+    });
+    $("#btnBackModal2P").click(function () {
+        document.getElementById('modal2P').style.display = 'none'
+        document.getElementById('modal1P').style.display = 'block'
+    });
+    $("#btnBackModal3P").click(function () {
+        document.getElementById('modal3P').style.display = 'none'
+        document.getElementById('modal2P').style.display = 'block'
+    });
+
+    $("#filter_allP").click(function () {
+        if (document.getElementById('filter_allP').checked) {
+
+            document.getElementById('filter_fechaP').disabled = true
+            document.getElementById('filter_acueductoP').disabled = true
+            document.getElementById('filter_encargadoP').disabled = true
+            document.getElementById('filter_telefonoP').disabled = true
+            document.getElementById('filter_funcionarioP').disabled = true
+        } else {
+            $("#filter_fechaP").removeAttr("disabled");
+            $("#filter_acueductoP").removeAttr("disabled");
+            $("#filter_encargadoP").removeAttr("disabled");
+            $("#filter_telefonoP").removeAttr("disabled");
+            $("#filter_funcionarioP").removeAttr("disabled");
+        }
+    });
+
+
+    function on_location_changeA() {
+        if (document.getElementById('UbicacionGpsA').checked) {
+            showPositionA()
+        } else if (document.getElementById('UbicacionManualA').checked) {
+
+            document.getElementById('LatitudA').value = ''
+            document.getElementById('LongitudA').value = ''
+        }
+    }
+    function showPositionA() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                document.getElementById('LatitudA').value = position.coords.latitude
+                document.getElementById('LongitudA').value = position.coords.longitude
+
+            });
+        } else {
+            document.getElementById('LatitudA').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LongitudA').value = "GPS no disponible, por favor cambie a modo Manual"
+        }
+    }
+
+    $("#btnNextModal1A").click(function () {
+        document.getElementById('modal1A').style.display = 'none'
+        document.getElementById('modal2A').style.display = 'block'
+
+    });
+    $("#btnNextModal2A").click(function () {
+        document.getElementById('modal2A').style.display = 'none'
+        document.getElementById('modal3A').style.display = 'block'
+    });
+    $("#btnBackModal2A").click(function () {
+        document.getElementById('modal2A').style.display = 'none'
+        document.getElementById('modal1A').style.display = 'block'
+    });
+    $("#btnBackModal3A").click(function () {
+        document.getElementById('modal3A').style.display = 'none'
+        document.getElementById('modal2A').style.display = 'block'
+    });
+
+    $("#filter_allA").click(function () {
+        if (document.getElementById('filter_allA').checked) {
+
+            document.getElementById('filter_fechaA').disabled = true
+            document.getElementById('filter_acueductoA').disabled = true
+            document.getElementById('filter_encargadoA').disabled = true
+            document.getElementById('filter_telefonoA').disabled = true
+            document.getElementById('filter_funcionarioA').disabled = true
+        } else {
+            $("#filter_fechaA").removeAttr("disabled");
+            $("#filter_acueductoA").removeAttr("disabled");
+            $("#filter_encargadoA").removeAttr("disabled");
+            $("#filter_telefonoA").removeAttr("disabled");
+            $("#filter_funcionarioA").removeAttr("disabled");
+        }
+    });
 
     function on_location_change() {
         if (document.getElementById('UbicacionGps').checked) {
             showPosition()
         } else if (document.getElementById('UbicacionManual').checked) {
-            
+
             document.getElementById('Latitud').value = ''
             document.getElementById('Longitud').value = ''
         }
@@ -405,7 +1511,7 @@
             navigator.geolocation.getCurrentPosition(function (position) {
                 document.getElementById('Latitud').value = position.coords.latitude
                 document.getElementById('Longitud').value = position.coords.longitude
-               
+
             });
         } else {
             document.getElementById('Latitud').value = "GPS no disponible, por favor cambie a modo Manual"
@@ -416,7 +1522,7 @@
     $("#btnNextModal1").click(function () {
         document.getElementById('modal1').style.display = 'none'
         document.getElementById('modal2').style.display = 'block'
-               
+
     });
     $("#btnNextModal2").click(function () {
         document.getElementById('modal2').style.display = 'none'
