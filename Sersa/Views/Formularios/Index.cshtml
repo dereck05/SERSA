@@ -2,11 +2,16 @@
     ViewData["Title"] = "Formularios";
 }
 
-<!-- Cards-->
+<!-- Titulo -->
+<div class="text-center mt-2 mb-5">
+    <h1>Formularios</h1>
+</div>
 
+
+<!-- Cards-->
 <div class="card-columns">
-    <div class="card">
-        <div class="card-header">Pozos</div>
+    <div class="card text-center">
+        <div class="card-header">3. Pozos</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -25,8 +30,8 @@
 
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">Tanques de Almacenamiento</div>
+    <div class="card text-center">
+        <div class="card-header">4. Tanques de Almacenamiento</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -44,8 +49,8 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">Fuente Naciente</div>
+    <div class="card text-center">
+        <div class="card-header">2. Fuente Naciente</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -63,8 +68,8 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">Conduccion</div>
+    <div class="card text-center">
+        <div class="card-header">5. Conducción</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -82,8 +87,8 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">Red Distribucion</div>
+    <div class="card text-center">
+        <div class="card-header">6. Red Distribución</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -101,8 +106,8 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">Quiebra-gradientes</div>
+    <div class="card text-center">
+        <div class="card-header">7. Quiebra-gradientes</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -120,8 +125,8 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">Desinfección</div>
+    <div class="card text-center">
+        <div class="card-header">8. Desinfección</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -139,8 +144,8 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">Planta Potabilización</div>
+    <div class="card text-center">
+        <div class="card-header">9. Planta Potabilización</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -158,8 +163,8 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">Fuente Superficial</div>
+    <div class="card text-center">
+        <div class="card-header">1. Fuente Superficial</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-6">
@@ -191,7 +196,7 @@
                 <div id="modal1">
                     <p style="text-align:center">Ficha de campo 8</p>
                     <p style="text-align:center;font-weight: bold;">Desinfección</p>
-                    <p style="font-weight: bold;">I. Informacion General</p>
+                    <p style="font-weight: bold;">I. Información General</p>
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
@@ -209,7 +214,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Telefono</label>
+                            <label for="telefono">Teléfono</label>
                             <input type="text" class="form-control" id="telefono">
                         </div>
 
@@ -222,7 +227,7 @@
                             <label for="Ubicacion">Ubicación </label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGps" name="radio1" oninput='on_location_change()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManual" name="radio1" oninput='on_location_change()' checked> Manual </label>
-                            <small id="ubihelp" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingreselo de forma manual. </small>
+                            <small id="ubihelp" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
                             <small id="ubihelp2" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
 
                         </div>
@@ -277,7 +282,7 @@
                 <div id="modal2" class="hideModal">
                     <p style="text-align:center">Ficha de campo 8</p>
                     <p style="text-align:center;font-weight: bold;">Desinfección</p>
-                    <p style="font-weight: bold;">II. Diagnostico de Infraestructura</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
                     <form>
                         <div class="form-group">
                             <label for="infra1">1. ¿Se carece de una zona/caseta debidamente acondicionada para la preparación y aplicación del cloro? (critica)</label><br>
@@ -286,19 +291,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="infra2">2. ¿Carece el acueducto de bitácora de la dosificación del cloro? (critica)</label><br>
+                            <label for="infra2">2. ¿Carece el acueducto de bitácora de la dosificación del cloro? (crítica)</label><br>
                             <label class="radio-inline"><input type="radio" id="pozos_infra2_si" name="infra2"> Si </label>
                             <label class="radio-inline"><input type="radio" id="pozos_infra2_no" name="infra2"> No </label>
                         </div>
 
                         <div class="form-group">
-                            <label for="infra3">3. ¿Carece el operario de la capacitación necesaria para la preparación y aplicación de la cloración? (critica)</label><br>
+                            <label for="infra3">3. ¿Carece el operario de la capacitación necesaria para la preparación y aplicación de la cloración? (crítica)</label><br>
                             <label class="radio-inline"><input type="radio" id="pozos_infra3_si" name="infra3"> Si </label>
                             <label class="radio-inline"><input type="radio" id="pozos_infra3_no" name="infra3"> No </label>
                         </div>
 
                         <div class="form-group">
-                            <label for="infra4">4.  ¿Se carece del equipo de protección necesaria para el personal operativo del sistema de cloración? (critica)</label><br>
+                            <label for="infra4">4.  ¿Se carece del equipo de protección necesaria para el personal operativo del sistema de cloración? (crítica)</label><br>
                             <label class="radio-inline"><input type="radio" id="pozos_infra4_si" name="infra4"> Si </label>
                             <label class="radio-inline"><input type="radio" id="pozos_infra4_no" name="infra4"> No </label>
                         </div>
@@ -341,7 +346,7 @@
 
                     </form>
 
-                    <button id="btnBackModal2" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atras</button>
+                    <button id="btnBackModal2" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
                     <button id="btnNextModal2" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -352,7 +357,7 @@
                     <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="pozos_filter_all">
-                        <label class="form-check-label"> Deseo incluir toda la informacion registrada</label>
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="pozos_filter_fecha">
@@ -375,7 +380,7 @@
                         <label class="form-check-label"> Nombre del funcionario</label>
                     </div>
                     <br />
-                    <button id="btnBackModal3" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atras</button>
+                    <button id="btnBackModal3" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
                     <button id="btnSave" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
                 </div>
             </div>
@@ -398,7 +403,7 @@
                 <div id="modal1FS">
                     <p style="text-align:center">Ficha de campo 1</p>
                     <p style="text-align:center;font-weight: bold;">Fuente Superficial</p>
-                    <p style="font-weight: bold;">I. Informacion General</p>
+                    <p style="font-weight: bold;">I. Información General</p>
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
@@ -431,7 +436,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Telefono</label>
+                            <label for="telefono">Teléfono</label>
                             <input type="text" class="form-control" id="telefonoFS">
                         </div>
 
@@ -444,7 +449,7 @@
                             <label for="Ubicacion">Ubicación </label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsFS" name="radio1" oninput='on_location_changeFS()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualFS" name="radio1" oninput='on_location_changeFS()' checked> Manual </label>
-                            <small id="ubihelpFS" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingreselo de forma manual. </small>
+                            <small id="ubihelpFS" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
                             <small id="ubihelp2FS" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
 
                         </div>
@@ -490,7 +495,7 @@
                 <div id="modal2FS" class="hideModal">
                     <p style="text-align:center">Ficha de campo 1</p>
                     <p style="text-align:center;font-weight: bold;">Fuente Superficial</p>
-                    <p style="font-weight: bold;">II. Diagnostico de Infraestructura</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
                     <form>
                         <div class="form-group">
                             <label for="infra1FS">1. ¿Está la captación fuera de un área protegida o zona de conservación? </label><br>
@@ -554,7 +559,7 @@
 
                     </form>
 
-                    <button id="btnBackModal2FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atras</button>
+                    <button id="btnBackModal2FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
                     <button id="btnNextModal2FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -565,7 +570,7 @@
                     <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_allFS">
-                        <label class="form-check-label"> Deseo incluir toda la informacion registrada</label>
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_fechaFS">
@@ -581,14 +586,14 @@
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_telefonoFS">
-                        <label class="form-check-label"> Telefono</label>
+                        <label class="form-check-label"> Teléfono</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_funcionarioFS">
                         <label class="form-check-label"> Nombre del funcionario</label>
                     </div>
                     <br />
-                    <button id="btnBackModal3FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atras</button>
+                    <button id="btnBackModal3FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
                     <button id="btnSaveFS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
                 </div>
             </div>
@@ -611,7 +616,7 @@
                 <div id="modal1FN">
                     <p style="text-align:center">Ficha de campo 2</p>
                     <p style="text-align:center;font-weight: bold;">Fuente Naciente</p>
-                    <p style="font-weight: bold;">I. Informacion General</p>
+                    <p style="font-weight: bold;">I. Información General</p>
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
@@ -644,7 +649,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Telefono</label>
+                            <label for="telefono">Teléfono</label>
                             <input type="text" class="form-control" id="telefonoFN">
                         </div>
 
@@ -657,7 +662,7 @@
                             <label for="Ubicacion">Ubicación </label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsFN" name="radio1" oninput='on_location_changeFN()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualFN" name="radio1" oninput='on_location_changeFN()' checked> Manual </label>
-                            <small id="ubihelpFN" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingreselo de forma manual. </small>
+                            <small id="ubihelpFN" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
                             <small id="ubihelp2FN" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
 
                         </div>
@@ -697,7 +702,7 @@
                 <div id="modal2FN" class="hideModal">
                     <p style="text-align:center">Ficha de campo 2</p>
                     <p style="text-align:center;font-weight: bold;">Fuente Naciente</p>
-                    <p style="font-weight: bold;">II. Diagnostico de Infraestructura</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
                     <form>
                         <div class="form-group">
                             <label for="infra1FN">1. ¿Está la naciente sin cerca de protección que impida el acceso de personas y animales a la captación (crítica)  </label><br>
@@ -718,7 +723,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="infra4FN">4.  ¿Están las paredes y las losas superior e inferior de la captación con grietas? (critica)  </label><br>
+                            <label for="infra4FN">4.  ¿Están las paredes y las losas superior e inferior de la captación con grietas? (crítica)  </label><br>
                             <label class="radio-inline"><input type="radio" id="infra4FN_si" name="infra4FN"> Si </label>
                             <label class="radio-inline"><input type="radio" id="infra4FN_no" name="infra4FN"> No </label>
                         </div>
@@ -761,7 +766,7 @@
 
                     </form>
 
-                    <button id="btnBackModal2FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atras</button>
+                    <button id="btnBackModal2FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
                     <button id="btnNextModal2FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -772,7 +777,7 @@
                     <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_allFN">
-                        <label class="form-check-label"> Deseo incluir toda la informacion registrada</label>
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_fechaFN">
@@ -788,14 +793,14 @@
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_telefonoFN">
-                        <label class="form-check-label"> Telefono</label>
+                        <label class="form-check-label"> Teléfono</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_funcionarioFN">
                         <label class="form-check-label"> Nombre del funcionario</label>
                     </div>
                     <br />
-                    <button id="btnBackModal3FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atras</button>
+                    <button id="btnBackModal3FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
                     <button id="btnSaveFN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
                 </div>
             </div>
@@ -818,7 +823,7 @@
                 <div id="modal1P">
                     <p style="text-align:center">Ficha de campo 3</p>
                     <p style="text-align:center;font-weight: bold;">Pozos</p>
-                    <p style="font-weight: bold;">I. Informacion General</p>
+                    <p style="font-weight: bold;">I. Información General</p>
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
@@ -851,7 +856,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Telefono</label>
+                            <label for="telefono">Teléfono</label>
                             <input type="text" class="form-control" id="telefonoP">
                         </div>
 
@@ -864,7 +869,7 @@
                             <label for="Ubicacion">Ubicación </label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsP" name="radio1" oninput='on_location_changeP()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualP" name="radio1" oninput='on_location_changeP()' checked> Manual </label>
-                            <small id="ubihelpP" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingreselo de forma manual. </small>
+                            <small id="ubihelpP" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
                             <small id="ubihelp2P" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
 
                         </div>
@@ -923,7 +928,7 @@
                 <div id="modal2P" class="hideModal">
                     <p style="text-align:center">Ficha de campo 3</p>
                     <p style="text-align:center;font-weight: bold;">Pozos</p>
-                    <p style="font-weight: bold;">II. Diagnostico de Infraestructura</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
                     <form>
                         <div class="form-group">
                             <label for="infra1P">1. ¿Está el pozo sin cerca de protección que impida el acceso de personas y animales (crítica)  </label><br>
@@ -932,7 +937,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="infra2P">2. ¿Está el pozo desprotegido abierto a la contaminación ambiental? (sin caseta o sin tapa). (critica) </label><br>
+                            <label for="infra2P">2. ¿Está el pozo desprotegido abierto a la contaminación ambiental? (sin caseta o sin tapa). (crítica) </label><br>
                             <label class="radio-inline"><input type="radio" id="infra2P_si" name="infra2P"> Si </label>
                             <label class="radio-inline"><input type="radio" id="infra2P_no" name="infra2P"> No </label>
                         </div>
@@ -987,7 +992,7 @@
 
                     </form>
 
-                    <button id="btnBackModal2P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atras</button>
+                    <button id="btnBackModal2P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
                     <button id="btnNextModal2P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -998,7 +1003,7 @@
                     <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_allP">
-                        <label class="form-check-label"> Deseo incluir toda la informacion registrada</label>
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_fechaP">
@@ -1014,14 +1019,14 @@
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_telefonoP">
-                        <label class="form-check-label"> Telefono</label>
+                        <label class="form-check-label"> Teléfono</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_funcionarioP">
                         <label class="form-check-label"> Nombre del funcionario</label>
                     </div>
                     <br />
-                    <button id="btnBackModal3P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atras</button>
+                    <button id="btnBackModal3P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
                     <button id="btnSaveP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
                 </div>
             </div>
@@ -1044,7 +1049,7 @@
                 <div id="modal1A">
                     <p style="text-align:center">Ficha de campo 4</p>
                     <p style="text-align:center;font-weight: bold;">Tanques de Almacenamiento</p>
-                    <p style="font-weight: bold;">I. Informacion General</p>
+                    <p style="font-weight: bold;">I. Información General</p>
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
@@ -1072,7 +1077,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Telefono</label>
+                            <label for="telefono">Teléfono</label>
                             <input type="text" class="form-control" id="telefonoA">
                         </div>
 
@@ -1085,7 +1090,7 @@
                             <label for="Ubicacion">Ubicación </label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsA" name="radio1" oninput='on_location_changeA()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualA" name="radio1" oninput='on_location_changeA()' checked> Manual </label>
-                            <small id="ubihelpA" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingreselo de forma manual. </small>
+                            <small id="ubihelpA" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
                             <small id="ubihelp2A" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
 
                         </div>
@@ -1147,16 +1152,16 @@
                 <div id="modal2A" class="hideModal">
                     <p style="text-align:center">Ficha de campo 4</p>
                     <p style="text-align:center;font-weight: bold;">Tanques de Almacenamiento</p>
-                    <p style="font-weight: bold;">II. Diagnostico de Infraestructura</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
                     <form>
                         <div class="form-group">
-                            <label for="infra1A">1. ¿Están las paredes agrietadas (concreto) o herrumbradas (metálico)? (critica)  </label><br>
+                            <label for="infra1A">1. ¿Están las paredes agrietadas (concreto) o herrumbradas (metálico)? (crítica)  </label><br>
                             <label class="radio-inline"><input type="radio" id="infra1A_si" name="infra1A"> Si </label>
                             <label class="radio-inline"><input type="radio" id="infra1A_no" name="infra1A"> No </label>
                         </div>
 
                         <div class="form-group">
-                            <label for="infra2A">2. ¿Está la tapa del tanque de almacenamiento, construida en  condiciones no sanitarias? (critica)  </label><br>
+                            <label for="infra2A">2. ¿Está la tapa del tanque de almacenamiento, construida en  condiciones no sanitarias? (crítica)  </label><br>
                             <label class="radio-inline"><input type="radio" id="infra2A_si" name="infra2A"> Si </label>
                             <label class="radio-inline"><input type="radio" id="infra2A_no" name="infra2A"> No </label>
                         </div>
@@ -1168,7 +1173,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="infra4A">4.  ¿Está ausente o fuera de operación el sistema de cloración? (critica) </label><br>
+                            <label for="infra4A">4.  ¿Está ausente o fuera de operación el sistema de cloración? (crítica) </label><br>
                             <label class="radio-inline"><input type="radio" id="infra4A_si" name="infra4A"> Si </label>
                             <label class="radio-inline"><input type="radio" id="infra4A_no" name="infra4A"> No </label>
                         </div>
@@ -1198,20 +1203,20 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="infra9A">9. ¿Carece el tanque de respiraderos o tubería de rebalse con rejilla de protección? (critica) </label><br>
+                            <label for="infra9A">9. ¿Carece el tanque de respiraderos o tubería de rebalse con rejilla de protección? (crítica) </label><br>
                             <label class="radio-inline"><input type="radio" id="infra9A_si" name="infra9A"> Si </label>
                             <label class="radio-inline"><input type="radio" id="infra9A_no" name="infra9A"> No </label>
                         </div>
 
                         <div class="form-group">
-                            <label for="infra10A">10. ¿Existe alguna fuente de contaminación alrededor del tanque (letrinas, animales, viviendas, basura, actividad agrícola o industrial) (critica)  </label><br>
+                            <label for="infra10A">10. ¿Existe alguna fuente de contaminación alrededor del tanque (letrinas, animales, viviendas, basura, actividad agrícola o industrial) (crítica)  </label><br>
                             <label class="radio-inline"><input type="radio" id="infra10A_si" name="infra10A"> Si </label>
                             <label class="radio-inline"><input type="radio" id="infra10A_no" name="infra10A"> No </label>
                         </div>
 
                     </form>
 
-                    <button id="btnBackModal2A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atras</button>
+                    <button id="btnBackModal2A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
                     <button id="btnNextModal2A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -1222,7 +1227,7 @@
                     <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_allA">
-                        <label class="form-check-label"> Deseo incluir toda la informacion registrada</label>
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_fechaA">
@@ -1238,14 +1243,14 @@
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_telefonoA">
-                        <label class="form-check-label"> Telefono</label>
+                        <label class="form-check-label"> Teléfono</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filter_funcionarioA">
                         <label class="form-check-label"> Nombre del funcionario</label>
                     </div>
                     <br />
-                    <button id="btnBackModal3A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atras</button>
+                    <button id="btnBackModal3A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
                     <button id="btnSaveA" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
                 </div>
             </div>
