@@ -10,10 +10,28 @@ namespace Sersa.Controllers
 {
     public class FormulariosController : Controller
     {
+        internal DBConnector Database { get; set; }
+
         // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
         }
+
+        public FormulariosController(DBConnector db)
+        {
+            Database = db;
+        }
+
+        public async Task<IActionResult> test()
+        {
+            await Database.Connection.OpenAsync();
+            var query = new FormularioModel(Database);
+            Console.Out.WriteLine("yes");
+            await query.InsertAsync();
+            return new OkObjectResult(query);
+        }
+
     }
 }
+
