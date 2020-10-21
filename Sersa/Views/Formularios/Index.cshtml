@@ -184,6 +184,7 @@
     </div>
 
 </div>
+
 <!-- Formulario Potabilización-->
 <div id="potabilizacion" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
@@ -199,7 +200,7 @@
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
-                            <input class="form-control" type="datetime-local" id="fechaPP">
+                            <input class="form-control" type="date" id="fechaPP">
                         </div>
 
                         <div class="form-group">
@@ -384,6 +385,7 @@
         </div>
     </div>
 </div>
+
 <!-- Formulario Desinfeccion/Cloracion-->
 <div id="cloracion" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
@@ -399,7 +401,7 @@
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
-                            <input class="form-control" type="datetime-local" id="fechaCl">
+                            <input class="form-control" type="date" id="fechaCl">
                         </div>
 
                         <div class="form-group">
@@ -596,7 +598,6 @@
 
 
 <!-- Formulario Fuente Superficial-->
-
 <div id="fuenteSup" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -611,7 +612,7 @@
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
-                            <input class="form-control" type="datetime-local" id="fechaFS">
+                            <input class="form-control" type="date" id="fechaFS">
                         </div>
 
                         <div class="form-group">
@@ -708,62 +709,62 @@
                     <form>
                         <div class="form-group">
                             <label for="infra1FS">1. ¿Está la captación fuera de un área protegida o zona de conservación? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra1FS_si" name="infra1FS"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra1FS_no" name="infra1FS"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra1FS_si" name="infra1FS" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra1FS_no" name="infra1FS" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra2FS">2. ¿Está la toma de agua desprovista de infraestructura que la proteja? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra2FS_si" name="infra2FS"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra2FS_no" name="infra2FS"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra2FS_si" name="infra2FS" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra2FS_no" name="infra2FS" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra3FS">3. ¿Está el área alrededor de la toma sin cerca?  </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra3FS_si" name="infra3FS"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra3FS_no" name="infra3FS"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra3FS_si" name="infra3FS" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra3FS_no" name="infra3FS" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra4FS">4.  ¿Está la toma de agua ubicada dentro de alguna zona de actividad agrícola? (crítica) </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra4FS_si" name="infra4FS"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra4FS_no" name="infra4FS"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra4FS_si" name="infra4FS" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra4FS_no" name="infra4FS" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra5FS">5. ¿Existe alguna otra fuente de contaminación alrededor de la toma (letrinas, animales, viviendas, basura o industrias, etc.)? (Observar si aproximadamente a 200 metros a la redonda existen letrinas, animales, viviendas, basura) (crítica) </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra5FS_si" name="infra5FS"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra5FS_no" name="infra5FS"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra5FS_si" name="infra5FS" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra5FS_no" name="infra5FS" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra6FS">6. ¿Está la captación con acceso fácil de personas y animales?(crítica) </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra6FS_si" name="infra6FS"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra6FS_no" name="infra6FS"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra6FS_si" name="infra6FS" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra6FS_no" name="infra6FS" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra7FS">7. ¿Están las rejillas de la toma en malas condiciones (ausentes, quebradas y otros)? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra7FS_si" name="infra7FS"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra7FS_no" name="infra7FS"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra7FS_si" name="infra7FS" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra7FS_no" name="infra7FS" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra8FS">8. ¿Existe presencia de plantas (raíces, hojas y otros) tapando las rejillas de la toma?  </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra8FS_si" name="infra8FS"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra8FS_no" name="infra8FS"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra8FS_si" name="infra8FS" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra8FS_no" name="infra8FS" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra9FS">9. ¿Existen condiciones de deforestación y erosión en los alrededores de la toma de agua? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra9FS_si" name="infra9FS"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra9FS_no" name="infra9FS"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra9FS_si" name="infra9FS" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra9FS_no" name="infra9FS" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra10FS">10. ¿Está ausente el desarenador después de la toma de agua? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra10FS_si" name="infra10FS"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra10FS_no" name="infra10FS"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra10FS_si" name="infra10FS" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra10FS_no" name="infra10FS" value="No"> No </label>
                         </div>
 
                     </form>
@@ -814,7 +815,6 @@
 
 
 <!-- Formulario Fuente Naciente-->
-
 <div id="fuenteNac" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -829,7 +829,7 @@
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
-                            <input class="form-control" type="datetime-local" id="fechaFN">
+                            <input class="form-control" type="date" id="fechaFN">
                         </div>
 
                         <div class="form-group">
@@ -1026,7 +1026,6 @@
 
 
 <!-- Formulario Fuente Pozos-->
-
 <div id="pozos" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1041,7 +1040,7 @@
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
-                            <input class="form-control" type="datetime-local" id="fechaP">
+                            <input class="form-control" type="date" id="fechaP">
                         </div>
 
                         <div class="form-group">
@@ -1257,7 +1256,6 @@
 
 
 <!-- Formulario Tanques de Almacenamiento-->
-
 <div id="almacenamiento" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1272,7 +1270,7 @@
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
-                            <input class="form-control" type="datetime-local" id="fechaA">
+                            <input class="form-control" type="date" id="fechaA">
                         </div>
 
                         <div class="form-group">
@@ -1486,7 +1484,6 @@
 
 
 <!-- Formulario Linea de Conduccion-->
-
 <div id="conduccion" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1501,7 +1498,7 @@
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
-                            <input class="form-control" type="datetime-local" id="fechaC">
+                            <input class="form-control" type="date" id="fechaC">
                         </div>
 
                         <div class="form-group">
@@ -1700,7 +1697,6 @@
 
 
 <!-- Formulario Linea de Distribucion-->
-
 <div id="distribucion" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1715,7 +1711,7 @@
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
-                            <input class="form-control" type="datetime-local" id="fechaD">
+                            <input class="form-control" type="date" id="fechaD">
                         </div>
 
                         <div class="form-group">
@@ -1907,7 +1903,6 @@
 
 
 <!-- Formulario Tanques Quiebragradientes-->
-
 <div id="quiebragradientes" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1922,7 +1917,7 @@
                     <form>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
-                            <input class="form-control" type="datetime-local" id="fechaQ">
+                            <input class="form-control" type="date" id="fechaQ">
                         </div>
 
                         <div class="form-group">
@@ -2119,12 +2114,91 @@
 </div>
 
 
-
 <script>
 
     $(document).ready(function () {
         document.getElementById("FSLimpieza").addEventListener("click", habilitarDescripcion, false);
     });
+
+    $("#btnSaveFS").on("click", function () {
+        guardarFormularioFS();
+    });
+
+    function guardarFormularioFS() {
+        var fecha = document.getElementById('fechaFS').value;
+        var acueducto = document.getElementById('acueductoFS').value;
+        var toma = document.getElementById('tomaFS').value;
+        var registro = document.getElementById('registroMFS').value;
+        var direccion = document.getElementById('direccionFS').value;
+        var encargado = document.getElementById('encargadoFS').value;
+        var telefono = document.getElementById('telefonoFS').value;
+        var funcionario = document.getElementById('funcionarioFS').value;
+        var latitud = document.getElementById('LatitudFS').value;
+        var longitud = document.getElementById('LongitudFS').value;
+        var img = document.getElementById('imgFS').value;
+        var limpieza = document.getElementById('FSLimpieza').value;
+        if (limpieza == "Otro") {
+            var especifique = document.getElementById('otroDescripFS').value;
+        }
+        else {
+            var especifique = "NA"
+        }
+        var notas = document.getElementById('notasFS').value;
+        var p1 = $('input:radio[name=infra1FS]:checked').val();
+        var p2 = $('input:radio[name=infra2FS]:checked').val();
+        var p3 = $('input:radio[name=infra3FS]:checked').val();
+        var p4 = $('input:radio[name=infra4FS]:checked').val();
+        var p5 = $('input:radio[name=infra5FS]:checked').val();
+        var p6 = $('input:radio[name=infra6FS]:checked').val();
+        var p7 = $('input:radio[name=infra7FS]:checked').val();
+        var p8 = $('input:radio[name=infra8FS]:checked').val();
+        var p9 = $('input:radio[name=infra9FS]:checked').val();
+        var p10 = $('input:radio[name=infra10FS]:checked').val();
+
+        try {
+            $.ajax({
+                url: '/Formularios/guardarFormularioFS/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    FECHA: fecha,
+                    ACUEDUCTO: acueducto,
+                    TOMA: toma,
+                    REGISTRO: registro,
+                    DIRECCION: direccion,
+                    ENCARGADO: encargado,
+                    TELEFONO: telefono,
+                    FUNCIONARIO: funcionario,
+                    LATITUD: latitud,
+                    LONGITUD: longitud,
+                    IMG: img,
+                    LIMPIEZA: limpieza,
+                    ESPECIFIQUE: especifique,
+                    NOTAS: notas,
+                    P1: p1,
+                    P2: p2,
+                    P3: p3,
+                    P4: p4,
+                    P5: p5,
+                    P6: p6,
+                    P7: p7,
+                    P8: p8,
+                    P9: p9,
+                    P10: p10,
+
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#fuenteSup').modal('toggle');
+                },
+                error: function () {
+                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    };
 
     function habilitarDescripcion() {
         var valor = document.getElementById('FSLimpieza').value;

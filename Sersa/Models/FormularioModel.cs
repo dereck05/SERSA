@@ -30,8 +30,6 @@ namespace Sersa
                 month = b;
                 day = c;
             }
-
-
         }
 
         public async Task InsertAsync()
@@ -57,6 +55,31 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@comentarios", "f");
             await cmd.ExecuteNonQueryAsync();
 
+        }
+
+        public async Task InsertFormularioFS(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, FSInfoGeneral ig, string NOTAS)
+        {
+            using var cmd = Database.Connection.CreateCommand();
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios)";
+            var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            cmd.Parameters.AddWithValue("@fecha", timestamp);
+            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
+            cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
+            cmd.Parameters.AddWithValue("@telefono", TELEFONO);
+            cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
+            var jsonIG = JsonSerializer.Serialize(ig);
+            var jsonIF = JsonSerializer.Serialize(f);
+
+            cmd.Parameters.AddWithValue("@info_general", jsonIG);
+            cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
+            cmd.Parameters.AddWithValue("@imagen", IMG);
+            cmd.Parameters.AddWithValue("@latitud", LATITUD);
+            cmd.Parameters.AddWithValue("@longitud", LONGITUD);
+            cmd.Parameters.AddWithValue("@comentarios", NOTAS);
+            await cmd.ExecuteNonQueryAsync();
 
         }
     }
