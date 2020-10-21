@@ -392,7 +392,7 @@
                 <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
             <div class="modal-body">
-                <div id="modal1">
+                <div id="modal1Cl">
                     <p style="text-align:center">Ficha de campo 8</p>
                     <p style="text-align:center;font-weight: bold;">Desinfección</p>
                     <p style="font-weight: bold;">I. Información General</p>
@@ -475,8 +475,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="pozos-gen-5">Notas adicionales</label><br>
-                            <textarea class="form-control" id="notas" name="pozos-gen-5" rows="2"></textarea>
+                            <label for="cloracion-gen-5">Notas adicionales</label><br>
+                            <textarea class="form-control" id="notas" name="cloracion-gen-5" rows="2"></textarea>
                         </div>
 
                     </form>
@@ -2650,16 +2650,16 @@
             $("#potabilizacion_filter_funcionario").removeAttr("disabled");
         }
     });
-    function on_location_changePP() {
+    function on_location_changeCl() {
         if (document.getElementById('UbicacionGpsCl').checked) {
-            showPositionPP()
+            showPositionCl()
         } else if (document.getElementById('UbicacionManualCl').checked) {
 
             document.getElementById('LatitudCl').value = ''
             document.getElementById('LongitudCl').value = ''
         }
     }
-    function showPositionPP() {
+    function showPositionCl() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 document.getElementById('LatitudCl').value = position.coords.latitude
