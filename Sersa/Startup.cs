@@ -24,6 +24,8 @@ namespace Sersa
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddTransient<DBConnector>(_ => new DBConnector(Configuration["ConnectionStrings:Sersa"]));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
