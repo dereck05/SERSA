@@ -26,7 +26,7 @@ namespace Sersa.Controllers
         public async Task<IActionResult> test()
         {
             await Database.Connection.OpenAsync();
-            var query = new FormularioModel(Database);
+            var query = new FormulariosModel(Database);
             Console.Out.WriteLine("yes");
             await query.InsertAsync();
             return new OkObjectResult(query);
