@@ -27,6 +27,7 @@ namespace Sersa.Controllers
         {
             await Database.Connection.OpenAsync();
             var query = new FormularioModel(Database);
+            Console.Out.WriteLine("yes");
             await query.InsertAsync();
             return new OkObjectResult(query);
         }

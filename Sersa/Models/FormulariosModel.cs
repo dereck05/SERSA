@@ -8,14 +8,14 @@ using Newtonsoft.Json.Linq;
 namespace Sersa
 
 {
-    public class FormularioModel
+    public class FormulariosModel
     {
 
 
         internal DBConnector Database { get; set; }
-        public FormularioModel() { }
+        public FormulariosModel() { }
 
-        internal FormularioModel(DBConnector db)
+        internal FormulariosModel(DBConnector db)
         {
             Database = db;
         }
