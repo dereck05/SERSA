@@ -5,6 +5,9 @@
     ViewData["Title"] = "Historial de reportes";
 }
 
+
+@*Link al pdf de ejemplo: https://www.pdfhost.net/index.php?Action=DownloadFile&id=77fbac8e92195a1f58734a7e972dc85d*@
+
 <!--Titulo-->
 <div class="text-center mt-2 mb-5">
     <h1>Historial</h1>
@@ -21,4 +24,14 @@
             <th scope="col"></th>
         </tr>
     </thead>
+    <tbody>
+        <tr>
+            <td>Evaluación ASADA Higuito, San Isidro, El Guarco</td>
+            <td>11/2016</td>
+            <td>
+                <button id="btnEjemplo" class="btn btn-primary" onclick=" window.open('https://www.pdfhost.net/index.php?Action=DownloadFile&id=77fbac8e92195a1f58734a7e972dc85d', '_blank')" style="background-color: #4f83cc;color:#ffffff;float:right;">Descargar</button>
+            </td>
+        </tr>
+    </tbody>
 </table>
+
