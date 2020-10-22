@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Sersa.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,7 +27,7 @@ namespace Sersa.Controllers
         public async Task<IActionResult> test()
         {
             await Database.Connection.OpenAsync();
-            var query = new FormularioModel(Database);
+            var query = new FormulariosModel(Database);
             Console.Out.WriteLine("yes");
             await query.InsertAsync();
             return new OkObjectResult(query);
@@ -56,10 +57,76 @@ namespace Sersa.Controllers
             ig.Direccion = DIRECCION;
 
             await Database.Connection.OpenAsync();
-            var query = new FormularioModel(Database);
+            var query = new FormulariosModel(Database);
             await query.InsertFormularioFS( FECHA,  ACUEDUCTO,  ENCARGADO,  TELEFONO,
                      FUNCIONARIO,  LATITUD,  LONGITUD,  IMG, f, ig, NOTAS);
             var resultado =  new OkObjectResult(query);
+
+            return resultado;
+        }
+
+        public async Task<IActionResult> guardarFormularioFN(string FECHA, string ACUEDUCTO, string NACIENTE, string REGISTRO, string DIRECCION, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string CAPTACION, string NOTAS, string P1,
+                    string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10)
+        {
+            FormularioRespuesta f = new FormularioRespuesta();
+            f.P1 = P1;
+            f.P2 = P2;
+            f.P3 = P3;
+            f.P4 = P4;
+            f.P5 = P5;
+            f.P6 = P6;
+            f.P7 = P7;
+            f.P8 = P8;
+            f.P9 = P9;
+            f.P10 = P10;
+
+            FNInfoGeneral ig = new FNInfoGeneral();
+            ig.Naciente = NACIENTE;
+            ig.Captacion = CAPTACION;
+            ig.Registro = REGISTRO;
+            ig.Direccion = DIRECCION;
+
+            await Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            await query.InsertFormularioFN(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                     FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
+            var resultado = new OkObjectResult(query);
+
+            return resultado;
+        }
+
+        public async Task<IActionResult> guardarFormularioP(string FECHA, string ACUEDUCTO, string POZO, string REGISTRO, string SENASA, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FRIATICO, string DINAMICO, string DIAMETRO, string ESPESOR, string TIPOP, string NOTAS, string P1,
+                    string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10)
+        {
+            FormularioRespuesta f = new FormularioRespuesta();
+            f.P1 = P1;
+            f.P2 = P2;
+            f.P3 = P3;
+            f.P4 = P4;
+            f.P5 = P5;
+            f.P6 = P6;
+            f.P7 = P7;
+            f.P8 = P8;
+            f.P9 = P9;
+            f.P10 = P10;
+
+            PInfoGeneral ig = new PInfoGeneral();
+            ig.Senasa = SENASA;
+            ig.Pozo = POZO;
+            ig.Registro = REGISTRO;
+            ig.FRIATICO = FRIATICO;
+            ig.DINAMICO = DINAMICO;
+            ig.DIAMETRO = DIAMETRO;
+            ig.ESPESOR = ESPESOR;
+            ig.TIPOP = TIPOP;
+
+            await Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            await query.InsertFormularioP(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                     FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
+            var resultado = new OkObjectResult(query);
 
             return resultado;
         }

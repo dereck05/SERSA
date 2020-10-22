@@ -593,7 +593,6 @@
     </div>
 </div>
 
-
 <!-- Formulario Fuente Superficial-->
 <div id="fuenteSup" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
@@ -1124,8 +1123,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="pozoP">Tipo de Pozo </label><br>
-                            <select id="pozoP" name="pozoP">
+                            <label for="PpozoP">Tipo de Pozo </label><br>
+                            <select id="PpozoP" name="PpozoP">
                                 <option value="Excavado">Excavado</option>
                                 <option value="Perforado">Perforado</option>
                             </select>
@@ -2261,6 +2260,79 @@
         }
     });
 
+    $("#btnSaveFN").on("click", function () {
+        guardarFormularioFN();
+    });
+
+    function guardarFormularioFN() {
+        var fecha = document.getElementById('fechaFN').value;
+        var acueducto = document.getElementById('acueductoFN').value;
+        var naciente = document.getElementById('nacienteFN').value;
+        var registro = document.getElementById('registroMFN').value;
+        var direccion = document.getElementById('direccionFN').value;
+        var encargado = document.getElementById('encargadoFN').value;
+        var telefono = document.getElementById('telefonoFN').value;
+        var funcionario = document.getElementById('funcionarioFN').value;
+        var latitud = document.getElementById('LatitudFN').value;
+        var longitud = document.getElementById('LongitudFN').value;
+        var img = document.getElementById('imgFN').value;
+        var captacion = document.getElementById('FNCaptacion').value;
+        var notas = document.getElementById('notasFN').value;
+        var p1 = $('input:radio[name=infra1FN]:checked').val();
+        var p2 = $('input:radio[name=infra2FN]:checked').val();
+        var p3 = $('input:radio[name=infra3FN]:checked').val();
+        var p4 = $('input:radio[name=infra4FN]:checked').val();
+        var p5 = $('input:radio[name=infra5FN]:checked').val();
+        var p6 = $('input:radio[name=infra6FN]:checked').val();
+        var p7 = $('input:radio[name=infra7FN]:checked').val();
+        var p8 = $('input:radio[name=infra8FN]:checked').val();
+        var p9 = $('input:radio[name=infra9FN]:checked').val();
+        var p10 = $('input:radio[name=infra10FN]:checked').val();
+
+        try {
+            $.ajax({
+                url: '/Formularios/guardarFormularioFN/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    FECHA: fecha,
+                    ACUEDUCTO: acueducto,
+                    NACIENTE: naciente,
+                    REGISTRO: registro,
+                    DIRECCION: direccion,
+                    ENCARGADO: encargado,
+                    TELEFONO: telefono,
+                    FUNCIONARIO: funcionario,
+                    LATITUD: latitud,
+                    LONGITUD: longitud,
+                    IMG: img,
+                    CAPTACION: captacion,
+                    NOTAS: notas,
+                    P1: p1,
+                    P2: p2,
+                    P3: p3,
+                    P4: p4,
+                    P5: p5,
+                    P6: p6,
+                    P7: p7,
+                    P8: p8,
+                    P9: p9,
+                    P10: p10,
+
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#fuenteSup').modal('fuenteNac');
+                },
+                error: function () {
+                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    };
+
     function on_location_changeFN() {
         if (document.getElementById('UbicacionGpsFN').checked) {
             showPositionFN()
@@ -2317,6 +2389,87 @@
             $("#filter_funcionarioFN").removeAttr("disabled");
         }
     });
+
+    $("#btnSaveP").on("click", function () {
+        guardarFormularioP();
+    });
+
+    function guardarFormularioP() {
+        var fecha = document.getElementById('fechaP').value;
+        var acueducto = document.getElementById('acueductoP').value;
+        var pozo = document.getElementById('pozoP').value;
+        var registro = document.getElementById('registroMP').value;
+        var senasa = document.getElementById('senasaP').value;
+        var encargado = document.getElementById('encargadoP').value;
+        var telefono = document.getElementById('telefonoP').value;
+        var funcionario = document.getElementById('funcionarioP').value;
+        var latitud = document.getElementById('LatitudP').value;
+        var longitud = document.getElementById('LongitudP').value;
+        var img = document.getElementById('imgP').value;
+        var friatico = document.getElementById('pFriaticoP').value;
+        var dinamico = document.getElementById('pDinamicoP').value;
+        var diametro = document.getElementById('diametroP').value;
+        var espesor = document.getElementById('espesorP').value;
+        var tipoP = document.getElementById('PpozoP').value;
+        var notas = document.getElementById('notasP').value;
+        var p1 = $('input:radio[name=infra1P]:checked').val();
+        var p2 = $('input:radio[name=infra2P]:checked').val();
+        var p3 = $('input:radio[name=infra3P]:checked').val();
+        var p4 = $('input:radio[name=infra4P]:checked').val();
+        var p5 = $('input:radio[name=infra5P]:checked').val();
+        var p6 = $('input:radio[name=infra6P]:checked').val();
+        var p7 = $('input:radio[name=infra7P]:checked').val();
+        var p8 = $('input:radio[name=infra8P]:checked').val();
+        var p9 = $('input:radio[name=infra9P]:checked').val();
+        var p10 = $('input:radio[name=infra10P]:checked').val();
+
+        try {
+            $.ajax({
+                url: '/Formularios/guardarFormularioP/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    FECHA: fecha,
+                    ACUEDUCTO: acueducto,
+                    POZO: pozo,
+                    REGISTRO: registro,
+                    SENASA: senasa,
+                    ENCARGADO: encargado,
+                    TELEFONO: telefono,
+                    FUNCIONARIO: funcionario,
+                    LATITUD: latitud,
+                    LONGITUD: longitud,
+                    IMG: img,
+                    FRIATICO: friatico,
+                    DINAMICO: dinamico,
+                    DIAMETRO: diametro,
+                    ESPESOR: espesor,
+                    TIPOP: tipoP,
+                    NOTAS: notas,
+                    P1: p1,
+                    P2: p2,
+                    P3: p3,
+                    P4: p4,
+                    P5: p5,
+                    P6: p6,
+                    P7: p7,
+                    P8: p8,
+                    P9: p9,
+                    P10: p10,
+
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#fuenteSup').modal('fuenteNac');
+                },
+                error: function () {
+                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    };
 
     function on_location_changeP() {
         if (document.getElementById('UbicacionGpsP').checked) {
@@ -4775,27 +4928,7 @@
         }
     }
 
-    function on_location_changeFS() {
-        if (document.getElementById('UbicacionGpsFSEdit').checked) {
-            showPositionFS()
-        } else if (document.getElementById('UbicacionManualFSEdit').checked) {
-
-            document.getElementById('LatitudFSEdit').value = ''
-            document.getElementById('LongitudFSEdit').value = ''
-        }
-    }
-    function showPositionFS() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudFSEdit').value = position.coords.latitude
-                document.getElementById('LongitudFSEdit').value = position.coords.longitude
-
-            });
-        } else {
-            document.getElementById('LatitudFSEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudFSEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-        }
-    }
+    
     $("#btnNextModal1FSList").click(function () {
         document.getElementById('modal1FSList').style.display = 'none'
         document.getElementById('modal1FSEdit').style.display = 'block'
@@ -4840,27 +4973,7 @@
         }
     });
 
-    function on_location_changeFN() {
-        if (document.getElementById('UbicacionGpsFNEdit').checked) {
-            showPositionFN()
-        } else if (document.getElementById('UbicacionManualFNEdit').checked) {
 
-            document.getElementById('LatitudFNEdit').value = ''
-            document.getElementById('LongitudFNEdit').value = ''
-        }
-    }
-    function showPositionFN() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudFNEdit').value = position.coords.latitude
-                document.getElementById('LongitudFNEdit').value = position.coords.longitude
-
-            });
-        } else {
-            document.getElementById('LatitudFNEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudFNEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-        }
-    }
     $("#btnNextModal1FNList").click(function () {
         document.getElementById('modal1FNList').style.display = 'none'
         document.getElementById('modal1FNEdit').style.display = 'block'
@@ -4905,27 +5018,7 @@
         }
     });
 
-    function on_location_changeP() {
-        if (document.getElementById('UbicacionGpsPEdit').checked) {
-            showPositionP()
-        } else if (document.getElementById('UbicacionManualPEdit').checked) {
 
-            document.getElementById('LatitudPEdit').value = ''
-            document.getElementById('LongitudPEdit').value = ''
-        }
-    }
-    function showPositionP() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudPEdit').value = position.coords.latitude
-                document.getElementById('LongitudPEdit').value = position.coords.longitude
-
-            });
-        } else {
-            document.getElementById('LatitudPEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudPEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-        }
-    }
 
     $("#btnNextModal1PList").click(function () {
         document.getElementById('modal1PList').style.display = 'none'
@@ -4971,27 +5064,7 @@
 
 
 
-    function on_location_changeA() {
-        if (document.getElementById('UbicacionGpsAEdit').checked) {
-            showPositionA()
-        } else if (document.getElementById('UbicacionManualAEdit').checked) {
 
-            document.getElementById('LatitudAEdit').value = ''
-            document.getElementById('LongitudAEdit').value = ''
-        }
-    }
-    function showPositionA() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudAEdit').value = position.coords.latitude
-                document.getElementById('LongitudAEdit').value = position.coords.longitude
-
-            });
-        } else {
-            document.getElementById('LatitudAEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudAEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-        }
-    }
 
     $("#btnNextModal1AList").click(function () {
         document.getElementById('modal1AList').style.display = 'none'
@@ -5038,27 +5111,6 @@
     });
 
 
-    function on_location_change() {
-        if (document.getElementById('UbicacionGpsCEdit').checked) {
-            showPosition()
-        } else if (document.getElementById('UbicacionManualCEdit').checked) {
-
-            document.getElementById('LatitudCEdit').value = ''
-            document.getElementById('LongitudCEdit').value = ''
-        }
-    }
-    function showPosition() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudCEdit').value = position.coords.latitude
-                document.getElementById('LongitudCEdit').value = position.coords.longitude
-
-            });
-        } else {
-            document.getElementById('LatitudCEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudCEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-        }
-    }
     $("#btnNextModal1CList").click(function () {
         document.getElementById('modal1CList').style.display = 'none'
         document.getElementById('modal1CEdit').style.display = 'block'
@@ -5103,27 +5155,7 @@
         }
     });
 
-    function on_location_change() {
-        if (document.getElementById('UbicacionGpsDEdit').checked) {
-            showPosition()
-        } else if (document.getElementById('UbicacionManualDEdit').checked) {
 
-            document.getElementById('LatitudDEdit').value = ''
-            document.getElementById('LongitudDEdit').value = ''
-        }
-    }
-    function showPosition() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudDEdit').value = position.coords.latitude
-                document.getElementById('LongitudDEdit').value = position.coords.longitude
-
-            });
-        } else {
-            document.getElementById('LatitudDEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudDEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-        }
-    }
     $("#btnNextModal1DList").click(function () {
         document.getElementById('modal1DList').style.display = 'none'
         document.getElementById('modal1DEdit').style.display = 'block'
@@ -5169,27 +5201,7 @@
     });
 
 
-    function on_location_change() {
-        if (document.getElementById('UbicacionGpsQEdit').checked) {
-            showPosition()
-        } else if (document.getElementById('UbicacionManualQEdit').checked) {
 
-            document.getElementById('LatitudQEdit').value = ''
-            document.getElementById('LongitudQEdit').value = ''
-        }
-    }
-    function showPosition() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudQEdit').value = position.coords.latitude
-                document.getElementById('LongitudQEdit').value = position.coords.longitude
-
-            });
-        } else {
-            document.getElementById('LatitudQEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudQEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-        }
-    }
     $("#btnNextModal1QList").click(function () {
         document.getElementById('modal1QList').style.display = 'none'
         document.getElementById('modal1QEdit').style.display = 'block'
@@ -5234,27 +5246,7 @@
         }
     });
 
-    function on_location_changeCl() {
-        if (document.getElementById('UbicacionGpsClEdit').checked) {
-            showPositionCl()
-        } else if (document.getElementById('UbicacionManualClEdit').checked) {
 
-            document.getElementById('LatitudClEdit').value = ''
-            document.getElementById('LongitudClEdit').value = ''
-        }
-    }
-    function showPositionCl() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudClEdit').value = position.coords.latitude
-                document.getElementById('LongitudClEdit').value = position.coords.longitude
-
-            });
-        } else {
-            document.getElementById('LatitudClEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudClEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-        }
-    }
     $("#btnNextModal1C1List").click(function () {
         document.getElementById('modal1C1List').style.display = 'none'
         document.getElementById('modal1ClEdit').style.display = 'block'
@@ -5300,27 +5292,7 @@
     });
 
 
-    function on_location_changePP() {
-        if (document.getElementById('UbicacionGpsPPEdit').checked) {
-            showPositionPP()
-        } else if (document.getElementById('UbicacionManualPPEdit').checked) {
 
-            document.getElementById('LatitudPPEdit').value = ''
-            document.getElementById('LongitudPPEdit').value = ''
-        }
-    }
-    function showPositionPP() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudPPEdit').value = position.coords.latitude
-                document.getElementById('LongitudPPEdit').value = position.coords.longitude
-
-            });
-        } else {
-            document.getElementById('LatitudPPEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudPPEdit').value = "GPS no disponible, por favor cambie a modo Manual"
-        }
-    }
     $("#btnNextModal1PPList").click(function () {
         document.getElementById('modal1PPList').style.display = 'none'
         document.getElementById('modal1PPEdit').style.display = 'block'
