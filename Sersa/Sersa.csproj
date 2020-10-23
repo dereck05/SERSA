@@ -15,6 +15,9 @@
     <Content Remove="wwwroot\images\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="client.pfx" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="wwwroot\images\logo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -23,5 +26,8 @@
     <PackageReference Include="MySql.Data" Version="8.0.22" />
     <PackageReference Include="PagedList.Mvc" Version="4.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="client.pfx" />
   </ItemGroup>
 </Project>

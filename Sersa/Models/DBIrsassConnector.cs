@@ -2,12 +2,14 @@
 using MySqlConnector;
 
 namespace Sersa.Models
+ 
+
 {
-    public class DBConnector : IDisposable
+    public class DBIrsassConnector : IDisposable
     {
         public MySqlConnection Connection { get; }
 
-        public DBConnector(string connectionString)
+        public DBIrsassConnector(string connectionString)
         {
             Connection = new MySqlConnection(connectionString);
         }
@@ -15,3 +17,4 @@ namespace Sersa.Models
         public void Dispose() => Connection.Dispose();
     }
 }
+
