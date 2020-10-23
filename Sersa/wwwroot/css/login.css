@@ -21,6 +21,9 @@
 .login-container form{
     padding: 10%;
 }
+.inputs {
+    margin-top: 10%;
+}
 .btnSubmit
 {
     width: 50%;
@@ -39,7 +42,7 @@
     margin-top: 10%;
     font-weight: 600;
     color: #fff;
-    background-color: #0062cc;
+    background-color: #1d2d51;
 }
 .login-form-2 .ForgetPwd {
     color: #0062cc;
