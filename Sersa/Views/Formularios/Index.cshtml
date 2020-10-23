@@ -224,7 +224,7 @@
 
                         <div class="form-group">
                             <label for="UbicacionP">Ubicación </label><br>
-                            <label class="radio-inline"><input type="radio" id="UbicacionGpsPP" name="radio1" oninput='on_location_change()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsPP" name="radio1" oninput='on_location_changePP()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualPP" name="radio1" oninput='on_location_change()' checked> Manual </label>
                             <small id="ubihelpPP" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
                             <small id="ubihelp2PP" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
@@ -242,7 +242,7 @@
                         <div class="form-group">
                             <label for="Image">Imagen</label><br>
                             <span class="btn btn-default btn-file">
-                                <input type="file">
+                                <input type="file" id="imgPP">
                             </span>
                         </div>
 
@@ -254,19 +254,24 @@
                             <input type="text" class="form-control" id="potabilizacion-gen-1">
                         </div>
 
-
                         <div class="form-group">
-                            <label for="potabilizacion-gen-3">Sistema de Potabilización </label><br>
-                            <label class="radio-inline"><input type="radio" id="convencional" name="potabilizacion-gen-3"> Convencional </label>
-                            <label class="radio-inline"><input type="radio" id="fime" name="potabilizacion-gen-3"> FiME </label>
-                            <label class="radio-inline"><input type="radio" id="fla" name="potabilizacion-gen-3"> FLA </label>
-                            <label class="radio-inline"><input type="radio" id="otroPP" name="potabilizacion-gen-3"> Otro </label>
-
+                            <label for="potabilizacion-gen-3">Frecuencia de Limpieza </label><br>
+                            <select id="potabilizacion-gen-3" name="potabilizacion-gen-3">
+                                <option value="Convencional">Convencional</option>
+                                <option value="FiME">FiME</option>
+                                <option value="FLA">FLA</option>
+                                <option value="Otro">Otro</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="potabilizacion-gen-1">Mencionar</label>
-                            <input type="text" class="form-control" id="potabilizacion-gen-1">
+                            <label for="potabilizacion-gen-4">Especifique</label>
+                            <input type="text" class="form-control" id="potabilizacion-gen-4" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notasPP">Notas adicionales</label><br>
+                            <textarea class="form-control" id="notasPP" name="notasPP" rows="2"></textarea>
                         </div>
 
 
@@ -423,8 +428,8 @@
 
                         <div class="form-group">
                             <label for="Ubicacion">Ubicación </label><br>
-                            <label class="radio-inline"><input type="radio" id="UbicacionGpsCl" name="radio1" oninput='on_location_change()'> GPS </label>
-                            <label class="radio-inline"><input type="radio" id="UbicacionManualCl" name="radio1" oninput='on_location_change()' checked> Manual </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsCl" name="radio1" oninput='on_location_changeCl()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManualCl" name="radio1" oninput='on_location_changeCl()' checked> Manual </label>
                             <small id="ubihelpCl" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
                             <small id="ubihelp2Cl" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
 
@@ -441,7 +446,7 @@
                         <div class="form-group">
                             <label for="Image">Imagen</label><br>
                             <span class="btn btn-default btn-file">
-                                <input type="file">
+                                <input type="file" id="imgCl">
                             </span>
                         </div>
 
@@ -460,22 +465,22 @@
 
                         <div class="form-group">
                             <label for="cloracion-gen-3">Tipo de Sistema de Cloración </label><br>
-                            <label class="radio-inline"><input type="radio" id="gascloro" name="cloracion-gen-3"> Gas Cloro </label>
-                            <label class="radio-inline"><input type="radio" id="electrosis" name="cloracion-gen-3"> Electrósis </label>
-                            <label class="radio-inline"><input type="radio" id="pastillas" name="cloracion-gen-3"> Pastillas(Erosión) </label>
-                            <label class="radio-inline"><input type="radio" id="otroC" name="cloracion-gen-3"> Otro </label>
+                            <label class="radio-inline"><input type="radio" id="gascloro" name="cloracion-gen-3" value="Gas Cloro"> Gas Cloro </label>
+                            <label class="radio-inline"><input type="radio" id="electrosis" name="cloracion-gen-3" value="Electrosis"> Electrósis </label>
+                            <label class="radio-inline"><input type="radio" id="pastillas" name="cloracion-gen-3" value="Pastillas"> Pastillas(Erosión) </label>
+                            <label class="radio-inline"><input type="radio" id="otroC" name="cloracion-gen-3" value="Otro"> Otro </label>
 
                         </div>
 
                         <div class="form-group">
                             <label for="cloracion-gen-4">Tipo de Dosificación </label><br>
-                            <label class="radio-inline"><input type="radio" id="programadaCl" name="cloracion-gen-4"> Tiempos programados </label>
-                            <label class="radio-inline"><input type="radio" id="continuaCl" name="cloracion-gen-4"> Continua </label>
+                            <label class="radio-inline"><input type="radio" id="programadaCl" name="cloracion-gen-4" value="Tiempos programados"> Tiempos programados </label>
+                            <label class="radio-inline"><input type="radio" id="continuaCl" name="cloracion-gen-4" value="Continua"> Continua </label>
                         </div>
 
                         <div class="form-group">
                             <label for="cloracion-gen-5">Notas adicionales</label><br>
-                            <textarea class="form-control" id="notas" name="cloracion-gen-5" rows="2"></textarea>
+                            <textarea class="form-control" id="notasCl" name="cloracion-gen-5" rows="2"></textarea>
                         </div>
 
                     </form>
@@ -584,7 +589,7 @@
                     </div>
                     <br />
                     <button id="btnBackModal3Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
-                    <button id="btnSaveC" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
+                    <button id="btnSaveCl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
                 </div>
             </div>
 
@@ -1338,7 +1343,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="matTanqueA">Tipo de Tanque </label><br>
+                            <label for="matTanqueA">Material del Tanque </label><br>
                             <select id="matTanqueA" name="matTanqueA">
                                 <option value="Concreto">Concreto</option>
                                 <option value="Metálico">Metálico</option>
@@ -1536,8 +1541,8 @@
 
                         <div class="form-group">
                             <label for="UbicacionC">Ubicación </label><br>
-                            <label class="radio-inline"><input type="radio" id="UbicacionGpsC" name="radio1" oninput='on_location_changeA()'> GPS </label>
-                            <label class="radio-inline"><input type="radio" id="UbicacionManualC" name="radio1" oninput='on_location_changeA()' checked> Manual </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsC" name="radio1" oninput='on_location_changeC()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManualC" name="radio1" oninput='on_location_changeC()' checked> Manual </label>
                             <small id="ubihelpC" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
                             <small id="ubihelp2C" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
 
@@ -1564,7 +1569,7 @@
 
                         <div class="form-group">
                             <label for="materialC">Material de la tubería de conducción </label><br>
-                            <select id="materialC" name="materialA">
+                            <select id="materialC" name="materialC">
                                 <option value="PVC">PVC</option>
                                 <option value="Hierro">Hierro galvanizado</option>
                                 <option value="Mixto">Mixto</option>
@@ -1743,8 +1748,8 @@
 
                         <div class="form-group">
                             <label for="UbicacionD">Ubicación </label><br>
-                            <label class="radio-inline"><input type="radio" id="UbicacionGpsD" name="radio1" oninput='on_location_changeA()'> GPS </label>
-                            <label class="radio-inline"><input type="radio" id="UbicacionManualD" name="radio1" oninput='on_location_changeA()' checked> Manual </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsD" name="radio1" oninput='on_location_changeD()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManualD" name="radio1" oninput='on_location_changeD()' checked> Manual </label>
                             <small id="ubihelpD" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
                             <small id="ubihelp2D" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
 
@@ -1771,7 +1776,7 @@
 
                         <div class="form-group">
                             <label for="materialD">Material de la tubería de distribución </label><br>
-                            <select id="materialD" name="materialA">
+                            <select id="materialD" name="materialD">
                                 <option value="PVC">PVC</option>
                                 <option value="Hierro">Hierro galvanizado</option>
                                 <option value="Mixto">Mixto</option>
@@ -1795,62 +1800,62 @@
                     <form>
                         <div class="form-group">
                             <label for="infra1D">1. ¿Existen uniones ilícitas que pongan en riesgo la calidad del agua en la red de distribución? (crítica)  </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra1D_si" name="infra1A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra1D_no" name="infra1A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra1D_si" name="infra1D" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra1D_no" name="infra1D" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra2D">2. ¿Se carece de micromedidores? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra2D_si" name="infra2A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra2D_no" name="infra2A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra2D_si" name="infra2D" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra2D_no" name="infra2D" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra3D">3. ¿No se realizan pruebas periódicas de cloro residual en la red de distribución? (crítica) </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra3D_si" name="infra3A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra3D_no" name="infra3A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra3D_si" name="infra3D" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra3D_no" name="infra3D" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra4D">4. ¿Se observan fugas visibles en alguna parte de la red de distribución? (crítico) </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra4D_si" name="infra4A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra4D_no" name="infra4A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra4D_si" name="infra4D" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra4D_no" name="infra4D" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra5D">5. ¿Existen variaciones significativas de presión en la red de distribución?  </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra5D_si" name="infra5A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra5D_no" name="infra5A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra5D_si" name="infra5D" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra5D_no" name="infra5D" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra6D">6. ¿Se carece de válvulas de control de presiones y para realizar reparaciones en la red de distribución sin necesidad de quitar todo el servicio de agua a la comunidad?  </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra6D_si" name="infra6A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra6D_no" name="infra6A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra6D_si" name="infra6D" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra6D_no" name="infra6D" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra7D">7. ¿Existen interrupciones constantes en el servicio de distribución de agua? (crítica) </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra7D_si" name="infra7A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra7D_no" name="infra7A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra7D_si" name="infra7D" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra7D_no" name="infra7D" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra8D">8. ¿Se carece de sistema para purgar en la tubería de distribución?  </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra8D_si" name="infra8A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra8D_no" name="infra8A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra8D_si" name="infra8D" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra8D_no" name="infra8D" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra9D">9. ¿Existe conexiones cruzadas de red de aguas negras con la red de distribución de agua potable? (crítica) </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra9D_si" name="infra9A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra9D_no" name="infra9A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra9D_si" name="infra9D" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra9D_no" name="infra9D" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra10D">10. ¿Se carece de un esquema del sistema de distribución (planos o croquis)? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra10D_si" name="infra10A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra10D_no" name="infra10A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra10D_si" name="infra10D" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra10D_no" name="infra10D" value="No"> No </label>
                         </div>
 
                     </form>
@@ -1937,15 +1942,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="fechaConstru">Fecha de construcción del quiebragradiente</label>
+                            <label for="fechaConstruQ">Fecha de construcción del quiebragradiente</label>
                             <input class="form-control" type="date" id="fechaConstruQ">
                         </div>
 
 
                         <div class="form-group">
                             <label for="UbicacionD">Ubicación </label><br>
-                            <label class="radio-inline"><input type="radio" id="UbicacionGpsQ" name="radio1" oninput='on_location_changeA()'> GPS </label>
-                            <label class="radio-inline"><input type="radio" id="UbicacionManualQ" name="radio1" oninput='on_location_changeA()' checked> Manual </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsQ" name="radio1" oninput='on_location_changeQ()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManualQ" name="radio1" oninput='on_location_changeQ()' checked> Manual </label>
                             <small id="ubihelpQ" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
                             <small id="ubihelp2Q" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
 
@@ -1972,7 +1977,7 @@
 
                         <div class="form-group">
                             <label for="materialQ">Material del tanque </label><br>
-                            <select id="materialQ" name="materialA">
+                            <select id="materialQ" name="materialQ">
                                 <option value="Concreto">Concreto</option>
                                 <option value="Metálico">Metálico</option>
                                 <option value="Plástico">Plástico</option>
@@ -1980,7 +1985,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="frecuenciaQ">Material del tanque </label><br>
+                            <label for="frecuenciaQ">Limpieza del tanque </label><br>
                             <select id="frecuenciaQ" name="frecuenciaQ">
                                 <option value="Anual">Anual</option>
                                 <option value="Semestral">Semestral</option>
@@ -2007,62 +2012,62 @@
                     <form>
                         <div class="form-group">
                             <label for="infra1Q">1. ¿Están las paredes agrietadas (concreto) o herrumbradas (metálico)? (crítica)  </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra1Q_si" name="infra1A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra1Q_no" name="infra1A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra1Q_si" name="infra1Q" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra1Q_no" name="infra1Q" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra2Q">2. ¿Está la tapa de inspección construida en  condiciones no sanitarias? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra2Q_si" name="infra2A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra2Q_no" name="infra2A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra2Q_si" name="infra2Q" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra2Q_no" name="infra2Q" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra3Q">3. ¿Es el borde de cemento alrededor del tanque menor a 1 metro? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra3Q_si" name="infra3A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra3Q_no" name="infra3A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra3Q_si" name="infra3Q" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra3Q_no" name="infra3Q" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra4Q">4. ¿Existen sedimentos, algas u hongos dentro del tanque? (crítico) </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra4Q_si" name="infra4A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra4Q_no" name="infra4A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra4Q_si" name="infra4Q" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra4Q_no" name="infra4Q" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra5Q">5. ¿Está ausente o defectuosa la cerca de protección? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra5Q_si" name="infra5A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra5Q_no" name="infra5A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra5Q_si" name="infra5Q" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra5Q_no" name="infra5Q" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra6Q">6. ¿Carece la tapa de un sistema seguro de cierre (candado, cadena, tornillo)? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra6Q_si" name="infra6A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra6Q_no" name="infra6A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra6Q_si" name="infra6Q" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra6Q_no" name="infra6Q" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra7Q">7. ¿Carece el tanque de respiraderos o tubería de rebalse con rejilla de protección? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra7Q_si" name="infra7A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra7Q_no" name="infra7A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra7Q_si" name="infra7Q" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra7Q_no" name="infra7Q" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra8Q">8. ¿Existe alguna fuente de contaminación alrededor del tanque (letrinas, animales, viviendas, basura, actividad agrícola o industrial)? (crítico)  </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra8Q_si" name="infra8A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra8Q_no" name="infra8A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra8Q_si" name="infra8Q" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra8Q_no" name="infra8Q" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra9Q">9. ¿Se carece de válvula(s) de cierre para limpieza y/o reparación de la estructura? </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra9Q_si" name="infra9A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra9Q_no" name="infra9A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra9Q_si" name="infra9Q" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra9Q_no" name="infra9Q" value="No"> No </label>
                         </div>
 
                         <div class="form-group">
                             <label for="infra10Q">10. ¿La estructura  carece de pintura de protección tanto externa como interna?  </label><br>
-                            <label class="radio-inline"><input type="radio" id="infra10Q_si" name="infra10A" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="infra10Q_no" name="infra10A" value="No"> No </label>
+                            <label class="radio-inline"><input type="radio" id="infra10Q_si" name="infra10Q" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="infra10Q_no" name="infra10Q" value="No"> No </label>
                         </div>
 
                     </form>
@@ -2114,6 +2119,7 @@
 
     $(document).ready(function () {
         document.getElementById("FSLimpieza").addEventListener("click", habilitarDescripcion, false);
+        document.getElementById("potabilizacion-gen-3").addEventListener("click", habilitarDescripcionPP, false);
     });
 
     $("#btnSaveFS").on("click", function () {
@@ -2322,7 +2328,7 @@
                 },
                 success: function (data) {
                     console.log(data);
-                    $('#fuenteSup').modal('fuenteNac');
+                    $('#fuenteNac').modal('toggle');
                 },
                 error: function () {
                     //alert("Ha ocurrido un error al insertar la Factura Linea");
@@ -2460,7 +2466,7 @@
                 },
                 success: function (data) {
                     console.log(data);
-                    $('#fuenteSup').modal('fuenteNac');
+                    $('#pozos').modal('toggle');
                 },
                 error: function () {
                     //alert("Ha ocurrido un error al insertar la Factura Linea");
@@ -2528,6 +2534,80 @@
         }
     });
 
+    $("#btnSaveA").on("click", function () {
+        guardarFormularioA();
+    });
+
+    function guardarFormularioA() {
+        var fecha = document.getElementById('fechaA').value;
+        var acueducto = document.getElementById('acueductoA').value;
+        var tanque = document.getElementById('tanqueA').value;
+        var registro = document.getElementById('registroA').value;
+        var telefono = document.getElementById('telefonoA').value;
+        var funcionario = document.getElementById('funcionarioA').value;
+        var encargado = document.getElementById('encargadoA').value;
+        var latitud = document.getElementById('LatitudA').value;
+        var longitud = document.getElementById('LongitudA').value;
+        var img = document.getElementById('imgA').value;
+        var tipoTanque = document.getElementById('tipoTanqueA').value;
+        var matTanque = document.getElementById('matTanqueA').value;
+        var limpieza = document.getElementById('ALimpieza').value;
+        var notas = document.getElementById('notasALimpieza').value;
+        var p1 = $('input:radio[name=infra1A]:checked').val();
+        var p2 = $('input:radio[name=infra2A]:checked').val();
+        var p3 = $('input:radio[name=infra3A]:checked').val();
+        var p4 = $('input:radio[name=infra4A]:checked').val();
+        var p5 = $('input:radio[name=infra5A]:checked').val();
+        var p6 = $('input:radio[name=infra6A]:checked').val();
+        var p7 = $('input:radio[name=infra7A]:checked').val();
+        var p8 = $('input:radio[name=infra8A]:checked').val();
+        var p9 = $('input:radio[name=infra9A]:checked').val();
+        var p10 = $('input:radio[name=infra10A]:checked').val();
+
+        try {
+            $.ajax({
+                url: '/Formularios/guardarFormularioA/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    FECHA: fecha,
+                    ACUEDUCTO: acueducto,
+                    TANQUE: tanque,
+                    REGISTRO: registro,
+                    ENCARGADO: encargado,
+                    TELEFONO: telefono,
+                    FUNCIONARIO: funcionario,
+                    LATITUD: latitud,
+                    LONGITUD: longitud,
+                    IMG: img,
+                    TIPOTANQUE: tipoTanque,
+                    MATTANQUE: matTanque,
+                    LIMPIEZA: limpieza,
+                    NOTAS: notas,
+                    P1: p1,
+                    P2: p2,
+                    P3: p3,
+                    P4: p4,
+                    P5: p5,
+                    P6: p6,
+                    P7: p7,
+                    P8: p8,
+                    P9: p9,
+                    P10: p10,
+
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#almacenamiento').modal('toggle');
+                },
+                error: function () {
+                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    };
 
     function on_location_changeA() {
         if (document.getElementById('UbicacionGpsA').checked) {
@@ -2586,63 +2666,100 @@
         }
     });
 
-    function on_location_change() {
-        if (document.getElementById('UbicacionGps').checked) {
-            showPosition()
-        } else if (document.getElementById('UbicacionManual').checked) {
+    $("#btnSaveC").on("click", function () {
+        guardarFormularioC();
+    });
 
-            document.getElementById('Latitud').value = ''
-            document.getElementById('Longitud').value = ''
+    function guardarFormularioC() {
+        var fecha = document.getElementById('fechaC').value;
+        var acueducto = document.getElementById('acueductoC').value;
+        var conduccionTanque = document.getElementById('conduccionC').value;
+        var reparacionesFuga = document.getElementById('reparacionesC').value;
+        var telefono = document.getElementById('telefonoC').value;
+        var funcionario = document.getElementById('funcionarioC').value;
+        var encargado = document.getElementById('encargadoC').value;
+        var latitud = document.getElementById('LatitudC').value;
+        var longitud = document.getElementById('LongitudC').value;
+        var img = document.getElementById('imgC').value;
+        var fechaConstruccion = document.getElementById('fechaConstruC').value;
+        var matTuberia = document.getElementById('materialC').value;
+        var notas = document.getElementById('notasC').value;
+        var p1 = $('input:radio[name=infra1C]:checked').val();
+        var p2 = $('input:radio[name=infra2C]:checked').val();
+        var p3 = $('input:radio[name=infra3C]:checked').val();
+        var p4 = $('input:radio[name=infra4C]:checked').val();
+        var p5 = $('input:radio[name=infra5C]:checked').val();
+        var p6 = $('input:radio[name=infra6C]:checked').val();
+        var p7 = $('input:radio[name=infra7C]:checked').val();
+        var p8 = $('input:radio[name=infra8C]:checked').val();
+        var p9 = $('input:radio[name=infra9C]:checked').val();
+        var p10 = $('input:radio[name=infra10C]:checked').val();
+
+        try {
+            $.ajax({
+                url: '/Formularios/guardarFormularioC/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    FECHA: fecha,
+                    ACUEDUCTO: acueducto,
+                    CONDUCCIONTANQUE: conduccionTanque,
+                    REPARACIONES: reparacionesFuga,
+                    ENCARGADO: encargado,
+                    TELEFONO: telefono,
+                    FUNCIONARIO: funcionario,
+                    LATITUD: latitud,
+                    LONGITUD: longitud,
+                    IMG: img,
+                    FECHACONSTRUCCION: fechaConstruccion,
+                    MATTUBERIA: matTuberia,
+                    NOTAS: notas,
+                    P1: p1,
+                    P2: p2,
+                    P3: p3,
+                    P4: p4,
+                    P5: p5,
+                    P6: p6,
+                    P7: p7,
+                    P8: p8,
+                    P9: p9,
+                    P10: p10,
+
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#conduccion').modal('toggle');
+                },
+                error: function () {
+                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    };
+
+    function on_location_changeC() {
+        if (document.getElementById('UbicacionGpsC').checked) {
+            showPosition()
+        } else if (document.getElementById('UbicacionManualC').checked) {
+
+            document.getElementById('LatitudC').value = ''
+            document.getElementById('LongitudC').value = ''
         }
     }
-    function showPosition() {
+    function showPositionC() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('Latitud').value = position.coords.latitude
-                document.getElementById('Longitud').value = position.coords.longitude
+                document.getElementById('LatitudC').value = position.coords.latitude
+                document.getElementById('LongitudC').value = position.coords.longitude
 
             });
         } else {
-            document.getElementById('Latitud').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('Longitud').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LatitudC').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LongitudC').value = "GPS no disponible, por favor cambie a modo Manual"
         }
     }
-
-    $("#btnNextModal1").click(function () {
-        document.getElementById('modal1').style.display = 'none'
-        document.getElementById('modal2').style.display = 'block'
-
-    });
-    $("#btnNextModal2").click(function () {
-        document.getElementById('modal2').style.display = 'none'
-        document.getElementById('modal3').style.display = 'block'
-    });
-    $("#btnBackModal2").click(function () {
-        document.getElementById('modal2').style.display = 'none'
-        document.getElementById('modal1').style.display = 'block'
-    });
-    $("#btnBackModal3").click(function () {
-        document.getElementById('modal3').style.display = 'none'
-        document.getElementById('modal2').style.display = 'block'
-    });
-
-    $("#pozos_filter_all").click(function () {
-        if (document.getElementById('pozos_filter_all').checked) {
-
-            document.getElementById('pozos_filter_fecha').disabled = true
-            document.getElementById('pozos_filter_acueducto').disabled = true
-            document.getElementById('pozos_filter_encargado').disabled = true
-            document.getElementById('pozos_filter_telefono').disabled = true
-            document.getElementById('pozos_filter_funcionario').disabled = true
-        } else {
-            $("#pozos_filter_fecha").removeAttr("disabled");
-            $("#pozos_filter_acueducto").removeAttr("disabled");
-            $("#pozos_filter_encargado").removeAttr("disabled");
-            $("#pozos_filter_telefono").removeAttr("disabled");
-            $("#pozos_filter_funcionario").removeAttr("disabled");
-        }
-    });
-
 
     $("#btnNextModal1C").click(function () {
         document.getElementById('modal1C').style.display = 'none'
@@ -2663,44 +2780,115 @@
     });
 
     $("#filter_allC").click(function () {
-        if (document.getElementById('filter_allC').checked) {
+        if (document.getElementById('pozos_filter_all').checked) {
 
-            document.getElementById('filter_fechaC').disabled = true
-            document.getElementById('filter_acueductoC').disabled = true
-            document.getElementById('filter_encargadoC').disabled = true
-            document.getElementById('filter_telefonoC').disabled = true
-            document.getElementById('filter_funcionarioC').disabled = true
+            document.getElementById('pozos_filter_fecha').disabled = true
+            document.getElementById('pozos_filter_acueducto').disabled = true
+            document.getElementById('pozos_filter_encargado').disabled = true
+            document.getElementById('pozos_filter_telefono').disabled = true
+            document.getElementById('pozos_filter_funcionario').disabled = true
         } else {
-            $("#filter_fechaC").removeAttr("disabled");
-            $("#filter_acueductoC").removeAttr("disabled");
-            $("#filter_encargadoC").removeAttr("disabled");
-            $("#filter_telefonoC").removeAttr("disabled");
-            $("#filter_funcionarioC").removeAttr("disabled");
+            $("#pozos_filter_fecha").removeAttr("disabled");
+            $("#pozos_filter_acueducto").removeAttr("disabled");
+            $("#pozos_filter_encargado").removeAttr("disabled");
+            $("#pozos_filter_telefono").removeAttr("disabled");
+            $("#pozos_filter_funcionario").removeAttr("disabled");
         }
     });
 
-    function on_location_change() {
-        if (document.getElementById('UbicacionGpsC').checked) {
-            showPosition()
-        } else if (document.getElementById('UbicacionManualC').checked) {
 
-            document.getElementById('LatitudC').value = ''
-            document.getElementById('LongitudC').value = ''
+    $("#btnSaveD").on("click", function () {
+        guardarFormularioD();
+    });
+
+    function guardarFormularioD() {
+        var fecha = document.getElementById('fechaD').value;
+        var acueducto = document.getElementById('acueductoD').value;
+        var reparacionesFuga = document.getElementById('reparacionesD').value;
+        var telefono = document.getElementById('telefonoD').value;
+        var funcionario = document.getElementById('funcionarioD').value;
+        var encargado = document.getElementById('encargadoD').value;
+        var latitud = document.getElementById('LatitudD').value;
+        var longitud = document.getElementById('LongitudD').value;
+        var img = document.getElementById('imgD').value;
+        var fechaConstruccion = document.getElementById('fechaConstruD').value;
+        var matTuberia = document.getElementById('materialD').value;
+        var notas = document.getElementById('notasD').value;
+        var p1 = $('input:radio[name=infra1D]:checked').val();
+        var p2 = $('input:radio[name=infra2D]:checked').val();
+        var p3 = $('input:radio[name=infra3D]:checked').val();
+        var p4 = $('input:radio[name=infra4D]:checked').val();
+        var p5 = $('input:radio[name=infra5D]:checked').val();
+        var p6 = $('input:radio[name=infra6D]:checked').val();
+        var p7 = $('input:radio[name=infra7D]:checked').val();
+        var p8 = $('input:radio[name=infra8D]:checked').val();
+        var p9 = $('input:radio[name=infra9D]:checked').val();
+        var p10 = $('input:radio[name=infra10D]:checked').val();
+
+        try {
+            $.ajax({
+                url: '/Formularios/guardarFormularioD/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    FECHA: fecha,
+                    ACUEDUCTO: acueducto,
+                    REPARACIONES: reparacionesFuga,
+                    ENCARGADO: encargado,
+                    TELEFONO: telefono,
+                    FUNCIONARIO: funcionario,
+                    LATITUD: latitud,
+                    LONGITUD: longitud,
+                    IMG: img,
+                    FECHACONSTRUCCION: fechaConstruccion,
+                    MATTUBERIA: matTuberia,
+                    NOTAS: notas,
+                    P1: p1,
+                    P2: p2,
+                    P3: p3,
+                    P4: p4,
+                    P5: p5,
+                    P6: p6,
+                    P7: p7,
+                    P8: p8,
+                    P9: p9,
+                    P10: p10,
+
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#distribucion').modal('toggle');
+                },
+                error: function () {
+                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    };
+
+    function on_location_changeD() {
+        if (document.getElementById('UbicacionGpsD').checked) {
+            showPosition()
+        } else if (document.getElementById('UbicacionManualD').checked) {
+
+            document.getElementById('LatitudD').value = ''
+            document.getElementById('LongitudD').value = ''
         }
     }
-    function showPosition() {
+    function showPositionD() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudC').value = position.coords.latitude
-                document.getElementById('LongitudC').value = position.coords.longitude
+                document.getElementById('LatitudD').value = position.coords.latitude
+                document.getElementById('LongitudD').value = position.coords.longitude
 
             });
         } else {
-            document.getElementById('LatitudC').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudC').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LatitudD').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LongitudD').value = "GPS no disponible, por favor cambie a modo Manual"
         }
     }
-
 
     $("#btnNextModal1D").click(function () {
         document.getElementById('modal1D').style.display = 'none'
@@ -2737,29 +2925,99 @@
         }
     });
 
-    function on_location_change() {
-        if (document.getElementById('UbicacionGpsD').checked) {
-            showPosition()
-        } else if (document.getElementById('UbicacionManualD').checked) {
 
-            document.getElementById('LatitudD').value = ''
-            document.getElementById('LongitudD').value = ''
+    $("#btnSaveQ").on("click", function () {
+        guardarFormularioQ();
+    });
+
+    function guardarFormularioQ() {
+        var fecha = document.getElementById('fechaQ').value;
+        var acueducto = document.getElementById('acueductoQ').value;
+        var telefono = document.getElementById('telefonoQ').value;
+        var funcionario = document.getElementById('funcionarioQ').value;
+        var encargado = document.getElementById('encargadoQ').value;
+        var latitud = document.getElementById('LatitudQ').value;
+        var longitud = document.getElementById('LongitudQ').value;
+        var img = document.getElementById('imgQ').value;
+        var fechaConstruccion = document.getElementById('fechaConstruQ').value;
+        var matTuberia = document.getElementById('materialQ').value;
+        var limpieza = document.getElementById('frecuenciaQ').value;
+        var notas = document.getElementById('notasQ').value;
+        var p1 = $('input:radio[name=infra1Q]:checked').val();
+        var p2 = $('input:radio[name=infra2Q]:checked').val();
+        var p3 = $('input:radio[name=infra3Q]:checked').val();
+        var p4 = $('input:radio[name=infra4Q]:checked').val();
+        var p5 = $('input:radio[name=infra5Q]:checked').val();
+        var p6 = $('input:radio[name=infra6Q]:checked').val();
+        var p7 = $('input:radio[name=infra7Q]:checked').val();
+        var p8 = $('input:radio[name=infra8Q]:checked').val();
+        var p9 = $('input:radio[name=infra9Q]:checked').val();
+        var p10 = $('input:radio[name=infra10Q]:checked').val();
+
+        try {
+            $.ajax({
+                url: '/Formularios/guardarFormularioQ/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    FECHA: fecha,
+                    ACUEDUCTO: acueducto,
+                    ENCARGADO: encargado,
+                    TELEFONO: telefono,
+                    FUNCIONARIO: funcionario,
+                    LATITUD: latitud,
+                    LONGITUD: longitud,
+                    IMG: img,
+                    FECHACONSTRUCCION: fechaConstruccion,
+                    MATTUBERIA: matTuberia,
+                    LIMPIEZA : limpieza,
+                    NOTAS: notas,
+                    P1: p1,
+                    P2: p2,
+                    P3: p3,
+                    P4: p4,
+                    P5: p5,
+                    P6: p6,
+                    P7: p7,
+                    P8: p8,
+                    P9: p9,
+                    P10: p10,
+
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#quiebragradientes').modal('toggle');
+                },
+                error: function () {
+                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    };
+
+    function on_location_changeQ() {
+        if (document.getElementById('UbicacionGpsQ').checked) {
+            showPosition()
+        } else if (document.getElementById('UbicacionManualQ').checked) {
+
+            document.getElementById('LatitudQ').value = ''
+            document.getElementById('LongitudQ').value = ''
         }
     }
-    function showPosition() {
+    function showPositionQ() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudD').value = position.coords.latitude
-                document.getElementById('LongitudD').value = position.coords.longitude
+                document.getElementById('LatitudQ').value = position.coords.latitude
+                document.getElementById('LongitudQ').value = position.coords.longitude
 
             });
         } else {
-            document.getElementById('LatitudD').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudD').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LatitudQ').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LongitudQ').value = "GPS no disponible, por favor cambie a modo Manual"
         }
     }
-
-
 
     $("#btnNextModal1Q").click(function () {
         document.getElementById('modal1Q').style.display = 'none'
@@ -2796,25 +3054,216 @@
         }
     });
 
-    function on_location_change() {
-        if (document.getElementById('UbicacionGpsQ').checked) {
-            showPosition()
-        } else if (document.getElementById('UbicacionManualQ').checked) {
+    $("#btnSaveCl").on("click", function () {
+        guardarFormularioCl();
+    });
 
-            document.getElementById('LatitudQ').value = ''
-            document.getElementById('LongitudQ').value = ''
+    function guardarFormularioCl() {
+        var fecha = document.getElementById('fechaCl').value;
+        var acueducto = document.getElementById('acueductoCl').value;
+        var telefono = document.getElementById('telefonoCl').value;
+        var funcionario = document.getElementById('funcionarioCl').value;
+        var encargado = document.getElementById('encargadoCl').value;
+        var latitud = document.getElementById('LatitudCl').value;
+        var longitud = document.getElementById('LongitudCl').value;
+        var img = document.getElementById('imgCl').value;
+        var fechaConstruccion = document.getElementById('cloracion-gen-1').value;
+        var fechaInstalacion = document.getElementById('cloracion-gen-2').value;
+        var tipoSistema = document.getElementById('cloracion-gen-3').value;
+        var tipoDosificacion = document.getElementById('cloracion-gen-4').value;
+        var notas = document.getElementById('notasCl').value;
+        var p1 = $('input:radio[name=infra1Cl]:checked').val();
+        var p2 = $('input:radio[name=infra2Cl]:checked').val();
+        var p3 = $('input:radio[name=infra3Cl]:checked').val();
+        var p4 = $('input:radio[name=infra4Cl]:checked').val();
+        var p5 = $('input:radio[name=infra5Cl]:checked').val();
+        var p6 = $('input:radio[name=infra6Cl]:checked').val();
+        var p7 = $('input:radio[name=infra7Cl]:checked').val();
+        var p8 = $('input:radio[name=infra8Cl]:checked').val();
+        var p9 = $('input:radio[name=infra9Cl]:checked').val();
+        var p10 = $('input:radio[name=infra10Cl]:checked').val();
+
+        try {
+            $.ajax({
+                url: '/Formularios/guardarFormularioCl/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    FECHA: fecha,
+                    ACUEDUCTO: acueducto,
+                    ENCARGADO: encargado,
+                    TELEFONO: telefono,
+                    FUNCIONARIO: funcionario,
+                    LATITUD: latitud,
+                    LONGITUD: longitud,
+                    IMG: img,
+                    FECHACONSTRUCCION: fechaConstruccion,
+                    FECHAINSTALACION: fechaInstalacion,
+                    TIPOSISTEMA: tipoSistema,
+                    TIPODOSIFICACION: tipoDosificacion,
+                    NOTAS: notas,
+                    P1: p1,
+                    P2: p2,
+                    P3: p3,
+                    P4: p4,
+                    P5: p5,
+                    P6: p6,
+                    P7: p7,
+                    P8: p8,
+                    P9: p9,
+                    P10: p10,
+
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#cloracion').modal('toggle');
+                },
+                error: function () {
+                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    };
+
+    function on_location_changeCl() {
+        if (document.getElementById('UbicacionGpsCl').checked) {
+            showPositionCl()
+        } else if (document.getElementById('UbicacionManualCl').checked) {
+
+            document.getElementById('LatitudCl').value = ''
+            document.getElementById('LongitudCl').value = ''
         }
     }
-    function showPosition() {
+    function showPositionCl() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudQ').value = position.coords.latitude
-                document.getElementById('LongitudQ').value = position.coords.longitude
+                document.getElementById('LatitudCl').value = position.coords.latitude
+                document.getElementById('LongitudCl').value = position.coords.longitude
 
             });
         } else {
-            document.getElementById('LatitudQ').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudQ').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LatitudCl').value = "GPS no disponible, por favor cambie a modo Manual"
+            document.getElementById('LongitudCl').value = "GPS no disponible, por favor cambie a modo Manual"
+        }
+    }
+
+    $("#btnNextModal1Cl").click(function () {
+        document.getElementById('modal1Cl').style.display = 'none'
+        document.getElementById('modal2Cl').style.display = 'block'
+
+    });
+    $("#btnNextModal2Cl").click(function () {
+        document.getElementById('modal2Cl').style.display = 'none'
+        document.getElementById('modal3Cl').style.display = 'block'
+    });
+    $("#btnBackModal2Cl").click(function () {
+        document.getElementById('modal2Cl').style.display = 'none'
+        document.getElementById('modal1Cl').style.display = 'block'
+    });
+    $("#btnBackModal3Cl").click(function () {
+        document.getElementById('modal3Cl').style.display = 'none'
+        document.getElementById('modal2Cl').style.display = 'block'
+    });
+
+    $("#cloracion_filter_all").click(function () {
+        if (document.getElementById('cloracion_filter_all').checked) {
+
+            document.getElementById('cloracion_filter_fecha').disabled = true
+            document.getElementById('cloracion_filter_acueducto').disabled = true
+            document.getElementById('cloracion_filter_encargado').disabled = true
+            document.getElementById('cloracion_filter_telefono').disabled = true
+            document.getElementById('cloracion_filter_funcionario').disabled = true
+        } else {
+            $("#cloracion_filter_fecha").removeAttr("disabled");
+            $("#cloracion_filter_acueducto").removeAttr("disabled");
+            $("#cloracion_filter_encargado").removeAttr("disabled");
+            $("#cloracion_filter_telefono").removeAttr("disabled");
+            $("#cloracion_filter_funcionario").removeAttr("disabled");
+        }
+    });
+
+    $("#btnSavePP").on("click", function () {
+        guardarFormularioPP();
+    });
+
+    function guardarFormularioPP() {
+        var fecha = document.getElementById('fechaPP').value;
+        var acueducto = document.getElementById('acueductoPP').value;
+        var telefono = document.getElementById('telefonoPP').value;
+        var funcionario = document.getElementById('funcionarioPP').value;
+        var encargado = document.getElementById('encargadoPP').value;
+        var latitud = document.getElementById('LatitudPP').value;
+        var longitud = document.getElementById('LongitudPP').value;
+        var img = document.getElementById('imgPP').value;
+        var fechaConstruccion = document.getElementById('potabilizacion-gen-1').value;
+        var sistemaPotabilizacion = document.getElementById('potabilizacion-gen-3').value;
+        if (sistemaPotabilizacion == "Otro") {
+            var especifique = document.getElementById('potabilizacion-gen-5').value;
+        }
+        else {
+            var especifique = "NA"
+        }
+        var notas = document.getElementById('notasPP').value;
+        var p1 = $('input:radio[name=infra1PP]:checked').val();
+        var p2 = $('input:radio[name=infra2PP]:checked').val();
+        var p3 = $('input:radio[name=infra3PP]:checked').val();
+        var p4 = $('input:radio[name=infra4PP]:checked').val();
+        var p5 = $('input:radio[name=infra5PP]:checked').val();
+        var p6 = $('input:radio[name=infra6PP]:checked').val();
+        var p7 = $('input:radio[name=infra7PP]:checked').val();
+        var p8 = $('input:radio[name=infra8PP]:checked').val();
+        var p9 = $('input:radio[name=infra9PP]:checked').val();
+        var p10 = $('input:radio[name=infra10PP]:checked').val();
+
+        try {
+            $.ajax({
+                url: '/Formularios/guardarFormularioPP/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    FECHA: fecha,
+                    ACUEDUCTO: acueducto,
+                    ENCARGADO: encargado,
+                    TELEFONO: telefono,
+                    FUNCIONARIO: funcionario,
+                    LATITUD: latitud,
+                    LONGITUD: longitud,
+                    IMG: img,
+                    FECHACONSTRUCCION: fechaConstruccion,
+                    SISTEMAPOT: sistemaPotabilizacion,
+                    ESPECIFIQUE: especifique,
+                    NOTAS: notas,
+                    P1: p1,
+                    P2: p2,
+                    P3: p3,
+                    P4: p4,
+                    P5: p5,
+                    P6: p6,
+                    P7: p7,
+                    P8: p8,
+                    P9: p9,
+                    P10: p10,
+
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#potabilizacion').modal('toggle');
+                },
+                error: function () {
+                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    };
+
+    function habilitarDescripcionPP() {
+        var valor = document.getElementById('potabilizacion-gen-3').value;
+        if (valor == "Otro") {
+            document.getElementById("potabilizacion-gen-4").disabled = false;
         }
     }
 
@@ -2872,62 +3321,6 @@
             $("#potabilizacion_filter_encargado").removeAttr("disabled");
             $("#potabilizacion_filter_telefono").removeAttr("disabled");
             $("#potabilizacion_filter_funcionario").removeAttr("disabled");
-        }
-    });
-    function on_location_changeCl() {
-        if (document.getElementById('UbicacionGpsCl').checked) {
-            showPositionCl()
-        } else if (document.getElementById('UbicacionManualCl').checked) {
-
-            document.getElementById('LatitudCl').value = ''
-            document.getElementById('LongitudCl').value = ''
-        }
-    }
-    function showPositionCl() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById('LatitudCl').value = position.coords.latitude
-                document.getElementById('LongitudCl').value = position.coords.longitude
-
-            });
-        } else {
-            document.getElementById('LatitudCl').value = "GPS no disponible, por favor cambie a modo Manual"
-            document.getElementById('LongitudCl').value = "GPS no disponible, por favor cambie a modo Manual"
-        }
-    }
-
-    $("#btnNextModal1Cl").click(function () {
-        document.getElementById('modal1Cl').style.display = 'none'
-        document.getElementById('modal2Cl').style.display = 'block'
-
-    });
-    $("#btnNextModal2Cl").click(function () {
-        document.getElementById('modal2Cl').style.display = 'none'
-        document.getElementById('modal3Cl').style.display = 'block'
-    });
-    $("#btnBackModal2Cl").click(function () {
-        document.getElementById('modal2Cl').style.display = 'none'
-        document.getElementById('modal1Cl').style.display = 'block'
-    });
-    $("#btnBackModal3Cl").click(function () {
-        document.getElementById('modal3Cl').style.display = 'none'
-        document.getElementById('modal2Cl').style.display = 'block'
-    });
-
-    $("#cloracion_filter_all").click(function () {
-        if (document.getElementById('cloracion_filter_all').checked) {
-
-            document.getElementById('cloracion_filter_fecha').disabled = true
-            document.getElementById('cloracion_filter_acueducto').disabled = true
-            document.getElementById('cloracion_filter_encargado').disabled = true
-            document.getElementById('cloracion_filter_telefono').disabled = true
-            document.getElementById('cloracion_filter_funcionario').disabled = true
-        } else {
-            $("#cloracion_filter_fecha").removeAttr("disabled");
-            $("#cloracion_filter_acueducto").removeAttr("disabled");
-            $("#cloracion_filter_encargado").removeAttr("disabled");
-            $("#cloracion_filter_telefono").removeAttr("disabled");
-            $("#cloracion_filter_funcionario").removeAttr("disabled");
         }
     });
 
@@ -4493,7 +4886,6 @@
     </div>
 </div>
 
-
 <!-- Editar Formulario Desinfeccion/Cloracion-->
 <div id="cloracionEdit" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
@@ -4921,12 +5313,6 @@
         document.getElementById("FSLimpiezaEdit").addEventListener("click", habilitarDescripcion, false);
     });
 
-    function habilitarDescripcion() {
-        var valor = document.getElementById('FSLimpiezaEdit').value;
-        if (valor == "Otro") {
-            document.getElementById("otroDescripFSEdit").disabled = false;
-        }
-    }
 
     
     $("#btnNextModal1FSList").click(function () {

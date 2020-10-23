@@ -123,6 +123,191 @@ namespace Sersa.Controllers
             return resultado;
         }
 
+        public async Task<IActionResult> guardarFormularioA(string FECHA, string ACUEDUCTO, string TANQUE, string REGISTRO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string TIPOTANQUE, string MATTANQUE, string LIMPEZA, string NOTAS, string P1,
+                    string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10)
+        {
+            FormularioRespuesta f = new FormularioRespuesta();
+            f.P1 = P1;
+            f.P2 = P2;
+            f.P3 = P3;
+            f.P4 = P4;
+            f.P5 = P5;
+            f.P6 = P6;
+            f.P7 = P7;
+            f.P8 = P8;
+            f.P9 = P9;
+            f.P10 = P10;
+
+            AInfoGeneral ig = new AInfoGeneral();
+            ig.Registro = REGISTRO;
+            ig.Tanque = TANQUE;
+            ig.TipoTanque = TIPOTANQUE;
+            ig.MatTanque = MATTANQUE;
+            ig.Limpieza = LIMPEZA;
+
+            await Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            await query.InsertFormularioA(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                     FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
+            var resultado = new OkObjectResult(query);
+
+            return resultado;
+        }
+
+        public async Task<IActionResult> guardarFormularioC(string FECHA, string ACUEDUCTO, string CONDUCCIONTANQUE, string REPARACIONES, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string MATTUBERIA, string NOTAS, string P1,
+                    string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10)
+        {
+            FormularioRespuesta f = new FormularioRespuesta();
+            f.P1 = P1;
+            f.P2 = P2;
+            f.P3 = P3;
+            f.P4 = P4;
+            f.P5 = P5;
+            f.P6 = P6;
+            f.P7 = P7;
+            f.P8 = P8;
+            f.P9 = P9;
+            f.P10 = P10;
+
+            CInfoGeneral ig = new CInfoGeneral();
+            ig.ConduccionTanque = CONDUCCIONTANQUE;
+            ig.Reparaciones = REPARACIONES;
+            ig.FechaConstruccion = FECHACONSTRUCCION;
+            ig.MatTuberia = MATTUBERIA;
+
+            await Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            await query.InsertFormularioC(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                     FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
+            var resultado = new OkObjectResult(query);
+
+            return resultado;
+        }
+
+        public async Task<IActionResult> guardarFormularioD(string FECHA, string ACUEDUCTO, string REPARACIONES, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string MATTUBERIA, string NOTAS, string P1,
+                    string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10)
+        {
+            FormularioRespuesta f = new FormularioRespuesta();
+            f.P1 = P1;
+            f.P2 = P2;
+            f.P3 = P3;
+            f.P4 = P4;
+            f.P5 = P5;
+            f.P6 = P6;
+            f.P7 = P7;
+            f.P8 = P8;
+            f.P9 = P9;
+            f.P10 = P10;
+
+            DInfoGeneral ig = new DInfoGeneral();
+            ig.Reparaciones = REPARACIONES;
+            ig.FechaConstruccion = FECHACONSTRUCCION;
+            ig.MatTuberia = MATTUBERIA;
+
+            await Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            await query.InsertFormularioD(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                     FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
+            var resultado = new OkObjectResult(query);
+
+            return resultado;
+        }
+
+
+        public async Task<IActionResult> guardarFormularioQ(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string MATTUBERIA, string LIMPIEZA, string NOTAS, string P1,
+                    string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10)
+        {
+            FormularioRespuesta f = new FormularioRespuesta();
+            f.P1 = P1;
+            f.P2 = P2;
+            f.P3 = P3;
+            f.P4 = P4;
+            f.P5 = P5;
+            f.P6 = P6;
+            f.P7 = P7;
+            f.P8 = P8;
+            f.P9 = P9;
+            f.P10 = P10;
+
+            QInfoGeneral ig = new QInfoGeneral();
+            ig.Limpieza = LIMPIEZA;
+            ig.FechaConstruccion = FECHACONSTRUCCION;
+            ig.MatTuberia = MATTUBERIA;
+
+            await Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            await query.InsertFormularioQ(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                     FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
+            var resultado = new OkObjectResult(query);
+
+            return resultado;
+        }
+
+        public async Task<IActionResult> guardarFormularioCl(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string FECHAINSTALACION, string TIPOSISTEMA, string TIPODOSIFICACION, string NOTAS, string P1,
+                    string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10)
+        {
+            FormularioRespuesta f = new FormularioRespuesta();
+            f.P1 = P1;
+            f.P2 = P2;
+            f.P3 = P3;
+            f.P4 = P4;
+            f.P5 = P5;
+            f.P6 = P6;
+            f.P7 = P7;
+            f.P8 = P8;
+            f.P9 = P9;
+            f.P10 = P10;
+
+            ClInfoGeneral ig = new ClInfoGeneral();
+            ig.FechaInstalacion = FECHAINSTALACION;
+            ig.FechaConstruccion = FECHACONSTRUCCION;
+            ig.TipoSistema = TIPOSISTEMA;
+            ig.TipoDosificacion = TIPODOSIFICACION;
+
+            await Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            await query.InsertFormularioCl(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                     FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
+            var resultado = new OkObjectResult(query);
+
+            return resultado;
+        }
+
+        public async Task<IActionResult> guardarFormularioPP(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string SISTEMAPOT, string ESPECIFIQUE, string NOTAS, string P1,
+                    string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10)
+        {
+            FormularioRespuesta f = new FormularioRespuesta();
+            f.P1 = P1;
+            f.P2 = P2;
+            f.P3 = P3;
+            f.P4 = P4;
+            f.P5 = P5;
+            f.P6 = P6;
+            f.P7 = P7;
+            f.P8 = P8;
+            f.P9 = P9;
+            f.P10 = P10;
+
+            PPInfoGeneral ig = new PPInfoGeneral();
+            ig.SistemaPot = SISTEMAPOT;
+            ig.FechaConstruccion = FECHACONSTRUCCION;
+            ig.Especifique = ESPECIFIQUE;
+
+            await Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            await query.InsertFormularioPP(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                     FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
+            var resultado = new OkObjectResult(query);
+
+            return resultado;
+        }
+
     }
 }
 

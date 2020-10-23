@@ -70,7 +70,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@latitud", LATITUD);
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
-            cmd.Parameters.AddWithValue("@tipo_formulario", "FN");
+            cmd.Parameters.AddWithValue("@tipo_formulario", 2);
             await cmd.ExecuteNonQueryAsync();
 
         }
@@ -97,14 +97,175 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@latitud", LATITUD);
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
-            cmd.Parameters.AddWithValue("@tipo_formulario", "P");
+            cmd.Parameters.AddWithValue("@tipo_formulario", 3);
+            await cmd.ExecuteNonQueryAsync();
+
+        }
+
+
+        public async Task InsertFormularioA(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, AInfoGeneral ig, string NOTAS)
+        {
+            using var cmd = Database.Connection.CreateCommand();
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            cmd.Parameters.AddWithValue("@fecha", timestamp);
+            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
+            cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
+            cmd.Parameters.AddWithValue("@telefono", TELEFONO);
+            cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
+            var jsonIG = JsonSerializer.Serialize(ig);
+            var jsonIF = JsonSerializer.Serialize(f);
+
+            cmd.Parameters.AddWithValue("@info_general", jsonIG);
+            cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
+            cmd.Parameters.AddWithValue("@imagen", IMG);
+            cmd.Parameters.AddWithValue("@latitud", LATITUD);
+            cmd.Parameters.AddWithValue("@longitud", LONGITUD);
+            cmd.Parameters.AddWithValue("@comentarios", NOTAS);
+            cmd.Parameters.AddWithValue("@tipo_formulario", 4);
+            await cmd.ExecuteNonQueryAsync();
+
+        }
+
+
+        public async Task InsertFormularioC(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, CInfoGeneral ig, string NOTAS)
+        {
+            using var cmd = Database.Connection.CreateCommand();
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            cmd.Parameters.AddWithValue("@fecha", timestamp);
+            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
+            cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
+            cmd.Parameters.AddWithValue("@telefono", TELEFONO);
+            cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
+            var jsonIG = JsonSerializer.Serialize(ig);
+            var jsonIF = JsonSerializer.Serialize(f);
+
+            cmd.Parameters.AddWithValue("@info_general", jsonIG);
+            cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
+            cmd.Parameters.AddWithValue("@imagen", IMG);
+            cmd.Parameters.AddWithValue("@latitud", LATITUD);
+            cmd.Parameters.AddWithValue("@longitud", LONGITUD);
+            cmd.Parameters.AddWithValue("@comentarios", NOTAS);
+            cmd.Parameters.AddWithValue("@tipo_formulario", 5);
+            await cmd.ExecuteNonQueryAsync();
+
+        }
+
+        public async Task InsertFormularioD(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, DInfoGeneral ig, string NOTAS)
+        {
+            using var cmd = Database.Connection.CreateCommand();
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            cmd.Parameters.AddWithValue("@fecha", timestamp);
+            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
+            cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
+            cmd.Parameters.AddWithValue("@telefono", TELEFONO);
+            cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
+            var jsonIG = JsonSerializer.Serialize(ig);
+            var jsonIF = JsonSerializer.Serialize(f);
+
+            cmd.Parameters.AddWithValue("@info_general", jsonIG);
+            cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
+            cmd.Parameters.AddWithValue("@imagen", IMG);
+            cmd.Parameters.AddWithValue("@latitud", LATITUD);
+            cmd.Parameters.AddWithValue("@longitud", LONGITUD);
+            cmd.Parameters.AddWithValue("@comentarios", NOTAS);
+            cmd.Parameters.AddWithValue("@tipo_formulario", 6);
+            await cmd.ExecuteNonQueryAsync();
+
+        }
+
+        public async Task InsertFormularioQ(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, QInfoGeneral ig, string NOTAS)
+        {
+            using var cmd = Database.Connection.CreateCommand();
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            cmd.Parameters.AddWithValue("@fecha", timestamp);
+            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
+            cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
+            cmd.Parameters.AddWithValue("@telefono", TELEFONO);
+            cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
+            var jsonIG = JsonSerializer.Serialize(ig);
+            var jsonIF = JsonSerializer.Serialize(f);
+
+            cmd.Parameters.AddWithValue("@info_general", jsonIG);
+            cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
+            cmd.Parameters.AddWithValue("@imagen", IMG);
+            cmd.Parameters.AddWithValue("@latitud", LATITUD);
+            cmd.Parameters.AddWithValue("@longitud", LONGITUD);
+            cmd.Parameters.AddWithValue("@comentarios", NOTAS);
+            cmd.Parameters.AddWithValue("@tipo_formulario", 7);
+            await cmd.ExecuteNonQueryAsync();
+
+        }
+
+        public async Task InsertFormularioCl(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, ClInfoGeneral ig, string NOTAS)
+        {
+            using var cmd = Database.Connection.CreateCommand();
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            cmd.Parameters.AddWithValue("@fecha", timestamp);
+            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
+            cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
+            cmd.Parameters.AddWithValue("@telefono", TELEFONO);
+            cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
+            var jsonIG = JsonSerializer.Serialize(ig);
+            var jsonIF = JsonSerializer.Serialize(f);
+
+            cmd.Parameters.AddWithValue("@info_general", jsonIG);
+            cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
+            cmd.Parameters.AddWithValue("@imagen", IMG);
+            cmd.Parameters.AddWithValue("@latitud", LATITUD);
+            cmd.Parameters.AddWithValue("@longitud", LONGITUD);
+            cmd.Parameters.AddWithValue("@comentarios", NOTAS);
+            cmd.Parameters.AddWithValue("@tipo_formulario", 8);
+            await cmd.ExecuteNonQueryAsync();
+
+        }
+
+        public async Task InsertFormularioPP(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, PPInfoGeneral ig, string NOTAS)
+        {
+            using var cmd = Database.Connection.CreateCommand();
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            cmd.Parameters.AddWithValue("@fecha", timestamp);
+            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
+            cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
+            cmd.Parameters.AddWithValue("@telefono", TELEFONO);
+            cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
+            var jsonIG = JsonSerializer.Serialize(ig);
+            var jsonIF = JsonSerializer.Serialize(f);
+
+            cmd.Parameters.AddWithValue("@info_general", jsonIG);
+            cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
+            cmd.Parameters.AddWithValue("@imagen", IMG);
+            cmd.Parameters.AddWithValue("@latitud", LATITUD);
+            cmd.Parameters.AddWithValue("@longitud", LONGITUD);
+            cmd.Parameters.AddWithValue("@comentarios", NOTAS);
+            cmd.Parameters.AddWithValue("@tipo_formulario", 9);
             await cmd.ExecuteNonQueryAsync();
 
         }
 
     }
-
-
-
     
 }
