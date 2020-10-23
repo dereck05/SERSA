@@ -80,7 +80,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@latitud", LATITUD);
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
-            cmd.Parameters.AddWithValue("@tipo_formulario", "FS");
+            cmd.Parameters.AddWithValue("@tipo_formulario", 1);
             await cmd.ExecuteNonQueryAsync();
 
         }
