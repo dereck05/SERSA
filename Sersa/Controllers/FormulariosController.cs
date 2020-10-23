@@ -24,14 +24,6 @@ namespace Sersa.Controllers
             Database = db;
         }
 
-        public async Task<IActionResult> test()
-        {
-            await Database.Connection.OpenAsync();
-            var query = new FormulariosModel(Database);
-            Console.Out.WriteLine("yes");
-            await query.InsertAsync();
-            return new OkObjectResult(query);
-        }
 
         public async Task<IActionResult> guardarFormularioFS(string FECHA, string ACUEDUCTO, string TOMA, string REGISTRO, string DIRECCION,string ENCARGADO,string TELEFONO,
                     string FUNCIONARIO, string LATITUD,string LONGITUD, string IMG, string LIMPIEZA, string ESPECIFIQUE, string NOTAS, string P1,

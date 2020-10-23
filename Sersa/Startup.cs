@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Sersa.Models;
 
 namespace Sersa
 {
@@ -25,6 +26,7 @@ namespace Sersa
         {
             services.AddControllersWithViews();
             services.AddTransient<DBConnector>(_ => new DBConnector(Configuration["ConnectionStrings:Sersa"]));
+            services.AddTransient<DBIrsassConnector>(_ => new DBIrsassConnector(Configuration["ConnectionStrings:Irsass"]));
 
         }
 
