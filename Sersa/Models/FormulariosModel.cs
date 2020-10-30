@@ -5,6 +5,7 @@ using MySqlConnector;
 using System.Text.Json;
 using Newtonsoft.Json.Linq;
 using Sersa.Models;
+using System.Collections.Generic;
 
 namespace Sersa
 
@@ -266,6 +267,38 @@ namespace Sersa
 
         }
 
+
+        public List<Formularios> llenarTablaListaFS()
+        {
+            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='1'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            List<Formularios> lista = new List<Formularios>();
+
+            while (rdr.HasRows)
+            {
+
+                while (rdr.Read())
+                {
+                    Formularios temp = new Formularios();
+                    string col1Value = rdr[0].ToString();
+                    temp.id = col1Value;
+                    string col2Value = rdr[1].ToString();
+                    temp.Fecha = col2Value;
+                    string col3Value = rdr[2].ToString();
+                    temp.Acueducto = col3Value;
+                    lista.Add(temp);
+                }
+                rdr.NextResult();
+            }
+
+            return lista;
+
+        }
     }
     
 }

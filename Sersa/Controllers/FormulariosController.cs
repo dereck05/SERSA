@@ -124,7 +124,7 @@ namespace Sersa.Controllers
         }
 
         public async Task<IActionResult> guardarFormularioA(string FECHA, string ACUEDUCTO, string TANQUE, string REGISTRO, string ENCARGADO, string TELEFONO,
-                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string TIPOTANQUE, string MATTANQUE, string LIMPEZA, string NOTAS, string P1,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string TIPOTANQUE, string MATTANQUE, string LIMPIEZA, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10)
         {
             FormularioRespuesta f = new FormularioRespuesta();
@@ -144,7 +144,7 @@ namespace Sersa.Controllers
             ig.Tanque = TANQUE;
             ig.TipoTanque = TIPOTANQUE;
             ig.MatTanque = MATTANQUE;
-            ig.Limpieza = LIMPEZA;
+            ig.Limpieza = LIMPIEZA;
 
             await Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
@@ -308,6 +308,18 @@ namespace Sersa.Controllers
             return resultado;
         }
 
+
+        public PartialViewResult llenarTablaListaFS()
+        {
+
+            Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            List<Formularios> lista = new List<Formularios>();
+            lista = query.llenarTablaListaFS();
+
+            return PartialView("_LayoutListarFS", lista);
+
+        }
     }
 }
 

@@ -1,4 +1,8 @@
-﻿@{
+﻿<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/select/1.2.3/css/select.dataTables.min.css" rel="stylesheet" />
+
+@{
     ViewData["Title"] = "Formularios";
 }
 
@@ -21,7 +25,7 @@
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#fuenteSupEdit">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#fuenteSupListaEdit">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
@@ -2115,15 +2119,70 @@
 </div>
 
 
+<!-- Lista Edit Fuente Superficial-->
+<div id="fuenteSupListaEdit" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1FSListaEdit">
+                    <p style="text-align:center">Ficha de campo 1</p>
+                    <p style="text-align:center;font-weight: bold;">Fuente Superficial</p>
+                    <div id="tablaListarFS"></div>
+                    <button id="btnCerrarListaEditFS" class="btn btn-primary btn-lg" data-dismiss="modal" style="background-color: #4f83cc;color:#ffffff;float:right;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+
 <script>
 
     $(document).ready(function () {
-        document.getElementById("FSLimpieza").addEventListener("click", habilitarDescripcion, false);
+        document.getElementById("FSLimpieza").addEventListener("click", habilitarDescripcionFS, false);
         document.getElementById("potabilizacion-gen-3").addEventListener("click", habilitarDescripcionPP, false);
+
+        $("#fuenteSupListaEdit").on(" shown.bs.modal ", function () {
+            LlenarTablaListaFS();
+        });
+
     });
+
+    function LlenarTablaListaFS() {
+        try {
+            $.ajax({
+                url: '/Formularios/llenarTablaListaFS/',
+                type: 'Post',
+                datatype: 'application/json',
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $('#tablaListarFS').empty().html(result);
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al listar los Formularios.")
+                },
+                complete: function () {
+                    $('#tablaListarFS').show();
+                }
+            });
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
 
     $("#btnSaveFS").on("click", function () {
         guardarFormularioFS();
+        document.getElementById('modal3FS').style.display = 'none'
+        document.getElementById('modal1FS').style.display = 'block'
     });
 
     function guardarFormularioFS() {
@@ -2202,7 +2261,7 @@
         }
     };
 
-    function habilitarDescripcion() {
+    function habilitarDescripcionFS() {
         var valor = document.getElementById('FSLimpieza').value;
         if (valor == "Otro") {
             document.getElementById("otroDescripFS").disabled = false;
@@ -2268,6 +2327,8 @@
 
     $("#btnSaveFN").on("click", function () {
         guardarFormularioFN();
+        document.getElementById('modal3FN').style.display = 'none'
+        document.getElementById('modal1FN').style.display = 'block'
     });
 
     function guardarFormularioFN() {
@@ -2398,6 +2459,8 @@
 
     $("#btnSaveP").on("click", function () {
         guardarFormularioP();
+        document.getElementById('modal3P').style.display = 'none'
+        document.getElementById('modal1P').style.display = 'block'
     });
 
     function guardarFormularioP() {
@@ -2536,6 +2599,8 @@
 
     $("#btnSaveA").on("click", function () {
         guardarFormularioA();
+        document.getElementById('modal3A').style.display = 'none'
+        document.getElementById('modal1A').style.display = 'block'
     });
 
     function guardarFormularioA() {
@@ -2552,6 +2617,7 @@
         var tipoTanque = document.getElementById('tipoTanqueA').value;
         var matTanque = document.getElementById('matTanqueA').value;
         var limpieza = document.getElementById('ALimpieza').value;
+        console.log(limpieza);
         var notas = document.getElementById('notasALimpieza').value;
         var p1 = $('input:radio[name=infra1A]:checked').val();
         var p2 = $('input:radio[name=infra2A]:checked').val();
@@ -2668,6 +2734,8 @@
 
     $("#btnSaveC").on("click", function () {
         guardarFormularioC();
+        document.getElementById('modal3C').style.display = 'none'
+        document.getElementById('modal1C').style.display = 'block'
     });
 
     function guardarFormularioC() {
@@ -2799,6 +2867,8 @@
 
     $("#btnSaveD").on("click", function () {
         guardarFormularioD();
+        document.getElementById('modal3D').style.display = 'none'
+        document.getElementById('modal1D').style.display = 'block'
     });
 
     function guardarFormularioD() {
@@ -2870,7 +2940,7 @@
 
     function on_location_changeD() {
         if (document.getElementById('UbicacionGpsD').checked) {
-            showPosition()
+            showPositionD()
         } else if (document.getElementById('UbicacionManualD').checked) {
 
             document.getElementById('LatitudD').value = ''
@@ -2928,6 +2998,8 @@
 
     $("#btnSaveQ").on("click", function () {
         guardarFormularioQ();
+        document.getElementById('modal3Q').style.display = 'none'
+        document.getElementById('modal1Q').style.display = 'block'
     });
 
     function guardarFormularioQ() {
@@ -2970,7 +3042,7 @@
                     IMG: img,
                     FECHACONSTRUCCION: fechaConstruccion,
                     MATTUBERIA: matTuberia,
-                    LIMPIEZA : limpieza,
+                    LIMPIEZA: limpieza,
                     NOTAS: notas,
                     P1: p1,
                     P2: p2,
@@ -2999,7 +3071,7 @@
 
     function on_location_changeQ() {
         if (document.getElementById('UbicacionGpsQ').checked) {
-            showPosition()
+            showPositionQ()
         } else if (document.getElementById('UbicacionManualQ').checked) {
 
             document.getElementById('LatitudQ').value = ''
@@ -3056,6 +3128,8 @@
 
     $("#btnSaveCl").on("click", function () {
         guardarFormularioCl();
+        document.getElementById('modal3Cl').style.display = 'none'
+        document.getElementById('modal1Cl').style.display = 'block'
     });
 
     function guardarFormularioCl() {
@@ -3069,8 +3143,8 @@
         var img = document.getElementById('imgCl').value;
         var fechaConstruccion = document.getElementById('cloracion-gen-1').value;
         var fechaInstalacion = document.getElementById('cloracion-gen-2').value;
-        var tipoSistema = document.getElementById('cloracion-gen-3').value;
-        var tipoDosificacion = document.getElementById('cloracion-gen-4').value;
+        var tipoSistema = $('input:radio[name=cloracion-gen-3]:checked').val()
+        var tipoDosificacion = $('input:radio[name=cloracion-gen-4]:checked').val()
         var notas = document.getElementById('notasCl').value;
         var p1 = $('input:radio[name=infra1Cl]:checked').val();
         var p2 = $('input:radio[name=infra2Cl]:checked').val();
@@ -3186,6 +3260,8 @@
 
     $("#btnSavePP").on("click", function () {
         guardarFormularioPP();
+        document.getElementById('modal3PP').style.display = 'none'
+        document.getElementById('modal1PP').style.display = 'block'
     });
 
     function guardarFormularioPP() {
@@ -3876,8 +3952,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="pozoP">Tipo de Pozo </label><br>
-                            <select id="pozoPEdit" name="pozoP">
+                            <label for="tipoPEdit">Tipo de Pozo </label><br>
+                            <select id="tipoPEdit" name="pozoP">
                                 <option value="Excavado">Excavado</option>
                                 <option value="Perforado">Perforado</option>
                             </select>
@@ -4104,8 +4180,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="ALimpieza">Frecuencia de Limpieza </label><br>
-                            <select id="ALimpiezaEdit" name="ALimpieza">
+                            <label for="ALimpiezaEdit">Frecuencia de Limpieza </label><br>
+                            <select id="ALimpiezaEdit" name="ALimpiezaEdit">
                                 <option value="Anual">Anual</option>
                                 <option value="Semestral">Semestral</option>
                                 <option value="Trimestral">Trimestral</option>
@@ -4116,8 +4192,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="notasALimpieza">Notas adicionales</label><br>
-                            <textarea class="form-control" id="notasALimpiezaEdit" name="notasALimpieza" rows="2"></textarea>
+                            <label for="notasALimpiezaEdit">Notas adicionales</label><br>
+                            <textarea class="form-control" id="notasALimpiezaEdit" name="notasALimpiezaEdit" rows="2"></textarea>
                         </div>
 
                     </form>
@@ -4336,8 +4412,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="notasC">Notas adicionales</label><br>
-                            <textarea class="form-control" id="notasC" name="notasC" rows="2"></textarea>
+                            <label for="notasCEdit">Notas adicionales</label><br>
+                            <textarea class="form-control" id="notasCEdit" name="notasCEdit" rows="2"></textarea>
                         </div>
 
                     </form>
@@ -4968,23 +5044,23 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="cloracion-gen-3">Tipo de Sistema de Cloración </label><br>
-                            <label class="radio-inline"><input type="radio" id="gascloroEdit" name="cloracion-gen-3"> Gas Cloro </label>
-                            <label class="radio-inline"><input type="radio" id="electrosisEdit" name="cloracion-gen-3"> Electrósis </label>
-                            <label class="radio-inline"><input type="radio" id="pastillasEdit" name="cloracion-gen-3"> Pastillas(Erosión) </label>
-                            <label class="radio-inline"><input type="radio" id="otroCEdit" name="cloracion-gen-3"> Otro </label>
+                            <label for="cloracion-gen-3Edit">Tipo de Sistema de Cloración </label><br>
+                            <label class="radio-inline"><input type="radio" id="gascloroEdit" name="cloracion-gen-3Edit"> Gas Cloro </label>
+                            <label class="radio-inline"><input type="radio" id="electrosisEdit" name="cloracion-gen-3Edit"> Electrósis </label>
+                            <label class="radio-inline"><input type="radio" id="pastillasEdit" name="cloracion-gen-3Edit"> Pastillas(Erosión) </label>
+                            <label class="radio-inline"><input type="radio" id="otroCEdit" name="cloracion-gen-3Edit"> Otro </label>
 
                         </div>
 
                         <div class="form-group">
-                            <label for="cloracion-gen-4">Tipo de Dosificación </label><br>
-                            <label class="radio-inline"><input type="radio" id="programadaClEdit" name="cloracion-gen-4"> Tiempos programados </label>
-                            <label class="radio-inline"><input type="radio" id="continuaClEdit" name="cloracion-gen-4"> Continua </label>
+                            <label for="cloracion-gen-4Edit">Tipo de Dosificación </label><br>
+                            <label class="radio-inline"><input type="radio" id="programadaClEdit" name="cloracion-gen-4Edit"> Tiempos programados </label>
+                            <label class="radio-inline"><input type="radio" id="continuaClEdit" name="cloracion-gen-4Edit"> Continua </label>
                         </div>
 
                         <div class="form-group">
-                            <label for="cloracion-gen-5">Notas adicionales</label><br>
-                            <textarea class="form-control" id="notasEdit" name="cloracion-gen-5" rows="2"></textarea>
+                            <label for="cloracion-gen-5Edit">Notas adicionales</label><br>
+                            <textarea class="form-control" id="notasEdit" name="cloracion-gen-5Edit" rows="2"></textarea>
                         </div>
 
                     </form>
@@ -5188,8 +5264,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="potabilizacion-gen-1">Mencionar</label>
-                            <input type="text" class="form-control" id="potabilizacion-gen-1Edit">
+                            <label for="potabilizacion-gen-2">Mencionar</label>
+                            <input type="text" class="form-control" id="potabilizacion-gen-2Edit">
                         </div>
 
 
@@ -5310,11 +5386,11 @@
 <script>
 
     $(document).ready(function () {
-        document.getElementById("FSLimpiezaEdit").addEventListener("click", habilitarDescripcion, false);
+        document.getElementById("FSLimpiezaEdit").addEventListener("click", habilitarDescripcionFS, false);
     });
 
 
-    
+
     $("#btnNextModal1FSList").click(function () {
         document.getElementById('modal1FSList').style.display = 'none'
         document.getElementById('modal1FSEdit').style.display = 'block'

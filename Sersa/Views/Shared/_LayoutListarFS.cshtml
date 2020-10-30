@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Formularios>
+
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/select/1.2.3/css/select.dataTables.min.css" rel="stylesheet" />
+
+<div class="x_panel">
+    <div class="x_title">
+        <table id="tablaFSLista" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th hidden>
+                        Id
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Fecha
+                    </th>
+                    <th>
+                        
+                    </th>
+                    <th>
+                        
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody id="tablaErroresCuerpo">
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td hidden>
+                        @item.id
+                    </td>
+                    <td>
+                        @item.Acueducto
+                    </td>
+                    <td>
+                        @item.Fecha
+                    </td>
+                    <td>
+                        <button class="btn btn-lg" data-toggle="modal" data-target="#fuenteSupEdit">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-lg" data-toggle="modal" data-target="#fuenteSupEdit">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+
+<script>
+    $(document).ready(function () { 
+
+        var table = $("#tablaFSLista").dataTable({
+
+            responsive: true,
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            //"scrollY": "200px",
+            "scrollX": "200px",
+
+            language: {
+                processing: "Procesando...",
+                search: "Buscar",
+                lengthMenu: "Mostrar _MENU_ registros",
+                info: "_START_ al _END_ de _TOTAL_ registros",
+                infoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
+                infoFiltered: "(_MAX_ filtrados)",
+                infoPostFix: "",
+                loadingRecords: "Cargando...",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "Ningún dato disponible en esta tabla",
+                paginate: {
+                    first: "Primero",
+                    previous: "Anterior",
+                    next: "Siguiente",
+                    last: "Ultimo"
+                },
+                aria: {
+                    sortAscending: ": Activar para ordenar la columna de manera ascendente",
+                    sortDescending: ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+
+        });
+    });
+
+</script>
