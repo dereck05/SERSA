@@ -6,7 +6,7 @@
 
 <div class="x_panel">
     <div class="x_title">
-        <table id="tablaFSLista" class="display" cellspacing="0" width="100%">
+        <table id="tablaPLista" class="display" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th hidden>
@@ -27,7 +27,7 @@
 
                 </tr>
             </thead>
-            <tbody id="tablaListarCuerpo">
+            <tbody id="tablaListarPCuerpo">
                 @foreach (var item in Model)
                 {
                 <tr>
@@ -67,7 +67,7 @@
 <script>
     $(document).ready(function () { 
 
-        var table = $("#tablaFSLista").dataTable({
+        var table = $("#tablaPLista").dataTable({
 
             responsive: true,
             "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],

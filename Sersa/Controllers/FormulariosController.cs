@@ -320,6 +320,103 @@ namespace Sersa.Controllers
             return PartialView("_LayoutListarFS", lista);
 
         }
+
+        public PartialViewResult llenarTablaListaFN()
+        {
+
+            Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            List<Formularios> lista = new List<Formularios>();
+            lista = query.llenarTablaListaFN();
+
+            return PartialView("_LayoutListarFN", lista);
+
+        }
+
+        public PartialViewResult llenarTablaListaP()
+        {
+
+            Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            List<Formularios> lista = new List<Formularios>();
+            lista = query.llenarTablaListaP();
+
+            return PartialView("_LayoutListarP", lista);
+
+        }
+
+        public PartialViewResult llenarTablaListaA()
+        {
+
+            Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            List<Formularios> lista = new List<Formularios>();
+            lista = query.llenarTablaListaA();
+
+            return PartialView("_LayoutListarA", lista);
+
+        }
+
+        public PartialViewResult llenarTablaListaC()
+        {
+
+            Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            List<Formularios> lista = new List<Formularios>();
+            lista = query.llenarTablaListaC();
+
+            return PartialView("_LayoutListarC", lista);
+
+        }
+
+        public PartialViewResult llenarTablaListaD()
+        {
+
+            Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            List<Formularios> lista = new List<Formularios>();
+            lista = query.llenarTablaListaC();
+
+            return PartialView("_LayoutListarD", lista);
+
+        }
+
+        public PartialViewResult llenarTablaListaQ()
+        {
+
+            Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            List<Formularios> lista = new List<Formularios>();
+            lista = query.llenarTablaListaQ();
+
+            return PartialView("_LayoutListarQ", lista);
+
+        }
+
+        public PartialViewResult llenarTablaListaCl()
+        {
+
+            Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            List<Formularios> lista = new List<Formularios>();
+            lista = query.llenarTablaListaCl();
+
+            return PartialView("_LayoutListarCl", lista);
+
+        }
+
+        public PartialViewResult llenarTablaListaPP()
+        {
+
+            Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            List<Formularios> lista = new List<Formularios>();
+            lista = query.llenarTablaListaPP();
+
+            return PartialView("_LayoutListarPP", lista);
+
+        }
+
     }
 }
 

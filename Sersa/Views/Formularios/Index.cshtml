@@ -44,7 +44,7 @@
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#fuenteNacEdit">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#fuenteNacListaEdit">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
@@ -63,7 +63,7 @@
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#pozosEdit">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#pozosListaEdit">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
@@ -83,7 +83,7 @@
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#almacenamientoEdit">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#almacenamientoListaEdit">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
@@ -102,7 +102,7 @@
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#conduccionEdit">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#conduccionListaEdit">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
@@ -121,7 +121,7 @@
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#distribucionEdit">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#distribucionListaEdit">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
@@ -140,7 +140,7 @@
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#quiebragradientesEdit">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#quiebraListaEdit">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
@@ -159,7 +159,7 @@
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#cloracionEdit">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#desinfeccionListaEdit">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
@@ -178,7 +178,7 @@
                     </button>
                 </div>
                 <div class="col-6">
-                    <button class="btn btn-lg" data-toggle="modal" data-target="#potabilizacionEdit">
+                    <button class="btn btn-lg" data-toggle="modal" data-target="#potabilizacionListaEdit">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
@@ -2138,6 +2138,158 @@
     </div>
 </div>
 
+<!-- Lista Edit Fuente Naciente-->
+<div id="fuenteNacListaEdit" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1FNListaEdit">
+                    <p style="text-align:center">Ficha de campo 2</p>
+                    <p style="text-align:center;font-weight: bold;">Fuente Naciente</p>
+                    <div id="tablaListarFN"></div>
+                    <button id="btnCerrarListaEditFN" class="btn btn-primary btn-lg" data-dismiss="modal" style="background-color: #4f83cc;color:#ffffff;float:right;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lista Edit Pozos-->
+<div id="pozosListaEdit" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1PListaEdit">
+                    <p style="text-align:center">Ficha de campo 3</p>
+                    <p style="text-align:center;font-weight: bold;"> Pozos </p>
+                    <div id="tablaListarP"></div>
+                    <button id="btnCerrarListaEditP" class="btn btn-primary btn-lg" data-dismiss="modal" style="background-color: #4f83cc;color:#ffffff;float:right;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lista Edit Almacenamiento-->
+<div id="almacenamientoListaEdit" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1AListaEdit">
+                    <p style="text-align:center">Ficha de campo 4</p>
+                    <p style="text-align:center;font-weight: bold;">Tanques de Almacenamiento</p>
+                    <div id="tablaListarA"></div>
+                    <button id="btnCerrarListaEditA" class="btn btn-primary btn-lg" data-dismiss="modal" style="background-color: #4f83cc;color:#ffffff;float:right;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lista Edit Conduccion-->
+<div id="conduccionListaEdit" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1CListaEdit">
+                    <p style="text-align:center">Ficha de campo 5</p>
+                    <p style="text-align:center;font-weight: bold;">Conducción</p>
+                    <div id="tablaListarC"></div>
+                    <button id="btnCerrarListaEditC" class="btn btn-primary btn-lg" data-dismiss="modal" style="background-color: #4f83cc;color:#ffffff;float:right;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lista Edit Distribucion-->
+<div id="distribucionListaEdit" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1DListaEdit">
+                    <p style="text-align:center">Ficha de campo 6</p>
+                    <p style="text-align:center;font-weight: bold;">Red Distribución</p>
+                    <div id="tablaListarD"></div>
+                    <button id="btnCerrarListaEditD" class="btn btn-primary btn-lg" data-dismiss="modal" style="background-color: #4f83cc;color:#ffffff;float:right;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lista Edit Quiebragradientes-->
+<div id="quiebraListaEdit" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1QListaEdit">
+                    <p style="text-align:center">Ficha de campo 7</p>
+                    <p style="text-align:center;font-weight: bold;">Quiebra-Gradientes</p>
+                    <div id="tablaListarQ"></div>
+                    <button id="btnCerrarListaEditQ" class="btn btn-primary btn-lg" data-dismiss="modal" style="background-color: #4f83cc;color:#ffffff;float:right;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lista Edit Desinfeccion-->
+<div id="desinfeccionListaEdit" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1ClListaEdit">
+                    <p style="text-align:center">Ficha de campo 8</p>
+                    <p style="text-align:center;font-weight: bold;">Desinfección</p>
+                    <div id="tablaListarCl"></div>
+                    <button id="btnCerrarListaEditCl" class="btn btn-primary btn-lg" data-dismiss="modal" style="background-color: #4f83cc;color:#ffffff;float:right;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lista Edit Potabilizacion-->
+<div id="potabilizacionListaEdit" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1PPListaEdit">
+                    <p style="text-align:center">Ficha de campo 9</p>
+                    <p style="text-align:center;font-weight: bold;">Planta Potabilización</p>
+                    <div id="tablaListarPP"></div>
+                    <button id="btnCerrarListaEditPP" class="btn btn-primary btn-lg" data-dismiss="modal" style="background-color: #4f83cc;color:#ffffff;float:right;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
@@ -2151,6 +2303,38 @@
 
         $("#fuenteSupListaEdit").on(" shown.bs.modal ", function () {
             LlenarTablaListaFS();
+        });
+
+        $("#fuenteNacListaEdit").on(" shown.bs.modal ", function () {
+            LlenarTablaListaFN();
+        });
+
+        $("#pozosListaEdit").on(" shown.bs.modal ", function () {
+            LlenarTablaListaP();
+        });
+
+        $("#almacenamientoListaEdit").on(" shown.bs.modal ", function () {
+            LlenarTablaListaA();
+        });
+
+        $("#conduccionListaEdit").on(" shown.bs.modal ", function () {
+            LlenarTablaListaC();
+        });
+
+        $("#distribucionListaEdit").on(" shown.bs.modal ", function () {
+            LlenarTablaListaD();
+        });
+
+        $("#quiebraListaEdit").on(" shown.bs.modal ", function () {
+            LlenarTablaListaQ();
+        });
+
+        $("#desinfeccionListaEdit").on(" shown.bs.modal ", function () {
+            LlenarTablaListaCl();
+        });
+
+        $("#potabilizacionListaEdit").on(" shown.bs.modal ", function () {
+            LlenarTablaListaPP();
         });
 
     });
@@ -2172,6 +2356,198 @@
                 },
                 complete: function () {
                     $('#tablaListarFS').show();
+                }
+            });
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
+    function LlenarTablaListaFN() {
+        try {
+            $.ajax({
+                url: '/Formularios/llenarTablaListaFN/',
+                type: 'Post',
+                datatype: 'application/json',
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $('#tablaListarFN').empty().html(result);
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al listar los Formularios.")
+                },
+                complete: function () {
+                    $('#tablaListarFN').show();
+                }
+            });
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
+    function LlenarTablaListaP() {
+        try {
+            $.ajax({
+                url: '/Formularios/llenarTablaListaP/',
+                type: 'Post',
+                datatype: 'application/json',
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $('#tablaListarP').empty().html(result);
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al listar los Formularios.")
+                },
+                complete: function () {
+                    $('#tablaListarP').show();
+                }
+            });
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
+    function LlenarTablaListaA() {
+        try {
+            $.ajax({
+                url: '/Formularios/llenarTablaListaA/',
+                type: 'Post',
+                datatype: 'application/json',
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $('#tablaListarA').empty().html(result);
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al listar los Formularios.")
+                },
+                complete: function () {
+                    $('#tablaListarA').show();
+                }
+            });
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
+    function LlenarTablaListaC() {
+        try {
+            $.ajax({
+                url: '/Formularios/llenarTablaListaC/',
+                type: 'Post',
+                datatype: 'application/json',
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $('#tablaListarC').empty().html(result);
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al listar los Formularios.")
+                },
+                complete: function () {
+                    $('#tablaListarC').show();
+                }
+            });
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
+    function LlenarTablaListaD() {
+        try {
+            $.ajax({
+                url: '/Formularios/llenarTablaListaD/',
+                type: 'Post',
+                datatype: 'application/json',
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $('#tablaListarD').empty().html(result);
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al listar los Formularios.")
+                },
+                complete: function () {
+                    $('#tablaListarD').show();
+                }
+            });
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
+    function LlenarTablaListaQ() {
+        try {
+            $.ajax({
+                url: '/Formularios/llenarTablaListaQ/',
+                type: 'Post',
+                datatype: 'application/json',
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $('#tablaListarQ').empty().html(result);
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al listar los Formularios.")
+                },
+                complete: function () {
+                    $('#tablaListarQ').show();
+                }
+            });
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
+    function LlenarTablaListaCl() {
+        try {
+            $.ajax({
+                url: '/Formularios/llenarTablaListaCl/',
+                type: 'Post',
+                datatype: 'application/json',
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $('#tablaListarCl').empty().html(result);
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al listar los Formularios.")
+                },
+                complete: function () {
+                    $('#tablaListarCl').show();
+                }
+            });
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
+
+    function LlenarTablaListaPP() {
+        try {
+            $.ajax({
+                url: '/Formularios/llenarTablaListaPP/',
+                type: 'Post',
+                datatype: 'application/json',
+                beforeSend: function () {
+
+                },
+                success: function (result) {
+                    $('#tablaListarPP').empty().html(result);
+                },
+                error: function () {
+                    alert("Ha ocurrido un error al listar los Formularios.")
+                },
+                complete: function () {
+                    $('#tablaListarPP').show();
                 }
             });
         } catch (err) {
