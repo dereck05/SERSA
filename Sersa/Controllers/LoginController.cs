@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Sersa.Models;
-
+using System.Diagnostics;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Sersa.Controllers
@@ -22,7 +22,6 @@ namespace Sersa.Controllers
         {
             Database = db;
         }
-
         public async Task<IActionResult> GetUsers(string USER, string PASSWORD)
         {
             await Database.Connection.OpenAsync();
@@ -30,8 +29,6 @@ namespace Sersa.Controllers
             var result = await query.credentialsValidate(USER,PASSWORD);
             return new OkObjectResult(result);
         }
-        public ActionResult Home() {
-            return View("Home/Index");
-        }
+
     }
 }

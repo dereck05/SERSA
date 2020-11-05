@@ -37,6 +37,7 @@
                 <div class="form-group label">
                     <label id="msg" class="colorlabel"> </label>
                 </div>
+                <div id="result"></div>
 
             </div>
         </div>
@@ -59,15 +60,12 @@
                             PASSWORD: pswd,
                         },
                         success: function (data) {
+                            
                             if (data == "") {
                                 $('#msg').text("Nombre o contraseña incorrectos");
                             } else {
-                                $.ajax({
-                                    url: '/Login/Home/',
-                                    type: 'Post',
-                                    datatype: 'application/json',
-                                });
-                                console.log("Data: " + data);
+                                location.href = "Home/Index";
+
                             }
                            // $('#fuenteSup').modal('toggle');
                         },
