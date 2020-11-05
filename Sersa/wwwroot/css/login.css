@@ -24,6 +24,12 @@
 .inputs {
     margin-top: 10%;
 }
+.label {
+    margin-top: 11%;
+}
+.colorlabel {
+    color: #FF0000;
+}
 .btnSubmit
 {
     width: 50%;
