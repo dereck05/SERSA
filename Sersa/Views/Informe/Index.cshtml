@@ -1,0 +1,39 @@
+﻿@*
+
+*@
+@{
+    ViewData["Title"] = "Informe";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/informe.css" />
+</head>
+<body>
+    <div class="text-center mt-2 mb-5">
+        <h1>Generacion de Informe</h1>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <label for="fecha">Fecha Inicio</label>
+                <input class="form-control" type="date" id="fechaInicioInforme">
+            </div>
+            <div class="col-6">
+                <label for="fecha">Fecha Final</label>
+                <input class="form-control" type="date" id="fechaFinInforme">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col text-center mt-5">
+                <button id="btnBuscarInforme" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Buscar</button>
+            </div>
+           
+        </div>
+
+
+    </div>
+    
+</body>

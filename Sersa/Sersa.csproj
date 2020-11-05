@@ -10,6 +10,7 @@
     <Folder Include="Views\Mapa\" />
     <Folder Include="Views\Login\" />
     <Folder Include="wwwroot\images\" />
+    <Folder Include="Views\Informe\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\logo.png" />
