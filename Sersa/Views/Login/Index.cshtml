@@ -2,4 +2,86 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewData["Title"] - Sersa</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/login.css" />
+
+</head>
+<body class="text-center">
+    <div class="container login-container">
+        <div class="row">
+            <div class="col login-form-1" style="background: linear-gradient(200.96deg, #00B396 14.77%, #1D2D51 103.25%)">
+
+            </div>
+            <div class="col login-form-2">
+                <h3 style="color: #1d2d51">Inicio de Sesión</h3>
+
+                <div class="form-group inputs">
+                    <input type="text" class="form-control" placeholder="Usuario" value="" id="user" />
+                </div>
+                <div class="form-group inputs">
+                    <input type="password" class="form-control" placeholder="Contraseña" value="" id="pswd" />
+                </div>
+                <button id="btnLogin" class="btn btn-primary btn-lg btnSubmit">Iniciar Sesión</button>
+                <div class="form-group label">
+                    <label id="msg" class="colorlabel"> </label>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#btnLogin").click(function () {
+                login();
+            });
+            function login() {
+                var user = document.getElementById('user').value;
+                var pswd = document.getElementById('pswd').value;
+                try {
+                    $.ajax({
+                        url: '/Login/GetUsers/',
+                        type: 'Post',
+                        datatype: 'application/json',
+                        data: {
+                            USER: user,
+                            PASSWORD: pswd,
+                        },
+                        success: function (data) {
+                            if (data == "") {
+                                $('#msg').text("Nombre o contraseña incorrectos");
+                            } else {
+                                $.ajax({
+                                    url: '/Login/Home/',
+                                    type: 'Post',
+                                    datatype: 'application/json',
+                                });
+                                console.log("Data: " + data);
+                            }
+                           // $('#fuenteSup').modal('toggle');
+                        },
+                        error: function () {
+                            $('#msg').text("Ha ocurrido un error intente nuevamente");
+                            //alert("Ha ocurrido un error al insertar la Factura Linea");
+                        }
+                    });
+                } catch (err) {
+                    $('#msg').text("Ha ocurrido un error intente nuevamente");
+                    //console.log(err.message)
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

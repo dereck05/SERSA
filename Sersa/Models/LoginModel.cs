@@ -17,6 +17,13 @@ namespace Sersa.Models
         {
             Database = db;
         }
+        public async Task<List<Usuario>> credentialsValidate(string user, string password) {
+            using var cmd = Database.Connection.CreateCommand();
+            cmd.CommandText = @"SELECT * FROM `USUARIO` WHERE USUARIO=@user and Contrasenna=@password";
+            cmd.Parameters.AddWithValue("@user", user);
+            cmd.Parameters.AddWithValue("@password", password);
+            return await ReadAllAsync(await cmd.ExecuteReaderAsync());
+        }
 
         public async Task<List<Usuario>> GetUsers()
         {
@@ -42,9 +49,6 @@ namespace Sersa.Models
                     posts.Add(post);
                 }
             }
-            Console.WriteLine("holi");
-
-            Console.WriteLine(posts);
 
             return posts;
         }
