@@ -627,6 +627,20 @@ namespace Sersa
 
         }
 
+        public string eliminarFormulario(string ID)
+        {
+            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string sql = "DELETE FROM Formulario WHERE id = '" + ID + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            string resultado = "";
+            return resultado;
+
+        }
+
     }
     
 }

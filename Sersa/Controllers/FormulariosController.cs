@@ -437,6 +437,16 @@ namespace Sersa.Controllers
             return resultado;
         }
 
+        public string eliminarFormulario(string ID)
+        {
+
+            Database.Connection.OpenAsync();
+            var query = new FormulariosModel(Database);
+            string resultado = query.eliminarFormulario(ID);
+
+            return resultado;
+        }
+
 
     }
 }

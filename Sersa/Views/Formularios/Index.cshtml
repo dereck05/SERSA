@@ -3913,6 +3913,29 @@
         }
     }
 
+    function eliminarFormulario(id) {
+        try {
+            $.ajax({
+                url: '/Formularios/eliminarFormulario/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    ID: id,
+                },
+                success: function (data) {
+                    console.log(data)
+                    idForm = id;
+                    location.reload(true);
+                },
+                error: function () {
+                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
 </script>
 
 
