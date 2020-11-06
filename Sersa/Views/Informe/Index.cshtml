@@ -1,6 +1,6 @@
-﻿@*
+﻿
+@model IEnumerable<FormularioInforme>
 
-*@
 @{
     ViewData["Title"] = "Informe";
 }
@@ -30,10 +30,34 @@
             <div class="col text-center mt-5">
                 <button id="btnBuscarInforme" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Buscar</button>
             </div>
-           
+
         </div>
 
 
     </div>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-5" id="tabla">
+                @Html.Partial("_FormularioInforme", Model)
+            </div>
+        </div>
+    </div>
+
 </body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnBuscarInforme").on("click", function () {
+            var enteredNum = $("#searchNumber").val();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("filtrarInformes", "Informe")', 
+             
+                dataType: 'html', 
+                success: function(response) {
+                    $('#tabla').html(response);
+    }
+});
+
+        });
+});
+</script>
