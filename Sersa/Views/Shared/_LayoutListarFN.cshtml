@@ -41,12 +41,12 @@
                         @item.Fecha
                     </td>
                     <td>
-                        <button class="btn btn-lg" data-toggle="modal" data-target="#fuenteSupEdit">
+                        <button class="btn btn-lg" onclick="editarFormularioFN('@item.id')">
                             <i class="fas fa-edit"></i>
                         </button>
                     </td>
                     <td>
-                        <button class="btn btn-lg" data-toggle="modal" data-target="#fuenteNacDelete">
+                        <button class="btn btn-lg" onclick="eliminarFormulario('@item.id')">
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </td>

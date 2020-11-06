@@ -583,6 +583,91 @@ namespace Sersa
 
         }
 
+        public string obtenerFormularioFS(string ID)
+        {
+            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string sql = "SELECT * FROM Formulario WHERE tipo_formulario='1' and id = '" + ID + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            string resultado = "";
+
+            while (rdr.HasRows)
+            {
+
+                while (rdr.Read())
+                {
+                    string col1Value = rdr[0].ToString();
+                    string col2Value = rdr[1].ToString();
+                    string col3Value = rdr[2].ToString();
+                    string col4Value = rdr[3].ToString();
+                    string col5Value = rdr[4].ToString();
+                    string col6Value = rdr[5].ToString();
+                    string col7Value = rdr[6].ToString();
+                    string col8Value = rdr[7].ToString();
+                    var info = JsonSerializer.Deserialize<FSInfoGeneral>(col8Value);
+                    string col9Value = rdr[8].ToString();
+                    var preguntas = JsonSerializer.Deserialize<FormularioRespuesta>(col9Value);
+                    string col10Value = rdr[9].ToString();
+                    string col11Value = rdr[10].ToString();
+                    string col12Value = rdr[11].ToString();
+                    string col13Value = rdr[12].ToString();
+
+                    resultado += col1Value + "," + col2Value + "," + col3Value + "," + col4Value + "," + col5Value + "," + col6Value + "," + col7Value + "," +
+                        info.Especificacion + "," + info.Direccion + "," + info.Limpieza + "," + info.Registro + "," + info.Toma + "," +
+                        preguntas.P1 + "," + preguntas.P2 + "," + preguntas.P3 + "," + preguntas.P4 + "," + preguntas.P5 + "," + preguntas.P6 + "," +
+                        preguntas.P7 + "," + preguntas.P8 + "," + preguntas.P9 + "," + preguntas.P10 + "," + col10Value + "," + col11Value + "," + col12Value + "," + col13Value;
+                }
+                rdr.NextResult();
+            }
+
+            return resultado;
+
+        }
+
+        public async Task UpdateFormularioFS(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+                    string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, FSInfoGeneral ig, string NOTAS, string ID)
+        {
+            using var cmd = Database.Connection.CreateCommand();
+            cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            cmd.Parameters.AddWithValue("@fecha", timestamp);
+            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
+            cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
+            cmd.Parameters.AddWithValue("@telefono", TELEFONO);
+            cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
+            var jsonIG = JsonSerializer.Serialize(ig);
+            var jsonIF = JsonSerializer.Serialize(f);
+
+            cmd.Parameters.AddWithValue("@info_general", jsonIG);
+            cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
+            cmd.Parameters.AddWithValue("@imagen", IMG);
+            cmd.Parameters.AddWithValue("@latitud", LATITUD);
+            cmd.Parameters.AddWithValue("@longitud", LONGITUD);
+            cmd.Parameters.AddWithValue("@comentarios", NOTAS);
+            cmd.Parameters.AddWithValue("@id", ID);
+            await cmd.ExecuteNonQueryAsync();
+
+        }
+
+        public string eliminarFormulario(string ID)
+        {
+            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            conn.Open();
+            string sql = "DELETE FROM Formulario WHERE id = '" + ID + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            string resultado = "";
+            return resultado;
+
+        }
+
     }
     
 }
