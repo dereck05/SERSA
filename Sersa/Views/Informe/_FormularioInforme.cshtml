@@ -1,23 +1,33 @@
 ﻿@model IEnumerable<FormularioInforme>
 
-<table class="table">
-    <tr>
-        <th>id</th>
-        <th>acueducto</th>
-        <th>fecha</th>
-       
-    </tr>
-    <tbody>
-        @if (Model != null)
-        {
-            foreach (var item in Model)
+<head>
+    <link rel="stylesheet" href="~/css/tabla.css" />
+</head>
+<body>
+    <table class="table" style="border-collapse: collapse;">
+        <tr style="background-color: #4f83cc; color: white;">
+            <th>id</th>
+            <th>acueducto</th>
+            <th>fecha</th>
+            <th>seleccionar</th>
+
+        </tr>
+        <tbody>
+            @if (Model != null)
             {
-                <tr>
-                    <td>@item.id</td>
-                    <td>@item.acueducto</td>
-                    <td>@item.fecha</td>
-                </tr>
+                int counter = 1;
+
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@(counter)</td>
+                        <td>@item.acueducto</td>
+                        <td>@item.fecha</td>
+                        <td><input type="checkbox" name="registro" /></td>
+                    </tr>
+                    counter = counter + 1;
+                }
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</body>

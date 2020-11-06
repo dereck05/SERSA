@@ -11,10 +11,10 @@ namespace Sersa.Models
         internal DBConnector Database { get; set; }
 
         public string id { get; set; }
-        public int fecha { get; set; }
+        public string fecha { get; set; }
         public string acueducto { get; set; }
         public FormularioInforme() { }
-        public FormularioInforme(string idFormulario, string acueductoForm, int fechaForm)
+        public FormularioInforme(string idFormulario, string acueductoForm, string fechaForm)
         {
             id = idFormulario;
             fecha = fechaForm;
@@ -35,7 +35,7 @@ namespace Sersa.Models
             Database = db;
         }
 
-        public List<FormularioInforme> obtenerFormularioInforme(int fechaI, int fechaF)
+        public List<FormularioInforme> obtenerFormularioInforme(long fechaI, long fechaF)
         {
             //Conexion escondida
             var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
@@ -57,7 +57,8 @@ namespace Sersa.Models
                     string col1Value = rdr[0].ToString();
                     temp.id = col1Value;
                     int col2Value = (int)rdr[1];
-                    temp.fecha = col2Value;
+                    var date = DateTimeOffset.FromUnixTimeSeconds(col2Value).DateTime.ToLocalTime().ToString("dd/MM/yyyy");
+                    temp.fecha = date;
                     string col3Value = rdr[2].ToString();
                     temp.acueducto = col3Value;
                     lista.Add(temp);

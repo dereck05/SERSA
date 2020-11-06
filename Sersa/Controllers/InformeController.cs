@@ -23,13 +23,17 @@ namespace Sersa.Controllers
             return View();
         }
 
-        public IActionResult filtrarInformes()
+        public IActionResult filtrarInformes(DateTime FechaInicio, DateTime FechaFin)
         {
             Database.Connection.OpenAsync();
             var query = new FormularioInforme(Database);
-            string fIni = "1601510400";
-            string fFin = "1604361600";
-            List<FormularioInforme> lista = query.obtenerFormularioInforme(Int32.Parse(fIni), Int32.Parse(fFin));
+            var dateIni = new DateTimeOffset(FechaInicio);
+            var dateIniUnix = dateIni.ToUnixTimeSeconds();
+
+            var dateFin = new DateTimeOffset(FechaFin);
+            var dateFinUnix = dateFin.ToUnixTimeSeconds();
+
+            List<FormularioInforme> lista = query.obtenerFormularioInforme(dateIniUnix, dateFinUnix);
 
             return PartialView("_FormularioInforme",lista);
 
