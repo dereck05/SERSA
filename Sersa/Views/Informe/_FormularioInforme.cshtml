@@ -2,16 +2,22 @@
 
 <head>
     <link rel="stylesheet" href="~/css/tabla.css" />
-</head>
-<body>
-    <table class="table" style="border-collapse: collapse;">
-        <tr style="background-color: #4f83cc; color: white;">
-            <th>id</th>
-            <th>acueducto</th>
-            <th>fecha</th>
-            <th>seleccionar</th>
 
-        </tr>
+
+</head>
+
+<body>
+    <table class="table" id="tablaInforme" style="border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #4f83cc; color: white;">
+                <th>id</th>
+                <th>acueducto</th>
+                <th>fecha</th>
+                <th>seleccionar</th>
+
+            </tr>
+        </thead>
+
         <tbody>
             @if (Model != null)
             {
@@ -23,11 +29,43 @@
                         <td>@(counter)</td>
                         <td>@item.acueducto</td>
                         <td>@item.fecha</td>
-                        <td><input type="checkbox" name="registro" /></td>
+                        <td><input type="checkbox" name="registro" value="@item.id" /></td>
                     </tr>
                     counter = counter + 1;
                 }
             }
         </tbody>
     </table>
+    <div class="col text-right mt-5">
+        <button id="btnProcesar" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Procesar</button>
+    </div>
 </body>
+
+
+<script>
+    $(document).ready(function () {
+        $('#tablaInforme').DataTable({
+            "pagingType": "full_numbers",
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            }
+        });
+
+        $("#btnProcesar").on("click", function () {
+            var elements = document.getElementsByName("registro");
+            console.log(elements)
+            for (var i = 0; i < elements.length; i++) {
+                console.log(elements[i].hasAttribute('checked'))
+                
+
+            }
+        });
+    });
+
+    
+    
+
+</script>
+
+
+
