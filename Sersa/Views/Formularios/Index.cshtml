@@ -2773,6 +2773,14 @@
         var p9 = $('input:radio[name=infra9FN]:checked').val();
         var p10 = $('input:radio[name=infra10FN]:checked').val();
 
+        var IoU = ""
+        if (idForm == "") {
+            IoU = "I"
+        }
+        else {
+            IoU = "U"
+        }
+
         try {
             $.ajax({
                 url: '/Formularios/guardarFormularioFN/',
@@ -2802,6 +2810,8 @@
                     P8: p8,
                     P9: p9,
                     P10: p10,
+                    IOU: IoU,
+                    ID: idForm,
 
                 },
                 success: function (data) {
@@ -2889,7 +2899,7 @@
         var registro = document.getElementById('registroMP').value;
         var senasa = document.getElementById('senasaP').value;
         var encargado = document.getElementById('encargadoP').value;
-        var telefono = document.getElementById('telefonoP').value;
+        var telefono = document.getElementById('telefonoP').value; 
         var funcionario = document.getElementById('funcionarioP').value;
         var latitud = document.getElementById('LatitudP').value;
         var longitud = document.getElementById('LongitudP').value;
@@ -2910,6 +2920,14 @@
         var p8 = $('input:radio[name=infra8P]:checked').val();
         var p9 = $('input:radio[name=infra9P]:checked').val();
         var p10 = $('input:radio[name=infra10P]:checked').val();
+
+        var IoU = ""
+        if (idForm == "") {
+            IoU = "I"
+        }
+        else {
+            IoU = "U"
+        }
 
         try {
             $.ajax({
@@ -2944,6 +2962,8 @@
                     P8: p8,
                     P9: p9,
                     P10: p10,
+                    IOU: IoU,
+                    ID: idForm,
 
                 },
                 success: function (data) {
@@ -3038,7 +3058,6 @@
         var tipoTanque = document.getElementById('tipoTanqueA').value;
         var matTanque = document.getElementById('matTanqueA').value;
         var limpieza = document.getElementById('ALimpieza').value;
-        console.log(limpieza);
         var notas = document.getElementById('notasALimpieza').value;
         var p1 = $('input:radio[name=infra1A]:checked').val();
         var p2 = $('input:radio[name=infra2A]:checked').val();
@@ -3050,6 +3069,14 @@
         var p8 = $('input:radio[name=infra8A]:checked').val();
         var p9 = $('input:radio[name=infra9A]:checked').val();
         var p10 = $('input:radio[name=infra10A]:checked').val();
+
+        var IoU = ""
+        if (idForm == "") {
+            IoU = "I"
+        }
+        else {
+            IoU = "U"
+        }
 
         try {
             $.ajax({
@@ -3081,6 +3108,8 @@
                     P8: p8,
                     P9: p9,
                     P10: p10,
+                    IOU: IoU,
+                    ID: idForm,
 
                 },
                 success: function (data) {
@@ -3186,6 +3215,14 @@
         var p9 = $('input:radio[name=infra9C]:checked').val();
         var p10 = $('input:radio[name=infra10C]:checked').val();
 
+        var IoU = ""
+        if (idForm == "") {
+            IoU = "I"
+        }
+        else {
+            IoU = "U"
+        }
+
         try {
             $.ajax({
                 url: '/Formularios/guardarFormularioC/',
@@ -3215,6 +3252,8 @@
                     P8: p8,
                     P9: p9,
                     P10: p10,
+                    IOU: IoU,
+                    ID: idForm,
 
                 },
                 success: function (data) {
@@ -3320,6 +3359,14 @@
         var p9 = $('input:radio[name=infra9D]:checked').val();
         var p10 = $('input:radio[name=infra10D]:checked').val();
 
+        var IoU = ""
+        if (idForm == "") {
+            IoU = "I"
+        }
+        else {
+            IoU = "U"
+        }
+
         try {
             $.ajax({
                 url: '/Formularios/guardarFormularioD/',
@@ -3348,6 +3395,8 @@
                     P8: p8,
                     P9: p9,
                     P10: p10,
+                    IOU: IoU,
+                    ID: idForm,
 
                 },
                 success: function (data) {
@@ -3453,6 +3502,14 @@
         var p9 = $('input:radio[name=infra9Q]:checked').val();
         var p10 = $('input:radio[name=infra10Q]:checked').val();
 
+        var IoU = ""
+        if (idForm == "") {
+            IoU = "I"
+        }
+        else {
+            IoU = "U"
+        }
+
         try {
             $.ajax({
                 url: '/Formularios/guardarFormularioQ/',
@@ -3481,6 +3538,8 @@
                     P8: p8,
                     P9: p9,
                     P10: p10,
+                    IOU: IoU,
+                    ID: idForm,
 
                 },
                 success: function (data) {
@@ -3586,6 +3645,14 @@
         var p9 = $('input:radio[name=infra9Cl]:checked').val();
         var p10 = $('input:radio[name=infra10Cl]:checked').val();
 
+        var IoU = ""
+        if (idForm == "") {
+            IoU = "I"
+        }
+        else {
+            IoU = "U"
+        }
+
         try {
             $.ajax({
                 url: '/Formularios/guardarFormularioCl/',
@@ -3615,6 +3682,8 @@
                     P8: p8,
                     P9: p9,
                     P10: p10,
+                    IOU: IoU,
+                    ID: idForm,
 
                 },
                 success: function (data) {
@@ -3724,6 +3793,14 @@
         var p9 = $('input:radio[name=infra9PP]:checked').val();
         var p10 = $('input:radio[name=infra10PP]:checked').val();
 
+        var IoU = ""
+        if (idForm == "") {
+            IoU = "I"
+        }
+        else {
+            IoU = "U"
+        }
+
         try {
             $.ajax({
                 url: '/Formularios/guardarFormularioPP/',
@@ -3752,6 +3829,8 @@
                     P8: p8,
                     P9: p9,
                     P10: p10,
+                    IOU: IoU,
+                    ID: idForm,
 
                 },
                 success: function (data) {
@@ -3928,7 +4007,843 @@
 
                 },
                 error: function () {
-                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    function editarFormularioFN(id) {
+        try {
+            $.ajax({
+                url: '/Formularios/obtenerFormularioFN/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    ID: id,
+                },
+                success: function (data) {
+                    console.log(data)
+                    idForm = id;
+                    var datos = data.split(",");
+                    $('#fechaFN').val("2020-03-24");
+                    $('#acueductoFN').val(datos[3]);
+                    $('#naciente;FN').val(datos[7]);
+                    $('#registroMFN').val(datos[8]);
+                    $('#direccionFN').val(datos[10]);
+                    $('#encargadoFN').val(datos[4]);
+                    $('#telefonoFN').val(datos[5]);
+                    $('#funcionarioFN').val(datos[6]);
+                    $('#LatitudFN').val(datos[22]);
+                    $('#LongitudFN').val(datos[23]);
+                    $('#FNCaptacion').val(datos[9]);
+                    $('#notasFN').val(datos[24]);
+
+                    if (datos[11] == "Si") {
+                        $("#infra1FN_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra1FN_no").attr('checked', true);
+                    }
+
+                    if (datos[12] == "Si") {
+                        $("#infra2FN_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra2FN_no").attr('checked', true);
+                    }
+                    if (datos[13] == "Si") {
+                        $("#infra3FN_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra3FN_no").attr('checked', true);
+                    }
+                    if (datos[14] == "Si") {
+                        $("#infra4FN_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra4FN_no").attr('checked', true);
+                    }
+                    if (datos[15] == "Si") {
+                        $("#infra5FN_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra5FN_no").attr('checked', true);
+                    }
+                    if (datos[16] == "Si") {
+                        $("#infra6FN_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra6FN_no").attr('checked', true);
+                    }
+                    if (datos[17] == "Si") {
+                        $("#infra7FN_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra7FN_no").attr('checked', true);
+                    }
+                    if (datos[18] == "Si") {
+                        $("#infra8FN_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra8FN_no").attr('checked', true);
+                    }
+                    if (datos[19] == "Si") {
+                        $("#infra9FN_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra9FN_no").attr('checked', true);
+                    }
+                    if (datos[20] == "Si") {
+                        $("#infra10FN_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra10FN_no").attr('checked', true);
+                    }
+
+                    $('#fuenteNacListaEdit').modal('toggle');
+                    $('#fuenteNac').modal('toggle');
+
+
+                },
+                error: function () {
+
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    function editarFormularioP(id) {
+        try {
+            $.ajax({
+                url: '/Formularios/obtenerFormularioP/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    ID: id,
+                },
+                success: function (data) {
+                    console.log(data)
+                    idForm = id;
+                    var datos = data.split(",");
+                    console.log(datos)
+                    $('#fechaP').val("2020-03-24");
+                    $('#acueductoP').val(datos[3]);
+                    $('#pozoP').val(datos[7]);
+                    $('#registroMP').val(datos[14]);
+                    $('#senasaP').val(datos[9]);
+                    $('#encargadoP').val(datos[4]);
+                    $('#telefonoP').val(datos[5]);
+                    $('#funcionarioP').val(datos[6]);
+                    $('#LatitudP').val(datos[26]);
+                    $('#LongitudP').val(datos[27]);
+                    $('#notasP').val(datos[28]);
+                    $('#pFriaticoP').val(datos[13]);
+                    $('#pDinamicoP').val(datos[12]);
+                    $('#diametroP').val(datos[11]);
+                    $('#espesorP').val(datos[10]);
+                    $('#PpozoP').val(datos[8]);
+
+                    if (datos[15] == "Si") {
+                        $("#infra1P_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra1P_no").attr('checked', true);
+                    }
+
+                    if (datos[16] == "Si") {
+                        $("#infra2P_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra2P_no").attr('checked', true);
+                    }
+                    if (datos[17] == "Si") {
+                        $("#infra3P_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra3P_no").attr('checked', true);
+                    }
+                    if (datos[18] == "Si") {
+                        $("#infra4P_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra4P_no").attr('checked', true);
+                    }
+                    if (datos[19] == "Si") {
+                        $("#infra5P_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra5P_no").attr('checked', true);
+                    }
+                    if (datos[20] == "Si") {
+                        $("#infra6P_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra6P_no").attr('checked', true);
+                    }
+                    if (datos[21] == "Si") {
+                        $("#infra7P_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra7P_no").attr('checked', true);
+                    }
+                    if (datos[22] == "Si") {
+                        $("#infra8P_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra8P_no").attr('checked', true);
+                    }
+                    if (datos[23] == "Si") {
+                        $("#infra9P_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra9P_no").attr('checked', true);
+                    }
+                    if (datos[24] == "Si") {
+                        $("#infra10P_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra10P_no").attr('checked', true);
+                    }
+
+                    $('#pozosListaEdit').modal('toggle');
+                    $('#pozos').modal('toggle');
+
+
+                },
+                error: function () {
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    function editarFormularioA(id) {
+        try {
+            $.ajax({
+                url: '/Formularios/obtenerFormularioA/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    ID: id,
+                },
+                success: function (data) {
+                    console.log(data)
+                    idForm = id;
+                    var datos = data.split(",");
+                    console.log(datos)
+                    $('#fechaA').val("2020-03-24");
+                    $('#acueductoA').val(datos[3]);
+                    $('#tanqueA').val(datos[7]);
+                    $('#registroA').val(datos[9]);
+                    $('#encargadoA').val(datos[4]);
+                    $('#telefonoA').val(datos[5]);
+                    $('#funcionarioA').val(datos[6]);
+                    $('#LatitudA').val(datos[23]);
+                    $('#LongitudA').val(datos[24]);
+                    $('#notasALimpieza').val(datos[25]);
+                    $('#ALimpieza').val(datos[8]);
+                    $('#matTanqueA').val(datos[10]);
+                    $('#tipoTanqueA').val(datos[11]);
+
+                    if (datos[12] == "Si") {
+                        $("#infra1A_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra1A_no").attr('checked', true);
+                    }
+
+                    if (datos[13] == "Si") {
+                        $("#infra2A_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra2A_no").attr('checked', true);
+                    }
+                    if (datos[14] == "Si") {
+                        $("#infra3A_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra3A_no").attr('checked', true);
+                    }
+                    if (datos[15] == "Si") {
+                        $("#infra4A_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra4A_no").attr('checked', true);
+                    }
+                    if (datos[16] == "Si") {
+                        $("#infra5A_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra5A_no").attr('checked', true);
+                    }
+                    if (datos[17] == "Si") {
+                        $("#infra6A_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra6A_no").attr('checked', true);
+                    }
+                    if (datos[18] == "Si") {
+                        $("#infra7A_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra7A_no").attr('checked', true);
+                    }
+                    if (datos[19] == "Si") {
+                        $("#infra8A_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra8A_no").attr('checked', true);
+                    }
+                    if (datos[20] == "Si") {
+                        $("#infra9A_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra9A_no").attr('checked', true);
+                    }
+                    if (datos[21] == "Si") {
+                        $("#infra10A_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra10A_no").attr('checked', true);
+                    }
+
+                    $('#almacenamientoListaEdit').modal('toggle');
+                    $('#almacenamiento').modal('toggle');
+
+
+                },
+                error: function () {
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    function editarFormularioC(id) {
+        try {
+            $.ajax({
+                url: '/Formularios/obtenerFormularioC/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    ID: id,
+                },
+                success: function (data) {
+                    console.log(data)
+                    idForm = id;
+                    var datos = data.split(",");
+                    console.log(datos)
+                    $('#fechaC').val("2020-03-24");
+                    $('#acueductoC').val(datos[3]);
+                    $('#conduccionC').val(datos[9]);
+                    $('#reparacionesC').val(datos[8]);
+                    $('#encargadoC').val(datos[4]);
+                    $('#telefonoC').val(datos[5]);
+                    $('#funcionarioC').val(datos[6]);
+                    $('#LatitudC').val(datos[22]);
+                    $('#LongitudC').val(datos[23]);
+                    $('#notasC').val(datos[24]);
+                    $('#fechaConstruC').val(datos[10]);
+                    $('#materialC').val(datos[7]);
+
+                    if (datos[11] == "Si") {
+                        $("#infra1C_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra1C_no").attr('checked', true);
+                    }
+
+                    if (datos[12] == "Si") {
+                        $("#infra2C_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra2C_no").attr('checked', true);
+                    }
+                    if (datos[13] == "Si") {
+                        $("#infra3C_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra3C_no").attr('checked', true);
+                    }
+                    if (datos[14] == "Si") {
+                        $("#infra4C_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra4C_no").attr('checked', true);
+                    }
+                    if (datos[15] == "Si") {
+                        $("#infra5C_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra5C_no").attr('checked', true);
+                    }
+                    if (datos[16] == "Si") {
+                        $("#infra6C_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra6C_no").attr('checked', true);
+                    }
+                    if (datos[17] == "Si") {
+                        $("#infra7C_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra7C_no").attr('checked', true);
+                    }
+                    if (datos[18] == "Si") {
+                        $("#infra8C_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra8C_no").attr('checked', true);
+                    }
+                    if (datos[19] == "Si") {
+                        $("#infra9C_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra9C_no").attr('checked', true);
+                    }
+                    if (datos[20] == "Si") {
+                        $("#infra10C_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra10C_no").attr('checked', true);
+                    }
+
+                    $('#conduccionListaEdit').modal('toggle');
+                    $('#conduccion').modal('toggle');
+
+
+                },
+                error: function () {
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    function editarFormularioD(id) {
+        try {
+            $.ajax({
+                url: '/Formularios/obtenerFormularioD/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    ID: id,
+                },
+                success: function (data) {
+                    console.log(data)
+                    idForm = id;
+                    var datos = data.split(",");
+                    console.log(datos)
+                    $('#fechaD').val("2020-03-24");
+                    $('#acueductoD').val(datos[3]);
+                    $('#reparacionesD').val(datos[8]);
+                    $('#encargadoD').val(datos[4]);
+                    $('#telefonoD').val(datos[5]);
+                    $('#funcionarioD').val(datos[6]);
+                    $('#LatitudD').val(datos[21]);
+                    $('#LongitudD').val(datos[22]);
+                    $('#notasD').val(datos[23]);
+                    $('#fechaConstruD').val(datos[9]);
+                    $('#materialD').val(datos[7]);
+
+                    if (datos[10] == "Si") {
+                        $("#infra1D_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra1D_no").attr('checked', true);
+                    }
+
+                    if (datos[11] == "Si") {
+                        $("#infra2D_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra2D_no").attr('checked', true);
+                    }
+                    if (datos[12] == "Si") {
+                        $("#infra3D_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra3D_no").attr('checked', true);
+                    }
+                    if (datos[13] == "Si") {
+                        $("#infra4D_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra4D_no").attr('checked', true);
+                    }
+                    if (datos[14] == "Si") {
+                        $("#infra5D_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra5D_no").attr('checked', true);
+                    }
+                    if (datos[15] == "Si") {
+                        $("#infra6D_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra6D_no").attr('checked', true);
+                    }
+                    if (datos[16] == "Si") {
+                        $("#infra7D_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra7D_no").attr('checked', true);
+                    }
+                    if (datos[17] == "Si") {
+                        $("#infra8D_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra8D_no").attr('checked', true);
+                    }
+                    if (datos[18] == "Si") {
+                        $("#infra9D_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra9D_no").attr('checked', true);
+                    }
+                    if (datos[19] == "Si") {
+                        $("#infra10D_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra10D_no").attr('checked', true);
+                    }
+
+                    $('#distribucionListaEdit').modal('toggle');
+                    $('#distribucion').modal('toggle');
+
+
+                },
+                error: function () {
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    function editarFormularioQ(id) {
+        try {
+            $.ajax({
+                url: '/Formularios/obtenerFormularioQ/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    ID: id,
+                },
+                success: function (data) {
+                    console.log(data)
+                    idForm = id;
+                    var datos = data.split(",");
+                    console.log(datos)
+                    $('#fechaQ').val("2020-03-24");
+                    $('#acueductoQ').val(datos[3]);
+                    $('#encargadoQ').val(datos[4]);
+                    $('#telefonoQ').val(datos[5]);
+                    $('#funcionarioQ').val(datos[6]);
+                    $('#LatitudQ').val(datos[21]);
+                    $('#LongitudQ').val(datos[22]);
+                    $('#notasQ').val(datos[23]);
+                    $('#fechaConstruQ').val(datos[9]);
+                    $('#materialQ').val(datos[8]);
+                    $('#frecuenciaQ').val(datos[7]);
+
+                    if (datos[10] == "Si") {
+                        $("#infra1Q_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra1Q_no").attr('checked', true);
+                    }
+
+                    if (datos[11] == "Si") {
+                        $("#infra2Q_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra2Q_no").attr('checked', true);
+                    }
+                    if (datos[12] == "Si") {
+                        $("#infra3Q_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra3Q_no").attr('checked', true);
+                    }
+                    if (datos[13] == "Si") {
+                        $("#infra4Q_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra4Q_no").attr('checked', true);
+                    }
+                    if (datos[14] == "Si") {
+                        $("#infra5Q_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra5Q_no").attr('checked', true);
+                    }
+                    if (datos[15] == "Si") {
+                        $("#infra6Q_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra6Q_no").attr('checked', true);
+                    }
+                    if (datos[16] == "Si") {
+                        $("#infra7Q_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra7Q_no").attr('checked', true);
+                    }
+                    if (datos[17] == "Si") {
+                        $("#infra8Q_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra8Q_no").attr('checked', true);
+                    }
+                    if (datos[18] == "Si") {
+                        $("#infra9Q_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra9Q_no").attr('checked', true);
+                    }
+                    if (datos[19] == "Si") {
+                        $("#infra10Q_si").attr('checked', true);
+                    }
+                    else {
+                        $("#infra10Q_no").attr('checked', true);
+                    }
+
+                    $('#quiebraListaEdit').modal('toggle');
+                    $('#quiebragradientes').modal('toggle');
+
+
+                },
+                error: function () {
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    function editarFormularioCl(id) {
+        try {
+            $.ajax({
+                url: '/Formularios/obtenerFormularioCl/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    ID: id,
+                },
+                success: function (data) {
+                    console.log(data)
+                    idForm = id;
+                    var datos = data.split(",");
+                    console.log(datos)
+                    $('#fechaCl').val("2020-03-24");
+                    $('#acueductoCl').val(datos[3]);
+                    $('#encargadoCl').val(datos[4]);
+                    $('#telefonoCl').val(datos[5]);
+                    $('#funcionarioCl').val(datos[6]);
+                    $('#LatitudCl').val(datos[22]);
+                    $('#LongitudCl').val(datos[23]);
+                    $('#cloracion-gen-1').val(datos[10]);
+                    $('#cloracion-gen-2').val(datos[8]);
+                    $('#notasCl').val(datos[24]);
+
+                    if (datos[7] == "Electrosis") {
+                        $("#electrosis").attr('checked', true);
+                    }
+                    else if (datos[7] == "Gas Cloro") {
+                        $("#gascloro").attr('checked', true);
+                    }
+                    else if (datos[7] == "Pastillas") {
+                        $("#pastillas").attr('checked', true);
+                    }
+                    else{
+                        $("#otroC").attr('checked', true);
+                    }
+
+                    if (datos[9] == "Tiempos programados") {
+                        $("#programadaCl").attr('checked', true);
+                    }
+                    else {
+                        $("#continuaCl").attr('checked', true);
+                    }
+
+                    if (datos[11] == "Si") {
+                        $("#cloracion_infra1_si").attr('checked', true);
+                    }
+                    else {
+                        $("#cloracion_infra1_no").attr('checked', true);
+                    }
+
+                    if (datos[12] == "Si") {
+                        $("#cloracion_infra2_si").attr('checked', true);
+                    }
+                    else {
+                        $("#cloracion_infra2_no").attr('checked', true);
+                    }
+                    if (datos[13] == "Si") {
+                        $("#cloracion_infra3_si").attr('checked', true);
+                    }
+                    else {
+                        $("#cloracion_infra3_no").attr('checked', true);
+                    }
+                    if (datos[14] == "Si") {
+                        $("#cloracion_infra4_si").attr('checked', true);
+                    }
+                    else {
+                        $("#cloracion_infra4_no").attr('checked', true);
+                    }
+                    if (datos[15] == "Si") {
+                        $("#cloracion_infra5_si").attr('checked', true);
+                    }
+                    else {
+                        $("#cloracion_infra5_no").attr('checked', true);
+                    }
+                    if (datos[16] == "Si") {
+                        $("#cloracion_infra6_si").attr('checked', true);
+                    }
+                    else {
+                        $("#cloracion_infra6_no").attr('checked', true);
+                    }
+                    if (datos[17] == "Si") {
+                        $("#cloracion_infra7_si").attr('checked', true);
+                    }
+                    else {
+                        $("#cloracion_infra7_no").attr('checked', true);
+                    }
+                    if (datos[18] == "Si") {
+                        $("#cloracion_infra8_si").attr('checked', true);
+                    }
+                    else {
+                        $("#cloracion_infra8_no").attr('checked', true);
+                    }
+                    if (datos[19] == "Si") {
+                        $("#cloracion_infra9_si").attr('checked', true);
+                    }
+                    else {
+                        $("#cloracion_infra9_no").attr('checked', true);
+                    }
+                    if (datos[20] == "Si") {
+                        $("#cloracion_infra10_si").attr('checked', true);
+                    }
+                    else {
+                        $("#cloracion_infra10_no").attr('checked', true);
+                    }
+
+                    $('#desinfeccionListaEdit').modal('toggle');
+                    $('#cloracion').modal('toggle');
+
+
+                },
+                error: function () {
+                }
+            });
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    function editarFormularioPP(id) {
+        try {
+            $.ajax({
+                url: '/Formularios/obtenerFormularioPP/',
+                type: 'Post',
+                datatype: 'application/json',
+                data: {
+                    ID: id,
+                },
+                success: function (data) {
+                    console.log(data)
+                    idForm = id;
+                    var datos = data.split(",");
+                    console.log(datos)
+                    $('#fechaPP').val("2020-03-24");
+                    $('#acueductoPP').val(datos[3]);
+                    $('#encargadoPP').val(datos[4]);
+                    $('#telefonoPP').val(datos[5]);
+                    $('#funcionarioPP').val(datos[6]);
+                    $('#LatitudPP').val(datos[21]);
+                    $('#LongitudPP').val(datos[22]);
+                    $('#notasPP').val(datos[23]);
+                    $('#potabilizacion-gen-1').val(datos[9]);
+                    $('#potabilizacion-gen-3').val(datos[7]);
+                    $('#potabilizacion-gen-5').val(datos[8]);
+
+                    if (datos[10] == "Si") {
+                        $("#potabilizacion_infra1_si").attr('checked', true);
+                    }
+                    else {
+                        $("#potabilizacion_infra1_no").attr('checked', true);
+                    }
+
+                    if (datos[11] == "Si") {
+                        $("#potabilizacion_infra2_si").attr('checked', true);
+                    }
+                    else {
+                        $("#potabilizacion_infra2_no").attr('checked', true);
+                    }
+                    if (datos[12] == "Si") {
+                        $("#potabilizacion_infra3_si").attr('checked', true);
+                    }
+                    else {
+                        $("#potabilizacion_infra3_no").attr('checked', true);
+                    }
+                    if (datos[13] == "Si") {
+                        $("#potabilizacion_infra4_si").attr('checked', true);
+                    }
+                    else {
+                        $("#potabilizacion_infra4_no").attr('checked', true);
+                    }
+                    if (datos[14] == "Si") {
+                        $("#potabilizacion_infra5_si").attr('checked', true);
+                    }
+                    else {
+                        $("#potabilizacion_infra5_no").attr('checked', true);
+                    }
+                    if (datos[15] == "Si") {
+                        $("#potabilizacion_infra6_si").attr('checked', true);
+                    }
+                    else {
+                        $("#potabilizacion_infra6_no").attr('checked', true);
+                    }
+                    if (datos[16] == "Si") {
+                        $("#potabilizacion_infra7_si").attr('checked', true);
+                    }
+                    else {
+                        $("#potabilizacion_infra7_no").attr('checked', true);
+                    }
+                    if (datos[17] == "Si") {
+                        $("#potabilizacion_infra8_si").attr('checked', true);
+                    }
+                    else {
+                        $("#potabilizacion_infra8_no").attr('checked', true);
+                    }
+                    if (datos[18] == "Si") {
+                        $("#potabilizacion_infra9_si").attr('checked', true);
+                    }
+                    else {
+                        $("#potabilizacion_infra9_no").attr('checked', true);
+                    }
+                    if (datos[19] == "Si") {
+                        $("#potabilizacion_infra10_si").attr('checked', true);
+                    }
+                    else {
+                        $("#potabilizacion_infra10_no").attr('checked', true);
+                    }
+
+                    $('#potabilizacionListaEdit').modal('toggle');
+                    $('#potabilizacion').modal('toggle');
+
+
+                },
+                error: function () {
                 }
             });
         } catch (err) {

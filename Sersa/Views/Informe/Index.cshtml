@@ -8,6 +8,7 @@
 <head>
     <link rel="stylesheet" href="~/css/informe.css" />
 </head>
+
 <body>
     <div class="text-center mt-2 mb-5">
         <h1>Generacion de Informe</h1>
@@ -37,10 +38,13 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-5" id="tabla" >
+            <div class="col-12 mt-5" id="tabla">
                 @Html.Partial("_FormularioInforme", Model)
             </div>
+           
+
         </div>
+
     </div>
 
 </body>
@@ -62,3 +66,4 @@
         });
 });
 </script>
+
