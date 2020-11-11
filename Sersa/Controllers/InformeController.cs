@@ -38,5 +38,31 @@ namespace Sersa.Controllers
             return PartialView("_FormularioInforme",lista);
 
         }
+        public List<InformeResponse> obtenerInformes(List<string> ids)
+        {
+            Database.Connection.OpenAsync();
+            var query = new FormularioInforme(Database);
+            List<InformeResponse> lista = query.obtenerInformesSeleccionados(ids);
+            return lista;
+        }
+
+        public ActionResult Informe_Sersa (string ids)
+        {
+            string[] parts = ids.Split(','); // Call Split method
+            List<string> idList = new List<string>(parts); // Use List constructor
+
+            Console.WriteLine("HEREEEEE:"+idList.Count);
+            Database.Connection.OpenAsync();
+            var query = new FormularioInforme(Database);
+
+            List<InformeResponse> lista = obtenerInformes(idList);
+
+            ActionResult action = query.buildPDF(lista);
+            return action;
+
+        }
+
+
+
     }
 }
