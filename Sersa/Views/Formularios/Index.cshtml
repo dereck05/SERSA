@@ -224,7 +224,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono *</label>
+                            <label for="telefonoPP">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoPP" name="telefonoPP" data-inputmask="'alias': 'phonebe'">
                         </div>
 
@@ -440,7 +440,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono *</label>
+                            <label for="telefonoCl">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoCl">
                         </div>
 
@@ -678,7 +678,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono *</label>
+                            <label for="telefonoFS">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoFS">
                         </div>
 
@@ -910,7 +910,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono *</label>
+                            <label for="telefonoFN">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoFN">
                         </div>
 
@@ -1133,7 +1133,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono *</label>
+                            <label for="telefonoP">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoP">
                         </div>
 
@@ -1370,7 +1370,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono *</label>
+                            <label for="telefonoA">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoA">
                         </div>
 
@@ -1601,7 +1601,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono *</label>
+                            <label for="telefonoC">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoC">
                         </div>
 
@@ -1825,7 +1825,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono *</label>
+                            <label for="telefonoD">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoD">
                         </div>
 
@@ -2043,7 +2043,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono *</label>
+                            <label for="telefonoQ">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoQ">
                         </div>
 
@@ -2471,27 +2471,47 @@
             LlenarTablaListaPP();
         });
 
-        $(":input").inputmask();
-
-
-
-        $("#telefonoPP").inputmask({
-            mask: '9999 9999',
-            placeholder: ' ',
-            showMaskOnHover: false,
-            showMaskOnFocus: false,
-            onBeforePaste: function (pastedValue, opts) {
-                var processedValue = pastedValue;
-
-                //do something with it
-
-                return processedValue;
-            }
-        });
-
-
 
     });
+
+    //Mask para los numeros de telefono
+    document.getElementById('telefonoFS').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : x[1] + ' ' + x[2];
+    });
+    document.getElementById('telefonoFN').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : x[1] + ' ' + x[2];
+    });
+    document.getElementById('telefonoP').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : x[1] + ' ' + x[2];
+    });
+    document.getElementById('telefonoA').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : x[1] + ' ' + x[2];
+    });
+    document.getElementById('telefonoC').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : x[1] + ' ' + x[2];
+    });
+    document.getElementById('telefonoD').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : x[1] + ' ' + x[2];
+    });
+    document.getElementById('telefonoQ').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : x[1] + ' ' + x[2];
+    });
+    document.getElementById('telefonoCl').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : x[1] + ' ' + x[2];
+    });
+    document.getElementById('telefonoPP').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : x[1] + ' ' + x[2];
+    });
+
 
     //Esconder todos los alerts al iniciar
     $("#alert1PP").hide();
