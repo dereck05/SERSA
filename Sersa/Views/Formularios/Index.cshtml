@@ -195,7 +195,7 @@
 
 
 
-<!-- Formulario Potabilización-->
+<!-- Formulario Potabilización (PP)-->
 <div id="potabilizacion" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -209,32 +209,32 @@
                     <p style="font-weight: bold;">I. Información General</p>
                     <form id="infoGenPP">
                         <div class="form-group">
-                            <label for="fecha">Fecha</label>
+                            <label for="fecha">Fecha *</label>
                             <input class="form-control" type="date" id="fechaPP">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto</label>
+                            <label for="acueducto">Nombre del acueducto *</label>
                             <input type="text" class="form-control" id="acueductoPP">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Nombre de encargado</label>
+                            <label for="encargado">Nombre de encargado *</label>
                             <input type="text" class="form-control" id="encargadoPP">
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
+                            <label for="telefono">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoPP" name="telefonoPP" data-inputmask="'alias': 'phonebe'">
                         </div>
 
                         <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario</label>
+                            <label for="funcionario">Nombre del funcionario *</label>
                             <input type="text" class="form-control" id="funcionarioPP">
                         </div>
 
                         <div class="form-group">
-                            <label for="UbicacionP">Ubicación </label><br>
+                            <label for="UbicacionP">Ubicación *</label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsPP" name="radio1" oninput='on_location_changePP()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualPP" name="radio1" oninput='on_location_change()' checked> Manual </label>
                             <small id="ubihelpPP" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
@@ -244,10 +244,10 @@
 
                         <div class="form-group">
 
-                            <label for="Latitud">Latitud</label>
+                            <label for="Latitud">Latitud *</label>
                             <input type="text" class="form-control" id="LatitudPP">
 
-                            <label for="Longitud">Longitud</label>
+                            <label for="Longitud">Longitud *</label>
                             <input type="text" class="form-control" id="LongitudPP">
                         </div>
                         <div class="form-group">
@@ -261,12 +261,12 @@
                         <!-- Aca termina los campos en comun-->
 
                         <div class="form-group">
-                            <label for="potabilizacion-gen-1">Fecha de construcción de la planta</label>
+                            <label for="potabilizacion-gen-1">Fecha de construcción de la planta *</label>
                             <input type="text" class="form-control" id="potabilizacion-gen-1">
                         </div>
 
                         <div class="form-group">
-                            <label for="potabilizacion-gen-3">Frecuencia de Limpieza </label><br>
+                            <label for="potabilizacion-gen-3">Frecuencia de Limpieza *</label><br>
                             <select id="potabilizacion-gen-3" name="potabilizacion-gen-3">
                                 <option value="Convencional">Convencional</option>
                                 <option value="FiME">FiME</option>
@@ -287,6 +287,12 @@
 
 
                     </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1PP">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal1PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -357,7 +363,13 @@
 
                     </form>
 
+                    <div class="alert alert-danger" role="alert" id="alert2PP">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
                     <button id="btnBackModal2PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal2PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -399,7 +411,7 @@
     </div>
 </div>
 
-<!-- Formulario Desinfeccion/Cloracion-->
+<!-- Formulario Desinfeccion/Cloracion (Cl)-->
 <div id="cloracion" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -413,32 +425,32 @@
                     <p style="font-weight: bold;">I. Información General</p>
                     <form id="infoGenCl">
                         <div class="form-group">
-                            <label for="fecha">Fecha</label>
+                            <label for="fecha">Fecha *</label>
                             <input class="form-control" type="date" id="fechaCl">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto</label>
+                            <label for="acueducto">Nombre del acueducto *</label>
                             <input type="text" class="form-control" id="acueductoCl">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Nombre de encargado</label>
+                            <label for="encargado">Nombre de encargado *</label>
                             <input type="text" class="form-control" id="encargadoCl">
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
+                            <label for="telefono">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoCl">
                         </div>
 
                         <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario</label>
+                            <label for="funcionario">Nombre del funcionario *</label>
                             <input type="text" class="form-control" id="funcionarioCl">
                         </div>
 
                         <div class="form-group">
-                            <label for="Ubicacion">Ubicación </label><br>
+                            <label for="Ubicacion">Ubicación *</label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsCl" name="radio1" oninput='on_location_changeCl()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualCl" name="radio1" oninput='on_location_changeCl()' checked> Manual </label>
                             <small id="ubihelpCl" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
@@ -448,10 +460,10 @@
 
                         <div class="form-group">
 
-                            <label for="Latitud">Latitud</label>
+                            <label for="Latitud">Latitud *</label>
                             <input type="text" class="form-control" id="LatitudCl">
 
-                            <label for="Longitud">Longitud</label>
+                            <label for="Longitud">Longitud *</label>
                             <input type="text" class="form-control" id="LongitudCl">
                         </div>
                         <div class="form-group">
@@ -465,17 +477,17 @@
                         <!-- Aca termina los campos en comun-->
 
                         <div class="form-group">
-                            <label for="cloracion-gen-1">Fecha de construcción del acueducto</label>
+                            <label for="cloracion-gen-1">Fecha de construcción del acueducto *</label>
                             <input type="text" class="form-control" id="cloracion-gen-1">
                         </div>
 
                         <div class="form-group">
-                            <label for="cloracion-gen-2">Fecha de instalación del sistema de cloración</label>
+                            <label for="cloracion-gen-2">Fecha de instalación del sistema de cloración *</label>
                             <input type="text" class="form-control" id="cloracion-gen-2">
                         </div>
 
                         <div class="form-group">
-                            <label for="cloracion-gen-3">Tipo de Sistema de Cloración </label><br>
+                            <label for="cloracion-gen-3">Tipo de Sistema de Cloración *</label><br>
                             <label class="radio-inline"><input type="radio" id="gascloro" name="cloracion-gen-3" value="Gas Cloro"> Gas Cloro </label>
                             <label class="radio-inline"><input type="radio" id="electrosis" name="cloracion-gen-3" value="Electrosis"> Electrósis </label>
                             <label class="radio-inline"><input type="radio" id="pastillas" name="cloracion-gen-3" value="Pastillas"> Pastillas(Erosión) </label>
@@ -484,7 +496,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="cloracion-gen-4">Tipo de Dosificación </label><br>
+                            <label for="cloracion-gen-4">Tipo de Dosificación *</label><br>
                             <label class="radio-inline"><input type="radio" id="programadaCl" name="cloracion-gen-4" value="Tiempos programados"> Tiempos programados </label>
                             <label class="radio-inline"><input type="radio" id="continuaCl" name="cloracion-gen-4" value="Continua"> Continua </label>
                         </div>
@@ -495,6 +507,12 @@
                         </div>
 
                     </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1Cl">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal1Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -565,7 +583,13 @@
 
                     </form>
 
+                    <div class="alert alert-danger" role="alert" id="alert2Cl">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
                     <button id="btnBackModal2Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal2Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -609,7 +633,7 @@
     </div>
 </div>
 
-<!-- Formulario Fuente Superficial-->
+<!-- Formulario Fuente Superficial (FS)-->
 <div id="fuenteSup" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -621,49 +645,50 @@
                     <p style="text-align:center">Ficha de campo 1</p>
                     <p style="text-align:center;font-weight: bold;">Fuente Superficial</p>
                     <p style="font-weight: bold;">I. Información General</p>
+                    @*Informacion general*@
                     <form id="infoGenFS">
                         <div class="form-group">
-                            <label for="fecha">Fecha</label>
+                            <label for="fecha">Fecha *</label>
                             <input class="form-control" type="date" id="fechaFS">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto</label>
+                            <label for="acueducto">Nombre del acueducto *</label>
                             <input type="text" class="form-control" id="acueductoFS">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre toma</label>
+                            <label for="acueducto">Nombre toma *</label>
                             <input type="text" class="form-control" id="tomaFS">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Número de registro en MINAE</label>
+                            <label for="encargado">Número de registro en MINAE *</label>
                             <input type="text" class="form-control" id="registroMFS">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Registro en Dirección de ARS</label>
+                            <label for="encargado">Registro en Dirección de ARS *</label>
                             <input type="text" class="form-control" id="direccionFS">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Encargado del acueducto</label>
+                            <label for="encargado">Encargado del acueducto *</label>
                             <input type="text" class="form-control" id="encargadoFS">
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
+                            <label for="telefono">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoFS">
                         </div>
 
                         <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario</label>
+                            <label for="funcionario">Nombre del funcionario *</label>
                             <input type="text" class="form-control" id="funcionarioFS">
                         </div>
 
                         <div class="form-group">
-                            <label for="Ubicacion">Ubicación </label><br>
+                            <label for="Ubicacion">Ubicación *</label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsFS" name="radio1" oninput='on_location_changeFS()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualFS" name="radio1" oninput='on_location_changeFS()' checked> Manual </label>
                             <small id="ubihelpFS" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
@@ -673,13 +698,14 @@
 
                         <div class="form-group">
 
-                            <label for="Latitud">Latitud</label>
+                            <label for="Latitud">Latitud *</label>
                             <input type="text" class="form-control" id="LatitudFS">
 
-                            <label for="Longitud">Longitud</label>
+                            <label for="Longitud">Longitud *</label>
                             <input type="text" class="form-control" id="LongitudFS">
                         </div>
                         <div class="form-group">
+                            @*Imagen se toma como no obligatoria*@
                             <label for="Image">Imagen</label><br>
                             <span class="btn btn-default btn-file">
                                 <input type="file" id="imgFS">
@@ -690,7 +716,7 @@
                         <!-- Aca termina los campos en comun-->
 
                         <div class="form-group">
-                            <label for="FSLimpieza">Frecuencia de Limpieza </label><br>
+                            <label for="FSLimpieza">Frecuencia de Limpieza *</label><br>
                             <select id="FSLimpieza" name="FSLimpieza">
                                 <option value="Nunca">Nunca</option>
                                 <option value="Mensual">Mensual</option>
@@ -705,12 +731,19 @@
                             <input type="text" class="form-control" id="otroDescripFS" disabled>
                         </div>
 
+                        @*Se toma como no obligatorio*@
                         <div class="form-group">
                             <label for="notasFS">Notas adicionales</label><br>
                             <textarea class="form-control" id="notasFS" name="notasFS" rows="2"></textarea>
                         </div>
 
                     </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1FS">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal1FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -718,6 +751,7 @@
                     <p style="text-align:center">Ficha de campo 1</p>
                     <p style="text-align:center;font-weight: bold;">Fuente Superficial</p>
                     <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
+                    @*Diagnostico infraestructura*@
                     <form id="preguntasFS">
                         <div class="form-group">
                             <label for="infra1FS">1. ¿Está la captación fuera de un área protegida o zona de conservación? </label><br>
@@ -781,7 +815,13 @@
 
                     </form>
 
+                    <div class="alert alert-danger" role="alert" id="alert2FS">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
                     <button id="btnBackModal2FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal2FS" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -826,7 +866,7 @@
 </div>
 
 
-<!-- Formulario Fuente Naciente-->
+<!-- Formulario Fuente Naciente (FN)-->
 <div id="fuenteNac" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -840,47 +880,47 @@
                     <p style="font-weight: bold;">I. Información General</p>
                     <form id="infoGenFN">
                         <div class="form-group">
-                            <label for="fecha">Fecha</label>
+                            <label for="fecha">Fecha *</label>
                             <input class="form-control" type="date" id="fechaFN">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto</label>
+                            <label for="acueducto">Nombre del acueducto *</label>
                             <input type="text" class="form-control" id="acueductoFN">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre naciente o manantial</label>
+                            <label for="acueducto">Nombre naciente o manantial *</label>
                             <input type="text" class="form-control" id="nacienteFN">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Número de registro en MINAE</label>
+                            <label for="encargado">Número de registro en MINAE *</label>
                             <input type="text" class="form-control" id="registroMFN">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Registro en Dirección de ARS</label>
+                            <label for="encargado">Registro en Dirección de ARS *</label>
                             <input type="text" class="form-control" id="direccionFN">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Encargado del acueducto</label>
+                            <label for="encargado">Encargado del acueducto *</label>
                             <input type="text" class="form-control" id="encargadoFN">
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
+                            <label for="telefono">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoFN">
                         </div>
 
                         <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario</label>
+                            <label for="funcionario">Nombre del funcionario *</label>
                             <input type="text" class="form-control" id="funcionarioFN">
                         </div>
 
                         <div class="form-group">
-                            <label for="Ubicacion">Ubicación </label><br>
+                            <label for="Ubicacion">Ubicación *</label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsFN" name="radio1" oninput='on_location_changeFN()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualFN" name="radio1" oninput='on_location_changeFN()' checked> Manual </label>
                             <small id="ubihelpFN" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
@@ -890,10 +930,10 @@
 
                         <div class="form-group">
 
-                            <label for="Latitud">Latitud</label>
+                            <label for="Latitud">Latitud *</label>
                             <input type="text" class="form-control" id="LatitudFN">
 
-                            <label for="Longitud">Longitud</label>
+                            <label for="Longitud">Longitud *</label>
                             <input type="text" class="form-control" id="LongitudFN">
                         </div>
                         <div class="form-group">
@@ -907,7 +947,7 @@
                         <!-- Aca termina los campos en comun-->
 
                         <div class="form-group">
-                            <label for="FNCaptacion">Tipo de Captación </label><br>
+                            <label for="FNCaptacion">Tipo de Captación *</label><br>
                             <select id="FNCaptacion" name="FNCaptacion">
                                 <option value="Caseta">Caseta</option>
                                 <option value="ANivel">A Nivel</option>
@@ -922,6 +962,12 @@
                         </div>
 
                     </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1FN">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal1FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -992,7 +1038,13 @@
 
                     </form>
 
+                    <div class="alert alert-danger" role="alert" id="alert2FN">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
                     <button id="btnBackModal2FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal2FN" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -1037,7 +1089,7 @@
 </div>
 
 
-<!-- Formulario Fuente Pozos-->
+<!-- Formulario Fuente Pozos (P)-->
 <div id="pozos" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1051,47 +1103,47 @@
                     <p style="font-weight: bold;">I. Información General</p>
                     <form id="infoGenP">
                         <div class="form-group">
-                            <label for="fecha">Fecha</label>
+                            <label for="fecha">Fecha *</label>
                             <input class="form-control" type="date" id="fechaP">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto</label>
+                            <label for="acueducto">Nombre del acueducto *</label>
                             <input type="text" class="form-control" id="acueductoP">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre pozo</label>
+                            <label for="acueducto">Nombre pozo *</label>
                             <input type="text" class="form-control" id="pozoP">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Número de Conseción en MINAE</label>
+                            <label for="encargado">Número de Conseción en MINAE *</label>
                             <input type="text" class="form-control" id="registroMP">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Número dado por SENASA</label>
+                            <label for="encargado">Número dado por SENASA *</label>
                             <input type="text" class="form-control" id="senasaP">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Encargado del acueducto</label>
+                            <label for="encargado">Encargado del acueducto *</label>
                             <input type="text" class="form-control" id="encargadoP">
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
+                            <label for="telefono">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoP">
                         </div>
 
                         <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario</label>
+                            <label for="funcionario">Nombre del funcionario *</label>
                             <input type="text" class="form-control" id="funcionarioP">
                         </div>
 
                         <div class="form-group">
-                            <label for="Ubicacion">Ubicación </label><br>
+                            <label for="Ubicacion">Ubicación *</label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsP" name="radio1" oninput='on_location_changeP()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualP" name="radio1" oninput='on_location_changeP()' checked> Manual </label>
                             <small id="ubihelpP" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
@@ -1101,10 +1153,10 @@
 
                         <div class="form-group">
 
-                            <label for="Latitud">Latitud</label>
+                            <label for="Latitud">Latitud *</label>
                             <input type="text" class="form-control" id="LatitudP">
 
-                            <label for="Longitud">Longitud</label>
+                            <label for="Longitud">Longitud *</label>
                             <input type="text" class="form-control" id="LongitudP">
                         </div>
                         <div class="form-group">
@@ -1122,24 +1174,24 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="funcionario">Friático</label>
+                            <label for="funcionario">Friático *</label>
                             <input type="text" class="form-control" id="pFriaticoP">
-                            <label for="funcionario">Dinámico</label>
+                            <label for="funcionario">Dinámico *</label>
                             <input type="text" class="form-control" id="pDinamicoP">
                         </div>
 
                         <div class="form-group">
-                            <label for="diametroP">Diámetro</label>
+                            <label for="diametroP">Diámetro *</label>
                             <input type="text" class="form-control" id="diametroP">
                         </div>
 
                         <div class="form-group">
-                            <label for="espesorP">Espesor</label>
+                            <label for="espesorP">Espesor *</label>
                             <input type="text" class="form-control" id="espesorP">
                         </div>
 
                         <div class="form-group">
-                            <label for="PpozoP">Tipo de Pozo </label><br>
+                            <label for="PpozoP">Tipo de Pozo *</label><br>
                             <select id="PpozoP" name="PpozoP">
                                 <option value="Excavado">Excavado</option>
                                 <option value="Perforado">Perforado</option>
@@ -1152,6 +1204,12 @@
                         </div>
 
                     </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1P">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal1P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -1222,7 +1280,13 @@
 
                     </form>
 
+                    <div class="alert alert-danger" role="alert" id="alert2P">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
                     <button id="btnBackModal2P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal2P" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -1267,7 +1331,7 @@
 </div>
 
 
-<!-- Formulario Tanques de Almacenamiento-->
+<!-- Formulario Tanques de Almacenamiento (A)-->
 <div id="almacenamiento" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1281,42 +1345,42 @@
                     <p style="font-weight: bold;">I. Información General</p>
                     <form id="infoGenA">
                         <div class="form-group">
-                            <label for="fecha">Fecha</label>
+                            <label for="fecha">Fecha *</label>
                             <input class="form-control" type="date" id="fechaA">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto</label>
+                            <label for="acueducto">Nombre del acueducto *</label>
                             <input type="text" class="form-control" id="acueductoA">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Número de registro</label>
+                            <label for="acueducto">Número de registro *</label>
                             <input type="text" class="form-control" id="registroA">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Nombre del tanque</label>
+                            <label for="encargado">Nombre del tanque *</label>
                             <input type="text" class="form-control" id="tanqueA">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Encargado del acueducto</label>
+                            <label for="encargado">Encargado del acueducto *</label>
                             <input type="text" class="form-control" id="encargadoA">
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
+                            <label for="telefono">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoA">
                         </div>
 
                         <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario</label>
+                            <label for="funcionario">Nombre del funcionario *</label>
                             <input type="text" class="form-control" id="funcionarioA">
                         </div>
 
                         <div class="form-group">
-                            <label for="Ubicacion">Ubicación </label><br>
+                            <label for="Ubicacion">Ubicación *</label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsA" name="radio1" oninput='on_location_changeA()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualA" name="radio1" oninput='on_location_changeA()' checked> Manual </label>
                             <small id="ubihelpA" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
@@ -1326,10 +1390,10 @@
 
                         <div class="form-group">
 
-                            <label for="Latitud">Latitud</label>
+                            <label for="Latitud">Latitud *</label>
                             <input type="text" class="form-control" id="LatitudA">
 
-                            <label for="Longitud">Longitud</label>
+                            <label for="Longitud">Longitud *</label>
                             <input type="text" class="form-control" id="LongitudA">
                         </div>
                         <div class="form-group">
@@ -1344,7 +1408,7 @@
 
 
                         <div class="form-group">
-                            <label for="tipoTanqueA">Tipo de Tanque </label><br>
+                            <label for="tipoTanqueA">Tipo de Tanque *</label><br>
                             <select id="tipoTanqueA" name="tipoTanqueA">
                                 <option value="Elevado">Elevado</option>
                                 <option value="Anivel">A nivel</option>
@@ -1354,7 +1418,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="matTanqueA">Material del Tanque </label><br>
+                            <label for="matTanqueA">Material del Tanque *</label><br>
                             <select id="matTanqueA" name="matTanqueA">
                                 <option value="Concreto">Concreto</option>
                                 <option value="Metálico">Metálico</option>
@@ -1363,7 +1427,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="ALimpieza">Frecuencia de Limpieza </label><br>
+                            <label for="ALimpieza">Frecuencia de Limpieza *</label><br>
                             <select id="ALimpieza" name="ALimpieza">
                                 <option value="Anual">Anual</option>
                                 <option value="Semestral">Semestral</option>
@@ -1380,6 +1444,12 @@
                         </div>
 
                     </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1A">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal1A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -1450,7 +1520,13 @@
 
                     </form>
 
+                    <div class="alert alert-danger" role="alert" id="alert2A">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
                     <button id="btnBackModal2A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal2A" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -1495,7 +1571,7 @@
 </div>
 
 
-<!-- Formulario Linea de Conduccion-->
+<!-- Formulario Linea de Conduccion (C)-->
 <div id="conduccion" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1509,49 +1585,49 @@
                     <p style="font-weight: bold;">I. Información General</p>
                     <form id="infoGenC">
                         <div class="form-group">
-                            <label for="fecha">Fecha</label>
+                            <label for="fecha">Fecha *</label>
                             <input class="form-control" type="date" id="fechaC">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto</label>
+                            <label for="acueducto">Nombre del acueducto *</label>
                             <input type="text" class="form-control" id="acueductoC">
                         </div>
 
 
                         <div class="form-group">
-                            <label for="encargado">Encargado del acueducto</label>
+                            <label for="encargado">Encargado del acueducto *</label>
                             <input type="text" class="form-control" id="encargadoC">
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
+                            <label for="telefono">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoC">
                         </div>
 
                         <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario</label>
+                            <label for="funcionario">Nombre del funcionario *</label>
                             <input type="text" class="form-control" id="funcionarioC">
                         </div>
 
                         <div class="form-group">
-                            <label for="conduccionT">Conducción del tanque</label>
+                            <label for="conduccionT">Conducción del tanque *</label>
                             <input type="text" class="form-control" id="conduccionC">
                         </div>
 
                         <div class="form-group">
-                            <label for="reparaciones">Reparaciones por fugas por mes</label>
+                            <label for="reparaciones">Reparaciones por fugas por mes *</label>
                             <input type="text" class="form-control" id="reparacionesC">
                         </div>
 
                         <div class="form-group">
-                            <label for="fechaConstru">Fecha de construcción de la red</label>
+                            <label for="fechaConstru">Fecha de construcción de la red *</label>
                             <input class="form-control" type="date" id="fechaConstruC">
                         </div>
 
 
                         <div class="form-group">
-                            <label for="UbicacionC">Ubicación </label><br>
+                            <label for="UbicacionC">Ubicación *</label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsC" name="radio1" oninput='on_location_changeC()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualC" name="radio1" oninput='on_location_changeC()' checked> Manual </label>
                             <small id="ubihelpC" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
@@ -1561,10 +1637,10 @@
 
                         <div class="form-group">
 
-                            <label for="Latitud">Latitud</label>
+                            <label for="Latitud">Latitud *</label>
                             <input type="text" class="form-control" id="LatitudC">
 
-                            <label for="Longitud">Longitud</label>
+                            <label for="Longitud">Longitud *</label>
                             <input type="text" class="form-control" id="LongitudC">
                         </div>
                         <div class="form-group">
@@ -1579,7 +1655,7 @@
 
 
                         <div class="form-group">
-                            <label for="materialC">Material de la tubería de conducción </label><br>
+                            <label for="materialC">Material de la tubería de conducción *</label><br>
                             <select id="materialC" name="materialC">
                                 <option value="PVC">PVC</option>
                                 <option value="Hierro">Hierro galvanizado</option>
@@ -1594,6 +1670,12 @@
                         </div>
 
                     </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1C">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal1C" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -1664,7 +1746,13 @@
 
                     </form>
 
+                    <div class="alert alert-danger" role="alert" id="alert2C">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
                     <button id="btnBackModal2C" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal2C" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -1708,7 +1796,7 @@
 </div>
 
 
-<!-- Formulario Linea de Distribucion-->
+<!-- Formulario Linea de Distribucion (D)-->
 <div id="distribucion" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1722,43 +1810,43 @@
                     <p style="font-weight: bold;">I. Información General</p>
                     <form id="infoGenD">
                         <div class="form-group">
-                            <label for="fecha">Fecha</label>
+                            <label for="fecha">Fecha *</label>
                             <input class="form-control" type="date" id="fechaD">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto</label>
+                            <label for="acueducto">Nombre del acueducto *</label>
                             <input type="text" class="form-control" id="acueductoD">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Encargado del acueducto</label>
+                            <label for="encargado">Encargado del acueducto *</label>
                             <input type="text" class="form-control" id="encargadoD">
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
+                            <label for="telefono">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoD">
                         </div>
 
                         <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario</label>
+                            <label for="funcionario">Nombre del funcionario *</label>
                             <input type="text" class="form-control" id="funcionarioD">
                         </div>
 
                         <div class="form-group">
-                            <label for="reparaciones">Reparaciones por fugas por mes</label>
+                            <label for="reparaciones">Reparaciones por fugas por mes *</label>
                             <input type="text" class="form-control" id="reparacionesD">
                         </div>
 
                         <div class="form-group">
-                            <label for="fechaConstru">Fecha de construcción de la red</label>
+                            <label for="fechaConstru">Fecha de construcción de la red *</label>
                             <input class="form-control" type="date" id="fechaConstruD">
                         </div>
 
 
                         <div class="form-group">
-                            <label for="UbicacionD">Ubicación </label><br>
+                            <label for="UbicacionD">Ubicación *</label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsD" name="radio1" oninput='on_location_changeD()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualD" name="radio1" oninput='on_location_changeD()' checked> Manual </label>
                             <small id="ubihelpD" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
@@ -1768,10 +1856,10 @@
 
                         <div class="form-group">
 
-                            <label for="Latitud">Latitud</label>
+                            <label for="Latitud">Latitud *</label>
                             <input type="text" class="form-control" id="LatitudD">
 
-                            <label for="Longitud">Longitud</label>
+                            <label for="Longitud">Longitud *</label>
                             <input type="text" class="form-control" id="LongitudD">
                         </div>
                         <div class="form-group">
@@ -1786,7 +1874,7 @@
 
 
                         <div class="form-group">
-                            <label for="materialD">Material de la tubería de distribución </label><br>
+                            <label for="materialD">Material de la tubería de distribución *</label><br>
                             <select id="materialD" name="materialD">
                                 <option value="PVC">PVC</option>
                                 <option value="Hierro">Hierro galvanizado</option>
@@ -1801,6 +1889,12 @@
                         </div>
 
                     </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1D">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal1D" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -1871,7 +1965,13 @@
 
                     </form>
 
+                    <div class="alert alert-danger" role="alert" id="alert2D">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
                     <button id="btnBackModal2D" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal2D" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -1914,7 +2014,7 @@
 </div>
 
 
-<!-- Formulario Tanques Quiebragradientes-->
+<!-- Formulario Tanques Quiebragradientes (Q)-->
 <div id="quiebragradientes" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1928,38 +2028,38 @@
                     <p style="font-weight: bold;">I. Información General</p>
                     <form id="infoGenQ">
                         <div class="form-group">
-                            <label for="fecha">Fecha</label>
+                            <label for="fecha">Fecha *</label>
                             <input class="form-control" type="date" id="fechaQ">
                         </div>
 
                         <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto</label>
+                            <label for="acueducto">Nombre del acueducto *</label>
                             <input type="text" class="form-control" id="acueductoQ">
                         </div>
 
                         <div class="form-group">
-                            <label for="encargado">Encargado del acueducto</label>
+                            <label for="encargado">Encargado del acueducto *</label>
                             <input type="text" class="form-control" id="encargadoQ">
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
+                            <label for="telefono">Teléfono *</label>
                             <input type="text" class="form-control" id="telefonoQ">
                         </div>
 
                         <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario</label>
+                            <label for="funcionario">Nombre del funcionario *</label>
                             <input type="text" class="form-control" id="funcionarioQ">
                         </div>
 
                         <div class="form-group">
-                            <label for="fechaConstruQ">Fecha de construcción del quiebragradiente</label>
+                            <label for="fechaConstruQ">Fecha de construcción del quiebragradiente *</label>
                             <input class="form-control" type="date" id="fechaConstruQ">
                         </div>
 
 
                         <div class="form-group">
-                            <label for="UbicacionD">Ubicación </label><br>
+                            <label for="UbicacionD">Ubicación *</label><br>
                             <label class="radio-inline"><input type="radio" id="UbicacionGpsQ" name="radio1" oninput='on_location_changeQ()'> GPS </label>
                             <label class="radio-inline"><input type="radio" id="UbicacionManualQ" name="radio1" oninput='on_location_changeQ()' checked> Manual </label>
                             <small id="ubihelpQ" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
@@ -1969,10 +2069,10 @@
 
                         <div class="form-group">
 
-                            <label for="Latitud">Latitud</label>
+                            <label for="Latitud">Latitud *</label>
                             <input type="text" class="form-control" id="LatitudQ">
 
-                            <label for="Longitud">Longitud</label>
+                            <label for="Longitud">Longitud *</label>
                             <input type="text" class="form-control" id="LongitudQ">
                         </div>
                         <div class="form-group">
@@ -1987,7 +2087,7 @@
 
 
                         <div class="form-group">
-                            <label for="materialQ">Material del tanque </label><br>
+                            <label for="materialQ">Material del tanque *</label><br>
                             <select id="materialQ" name="materialQ">
                                 <option value="Concreto">Concreto</option>
                                 <option value="Metálico">Metálico</option>
@@ -1996,7 +2096,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="frecuenciaQ">Limpieza del tanque </label><br>
+                            <label for="frecuenciaQ">Limpieza del tanque *</label><br>
                             <select id="frecuenciaQ" name="frecuenciaQ">
                                 <option value="Anual">Anual</option>
                                 <option value="Semestral">Semestral</option>
@@ -2013,6 +2113,12 @@
                         </div>
 
                     </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1Q">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal1Q" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -2083,7 +2189,13 @@
 
                     </form>
 
+                    <div class="alert alert-danger" role="alert" id="alert2Q">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
                     <button id="btnBackModal2Q" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
                     <button id="btnNextModal2Q" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
 
                 </div>
@@ -2124,6 +2236,11 @@
         </div>
     </div>
 </div>
+
+
+
+
+
 
 
 <!-- Lista Edit Fuente Superficial-->
@@ -2297,6 +2414,14 @@
     </div>
 </div>
 
+
+
+
+
+
+
+
+@*SCRIPTS-------------------------------------------*@
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
@@ -2346,9 +2471,6 @@
             LlenarTablaListaPP();
         });
 
-    });
-
-    $(document).ready(function () {
         $(":input").inputmask();
 
 
@@ -2366,7 +2488,41 @@
                 return processedValue;
             }
         });
+
+
+
     });
+
+    //Esconder todos los alerts al iniciar
+    $("#alert1PP").hide();
+    $("#alert2PP").hide();
+
+    $("#alert1Cl").hide();
+    $("#alert2Cl").hide();
+
+    $("#alert1FS").hide();
+    $("#alert2FS").hide();
+
+    $("#alert1FN").hide();
+    $("#alert2FN").hide();
+
+    $("#alert1P").hide();
+    $("#alert2P").hide();
+
+    $("#alert1A").hide();
+    $("#alert2A").hide();
+
+    $("#alert1C").hide();
+    $("#alert2C").hide();
+
+    $("#alert1D").hide();
+    $("#alert2D").hide();
+
+    $("#alert1Q").hide();
+    $("#alert2Q").hide();
+    
+
+    //Funciones para desplegar la lista de formularios que ya he creado de cierto tipo
 
     function LlenarTablaListaFS() {
         try {
@@ -2584,12 +2740,14 @@
         }
     }
 
+    //Fuente superficial------------------------------------------------------------------------------------------------------
+    //Boton guardar formulario fuente superficial
     $("#btnSaveFS").on("click", function () {
         guardarFormularioFS();
         document.getElementById('modal3FS').style.display = 'none'
         document.getElementById('modal1FS').style.display = 'block'
     });
-
+    //Funcion para el boton
     function guardarFormularioFS() {
         var fecha = document.getElementById('fechaFS').value;
         var acueducto = document.getElementById('acueductoFS').value;
@@ -2621,13 +2779,14 @@
         var p9 = $('input:radio[name=infra9FS]:checked').val();
         var p10 = $('input:radio[name=infra10FS]:checked').val();
         var IoU = ""
-        if (idForm == "") {
+        if (idForm == "") { /*Insert o update??*/
             IoU = "I"
         }
         else {
             IoU = "U"
         }
 
+        
         try {
             $.ajax({
                 url: '/Formularios/guardarFormularioFS/',
@@ -2676,15 +2835,19 @@
         } catch (err) {
             console.log(err.message)
         }
+        
     };
-
+    //Si la opcion es Otro, se habilita el campo de Especifique
     function habilitarDescripcionFS() {
         var valor = document.getElementById('FSLimpieza').value;
         if (valor == "Otro") {
             document.getElementById("otroDescripFS").disabled = false;
+        } else {
+            document.getElementById("otroDescripFS").disabled = true;
+            document.getElementById("otroDescripFS").value = "";
         }
     }
-
+    //Funciones ubicacion (GPS) para fuente superficial
     function on_location_changeFS() {
         if (document.getElementById('UbicacionGpsFS').checked) {
             showPositionFS()
@@ -2706,15 +2869,40 @@
             document.getElementById('LongitudFS').value = "GPS no disponible, por favor cambie a modo Manual"
         }
     }
-
+    //Botones "anterior" y "siguiente" entre las 3 partes del formulario
     $("#btnNextModal1FS").click(function () {
-        document.getElementById('modal1FS').style.display = 'none'
-        document.getElementById('modal2FS').style.display = 'block'
+        //Si quedan campos sin llenar, avisa al usuario
+        if (document.getElementById("FSLimpieza").value == "Otro" && document.getElementById("otroDescripFS").value == "") {
+            //Si la opcion es otro y no especifica, notifica al usuario
+            $("#alert1FS").show()
 
+        } else if (document.getElementById("fechaFS").value == "" || document.getElementById("acueductoFS").value == "" || document.getElementById("tomaFS").value == "" || document.getElementById("registroMFS").value == "" || document.getElementById("direccionFS").value == "" || document.getElementById("encargadoFS").value == "" || document.getElementById("telefonoFS").value == "" || document.getElementById("funcionarioFS").value == "" || document.getElementById("LatitudFS").value == "" || document.getElementById("LongitudFS").value == "") {
+            $("#alert1FS").show()
+        } else { //Si no hay problemas, continua al siguiente paso
+            $("#alert1FS").hide()
+            document.getElementById('modal1FS').style.display = 'none'
+            document.getElementById('modal2FS').style.display = 'block'
+        }
     });
     $("#btnNextModal2FS").click(function () {
-        document.getElementById('modal2FS').style.display = 'none'
-        document.getElementById('modal3FS').style.display = 'block'
+        //bool que me dice si hay una respuesta para cada pregunta del formulario
+        var pregunta1 = document.getElementById("infra1FS_si").checked || document.getElementById("infra1FS_no").checked
+        var pregunta2 = document.getElementById("infra2FS_si").checked || document.getElementById("infra2FS_no").checked
+        var pregunta3 = document.getElementById("infra3FS_si").checked || document.getElementById("infra3FS_no").checked
+        var pregunta4 = document.getElementById("infra4FS_si").checked || document.getElementById("infra4FS_no").checked
+        var pregunta5 = document.getElementById("infra5FS_si").checked || document.getElementById("infra5FS_no").checked
+        var pregunta6 = document.getElementById("infra6FS_si").checked || document.getElementById("infra6FS_no").checked
+        var pregunta7 = document.getElementById("infra7FS_si").checked || document.getElementById("infra7FS_no").checked
+        var pregunta8 = document.getElementById("infra8FS_si").checked || document.getElementById("infra8FS_no").checked
+        var pregunta9 = document.getElementById("infra9FS_si").checked || document.getElementById("infra9FS_no").checked
+        var pregunta10 = document.getElementById("infra10FS_si").checked || document.getElementById("infra10FS_no").checked
+        if (!(pregunta1 && pregunta2 && pregunta3 && pregunta4 && pregunta5 && pregunta6 && pregunta7 && pregunta8 && pregunta9 && pregunta10)) {
+            $("#alert2FS").show()
+        } else {
+            $("#alert2FS").hide()
+            document.getElementById('modal2FS').style.display = 'none'
+            document.getElementById('modal3FS').style.display = 'block'
+        }
     });
     $("#btnBackModal2FS").click(function () {
         document.getElementById('modal2FS').style.display = 'none'
@@ -2724,7 +2912,7 @@
         document.getElementById('modal3FS').style.display = 'none'
         document.getElementById('modal2FS').style.display = 'block'
     });
-
+    //Si selecciono "todos los campos" se deshabilitan los otros checkboxes
     $("#filter_allFS").click(function () {
         if (document.getElementById('filter_allFS').checked) {
 
@@ -2742,6 +2930,9 @@
         }
     });
 
+
+
+    //Fuente Naciente---------------------------------------------------------------------------------------
     $("#btnSaveFN").on("click", function () {
         guardarFormularioFN();
         document.getElementById('modal3FN').style.display = 'none'
@@ -2852,13 +3043,34 @@
     }
 
     $("#btnNextModal1FN").click(function () {
-        document.getElementById('modal1FN').style.display = 'none'
-        document.getElementById('modal2FN').style.display = 'block'
+        if (document.getElementById("fechaFN").value == "" || document.getElementById("acueductoFN").value == "" || document.getElementById("nacienteFN").value == "" || document.getElementById("registroMFN").value == "" || document.getElementById("direccionFN").value == "" || document.getElementById("encargadoFN").value == "" || document.getElementById("telefonoFN").value == "" || document.getElementById("funcionarioFN").value == "" || document.getElementById("LatitudFN").value == "" || document.getElementById("LongitudFN").value == "" || document.getElementById("FNCaptacion").value == "") {
+            $("#alert1FN").show()
+        } else {
+            $("#alert1FN").hide()
+            document.getElementById('modal1FN').style.display = 'none'
+            document.getElementById('modal2FN').style.display = 'block'
+        }
 
     });
     $("#btnNextModal2FN").click(function () {
-        document.getElementById('modal2FN').style.display = 'none'
-        document.getElementById('modal3FN').style.display = 'block'
+        var pregunta1 = document.getElementById("infra1FN_si").checked || document.getElementById("infra1FN_no").checked
+        var pregunta2 = document.getElementById("infra2FN_si").checked || document.getElementById("infra2FN_no").checked
+        var pregunta3 = document.getElementById("infra3FN_si").checked || document.getElementById("infra3FN_no").checked
+        var pregunta4 = document.getElementById("infra4FN_si").checked || document.getElementById("infra4FN_no").checked
+        var pregunta5 = document.getElementById("infra5FN_si").checked || document.getElementById("infra5FN_no").checked
+        var pregunta6 = document.getElementById("infra6FN_si").checked || document.getElementById("infra6FN_no").checked
+        var pregunta7 = document.getElementById("infra7FN_si").checked || document.getElementById("infra7FN_no").checked
+        var pregunta8 = document.getElementById("infra8FN_si").checked || document.getElementById("infra8FN_no").checked
+        var pregunta9 = document.getElementById("infra9FN_si").checked || document.getElementById("infra9FN_no").checked
+        var pregunta10 = document.getElementById("infra10FN_si").checked || document.getElementById("infra10FN_no").checked
+
+        if (!(pregunta1 && pregunta2 && pregunta3 && pregunta4 && pregunta5 && pregunta6 && pregunta7 && pregunta8 && pregunta9 && pregunta10)) {
+            $("#alert2FN").show()
+        } else {
+            $("#alert2FN").hide()
+            document.getElementById('modal2FN').style.display = 'none'
+            document.getElementById('modal3FN').style.display = 'block'
+        }
     });
     $("#btnBackModal2FN").click(function () {
         document.getElementById('modal2FN').style.display = 'none'
@@ -2886,6 +3098,7 @@
         }
     });
 
+    //Pozos-----------------------------------------------------------------------------------------------------
     $("#btnSaveP").on("click", function () {
         guardarFormularioP();
         document.getElementById('modal3P').style.display = 'none'
@@ -2899,7 +3112,7 @@
         var registro = document.getElementById('registroMP').value;
         var senasa = document.getElementById('senasaP').value;
         var encargado = document.getElementById('encargadoP').value;
-        var telefono = document.getElementById('telefonoP').value; 
+        var telefono = document.getElementById('telefonoP').value;
         var funcionario = document.getElementById('funcionarioP').value;
         var latitud = document.getElementById('LatitudP').value;
         var longitud = document.getElementById('LongitudP').value;
@@ -3004,13 +3217,34 @@
     }
 
     $("#btnNextModal1P").click(function () {
-        document.getElementById('modal1P').style.display = 'none'
-        document.getElementById('modal2P').style.display = 'block'
+        if (document.getElementById("fechaP").value == "" || document.getElementById("acueductoP").value == "" || document.getElementById("pozoP").value == "" || document.getElementById("registroMP").value == "" || document.getElementById("senasaP").value == "" || document.getElementById("encargadoP").value == "" || document.getElementById("telefonoP").value == "" || document.getElementById("funcionarioP").value == "" || document.getElementById("LatitudP").value == "" || document.getElementById("LongitudP").value == "" || document.getElementById("pFriaticoP").value == "" || document.getElementById("pDinamicoP").value == "" || document.getElementById("diametroP").value == "" || document.getElementById("espesorP").value == "" || document.getElementById("PpozoP").value == "") {
+            $("#alert1P").show()
+        } else {
+            $("#alert1P").hide()
+            document.getElementById('modal1P').style.display = 'none'
+            document.getElementById('modal2P').style.display = 'block'
+        }
 
     });
     $("#btnNextModal2P").click(function () {
-        document.getElementById('modal2P').style.display = 'none'
-        document.getElementById('modal3P').style.display = 'block'
+        var pregunta1 = document.getElementById("infra1P_si").checked || document.getElementById("infra1P_no").checked
+        var pregunta2 = document.getElementById("infra2P_si").checked || document.getElementById("infra2P_no").checked
+        var pregunta3 = document.getElementById("infra3P_si").checked || document.getElementById("infra3P_no").checked
+        var pregunta4 = document.getElementById("infra4P_si").checked || document.getElementById("infra4P_no").checked
+        var pregunta5 = document.getElementById("infra5P_si").checked || document.getElementById("infra5P_no").checked
+        var pregunta6 = document.getElementById("infra6P_si").checked || document.getElementById("infra6P_no").checked
+        var pregunta7 = document.getElementById("infra7P_si").checked || document.getElementById("infra7P_no").checked
+        var pregunta8 = document.getElementById("infra8P_si").checked || document.getElementById("infra8P_no").checked
+        var pregunta9 = document.getElementById("infra9P_si").checked || document.getElementById("infra9P_no").checked
+        var pregunta10 = document.getElementById("infra10P_si").checked || document.getElementById("infra10P_no").checked
+
+        if (!(pregunta1 && pregunta2 && pregunta3 && pregunta4 && pregunta5 && pregunta6 && pregunta7 && pregunta8 && pregunta9 && pregunta10)) {
+            $("#alert2P").show()
+        } else {
+            $("#alert2P").hide()
+            document.getElementById('modal2P').style.display = 'none'
+            document.getElementById('modal3P').style.display = 'block'
+        }
     });
     $("#btnBackModal2P").click(function () {
         document.getElementById('modal2P').style.display = 'none'
@@ -3038,6 +3272,7 @@
         }
     });
 
+    //Almacenamiento------------------------------------------------------------------------------------------------
     $("#btnSaveA").on("click", function () {
         guardarFormularioA();
         document.getElementById('modal3A').style.display = 'none'
@@ -3150,13 +3385,33 @@
     }
 
     $("#btnNextModal1A").click(function () {
-        document.getElementById('modal1A').style.display = 'none'
-        document.getElementById('modal2A').style.display = 'block'
+        if (document.getElementById("fechaA").value == "" || document.getElementById("acueductoA").value == "" || document.getElementById("tanqueA").value == "" || document.getElementById("registroA").value == "" || document.getElementById("encargadoA").value == "" || document.getElementById("telefonoA").value == "" || document.getElementById("funcionarioA").value == "" || document.getElementById("LatitudA").value == "" || document.getElementById("LongitudA").value == "" || document.getElementById("tipoTanqueA").value == "" || document.getElementById("matTanqueA").value == "" || document.getElementById("ALimpieza").value == "") {
+            $("#alert1A").show()
+        } else {
+            $("#alert1A").hide()
+            document.getElementById('modal1A').style.display = 'none'
+            document.getElementById('modal2A').style.display = 'block'
+        }
 
     });
     $("#btnNextModal2A").click(function () {
-        document.getElementById('modal2A').style.display = 'none'
-        document.getElementById('modal3A').style.display = 'block'
+        var pregunta1 = document.getElementById("infra1A_si").checked || document.getElementById("infra1A_no").checked
+        var pregunta2 = document.getElementById("infra2A_si").checked || document.getElementById("infra2A_no").checked
+        var pregunta3 = document.getElementById("infra3A_si").checked || document.getElementById("infra3A_no").checked
+        var pregunta4 = document.getElementById("infra4A_si").checked || document.getElementById("infra4A_no").checked
+        var pregunta5 = document.getElementById("infra5A_si").checked || document.getElementById("infra5A_no").checked
+        var pregunta6 = document.getElementById("infra6A_si").checked || document.getElementById("infra6A_no").checked
+        var pregunta7 = document.getElementById("infra7A_si").checked || document.getElementById("infra7A_no").checked
+        var pregunta8 = document.getElementById("infra8A_si").checked || document.getElementById("infra8A_no").checked
+        var pregunta9 = document.getElementById("infra9A_si").checked || document.getElementById("infra9A_no").checked
+        var pregunta10 = document.getElementById("infra10A_si").checked || document.getElementById("infra10A_no").checked
+        if (!(pregunta1 && pregunta2 && pregunta3 && pregunta4 && pregunta5 && pregunta6 && pregunta7 && pregunta8 && pregunta9 && pregunta10)) {
+            $("#alert2A").show()
+        } else {
+            $("#alert2A").hide()
+            document.getElementById('modal2A').style.display = 'none'
+            document.getElementById('modal3A').style.display = 'block'
+        }
     });
     $("#btnBackModal2A").click(function () {
         document.getElementById('modal2A').style.display = 'none'
@@ -3184,6 +3439,7 @@
         }
     });
 
+    //Conduccion----------------------------------------------------------------------------------------------------
     $("#btnSaveC").on("click", function () {
         guardarFormularioC();
         document.getElementById('modal3C').style.display = 'none'
@@ -3273,7 +3529,7 @@
 
     function on_location_changeC() {
         if (document.getElementById('UbicacionGpsC').checked) {
-            showPosition()
+            showPositionC()
         } else if (document.getElementById('UbicacionManualC').checked) {
 
             document.getElementById('LatitudC').value = ''
@@ -3294,13 +3550,33 @@
     }
 
     $("#btnNextModal1C").click(function () {
-        document.getElementById('modal1C').style.display = 'none'
-        document.getElementById('modal2C').style.display = 'block'
+        if (document.getElementById("fechaC").value == "" || document.getElementById("acueductoC").value == "" || document.getElementById("conduccionC").value == "" || document.getElementById("reparacionesC").value == "" || document.getElementById("encargadoC").value == "" || document.getElementById("telefonoC").value == "" || document.getElementById("funcionarioC").value == "" || document.getElementById("LatitudC").value == "" || document.getElementById("LongitudC").value == "" || document.getElementById("fechaConstruC").value == "" || document.getElementById("materialC").value == "") {
+            $("#alert1C").show()
+        } else {
+            $("#alert1C").hide()
+            document.getElementById('modal1C').style.display = 'none'
+            document.getElementById('modal2C').style.display = 'block'
+        }
 
     });
     $("#btnNextModal2C").click(function () {
-        document.getElementById('modal2C').style.display = 'none'
-        document.getElementById('modal3C').style.display = 'block'
+        var pregunta1 = document.getElementById("infra1C_si").checked || document.getElementById("infra1C_no").checked
+        var pregunta2 = document.getElementById("infra2C_si").checked || document.getElementById("infra2C_no").checked
+        var pregunta3 = document.getElementById("infra3C_si").checked || document.getElementById("infra3C_no").checked
+        var pregunta4 = document.getElementById("infra4C_si").checked || document.getElementById("infra4C_no").checked
+        var pregunta5 = document.getElementById("infra5C_si").checked || document.getElementById("infra5C_no").checked
+        var pregunta6 = document.getElementById("infra6C_si").checked || document.getElementById("infra6C_no").checked
+        var pregunta7 = document.getElementById("infra7C_si").checked || document.getElementById("infra7C_no").checked
+        var pregunta8 = document.getElementById("infra8C_si").checked || document.getElementById("infra8C_no").checked
+        var pregunta9 = document.getElementById("infra9C_si").checked || document.getElementById("infra9C_no").checked
+        var pregunta10 = document.getElementById("infra10C_si").checked || document.getElementById("infra10C_no").checked
+        if (!(pregunta1 && pregunta2 && pregunta3 && pregunta4 && pregunta5 && pregunta6 && pregunta7 && pregunta8 && pregunta9 && pregunta10)) {
+            $("#alert2C").show()
+        } else {
+            $("#alert2C").hide()
+            document.getElementById('modal2C').style.display = 'none'
+            document.getElementById('modal3C').style.display = 'block'
+        }
     });
     $("#btnBackModal2C").click(function () {
         document.getElementById('modal2C').style.display = 'none'
@@ -3328,7 +3604,7 @@
         }
     });
 
-
+    //Distribucion----------------------------------------------------------------------------------------------
     $("#btnSaveD").on("click", function () {
         guardarFormularioD();
         document.getElementById('modal3D').style.display = 'none'
@@ -3437,13 +3713,33 @@
     }
 
     $("#btnNextModal1D").click(function () {
-        document.getElementById('modal1D').style.display = 'none'
-        document.getElementById('modal2D').style.display = 'block'
-
+        if (document.getElementById("fechaD").value == "" || document.getElementById("acueductoD").value == "" || document.getElementById("reparacionesD").value == "" || document.getElementById("encargadoD").value == "" || document.getElementById("telefonoD").value == "" || document.getElementById("funcionarioD").value == "" || document.getElementById("LatitudD").value == "" || document.getElementById("LongitudD").value == "" || document.getElementById("fechaConstruD").value == "" || document.getElementById("materialD").value == "") {
+            $("#alert1D").show()
+        } else {
+            $("#alert1D").hide()
+            document.getElementById('modal1D').style.display = 'none'
+            document.getElementById('modal2D').style.display = 'block'
+        }
     });
     $("#btnNextModal2D").click(function () {
-        document.getElementById('modal2D').style.display = 'none'
-        document.getElementById('modal3D').style.display = 'block'
+
+        var pregunta1 = document.getElementById("infra1D_si").checked || document.getElementById("infra1D_no").checked
+        var pregunta2 = document.getElementById("infra2D_si").checked || document.getElementById("infra2D_no").checked
+        var pregunta3 = document.getElementById("infra3D_si").checked || document.getElementById("infra3D_no").checked
+        var pregunta4 = document.getElementById("infra4D_si").checked || document.getElementById("infra4D_no").checked
+        var pregunta5 = document.getElementById("infra5D_si").checked || document.getElementById("infra5D_no").checked
+        var pregunta6 = document.getElementById("infra6D_si").checked || document.getElementById("infra6D_no").checked
+        var pregunta7 = document.getElementById("infra7D_si").checked || document.getElementById("infra7D_no").checked
+        var pregunta8 = document.getElementById("infra8D_si").checked || document.getElementById("infra8D_no").checked
+        var pregunta9 = document.getElementById("infra9D_si").checked || document.getElementById("infra9D_no").checked
+        var pregunta10 = document.getElementById("infra10D_si").checked || document.getElementById("infra10D_no").checked
+        if (!(pregunta1 && pregunta2 && pregunta3 && pregunta4 && pregunta5 && pregunta6 && pregunta7 && pregunta8 && pregunta9 && pregunta10)) {
+            $("#alert2D").show()
+        } else {
+            $("#alert2D").hide()
+            document.getElementById('modal2D').style.display = 'none'
+            document.getElementById('modal3D').style.display = 'block'
+        }
     });
     $("#btnBackModal2D").click(function () {
         document.getElementById('modal2D').style.display = 'none'
@@ -3471,7 +3767,7 @@
         }
     });
 
-
+    //Quiebra-gradientes---------------------------------------------------------------------------------------
     $("#btnSaveQ").on("click", function () {
         guardarFormularioQ();
         document.getElementById('modal3Q').style.display = 'none'
@@ -3580,13 +3876,32 @@
     }
 
     $("#btnNextModal1Q").click(function () {
-        document.getElementById('modal1Q').style.display = 'none'
-        document.getElementById('modal2Q').style.display = 'block'
-
+        if (document.getElementById("fechaQ").value == "" || document.getElementById("acueductoQ").value == "" || document.getElementById("encargadoQ").value == "" || document.getElementById("telefonoQ").value == "" || document.getElementById("funcionarioQ").value == "" || document.getElementById("LatitudQ").value == "" || document.getElementById("LongitudQ").value == "" || document.getElementById("fechaConstruQ").value == "" || document.getElementById("materialQ").value == "" || document.getElementById("frecuenciaQ").value == "") {
+            $("#alert1Q").show()
+        } else {
+            $("#alert1Q").hide()
+            document.getElementById('modal1Q').style.display = 'none'
+            document.getElementById('modal2Q').style.display = 'block'
+        }
     });
     $("#btnNextModal2Q").click(function () {
-        document.getElementById('modal2Q').style.display = 'none'
-        document.getElementById('modal3Q').style.display = 'block'
+        var pregunta1 = document.getElementById("infra1Q_si").checked || document.getElementById("infra1Q_no").checked
+        var pregunta2 = document.getElementById("infra2Q_si").checked || document.getElementById("infra2Q_no").checked
+        var pregunta3 = document.getElementById("infra3Q_si").checked || document.getElementById("infra3Q_no").checked
+        var pregunta4 = document.getElementById("infra4Q_si").checked || document.getElementById("infra4Q_no").checked
+        var pregunta5 = document.getElementById("infra5Q_si").checked || document.getElementById("infra5Q_no").checked
+        var pregunta6 = document.getElementById("infra6Q_si").checked || document.getElementById("infra6Q_no").checked
+        var pregunta7 = document.getElementById("infra7Q_si").checked || document.getElementById("infra7Q_no").checked
+        var pregunta8 = document.getElementById("infra8Q_si").checked || document.getElementById("infra8Q_no").checked
+        var pregunta9 = document.getElementById("infra9Q_si").checked || document.getElementById("infra9Q_no").checked
+        var pregunta10 = document.getElementById("infra10Q_si").checked || document.getElementById("infra10Q_no").checked
+        if (!(pregunta1 && pregunta2 && pregunta3 && pregunta4 && pregunta5 && pregunta6 && pregunta7 && pregunta8 && pregunta9 && pregunta10)) {
+            $("#alert2Q").show()
+        } else {
+            $("#alert2Q").hide()
+            document.getElementById('modal2Q').style.display = 'none'
+            document.getElementById('modal3Q').style.display = 'block'
+        }
     });
     $("#btnBackModal2Q").click(function () {
         document.getElementById('modal2Q').style.display = 'none'
@@ -3614,6 +3929,7 @@
         }
     });
 
+    //Desinfeccion/Cloracion-----------------------------------------------------------------------------------
     $("#btnSaveCl").on("click", function () {
         guardarFormularioCl();
         document.getElementById('modal3Cl').style.display = 'none'
@@ -3724,13 +4040,34 @@
     }
 
     $("#btnNextModal1Cl").click(function () {
-        document.getElementById('modal1Cl').style.display = 'none'
-        document.getElementById('modal2Cl').style.display = 'block'
-
+        var gen3 = document.getElementById("gascloro").checked || document.getElementById("electrosis").checked || document.getElementById("pastillas").checked || document.getElementById("otroC").checked
+        var gen4 = document.getElementById("programadaCl").checked || document.getElementById("continuaCl").checked
+        if (document.getElementById("fechaCl").value == "" || document.getElementById("acueductoCl").value == "" || document.getElementById("encargadoCl").value == "" || document.getElementById("telefonoCl").value == "" || document.getElementById("funcionarioCl").value == "" || document.getElementById("LatitudCl").value == "" || document.getElementById("LongitudCl").value == "" || document.getElementById("cloracion-gen-1").value == "" || document.getElementById("cloracion-gen-2").value == "" || (!(gen3)) || (!(gen4))) {
+            $("#alert1Cl").show()
+        } else {
+            $("#alert1Cl").hide()
+            document.getElementById('modal1Cl').style.display = 'none'
+            document.getElementById('modal2Cl').style.display = 'block'
+        }
     });
     $("#btnNextModal2Cl").click(function () {
-        document.getElementById('modal2Cl').style.display = 'none'
-        document.getElementById('modal3Cl').style.display = 'block'
+        var pregunta1 = document.getElementById("cloracion_infra1_si").checked || document.getElementById("cloracion_infra1_no").checked
+        var pregunta2 = document.getElementById("cloracion_infra2_si").checked || document.getElementById("cloracion_infra2_no").checked
+        var pregunta3 = document.getElementById("cloracion_infra3_si").checked || document.getElementById("cloracion_infra3_no").checked
+        var pregunta4 = document.getElementById("cloracion_infra4_si").checked || document.getElementById("cloracion_infra4_no").checked
+        var pregunta5 = document.getElementById("cloracion_infra5_si").checked || document.getElementById("cloracion_infra5_no").checked
+        var pregunta6 = document.getElementById("cloracion_infra6_si").checked || document.getElementById("cloracion_infra6_no").checked
+        var pregunta7 = document.getElementById("cloracion_infra7_si").checked || document.getElementById("cloracion_infra7_no").checked
+        var pregunta8 = document.getElementById("cloracion_infra8_si").checked || document.getElementById("cloracion_infra8_no").checked
+        var pregunta9 = document.getElementById("cloracion_infra9_si").checked || document.getElementById("cloracion_infra9_no").checked
+        var pregunta10 = document.getElementById("cloracion_infra10_si").checked || document.getElementById("cloracion_infra10_no").checked
+        if (!(pregunta1 && pregunta2 && pregunta3 && pregunta4 && pregunta5 && pregunta6 && pregunta7 && pregunta8 && pregunta9 && pregunta10)) {
+            $("#alert2Cl").show()
+        } else {
+            $("#alert2Cl").hide()
+            document.getElementById('modal2Cl').style.display = 'none'
+            document.getElementById('modal3Cl').style.display = 'block'
+        }
     });
     $("#btnBackModal2Cl").click(function () {
         document.getElementById('modal2Cl').style.display = 'none'
@@ -3758,6 +4095,7 @@
         }
     });
 
+    //Planta potabilizacion----------------------------------------------------------------------------------
     $("#btnSavePP").on("click", function () {
         guardarFormularioPP();
         document.getElementById('modal3PP').style.display = 'none'
@@ -3852,6 +4190,9 @@
         var valor = document.getElementById('potabilizacion-gen-3').value;
         if (valor == "Otro") {
             document.getElementById("potabilizacion-gen-4").disabled = false;
+        } else {
+            document.getElementById("potabilizacion-gen-4").disabled = true;
+            document.getElementById("potabilizacion-gen-4").value = "";
         }
     }
 
@@ -3878,13 +4219,38 @@
     }
 
     $("#btnNextModal1PP").click(function () {
-        document.getElementById('modal1PP').style.display = 'none'
-        document.getElementById('modal2PP').style.display = 'block'
+        if (document.getElementById("potabilizacion-gen-3").value == "Otro" && document.getElementById("potabilizacion-gen-4").value == "") {
+            //Si la opcion es otro y no especifica, notifica al usuario
+            $("#alert1PP").show()
+
+        } else if (document.getElementById("fechaPP").value == "" || document.getElementById("acueductoPP").value == "" || document.getElementById("encargadoPP").value == "" || document.getElementById("telefonoPP").value == "" || document.getElementById("funcionarioPP").value == "" || document.getElementById("LatitudPP").value == "" || document.getElementById("LongitudPP").value == "" || document.getElementById("potabilizacion-gen-1").value == "" || document.getElementById("potabilizacion-gen-3").value == "") {
+            $("#alert1PP").show()
+
+        } else {
+            $("#alert1PP").hide()
+            document.getElementById('modal1PP').style.display = 'none'
+            document.getElementById('modal2PP').style.display = 'block'
+        }
 
     });
     $("#btnNextModal2PP").click(function () {
-        document.getElementById('modal2PP').style.display = 'none'
-        document.getElementById('modal3PP').style.display = 'block'
+        var pregunta1 = document.getElementById("potabilizacion_infra1_si").checked || document.getElementById("potabilizacion_infra1_no").checked
+        var pregunta2 = document.getElementById("potabilizacion_infra2_si").checked || document.getElementById("potabilizacion_infra2_no").checked
+        var pregunta3 = document.getElementById("potabilizacion_infra3_si").checked || document.getElementById("potabilizacion_infra3_no").checked
+        var pregunta4 = document.getElementById("potabilizacion_infra4_si").checked || document.getElementById("potabilizacion_infra4_no").checked
+        var pregunta5 = document.getElementById("potabilizacion_infra5_si").checked || document.getElementById("potabilizacion_infra5_no").checked
+        var pregunta6 = document.getElementById("potabilizacion_infra6_si").checked || document.getElementById("potabilizacion_infra6_no").checked
+        var pregunta7 = document.getElementById("potabilizacion_infra7_si").checked || document.getElementById("potabilizacion_infra7_no").checked
+        var pregunta8 = document.getElementById("potabilizacion_infra8_si").checked || document.getElementById("potabilizacion_infra8_no").checked
+        var pregunta9 = document.getElementById("potabilizacion_infra9_si").checked || document.getElementById("potabilizacion_infra9_no").checked
+        var pregunta10 = document.getElementById("potabilizacion_infra10_si").checked || document.getElementById("potabilizacion_infra10_no").checked
+        if (!(pregunta1 && pregunta2 && pregunta3 && pregunta4 && pregunta5 && pregunta6 && pregunta7 && pregunta8 && pregunta9 && pregunta10)) {
+            $("#alert2PP").show()
+        } else {
+            $("#alert2PP").hide()
+            document.getElementById('modal2PP').style.display = 'none'
+            document.getElementById('modal3PP').style.display = 'block'
+        }
     });
     $("#btnBackModal2PP").click(function () {
         document.getElementById('modal2PP').style.display = 'none'
@@ -3911,7 +4277,7 @@
             $("#potabilizacion_filter_funcionario").removeAttr("disabled");
         }
     });
-
+    //--------------------------------------------------------------------------------------------------------
     function editarFormularioFS(id) {
         try {
             $.ajax({
@@ -3925,7 +4291,7 @@
                     console.log(data)
                     idForm = id;
                     var datos = data.split(",");
-                    $('#fechaFS').val("2020-03-24");
+                    $('#fechaFS').val("2020-03-24"); /*Que es esta fecha??*/
                     $('#acueductoFS').val(datos[3]);
                     $('#tomaFS').val(datos[11]);
                     $('#registroMFS').val(datos[10]);
@@ -4664,7 +5030,7 @@
                     else if (datos[7] == "Pastillas") {
                         $("#pastillas").attr('checked', true);
                     }
-                    else{
+                    else {
                         $("#otroC").attr('checked', true);
                     }
 
@@ -4875,7 +5241,6 @@
     }
 
 </script>
-
 
 <!-- Eliminar de Formulario Fuente Superficial-->
 <div id="fuenteSupDelete" class="modal fade" role="dialog" tabindex="-1">
