@@ -43,6 +43,9 @@
 
 
 <script>
+
+
+    var idList =[]
     $(document).ready(function () {
         $('#tablaInforme').DataTable({
             "pagingType": "full_numbers",
@@ -52,18 +55,23 @@
         });
 
         $("#btnProcesar").on("click", function () {
-            var elements = document.getElementsByName("registro");
-            console.log(elements)
-            for (var i = 0; i < elements.length; i++) {
-                console.log(elements[i].hasAttribute('checked'))
-                
 
+            var list = document.querySelectorAll('input[type=checkbox]');
+            for (var item of list) {
+                if (item.checked) {
+                    idList.push(item.value)
+                }
             }
-        });
-    });
+            window.open('@Url.Action("Informe_Sersa", "Informe")' + '?ids=' + idList)
 
-    
-    
+
+
+
+
+        });
+
+
+    });
 
 </script>
 
