@@ -27,7 +27,9 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
             cmd.Parameters.AddWithValue("@usuario", "testuser");
@@ -54,6 +56,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -81,6 +84,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -109,6 +113,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -137,6 +142,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -164,6 +170,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -191,6 +198,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -218,6 +226,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -245,6 +254,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -601,6 +611,11 @@ namespace Sersa
                 {
                     string col1Value = rdr[0].ToString();
                     string col2Value = rdr[1].ToString();
+                    double col2Double = Double.Parse(col2Value);
+                    System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
+                    col2Value = colDateTime.ToString("yyyy/MM/dd");
+                    col2Value = col2Value.Replace("/", "-");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -632,6 +647,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            //var timestamp = TimeSpan.Parse(FECHA.Replace("-","/"));
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -672,6 +688,10 @@ namespace Sersa
                 {
                     string col1Value = rdr[0].ToString();
                     string col2Value = rdr[1].ToString();
+                    double col2Double = Double.Parse(col2Value);
+                    System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
+                    col2Value = colDateTime.ToString("yyyy/MM/dd");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -703,6 +723,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -743,6 +764,10 @@ namespace Sersa
                 {
                     string col1Value = rdr[0].ToString();
                     string col2Value = rdr[1].ToString();
+                    double col2Double = Double.Parse(col2Value);
+                    System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
+                    col2Value = colDateTime.ToString("yyyy/MM/dd");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -774,6 +799,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -814,6 +840,10 @@ namespace Sersa
                 {
                     string col1Value = rdr[0].ToString();
                     string col2Value = rdr[1].ToString();
+                    double col2Double = Double.Parse(col2Value);
+                    System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
+                    col2Value = colDateTime.ToString("yyyy/MM/dd");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -845,6 +875,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -886,6 +917,10 @@ namespace Sersa
                 {
                     string col1Value = rdr[0].ToString();
                     string col2Value = rdr[1].ToString();
+                    double col2Double = Double.Parse(col2Value);
+                    System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
+                    col2Value = colDateTime.ToString("yyyy/MM/dd");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -917,6 +952,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -957,6 +993,10 @@ namespace Sersa
                 {
                     string col1Value = rdr[0].ToString();
                     string col2Value = rdr[1].ToString();
+                    double col2Double = Double.Parse(col2Value);
+                    System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
+                    col2Value = colDateTime.ToString("yyyy/MM/dd");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -988,6 +1028,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -1028,6 +1069,10 @@ namespace Sersa
                 {
                     string col1Value = rdr[0].ToString();
                     string col2Value = rdr[1].ToString();
+                    double col2Double = Double.Parse(col2Value);
+                    System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
+                    col2Value = colDateTime.ToString("yyyy/MM/dd");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -1059,6 +1104,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -1099,6 +1145,10 @@ namespace Sersa
                 {
                     string col1Value = rdr[0].ToString();
                     string col2Value = rdr[1].ToString();
+                    double col2Double = Double.Parse(col2Value);
+                    System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
+                    col2Value = colDateTime.ToString("yyyy/MM/dd");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -1130,6 +1180,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
@@ -1170,6 +1221,10 @@ namespace Sersa
                 {
                     string col1Value = rdr[0].ToString();
                     string col2Value = rdr[1].ToString();
+                    double col2Double = Double.Parse(col2Value);
+                    System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+                    colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
+                    col2Value = colDateTime.ToString("yyyy/MM/dd");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -1201,6 +1256,7 @@ namespace Sersa
         {
             using var cmd = Database.Connection.CreateCommand();
             cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            //var timestamp = TimeSpan.Parse(FECHA);
             var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
