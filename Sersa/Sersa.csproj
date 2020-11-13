@@ -22,6 +22,8 @@
     <None Include="wwwroot\images\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
+    <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
     <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="MySqlConnector" Version="1.0.1" />
     <PackageReference Include="MySql.Data" Version="8.0.22" />

@@ -25,7 +25,7 @@ namespace Sersa.Controllers
         }
 
 
-        public async Task<IActionResult> guardarFormularioFS(string FECHA, string ACUEDUCTO, string TOMA, string REGISTRO, string DIRECCION,string ENCARGADO,string TELEFONO,
+        public async Task<IActionResult> guardarFormularioFS(DateTime FECHA, string ACUEDUCTO, string TOMA, string REGISTRO, string DIRECCION,string ENCARGADO,string TELEFONO,
                     string FUNCIONARIO, string LATITUD,string LONGITUD, string IMG, string LIMPIEZA, string ESPECIFIQUE, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -67,7 +67,7 @@ namespace Sersa.Controllers
 
         }
 
-        public async Task<IActionResult> guardarFormularioFN(string FECHA, string ACUEDUCTO, string NACIENTE, string REGISTRO, string DIRECCION, string ENCARGADO, string TELEFONO,
+        public async Task<IActionResult> guardarFormularioFN(DateTime FECHA, string ACUEDUCTO, string NACIENTE, string REGISTRO, string DIRECCION, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string CAPTACION, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -107,7 +107,7 @@ namespace Sersa.Controllers
             }
         }
 
-        public async Task<IActionResult> guardarFormularioP(string FECHA, string ACUEDUCTO, string POZO, string REGISTRO, string SENASA, string ENCARGADO, string TELEFONO,
+        public async Task<IActionResult> guardarFormularioP(DateTime FECHA, string ACUEDUCTO, string POZO, string REGISTRO, string SENASA, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FRIATICO, string DINAMICO, string DIAMETRO, string ESPESOR, string TIPOP, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -151,7 +151,7 @@ namespace Sersa.Controllers
             }
         }
 
-        public async Task<IActionResult> guardarFormularioA(string FECHA, string ACUEDUCTO, string TANQUE, string REGISTRO, string ENCARGADO, string TELEFONO,
+        public async Task<IActionResult> guardarFormularioA(DateTime FECHA, string ACUEDUCTO, string TANQUE, string REGISTRO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string TIPOTANQUE, string MATTANQUE, string LIMPIEZA, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -192,7 +192,7 @@ namespace Sersa.Controllers
             }
         }
 
-        public async Task<IActionResult> guardarFormularioC(string FECHA, string ACUEDUCTO, string CONDUCCIONTANQUE, string REPARACIONES, string ENCARGADO, string TELEFONO,
+        public async Task<IActionResult> guardarFormularioC(DateTime FECHA, string ACUEDUCTO, string CONDUCCIONTANQUE, string REPARACIONES, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string MATTUBERIA, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -232,7 +232,7 @@ namespace Sersa.Controllers
             }
         }
 
-        public async Task<IActionResult> guardarFormularioD(string FECHA, string ACUEDUCTO, string REPARACIONES, string ENCARGADO, string TELEFONO,
+        public async Task<IActionResult> guardarFormularioD(DateTime FECHA, string ACUEDUCTO, string REPARACIONES, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string MATTUBERIA, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -272,7 +272,7 @@ namespace Sersa.Controllers
         }
 
 
-        public async Task<IActionResult> guardarFormularioQ(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public async Task<IActionResult> guardarFormularioQ(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string MATTUBERIA, string LIMPIEZA, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -311,7 +311,7 @@ namespace Sersa.Controllers
             }
         }
 
-        public async Task<IActionResult> guardarFormularioCl(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public async Task<IActionResult> guardarFormularioCl(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string FECHAINSTALACION, string TIPOSISTEMA, string TIPODOSIFICACION, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -351,7 +351,7 @@ namespace Sersa.Controllers
             }
         }
 
-        public async Task<IActionResult> guardarFormularioPP(string FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public async Task<IActionResult> guardarFormularioPP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string SISTEMAPOT, string ESPECIFIQUE, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
