@@ -15,7 +15,7 @@
 </div>
 
 
-<!-- Cards-->
+<!-- Cards (se muestran al inicio, se puede agregar o editar, cada uno representa un tipo de formulario)-->
 <div class="card-columns">
     <div class="card text-center">
         <div class="card-header">1. Fuente Superficial</div>
@@ -194,445 +194,7 @@
 </div>
 
 
-
-<!-- Formulario Potabilización (PP)-->
-<div id="potabilizacion" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1PP">
-                    <p style="text-align:center">Ficha de campo 9</p>
-                    <p style="text-align:center;font-weight: bold;">Planta de Potabilización</p>
-                    <p style="font-weight: bold;">I. Información General</p>
-                    <form id="infoGenPP">
-                        <div class="form-group">
-                            <label for="fecha">Fecha *</label>
-                            <input class="form-control" type="date" id="fechaPP">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto *</label>
-                            <input type="text" class="form-control" id="acueductoPP">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="encargado">Nombre de encargado *</label>
-                            <input type="text" class="form-control" id="encargadoPP">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="telefonoPP">Teléfono *</label>
-                            <input type="text" class="form-control" id="telefonoPP" name="telefonoPP" data-inputmask="'alias': 'phonebe'">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario *</label>
-                            <input type="text" class="form-control" id="funcionarioPP">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="UbicacionP">Ubicación *</label><br>
-                            <label class="radio-inline"><input type="radio" id="UbicacionGpsPP" name="radio1" oninput='on_location_changePP()'> GPS </label>
-                            <label class="radio-inline"><input type="radio" id="UbicacionManualPP" name="radio1" oninput='on_location_change()' checked> Manual </label>
-                            <small id="ubihelpPP" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
-                            <small id="ubihelp2PP" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="Latitud">Latitud *</label>
-                            <input type="text" class="form-control" id="LatitudPP">
-
-                            <label for="Longitud">Longitud *</label>
-                            <input type="text" class="form-control" id="LongitudPP">
-                        </div>
-                        <div class="form-group">
-                            <label for="Image">Imagen</label><br>
-                            <span class="btn btn-default btn-file">
-                                <input type="file" id="imgPP">
-                            </span>
-                        </div>
-
-
-                        <!-- Aca termina los campos en comun-->
-
-                        <div class="form-group">
-                            <label for="potabilizacion-gen-1">Fecha de construcción de la planta *</label>
-                            <input type="text" class="form-control" id="potabilizacion-gen-1">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="potabilizacion-gen-3">Frecuencia de Limpieza *</label><br>
-                            <select id="potabilizacion-gen-3" name="potabilizacion-gen-3">
-                                <option value="Convencional">Convencional</option>
-                                <option value="FiME">FiME</option>
-                                <option value="FLA">FLA</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="potabilizacion-gen-4">Especifique</label>
-                            <input type="text" class="form-control" id="potabilizacion-gen-4" disabled>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="notasPP">Notas adicionales</label><br>
-                            <textarea class="form-control" id="notasPP" name="notasPP" rows="2"></textarea>
-                        </div>
-
-
-                    </form>
-
-                    <div class="alert alert-danger" role="alert" id="alert1PP">
-                        Por favor ingrese todos los campos obligatorios
-                    </div>
-
-                    @*BOTON SIGUIENTE*@
-                    <button id="btnNextModal1PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
-
-                </div>
-                <div id="modal2PP" class="hideModal">
-                    <p style="text-align:center">Ficha de campo 9</p>
-                    <p style="text-align:center;font-weight: bold;">Planta de Potabilización</p>
-                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
-                    <form id="preguntasPP">
-                        <div class="form-group">
-                            <label for="infra1PP">1. ¿Están las paredes agrietadas (concreto) o herrumbradas (metálico)? (critica)</label><br>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra1_si" name="infra1PP" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra1_no" name="infra1PP" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra2PP">2. ¿Es el borde de cemento alrededor de los tanques menor a 1 metro? </label><br>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra2_si" name="infra2PP" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra2_no" name="infra2PP" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra3PP">3. ¿Está la planta sin cerca de protección que impida el acceso de personas y animales? (crítica) </label><br>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra3_si" name="infra3PP" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra3_no" name="infra3PP" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra4PP">4. ¿Carecen los operarios de la capacitación necesaria para la operación y mantenimiento de la planta? (critica) </label><br>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra4_si" name="infra4PP" value="Si">  Si </label>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra4_no" name="infra4PP" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra5PP">5. ¿Se carece de equipos para realizar las pruebas de laboratorio básicas para establecer la calidad del agua que ingresa a la planta parámetros Nivel I según la normatividad? </label><br>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra5_si" name="infra5PP" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra5_no" name="infra5PP" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra6PP">6. ¿Se carece de registros de la calidad del agua que ingresa a la planta? (critica) </label><br>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra6_si" name="infra6PP" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra6_no" name="infra6PP" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra7PP">7. ¿Se carece de registros de caudal del agua que ingresa a la planta? (critica) </label><br>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra7_si" name="infra7PP" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra7_no" name="infra7PP" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra8PP">8. ¿Carece la planta de bitácora donde se anoten las actividades realizadas durante cada jornada de la cuadrilla de operadores? (critica)  </label><br>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra8_si" name="infra8PP" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra8_no" name="infra8PP" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra9PP">9. ¿Se carece de mantenimiento periódico de la planta? </label><br>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra9_si" name="infra9PP" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra9_no" name="infra9PP" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra10PP">10. ¿Se carece de un esquema del sistema de potabilización (planos o croquis)? </label><br>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra10_si" name="infra10PP" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra10_no" name="infra10PP" value="No"> No </label>
-                        </div>
-
-                    </form>
-
-                    <div class="alert alert-danger" role="alert" id="alert2PP">
-                        Por favor conteste todas las preguntas
-                    </div>
-
-                    @*BOTON ATRAS*@
-                    <button id="btnBackModal2PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
-                    @*BOTON SIGUIENTE*@
-                    <button id="btnNextModal2PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
-
-                </div>
-                <div id="modal3PP" class="hideModal">
-                    <p style="text-align:center">Ficha de campo 9</p>
-                    <p style="text-align:center;font-weight: bold;">Planta Potabilización</p>
-                    <p style="font-weight: bold;">III. Filtro de campos</p>
-                    <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_all">
-                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_fecha">
-                        <label class="form-check-label"> Fecha</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_acueducto">
-                        <label class="form-check-label"> Nombre del acueducto</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_encargado">
-                        <label class="form-check-label"> Nombre del encargado</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_telefono">
-                        <label class="form-check-label"> Telefono</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_funcionario">
-                        <label class="form-check-label"> Nombre del funcionario</label>
-                    </div>
-                    <br />
-                    <button id="btnBackModal3PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
-                    <button id="btnSavePP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Formulario Desinfeccion/Cloracion (Cl)-->
-<div id="cloracion" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1Cl">
-                    <p style="text-align:center">Ficha de campo 8</p>
-                    <p style="text-align:center;font-weight: bold;">Desinfección</p>
-                    <p style="font-weight: bold;">I. Información General</p>
-                    <form id="infoGenCl">
-                        <div class="form-group">
-                            <label for="fecha">Fecha *</label>
-                            <input class="form-control" type="date" id="fechaCl">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="acueducto">Nombre del acueducto *</label>
-                            <input type="text" class="form-control" id="acueductoCl">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="encargado">Nombre de encargado *</label>
-                            <input type="text" class="form-control" id="encargadoCl">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="telefonoCl">Teléfono *</label>
-                            <input type="text" class="form-control" id="telefonoCl">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="funcionario">Nombre del funcionario *</label>
-                            <input type="text" class="form-control" id="funcionarioCl">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="Ubicacion">Ubicación *</label><br>
-                            <label class="radio-inline"><input type="radio" id="UbicacionGpsCl" name="radio1" oninput='on_location_changeCl()'> GPS </label>
-                            <label class="radio-inline"><input type="radio" id="UbicacionManualCl" name="radio1" oninput='on_location_changeCl()' checked> Manual </label>
-                            <small id="ubihelpCl" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
-                            <small id="ubihelp2Cl" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="Latitud">Latitud *</label>
-                            <input type="text" class="form-control" id="LatitudCl">
-
-                            <label for="Longitud">Longitud *</label>
-                            <input type="text" class="form-control" id="LongitudCl">
-                        </div>
-                        <div class="form-group">
-                            <label for="Image">Imagen</label><br>
-                            <span class="btn btn-default btn-file">
-                                <input type="file" id="imgCl">
-                            </span>
-                        </div>
-
-
-                        <!-- Aca termina los campos en comun-->
-
-                        <div class="form-group">
-                            <label for="cloracion-gen-1">Fecha de construcción del acueducto *</label>
-                            <input type="text" class="form-control" id="cloracion-gen-1">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cloracion-gen-2">Fecha de instalación del sistema de cloración *</label>
-                            <input type="text" class="form-control" id="cloracion-gen-2">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cloracion-gen-3">Tipo de Sistema de Cloración *</label><br>
-                            <label class="radio-inline"><input type="radio" id="gascloro" name="cloracion-gen-3" value="Gas Cloro"> Gas Cloro </label>
-                            <label class="radio-inline"><input type="radio" id="electrosis" name="cloracion-gen-3" value="Electrosis"> Electrósis </label>
-                            <label class="radio-inline"><input type="radio" id="pastillas" name="cloracion-gen-3" value="Pastillas"> Pastillas(Erosión) </label>
-                            <label class="radio-inline"><input type="radio" id="otroC" name="cloracion-gen-3" value="Otro"> Otro </label>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cloracion-gen-4">Tipo de Dosificación *</label><br>
-                            <label class="radio-inline"><input type="radio" id="programadaCl" name="cloracion-gen-4" value="Tiempos programados"> Tiempos programados </label>
-                            <label class="radio-inline"><input type="radio" id="continuaCl" name="cloracion-gen-4" value="Continua"> Continua </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cloracion-gen-5">Notas adicionales</label><br>
-                            <textarea class="form-control" id="notasCl" name="cloracion-gen-5" rows="2"></textarea>
-                        </div>
-
-                    </form>
-
-                    <div class="alert alert-danger" role="alert" id="alert1Cl">
-                        Por favor ingrese todos los campos obligatorios
-                    </div>
-
-                    @*BOTON SIGUIENTE*@
-                    <button id="btnNextModal1Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
-
-                </div>
-                <div id="modal2Cl" class="hideModal">
-                    <p style="text-align:center">Ficha de campo 8</p>
-                    <p style="text-align:center;font-weight: bold;">Desinfección</p>
-                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
-                    <form id="preguntasCl">
-                        <div class="form-group">
-                            <label for="infra1Cl">1. ¿Se carece de una zona/caseta debidamente acondicionada para la preparación y aplicación del cloro? (critica)</label><br>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra1_si" name="infra1Cl" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra1_no" name="infra1Cl" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra2Cl">2. ¿Carece el acueducto de bitácora de la dosificación del cloro? (crítica)</label><br>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra2_si" name="infra2Cl" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra2_no" name="infra2Cl" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra3Cl">3. ¿Carece el operario de la capacitación necesaria para la preparación y aplicación de la cloración? (crítica)</label><br>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra3_si" name="infra3Cl" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra3_no" name="infra3Cl" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra4Cl">4.  ¿Se carece del equipo de protección necesaria para el personal operativo del sistema de cloración? (crítica)</label><br>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra4_si" name="infra4Cl" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra4_no" name="infra4Cl" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra5Cl">5. ¿Se carece del equipo para la medición de cloro residual?</label><br>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra5_si" name="infra5Cl" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra5_no" name="infra5Cl" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra6Cl">6. ¿Se carece de registros de la concentración y del caudal de la solución de cloro preparada y aplicada? (critica)</label><br>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra6_si" name="infra6Cl" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra6_no" name="infra6Cl" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra7Cl">7. ¿Se carece de registros de los niveles de cloro residual en tanque(s) de almacenamiento?</label><br>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra7_si" name="infra7Cl" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra7_no" name="infra7Cl" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra8Cl">8. ¿Se carece de registros de caudal del agua a ser clorada (caudal que ingresa al tanque donde se homogeniza el cloro)? </label><br>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra8_si" name="infra8Cl" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra8_no" name="infra8Cl" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra9Cl">9. ¿Se carece de mantenimiento periódico del sistema de cloración?</label><br>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra9_si" name="infra9Cl" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra9_no" name="infra9Cl" value="No"> No </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="infra10Cl">10. Se carece de registros de consumo de cloro día/semana/mes/año</label><br>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra10_si" name="infra10Cl" value="Si"> Si </label>
-                            <label class="radio-inline"><input type="radio" id="cloracion_infra10_no" name="infra10Cl" value="No"> No </label>
-                        </div>
-
-                    </form>
-
-                    <div class="alert alert-danger" role="alert" id="alert2Cl">
-                        Por favor conteste todas las preguntas
-                    </div>
-
-                    @*BOTON ATRAS*@
-                    <button id="btnBackModal2Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
-                    @*BOTON SIGUIENTE*@
-                    <button id="btnNextModal2Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
-
-                </div>
-                <div id="modal3Cl" class="hideModal">
-                    <p style="text-align:center">Ficha de campo 8</p>
-                    <p style="text-align:center;font-weight: bold;">Desinfección</p>
-                    <p style="font-weight: bold;">III. Filtro de campos</p>
-                    <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cloracion_filter_all">
-                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cloracion_filter_fecha">
-                        <label class="form-check-label"> Fecha</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cloracion_filter_acueducto">
-                        <label class="form-check-label"> Nombre del acueducto</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cloracion_filter_encargado">
-                        <label class="form-check-label"> Nombre del encargado</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cloracion_filter_telefono">
-                        <label class="form-check-label"> Telefono</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cloracion_filter_funcionario">
-                        <label class="form-check-label"> Nombre del funcionario</label>
-                    </div>
-                    <br />
-                    <button id="btnBackModal3Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
-                    <button id="btnSaveCl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</div>
-
+<!--CREAR O EDITAR FORMULARIOS (MODALS)----------------------------------------------------------------------->
 <!-- Formulario Fuente Superficial (FS)-->
 <div id="fuenteSup" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
@@ -2237,12 +1799,447 @@
     </div>
 </div>
 
+<!-- Formulario Desinfeccion/Cloracion (Cl)-->
+<div id="cloracion" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1Cl">
+                    <p style="text-align:center">Ficha de campo 8</p>
+                    <p style="text-align:center;font-weight: bold;">Desinfección</p>
+                    <p style="font-weight: bold;">I. Información General</p>
+                    <form id="infoGenCl">
+                        <div class="form-group">
+                            <label for="fecha">Fecha *</label>
+                            <input class="form-control" type="date" id="fechaCl">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Nombre del acueducto *</label>
+                            <input type="text" class="form-control" id="acueductoCl">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Nombre de encargado *</label>
+                            <input type="text" class="form-control" id="encargadoCl">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefonoCl">Teléfono *</label>
+                            <input type="text" class="form-control" id="telefonoCl">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="funcionario">Nombre del funcionario *</label>
+                            <input type="text" class="form-control" id="funcionarioCl">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Ubicacion">Ubicación *</label><br>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsCl" name="radio1" oninput='on_location_changeCl()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManualCl" name="radio1" oninput='on_location_changeCl()' checked> Manual </label>
+                            <small id="ubihelpCl" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
+                            <small id="ubihelp2Cl" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="Latitud">Latitud *</label>
+                            <input type="text" class="form-control" id="LatitudCl">
+
+                            <label for="Longitud">Longitud *</label>
+                            <input type="text" class="form-control" id="LongitudCl">
+                        </div>
+                        <div class="form-group">
+                            <label for="Image">Imagen</label><br>
+                            <span class="btn btn-default btn-file">
+                                <input type="file" id="imgCl">
+                            </span>
+                        </div>
+
+
+                        <!-- Aca termina los campos en comun-->
+
+                        <div class="form-group">
+                            <label for="cloracion-gen-1">Fecha de construcción del acueducto *</label>
+                            <input type="text" class="form-control" id="cloracion-gen-1">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cloracion-gen-2">Fecha de instalación del sistema de cloración *</label>
+                            <input type="text" class="form-control" id="cloracion-gen-2">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cloracion-gen-3">Tipo de Sistema de Cloración *</label><br>
+                            <label class="radio-inline"><input type="radio" id="gascloro" name="cloracion-gen-3" value="Gas Cloro"> Gas Cloro </label>
+                            <label class="radio-inline"><input type="radio" id="electrosis" name="cloracion-gen-3" value="Electrosis"> Electrósis </label>
+                            <label class="radio-inline"><input type="radio" id="pastillas" name="cloracion-gen-3" value="Pastillas"> Pastillas(Erosión) </label>
+                            <label class="radio-inline"><input type="radio" id="otroC" name="cloracion-gen-3" value="Otro"> Otro </label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cloracion-gen-4">Tipo de Dosificación *</label><br>
+                            <label class="radio-inline"><input type="radio" id="programadaCl" name="cloracion-gen-4" value="Tiempos programados"> Tiempos programados </label>
+                            <label class="radio-inline"><input type="radio" id="continuaCl" name="cloracion-gen-4" value="Continua"> Continua </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cloracion-gen-5">Notas adicionales</label><br>
+                            <textarea class="form-control" id="notasCl" name="cloracion-gen-5" rows="2"></textarea>
+                        </div>
+
+                    </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1Cl">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
+                    <button id="btnNextModal1Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal2Cl" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 8</p>
+                    <p style="text-align:center;font-weight: bold;">Desinfección</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
+                    <form id="preguntasCl">
+                        <div class="form-group">
+                            <label for="infra1Cl">1. ¿Se carece de una zona/caseta debidamente acondicionada para la preparación y aplicación del cloro? (critica)</label><br>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra1_si" name="infra1Cl" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra1_no" name="infra1Cl" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra2Cl">2. ¿Carece el acueducto de bitácora de la dosificación del cloro? (crítica)</label><br>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra2_si" name="infra2Cl" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra2_no" name="infra2Cl" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra3Cl">3. ¿Carece el operario de la capacitación necesaria para la preparación y aplicación de la cloración? (crítica)</label><br>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra3_si" name="infra3Cl" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra3_no" name="infra3Cl" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra4Cl">4.  ¿Se carece del equipo de protección necesaria para el personal operativo del sistema de cloración? (crítica)</label><br>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra4_si" name="infra4Cl" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra4_no" name="infra4Cl" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra5Cl">5. ¿Se carece del equipo para la medición de cloro residual?</label><br>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra5_si" name="infra5Cl" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra5_no" name="infra5Cl" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra6Cl">6. ¿Se carece de registros de la concentración y del caudal de la solución de cloro preparada y aplicada? (critica)</label><br>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra6_si" name="infra6Cl" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra6_no" name="infra6Cl" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra7Cl">7. ¿Se carece de registros de los niveles de cloro residual en tanque(s) de almacenamiento?</label><br>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra7_si" name="infra7Cl" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra7_no" name="infra7Cl" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra8Cl">8. ¿Se carece de registros de caudal del agua a ser clorada (caudal que ingresa al tanque donde se homogeniza el cloro)? </label><br>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra8_si" name="infra8Cl" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra8_no" name="infra8Cl" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra9Cl">9. ¿Se carece de mantenimiento periódico del sistema de cloración?</label><br>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra9_si" name="infra9Cl" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra9_no" name="infra9Cl" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra10Cl">10. Se carece de registros de consumo de cloro día/semana/mes/año</label><br>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra10_si" name="infra10Cl" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="cloracion_infra10_no" name="infra10Cl" value="No"> No </label>
+                        </div>
+
+                    </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert2Cl">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
+                    <button id="btnBackModal2Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
+                    <button id="btnNextModal2Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal3Cl" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 8</p>
+                    <p style="text-align:center;font-weight: bold;">Desinfección</p>
+                    <p style="font-weight: bold;">III. Filtro de campos</p>
+                    <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cloracion_filter_all">
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cloracion_filter_fecha">
+                        <label class="form-check-label"> Fecha</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cloracion_filter_acueducto">
+                        <label class="form-check-label"> Nombre del acueducto</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cloracion_filter_encargado">
+                        <label class="form-check-label"> Nombre del encargado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cloracion_filter_telefono">
+                        <label class="form-check-label"> Telefono</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cloracion_filter_funcionario">
+                        <label class="form-check-label"> Nombre del funcionario</label>
+                    </div>
+                    <br />
+                    <button id="btnBackModal3Cl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    <button id="btnSaveCl" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Formulario Potabilización (PP)-->
+<div id="potabilizacion" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1PP">
+                    <p style="text-align:center">Ficha de campo 9</p>
+                    <p style="text-align:center;font-weight: bold;">Planta de Potabilización</p>
+                    <p style="font-weight: bold;">I. Información General</p>
+                    <form id="infoGenPP">
+                        <div class="form-group">
+                            <label for="fecha">Fecha *</label>
+                            <input class="form-control" type="date" id="fechaPP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="acueducto">Nombre del acueducto *</label>
+                            <input type="text" class="form-control" id="acueductoPP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encargado">Nombre de encargado *</label>
+                            <input type="text" class="form-control" id="encargadoPP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefonoPP">Teléfono *</label>
+                            <input type="text" class="form-control" id="telefonoPP" name="telefonoPP" data-inputmask="'alias': 'phonebe'">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="funcionario">Nombre del funcionario *</label>
+                            <input type="text" class="form-control" id="funcionarioPP">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="UbicacionP">Ubicación *</label><br>
+                            <label class="radio-inline"><input type="radio" id="UbicacionGpsPP" name="radio1" oninput='on_location_changePP()'> GPS </label>
+                            <label class="radio-inline"><input type="radio" id="UbicacionManualPP" name="radio1" oninput='on_location_change()' checked> Manual </label>
+                            <small id="ubihelpPP" class="form-text text-muted">Si no se encuentra en el lugar del acueducto, ingréselo de forma manual. </small>
+                            <small id="ubihelp2PP" class="form-text text-muted"> Si usa GPS, espere un momento para cargar las coordenadas.</small>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="Latitud">Latitud *</label>
+                            <input type="text" class="form-control" id="LatitudPP">
+
+                            <label for="Longitud">Longitud *</label>
+                            <input type="text" class="form-control" id="LongitudPP">
+                        </div>
+                        <div class="form-group">
+                            <label for="Image">Imagen</label><br>
+                            <span class="btn btn-default btn-file">
+                                <input type="file" id="imgPP">
+                            </span>
+                        </div>
+
+
+                        <!-- Aca termina los campos en comun-->
+
+                        <div class="form-group">
+                            <label for="potabilizacion-gen-1">Fecha de construcción de la planta *</label>
+                            <input type="text" class="form-control" id="potabilizacion-gen-1">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="potabilizacion-gen-3">Frecuencia de Limpieza *</label><br>
+                            <select id="potabilizacion-gen-3" name="potabilizacion-gen-3">
+                                <option value="Convencional">Convencional</option>
+                                <option value="FiME">FiME</option>
+                                <option value="FLA">FLA</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="potabilizacion-gen-4">Especifique</label>
+                            <input type="text" class="form-control" id="potabilizacion-gen-4" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notasPP">Notas adicionales</label><br>
+                            <textarea class="form-control" id="notasPP" name="notasPP" rows="2"></textarea>
+                        </div>
+
+
+                    </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert1PP">
+                        Por favor ingrese todos los campos obligatorios
+                    </div>
+
+                    @*BOTON SIGUIENTE*@
+                    <button id="btnNextModal1PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal2PP" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 9</p>
+                    <p style="text-align:center;font-weight: bold;">Planta de Potabilización</p>
+                    <p style="font-weight: bold;">II. Diagnóstico de Infraestructura</p>
+                    <form id="preguntasPP">
+                        <div class="form-group">
+                            <label for="infra1PP">1. ¿Están las paredes agrietadas (concreto) o herrumbradas (metálico)? (critica)</label><br>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra1_si" name="infra1PP" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra1_no" name="infra1PP" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra2PP">2. ¿Es el borde de cemento alrededor de los tanques menor a 1 metro? </label><br>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra2_si" name="infra2PP" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra2_no" name="infra2PP" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra3PP">3. ¿Está la planta sin cerca de protección que impida el acceso de personas y animales? (crítica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra3_si" name="infra3PP" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra3_no" name="infra3PP" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra4PP">4. ¿Carecen los operarios de la capacitación necesaria para la operación y mantenimiento de la planta? (critica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra4_si" name="infra4PP" value="Si">  Si </label>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra4_no" name="infra4PP" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra5PP">5. ¿Se carece de equipos para realizar las pruebas de laboratorio básicas para establecer la calidad del agua que ingresa a la planta parámetros Nivel I según la normatividad? </label><br>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra5_si" name="infra5PP" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra5_no" name="infra5PP" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra6PP">6. ¿Se carece de registros de la calidad del agua que ingresa a la planta? (critica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra6_si" name="infra6PP" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra6_no" name="infra6PP" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra7PP">7. ¿Se carece de registros de caudal del agua que ingresa a la planta? (critica) </label><br>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra7_si" name="infra7PP" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra7_no" name="infra7PP" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra8PP">8. ¿Carece la planta de bitácora donde se anoten las actividades realizadas durante cada jornada de la cuadrilla de operadores? (critica)  </label><br>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra8_si" name="infra8PP" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra8_no" name="infra8PP" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra9PP">9. ¿Se carece de mantenimiento periódico de la planta? </label><br>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra9_si" name="infra9PP" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra9_no" name="infra9PP" value="No"> No </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infra10PP">10. ¿Se carece de un esquema del sistema de potabilización (planos o croquis)? </label><br>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra10_si" name="infra10PP" value="Si"> Si </label>
+                            <label class="radio-inline"><input type="radio" id="potabilizacion_infra10_no" name="infra10PP" value="No"> No </label>
+                        </div>
+
+                    </form>
+
+                    <div class="alert alert-danger" role="alert" id="alert2PP">
+                        Por favor conteste todas las preguntas
+                    </div>
+
+                    @*BOTON ATRAS*@
+                    <button id="btnBackModal2PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    @*BOTON SIGUIENTE*@
+                    <button id="btnNextModal2PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Siguiente</button>
+
+                </div>
+                <div id="modal3PP" class="hideModal">
+                    <p style="text-align:center">Ficha de campo 9</p>
+                    <p style="text-align:center;font-weight: bold;">Planta Potabilización</p>
+                    <p style="font-weight: bold;">III. Filtro de campos</p>
+                    <p>* Por favor seleccione los campos que desea incluir en el informe final</p>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_all">
+                        <label class="form-check-label"> Deseo incluir toda la información registrada</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_fecha">
+                        <label class="form-check-label"> Fecha</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_acueducto">
+                        <label class="form-check-label"> Nombre del acueducto</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_encargado">
+                        <label class="form-check-label"> Nombre del encargado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_telefono">
+                        <label class="form-check-label"> Telefono</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="potabilizacion_filter_funcionario">
+                        <label class="form-check-label"> Nombre del funcionario</label>
+                    </div>
+                    <br />
+                    <button id="btnBackModal3PP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">Atrás</button>
+                    <button id="btnSavePP" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:right;">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
-
-
-
+<!--VER FORMULARIOS DISPONIBLES PARA EDITARLOS O ELIMINARLOS------------------------------------------------------->
 <!-- Lista Edit Fuente Superficial-->
 <div id="fuenteSupListaEdit" class="modal fade" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
@@ -2416,6 +2413,182 @@
 
 
 
+<!--ELIMINAR FORMULARIO----------------------------------------------------------------------------------------->
+<!-- Eliminar de Formulario Fuente Superficial-->
+<div id="fuenteSupDelete" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1FSDelete">
+                    <p style="text-align:center;font-weight: bold;">Fuente Superficial</p>
+                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
+                    <button id="btnFSYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
+                    <button id="btnFSNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Eliminar de Formulario Fuente Naciente-->
+<div id="fuenteNacDelete" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1FNDelete">
+                    <p style="text-align:center;font-weight: bold;">Fuente Naciente</p>
+                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
+                    <button id="btnFNYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
+                    <button id="btnFNNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Eliminar de Formulario Fuente Pozos-->
+<div id="pozosDelete" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1PDelete">
+                    <p style="text-align:center;font-weight: bold;">Fuente Pozos</p>
+                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
+                    <button id="btnPYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
+                    <button id="btnPNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Eliminar de Formulario Tanques de Almacenamiento-->
+<div id="almacenamientoDelete" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1ADelete">
+                    <p style="text-align:center;font-weight: bold;">Tanques de Almacenamiento</p>
+                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
+                    <button id="btnAYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
+                    <button id="btnANo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Eliminar de Formulario Linea de Conduccion-->
+<div id="conduccionDelete" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1CDelete">
+                    <p style="text-align:center;font-weight: bold;">Línea de Conducción</p>
+                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
+                    <button id="btnCYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
+                    <button id="btnCNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Eliminar de Formulario Linea de Distribucion-->
+<div id="distribucionDelete" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1DDelete">
+                    <p style="text-align:center;font-weight: bold;">Línea de Distribución</p>
+                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
+                    <button id="btnDYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
+                    <button id="btnDNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Eliminar de Formulario Tanques Quiebragradientes-->
+<div id="quiebragradientesDelete" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1QDelete">
+                    <p style="text-align:center;font-weight: bold;">Tanques Quiebragradientes</p>
+                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
+                    <button id="btnQYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
+                    <button id="btnQNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Eliminar de Formulario Desinfeccion/Cloracion-->
+<div id="cloracionDelete" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1ClDelete">
+                    <p style="text-align:center;font-weight: bold;">Desinfección/Cloración</p>
+                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
+                    <button id="btnClYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
+                    <button id="btnClNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Eliminar de Formulario Potabilización-->
+<div id="potabilizacionDelete" class="modal fade" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal1PPDelete">
+                    <p style="text-align:center;font-weight: bold;">Portabilización</p>
+                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
+                    <button id="btnPPYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
+                    <button id="btnPPNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -2430,7 +2603,7 @@
 <script>
 
     var idForm = " ";
-
+    //Todo lo que se debe setear al estar lista la página
     $(document).ready(function () {
         document.getElementById("FSLimpieza").addEventListener("click", habilitarDescripcionFS, false);
         document.getElementById("potabilizacion-gen-3").addEventListener("click", habilitarDescripcionPP, false);
@@ -2539,7 +2712,7 @@
 
     $("#alert1Q").hide();
     $("#alert2Q").hide();
-    
+
 
     //Funciones para desplegar la lista de formularios que ya he creado de cierto tipo
 
@@ -2759,6 +2932,8 @@
         }
     }
 
+    //Funciones para guardar los formularios (y todo lo que eso implique como GPS y validaciones)
+
     //Fuente superficial------------------------------------------------------------------------------------------------------
     //Boton guardar formulario fuente superficial
     $("#btnSaveFS").on("click", function () {
@@ -2805,7 +2980,7 @@
             IoU = "U"
         }
 
-        
+
         try {
             $.ajax({
                 url: '/Formularios/guardarFormularioFS/',
@@ -2854,7 +3029,7 @@
         } catch (err) {
             console.log(err.message)
         }
-        
+
     };
     //Si la opcion es Otro, se habilita el campo de Especifique
     function habilitarDescripcionFS() {
@@ -4297,6 +4472,9 @@
         }
     });
     //--------------------------------------------------------------------------------------------------------
+
+    //Funciones para editar los formularios
+
     function editarFormularioFS(id) {
         try {
             $.ajax({
@@ -5260,179 +5438,3 @@
     }
 
 </script>
-
-<!-- Eliminar de Formulario Fuente Superficial-->
-<div id="fuenteSupDelete" class="modal fade" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1FSDelete">
-                    <p style="text-align:center;font-weight: bold;">Fuente Superficial</p>
-                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
-                    <button id="btnFSYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
-                    <button id="btnFSNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Eliminar de Formulario Fuente Naciente-->
-<div id="fuenteNacDelete" class="modal fade" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1FNDelete">
-                    <p style="text-align:center;font-weight: bold;">Fuente Naciente</p>
-                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
-                    <button id="btnFNYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
-                    <button id="btnFNNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Eliminar de Formulario Fuente Pozos-->
-<div id="pozosDelete" class="modal fade" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1PDelete">
-                    <p style="text-align:center;font-weight: bold;">Fuente Pozos</p>
-                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
-                    <button id="btnPYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
-                    <button id="btnPNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Eliminar de Formulario Tanques de Almacenamiento-->
-<div id="almacenamientoDelete" class="modal fade" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1ADelete">
-                    <p style="text-align:center;font-weight: bold;">Tanques de Almacenamiento</p>
-                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
-                    <button id="btnAYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
-                    <button id="btnANo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Eliminar de Formulario Linea de Conduccion-->
-<div id="conduccionDelete" class="modal fade" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1CDelete">
-                    <p style="text-align:center;font-weight: bold;">Línea de Conducción</p>
-                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
-                    <button id="btnCYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
-                    <button id="btnCNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Eliminar de Formulario Linea de Distribucion-->
-<div id="distribucionDelete" class="modal fade" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1DDelete">
-                    <p style="text-align:center;font-weight: bold;">Línea de Distribución</p>
-                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
-                    <button id="btnDYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
-                    <button id="btnDNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Eliminar de Formulario Tanques Quiebragradientes-->
-<div id="quiebragradientesDelete" class="modal fade" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1QDelete">
-                    <p style="text-align:center;font-weight: bold;">Tanques Quiebragradientes</p>
-                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
-                    <button id="btnQYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
-                    <button id="btnQNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Eliminar de Formulario Desinfeccion/Cloracion-->
-<div id="cloracionDelete" class="modal fade" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1ClDelete">
-                    <p style="text-align:center;font-weight: bold;">Desinfección/Cloración</p>
-                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
-                    <button id="btnClYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
-                    <button id="btnClNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Eliminar de Formulario Potabilización-->
-<div id="potabilizacionDelete" class="modal fade" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="modal1PPDelete">
-                    <p style="text-align:center;font-weight: bold;">Portabilización</p>
-                    <p style="text-align:center;font-weight: bold;">¿Quiere eliminar este formulario?</p>
-                    <button id="btnPPYes" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:35%;">Si</button>
-                    <button id="btnPPNo" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;float:left;position:relative;left:52%;">No</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
