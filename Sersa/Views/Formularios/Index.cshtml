@@ -2426,10 +2426,11 @@
 <script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
 
-    var idForm = " ";
+    var idForm = "";
 
     $(document).ready(function () {
         document.getElementById("FSLimpieza").addEventListener("click", habilitarDescripcionFS, false);
@@ -2846,9 +2847,15 @@
                     $("#infoGenFS")[0].reset();
                     $("#preguntasFS")[0].reset();
                     idForm = "";
+                    if (IoU == "I") {
+                        swal("Éxito", "Formulario ingresado correctamente", "success");
+                    }
+                    else {
+                        swal("Éxito", "Formulario actualizado correctamente", "success");
+                    }
                 },
                 error: function () {
-                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                    swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
         } catch (err) {
@@ -3029,9 +3036,15 @@
                     $('#fuenteNac').modal('toggle');
                     $("#infoGenFN")[0].reset();
                     $("#preguntasFN")[0].reset();
+                    if (IoU == "I") {
+                        swal("Éxito", "Formulario ingresado correctamente", "success");
+                    }
+                    else {
+                        swal("Éxito", "Formulario actualizado correctamente", "success");
+                    }
                 },
                 error: function () {
-                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                    swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
         } catch (err) {
@@ -3203,9 +3216,16 @@
                     $('#pozos').modal('toggle');
                     $("#infoGenP")[0].reset();
                     $("#preguntasP")[0].reset();
+                    console.log(IoU);
+                    if (IoU == "I") {
+                        swal("Éxito", "Formulario ingresado correctamente", "success");
+                    }
+                    else {
+                        swal("Éxito", "Formulario actualizado correctamente", "success");
+                    }
                 },
                 error: function () {
-                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                    swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
         } catch (err) {
@@ -3371,9 +3391,15 @@
                     $('#almacenamiento').modal('toggle');
                     $("#infoGenA")[0].reset();
                     $("#preguntasA")[0].reset();
+                    if (IoU == "I") {
+                        swal("Éxito", "Formulario ingresado correctamente", "success");
+                    }
+                    else {
+                        swal("Éxito", "Formulario actualizado correctamente", "success");
+                    }
                 },
                 error: function () {
-                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                    swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
         } catch (err) {
@@ -3536,9 +3562,15 @@
                     $('#conduccion').modal('toggle');
                     $("#infoGenC")[0].reset();
                     $("#preguntasC")[0].reset();
+                    if (IoU == "I") {
+                        swal("Éxito", "Formulario ingresado correctamente", "success");
+                    }
+                    else {
+                        swal("Éxito", "Formulario actualizado correctamente", "success");
+                    }
                 },
                 error: function () {
-                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                    swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
         } catch (err) {
@@ -3699,9 +3731,15 @@
                     $('#distribucion').modal('toggle');
                     $("#infoGenD")[0].reset();
                     $("#preguntasD")[0].reset();
+                    if (IoU == "I") {
+                        swal("Éxito", "Formulario ingresado correctamente", "success");
+                    }
+                    else {
+                        swal("Éxito", "Formulario actualizado correctamente", "success");
+                    }
                 },
                 error: function () {
-                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                    swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
         } catch (err) {
@@ -3862,9 +3900,15 @@
                     $('#quiebragradientes').modal('toggle');
                     $("#infoGenQ")[0].reset();
                     $("#preguntasQ")[0].reset();
+                    if (IoU == "I") {
+                        swal("Éxito", "Formulario ingresado correctamente", "success");
+                    }
+                    else {
+                        swal("Éxito", "Formulario actualizado correctamente", "success");
+                    }
                 },
                 error: function () {
-                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                    swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
         } catch (err) {
@@ -4026,9 +4070,15 @@
                     $('#cloracion').modal('toggle');
                     $("#infoGenCl")[0].reset();
                     $("#preguntasCl")[0].reset();
+                    if (IoU == "I") {
+                        swal("Éxito", "Formulario ingresado correctamente", "success");
+                    }
+                    else {
+                        swal("Éxito", "Formulario actualizado correctamente", "success");
+                    }
                 },
                 error: function () {
-                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                    swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
         } catch (err) {
@@ -4195,9 +4245,15 @@
                     $('#potabilizacion').modal('toggle');
                     $("#infoGenPP")[0].reset();
                     $("#preguntasPP")[0].reset();
+                    if (IoU == "I") {
+                        swal("Éxito", "Formulario ingresado correctamente", "success");
+                    }
+                    else {
+                        swal("Éxito", "Formulario actualizado correctamente", "success");
+                    }
                 },
                 error: function () {
-                    //alert("Ha ocurrido un error al insertar la Factura Linea");
+                    swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
         } catch (err) {
