@@ -14,6 +14,7 @@ namespace Sersa.Models
         public int si { get; set; }
         public int no { get; set; }
         public string riesgo { get; set; }
+        public string asada { get; set; }
 
         public InformeResponse(){}
     }

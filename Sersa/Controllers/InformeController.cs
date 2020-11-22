@@ -45,19 +45,37 @@ namespace Sersa.Controllers
             List<InformeResponse> lista = query.obtenerInformesSeleccionados(ids);
             return lista;
         }
+        public string obtenerNombreAsada(string id)
+        {
+            Database.Connection.OpenAsync();
+            var query = new FormularioInforme(Database);
+            string nombre = query.nombreAsada(id);
+            return nombre;
+        }
+
+        public void guardarInforme(string listaFormularios, string idAsada)
+        {
+            Database.Connection.OpenAsync();
+            var query = new FormularioInforme(Database);
+            string nombre = obtenerNombreAsada(idAsada);
+            long date = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            query.guardarInforme(nombre,listaFormularios,date);
+
+        }
 
         public ActionResult Informe_Sersa (string ids)
         {
             string[] parts = ids.Split(','); // Call Split method
             List<string> idList = new List<string>(parts); // Use List constructor
 
-            Console.WriteLine("HEREEEEE:"+idList.Count);
             Database.Connection.OpenAsync();
             var query = new FormularioInforme(Database);
 
             List<InformeResponse> lista = obtenerInformes(idList);
-
-            ActionResult action = query.buildPDF(lista);
+            string idAsada = lista[0].asada; //toma el primer formulario como referencia.
+            guardarInforme(ids, idAsada);
+            string nombreAsada = obtenerNombreAsada(idAsada);
+            ActionResult action = query.buildPDF(lista,nombreAsada);
             return action;
 
         }

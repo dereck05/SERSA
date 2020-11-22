@@ -48,6 +48,44 @@ namespace Sersa.Models
         {
             Database = db;
         }
+        public string nombreAsada(string id)
+        {
+            //Conexion escondida
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Irsass").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "SELECT Nombre from ASADA WHERE ID=@id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            string nombre = "";
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.HasRows)
+            {
+                while (rdr.Read())
+                {
+                    nombre = rdr[0].ToString();
+                    Console.WriteLine("Hereeeeeeeeeee:",nombre);
+                }
+                rdr.NextResult();
+            }
+            return nombre;
+
+        }
+        public void guardarInforme(string titulo, string listIds, long fecha )
+        {
+            //Conexion escondida
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO Historial (nombre,fecha,identificadores) values( @titulo,@fecha, @identificadores)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@fecha", fecha);
+            cmd.Parameters.AddWithValue("@titulo", titulo);
+            cmd.Parameters.AddWithValue("@identificadores", listIds);
+            cmd.ExecuteReader();
+
+
+        }
 
         public List<FormularioInforme> obtenerFormularioInforme(long fechaI, long fechaF)
         {
@@ -95,7 +133,7 @@ namespace Sersa.Models
             //Obtiene los formularios seleccionados de la BD
             foreach ( string idList in listaID)
             {
-                string sql = "SELECT fecha,acueducto,encargado,info_general,infraestructura,imagen,comentarios,tipo_formulario FROM Formulario WHERE id = @formID";
+                string sql = "SELECT fecha,acueducto,encargado,info_general,infraestructura,imagen,comentarios,tipo_formulario,asada FROM Formulario WHERE id = @formID";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@formID", idList);
                 MySqlDataReader rdr = cmd.ExecuteReader();
@@ -123,6 +161,8 @@ namespace Sersa.Models
                         temp.comentarios = col7Value;
                         string col8Value = rdr[7].ToString();
                         temp.tipo = col8Value;
+                        string col9Value = rdr[8].ToString();
+                        temp.asada = col9Value;
                         lista.Add(temp);
                     }
                     rdr.NextResult();
@@ -162,18 +202,18 @@ namespace Sersa.Models
 
         }
 
-        public ActionResult buildPDF(List<InformeResponse> lista)
+        public ActionResult buildPDF(List<InformeResponse> lista, string nombreAsada)
         {
             MemoryStream ms = new MemoryStream();
             PdfWriter pw = new PdfWriter(ms);
 
             PdfDocument pdfDocument = new PdfDocument(pw);
             Document doc = new Document(pdfDocument, PageSize.LETTER);
-            doc.Add(new Paragraph("Informe SERSA").SetFontSize(20).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontColor(new DeviceRgb(4, 124, 188)));
+            doc.Add(new Paragraph("Informe "+ nombreAsada).SetFontSize(20).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontColor(new DeviceRgb(4, 124, 188)));
 
             foreach( InformeResponse item in lista)
             {
-                doc.Add(new Paragraph("Acueducto " + item.acueducto).SetFontSize(15).SetBold());
+                doc.Add(new Paragraph(item.acueducto).SetFontSize(15).SetBold());
                 doc.Add(new Paragraph("Fecha: " + item.fecha).SetFontSize(12));
                 doc.Add(new Paragraph("Encargado: " + item.encargado).SetFontSize(12).SetPaddingBottom(2));
                 //doc.Add(new Paragraph("Informacion general: " + item.fecha).SetFontSize(12));
