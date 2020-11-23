@@ -704,6 +704,7 @@ namespace Sersa
                     System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                     colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
                     col2Value = colDateTime.ToString("yyyy/MM/dd");
+                    col2Value = col2Value.Replace("/", "-");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -780,6 +781,8 @@ namespace Sersa
                     System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                     colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
                     col2Value = colDateTime.ToString("yyyy/MM/dd");
+                    col2Value = colDateTime.ToString("yyyy/MM/dd");
+                    col2Value = col2Value.Replace("/", "-");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -856,6 +859,7 @@ namespace Sersa
                     System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                     colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
                     col2Value = colDateTime.ToString("yyyy/MM/dd");
+                    col2Value = col2Value.Replace("/", "-");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -933,6 +937,7 @@ namespace Sersa
                     System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                     colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
                     col2Value = colDateTime.ToString("yyyy/MM/dd");
+                    col2Value = col2Value.Replace("/", "-");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -1009,6 +1014,7 @@ namespace Sersa
                     System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                     colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
                     col2Value = colDateTime.ToString("yyyy/MM/dd");
+                    col2Value = col2Value.Replace("/", "-");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -1085,6 +1091,7 @@ namespace Sersa
                     System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                     colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
                     col2Value = colDateTime.ToString("yyyy/MM/dd");
+                    col2Value = col2Value.Replace("/", "-");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -1161,6 +1168,7 @@ namespace Sersa
                     System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                     colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
                     col2Value = colDateTime.ToString("yyyy/MM/dd");
+                    col2Value = col2Value.Replace("/", "-");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
@@ -1237,6 +1245,7 @@ namespace Sersa
                     System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
                     colDateTime = colDateTime.AddSeconds(col2Double).ToLocalTime();
                     col2Value = colDateTime.ToString("yyyy/MM/dd");
+                    col2Value = col2Value.Replace("/", "-");
                     string col3Value = rdr[2].ToString();
                     string col4Value = rdr[3].ToString();
                     string col5Value = rdr[4].ToString();
