@@ -292,10 +292,20 @@ namespace Sersa
 
         public List<Formularios> llenarTablaListaFS()
         {
+            int tipoUsuario = Autenticacion.get_tipo();
+            string idAsada = Autenticacion.get_idAsada();
             string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='1'";
+            string sql = "";
+            if (tipoUsuario == 1)
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='1'";
+            }
+            else
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='1' and asada = '" + idAsada+ "'";
+            }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -327,10 +337,20 @@ namespace Sersa
 
         public List<Formularios> llenarTablaListaFN()
         {
+            int tipoUsuario = Autenticacion.get_tipo();
+            string idAsada = Autenticacion.get_idAsada();
             string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='2'";
+            string sql = "";
+            if (tipoUsuario == 1)
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='2'";
+            }
+            else
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='2' and asada = '" + idAsada + "'";
+            }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -362,10 +382,20 @@ namespace Sersa
 
         public List<Formularios> llenarTablaListaP()
         {
+            int tipoUsuario = Autenticacion.get_tipo();
+            string idAsada = Autenticacion.get_idAsada();
             string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='3'";
+            string sql = "";
+            if (tipoUsuario == 1)
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='3'";
+            }
+            else
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='3' and asada = '" + idAsada + "'";
+            }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -397,10 +427,20 @@ namespace Sersa
 
         public List<Formularios> llenarTablaListaA()
         {
+            int tipoUsuario = Autenticacion.get_tipo();
+            string idAsada = Autenticacion.get_idAsada();
             string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='4'";
+            string sql = "";
+            if (tipoUsuario == 1)
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='4'";
+            }
+            else
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='4' and asada = '" + idAsada + "'";
+            }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -432,10 +472,20 @@ namespace Sersa
 
         public List<Formularios> llenarTablaListaC()
         {
+            int tipoUsuario = Autenticacion.get_tipo();
+            string idAsada = Autenticacion.get_idAsada();
             string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='5'";
+            string sql = "";
+            if (tipoUsuario == 1)
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='5'";
+            }
+            else
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='5' and asada = '" + idAsada + "'";
+            }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -467,10 +517,20 @@ namespace Sersa
 
         public List<Formularios> llenarTablaListaD()
         {
+            int tipoUsuario = Autenticacion.get_tipo();
+            string idAsada = Autenticacion.get_idAsada();
             string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='6'";
+            string sql = "";
+            if (tipoUsuario == 1)
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='6'";
+            }
+            else
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='6' and asada = '" + idAsada + "'";
+            }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -502,10 +562,20 @@ namespace Sersa
 
         public List<Formularios> llenarTablaListaQ()
         {
+            int tipoUsuario = Autenticacion.get_tipo();
+            string idAsada = Autenticacion.get_idAsada();
             string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='7'";
+            string sql = "";
+            if (tipoUsuario == 1)
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='7'";
+            }
+            else
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='7' and asada = '" + idAsada + "'";
+            }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -537,10 +607,20 @@ namespace Sersa
 
         public List<Formularios> llenarTablaListaCl()
         {
+            int tipoUsuario = Autenticacion.get_tipo();
+            string idAsada = Autenticacion.get_idAsada();
             string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='8'";
+            string sql = "";
+            if (tipoUsuario == 1)
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='8'";
+            }
+            else
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='8' and asada = '" + idAsada + "'";
+            }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -572,10 +652,20 @@ namespace Sersa
 
         public List<Formularios> llenarTablaListaPP()
         {
+            int tipoUsuario = Autenticacion.get_tipo();
+            string idAsada = Autenticacion.get_idAsada();
             string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
-            string sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='9'";
+            string sql = "";
+            if (tipoUsuario == 1)
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='9'";
+            }
+            else
+            {
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='9' and asada = '" + idAsada + "'";
+            }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
