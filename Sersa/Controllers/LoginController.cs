@@ -27,6 +27,8 @@ namespace Sersa.Controllers
             await Database.Connection.OpenAsync();
             var query = new LoginModel(Database);
             var result = await query.credentialsValidate(USER,PASSWORD);
+            var result1 = await query.GetAsadas();
+
             return new OkObjectResult(result);
         }
 

@@ -3,17 +3,13 @@ namespace Sersa.Models
 {
     public class Usuario
     {
-        public string nombre;
-        public string password;
-        public string usuario;
+        public int id;
         public int tipo;
 
         internal DBIrsassConnector Database { get; set; }
-        public Usuario(string nom, string user, string passw, int type)
+        public Usuario(int pid, int type)
         {
-            nombre = nom;
-            usuario = user;
-            password = passw;
+            id = pid;
             tipo = type;
         }
         public Usuario(DBIrsassConnector db)
