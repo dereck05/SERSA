@@ -22,6 +22,8 @@ namespace Sersa.Models
 {
     public class FormularioInforme
     {
+    
+
         internal DBConnector Database { get; set; }
 
         public string id { get; set; }
@@ -64,7 +66,6 @@ namespace Sersa.Models
                 while (rdr.Read())
                 {
                     nombre = rdr[0].ToString();
-                    Console.WriteLine("Hereeeeeeeeeee:",nombre);
                 }
                 rdr.NextResult();
             }
@@ -202,6 +203,7 @@ namespace Sersa.Models
 
         }
 
+
         public ActionResult buildPDF(List<InformeResponse> lista, string nombreAsada)
         {
             MemoryStream ms = new MemoryStream();
@@ -209,23 +211,61 @@ namespace Sersa.Models
 
             PdfDocument pdfDocument = new PdfDocument(pw);
             Document doc = new Document(pdfDocument, PageSize.LETTER);
-            doc.Add(new Paragraph("Informe "+ nombreAsada).SetFontSize(20).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontColor(new DeviceRgb(4, 124, 188)));
-
-            foreach( InformeResponse item in lista)
+            doc.Add(new Paragraph("Reporte "+ nombreAsada).SetFontSize(20).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontColor(new DeviceRgb(4, 124, 188)));
+            foreach ( InformeResponse item in lista)
             {
+                Preguntas preguntasObj = TipoFormulario(item.tipo);
+
                 doc.Add(new Paragraph(item.acueducto).SetFontSize(15).SetBold());
                 doc.Add(new Paragraph("Fecha: " + item.fecha).SetFontSize(12));
                 doc.Add(new Paragraph("Encargado: " + item.encargado).SetFontSize(12).SetPaddingBottom(2));
-                //doc.Add(new Paragraph("Informacion general: " + item.fecha).SetFontSize(12));
+                doc.Add(new Paragraph("Respuestas " ).SetFontSize(12).SetUnderline());
 
-                //var info_gen = JsonConvert.DeserializeObject<Dictionary<string, string>>(item.info_general);
-                //foreach (var kv in info_gen)
-                //{
+                var infra = JsonConvert.DeserializeObject<Dictionary<string, string>>(item.infraestructura);
+                foreach (var kv in infra)
+                {
+                    if (kv.Key == "P1")
+                    {
+                        doc.Add(new Paragraph(preguntasObj.p1 + ": " + kv.Value).SetFontSize(8));
+                    }
+                    else if (kv.Key == "P2")
+                    {
+                        doc.Add(new Paragraph(preguntasObj.p2 + ": " + kv.Value).SetFontSize(8));
+                    }
+                    else if (kv.Key == "P3")
+                    {
+                        doc.Add(new Paragraph(preguntasObj.p3 + ": " + kv.Value).SetFontSize(8));
+                    }
+                    else if (kv.Key == "P4")
+                    {
+                        doc.Add(new Paragraph(preguntasObj.p4 + ": " + kv.Value).SetFontSize(8));
+                    }
+                    else if (kv.Key == "P5")
+                    {
+                        doc.Add(new Paragraph(preguntasObj.p5 + ": " + kv.Value).SetFontSize(8));
+                    }
+                    else if (kv.Key == "P6")
+                    {
+                        doc.Add(new Paragraph(preguntasObj.p6 + ": " + kv.Value).SetFontSize(8));
+                    }
+                    else if (kv.Key == "P7")
+                    {
+                        doc.Add(new Paragraph(preguntasObj.p7 + ": " + kv.Value).SetFontSize(8));
+                    }
+                    else if (kv.Key == "P8")
+                    {
+                        doc.Add(new Paragraph(preguntasObj.p8 + ": " + kv.Value).SetFontSize(8));
+                    }
+                    else if (kv.Key == "P9")
+                    {
+                        doc.Add(new Paragraph(preguntasObj.p9 +": "+ kv.Value).SetFontSize(8));
+                    }
 
 
-                //}
+
+                }
                 doc.Add(new Paragraph("Comentarios: " + item.comentarios).SetFontSize(12));
-                doc.Add(new Paragraph("Tipo de formulario: " + TipoFormulario(item.tipo)).SetFontSize(12));
+                doc.Add(new Paragraph("Tipo de formulario: " + preguntasObj.tipo).SetFontSize(12));
                 Cell cell = new Cell();
                 cell.Add(new Paragraph("Riesgo "+item.riesgo).SetBorder(new SolidBorder(colorRiesgo(item.riesgo), 1)).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontSize(14));
                 doc.Add(cell);
@@ -244,41 +284,133 @@ namespace Sersa.Models
             return new FileStreamResult(ms, "application/pdf");
         }
 
-        public string TipoFormulario(string t)
+        public Preguntas TipoFormulario(string t)
         {
             int caseSwitch = Int32.Parse(t);
-            string res = "";
+            Preguntas p = new Preguntas();
             switch (caseSwitch)
             {
                 case 1:
-                    res = "Fuente Superficial";
+                    p.tipo = "Fuente Superficial";
+                    p.p1 = "1. ¿Está la captación fuera de un área protegida o zona de conservación?";
+                    p.p2 = "2. ¿Está la toma de agua desprovista de infraestructura que la proteja?";
+                    p.p3 = "3. ¿Está el área alrededor de la toma sin cerca?";
+                    p.p4 = "4. ¿Está la toma de agua ubicada dentro de alguna zona de actividad agrícola? (crítica)";
+                    p.p5 = "5. ¿Existe alguna otra fuente de contaminación alrededor de la toma (letrinas, animales, viviendas, basura o industrias, etc.)? (Observar si aproximadamente a 200 metros a la redonda existen letrinas, animales, viviendas, basura) (crítica)";
+                    p.p6 = "6. ¿Está la captación con acceso fácil de personas y animales?(crítica)";
+                    p.p7 = "7. ¿Están las rejillas de la toma en malas condiciones (ausentes, quebradas y otros)?";
+                    p.p8 = "8. ¿Existe presencia de plantas (raíces, hojas y otros) tapando las rejillas de la toma?";
+                    p.p9 = "9. ¿Existen condiciones de deforestación y erosión en los alrededores de la toma de agua?";
+                    p.p10 = "10. ¿Está ausente el desarenador después de la toma de agua?";
                     break;
                 case 2:
-                    res = "Fuente Naciente";
+                    p.tipo = "Fuente Naciente";
+                    p.p1 = "1. ¿Está la naciente sin cerca de protección que impida el acceso de personas y animales a la captación (crítica)";
+                    p.p2 = "2. ¿Está la captación de la naciente desprotegida abierta a la contaminación ambiental? (sin tapa o sin tanque de captación)";
+                    p.p3 = "3. ¿Está la tapa de la captación construida en condiciones no sanitarias?";
+                    p.p4 = "4. ¿Están las paredes y las losas superior e inferior de la captación con grietas? (critica)";
+                    p.p5 = "5. ¿Se carece de canales para desviar el agua de escorrentía? (crítica)";
+                    p.p6 = "6. ¿Carece la captación de respiraderos o tubería de rebalse con rejilla de protección?";
+                    p.p7 = "7. ¿Se encuentran plantas (raíces, hojas, algas y otros) dentro de la captación de la naciente?";
+                    p.p8 = "8. ¿Existen aguas estancadas sobre o alrededor de la captación? (crítica)";
+                    p.p9 = "9. ¿Existe alguna fuente de contaminación alrededor de la captación? (Observar si aproximadamente a 200 metros a la redonda existen letrinas, animales, viviendas, basura)";
+                    p.p10 = "10. ¿Se encuentra la captación ubicada en zonas con actividad agrícola o industrial? (crítica)";
+
                     break;
                 case 3:
-                    res = "Pozos";
+                    p.tipo = "Pozos";
+                    p.p1 = "1. ¿Está el pozo sin cerca de protección que impida el acceso de personas y animales (crítica)";
+                    p.p2 = "2. ¿Está el pozo desprotegido abierto a la contaminación ambiental? (sin caseta o sin tapa). (critica)";
+                    p.p3 = "3. ¿Está la bomba en malas condiciones (sucia, mal funcionamiento)?";
+                    p.p4 = "4. ¿Se carece de la curva de bombeo del fabricante de la bomba?";
+                    p.p5 = "5. ¿Se carece de canales para desviar el agua de escorrentía? (crítica)";
+                    p.p6 = "6. ¿Se carece con un tubo de 25-38 mm de diámetro para efectuar la medición de niveles de agua?";
+                    p.p7 = "7. ¿Se encuentran plantas (raíces, hojas, algas y otros) dentro del pozo?";
+                    p.p8 = "8. ¿Existen aguas estancadas sobre o alrededor del pozo? (crítica)";
+                    p.p9 = "9. ¿Existe alguna fuente de contaminación alrededor del pozo? (Observar si aproximadamente a 200 metros a la redonda existen letrinas, animales, viviendas, basura)";
+                    p.p10 = "10. ¿Se encuentra el pozo ubicado en zonas con actividad agrícola o industrial? (crítica)";
                     break;
                 case 4:
-                    res = "Tanques de Almacenamiento";
+                    p.tipo =  "Tanques de Almacenamiento";
+                    p.p1 = "1. ¿Están las paredes agrietadas (concreto) o herrumbradas (metálico)? (critica)";
+                    p.p2 = "2. ¿Está la tapa del tanque de almacenamiento, construida en  condiciones no sanitarias? (critica)";
+                    p.p3 = "3. ¿Es el borde de cemento alrededor del tanque menor a 1 metro?";
+                    p.p4 = "4. ¿Está ausente o fuera de operación el sistema de cloración? (critica)";
+                    p.p5 = "5. ¿Está el nivel del agua menor que 1/4 del volumen del tanque?";
+                    p.p6 = "6. ¿Existen sedimentos, algas u hongos dentro del tanque? ";
+                    p.p7 = "7. ¿Está ausente o defectuosa la cerca de protección?";
+                    p.p8 = "8. ¿Carece la tapa de un sistema seguro de cierre (candado, cadena, tornillo)?";
+                    p.p9 = "9. ¿Carece el tanque de respiraderos o tubería de rebalse con rejilla de protección? (critica)";
+                    p.p10 = "10. ¿Existe alguna fuente de contaminación alrededor del tanque (letrinas, animales, viviendas, basura, actividad agrícola o industrial) (critica)";
                     break;
                 case 5:
-                    res = "Conduccion";
+                    p.tipo = "Conduccion";
+                    p.p1 = "1. ¿Existe alguna fuga en la línea de conducción? (crítica)";
+                    p.p2 = "2. ¿Se encuentra la línea de conducción descubierta, con riesgo de ser alterada?";
+                    p.p3 = "3. ¿Se encuentra la línea de conducción en lugares colindantes sin el adecuado soporte? (crítica)";
+                    p.p4 = "4. ¿Se encuentran debidamente separadas las aguas provenientes de manantiales y nacientes con respecto a las aguas superficiales? (crítica)";
+                    p.p5 = "5. ¿Existen variaciones significativas de presión en la red de conducción?";
+                    p.p6 = "6. ¿La unión de la línea de conducción con la toma de agua o captación está asegurada contra posibles contaminaciones? (crítica)";
+                    p.p7 = "7. ¿Carece de válvulas de control anterior a la entrada al tanque de almacenamiento?";
+                    p.p8 = "8. ¿Existen hongos, moho, etc. en la superficie de las tuberías?";
+                    p.p9 = "9. ¿Se Carece de sistema para purgar y desfogue de aire en la tubería de conducción? (crítica)";
+                    p.p10 = "10. ¿Carecen de un esquema del sistema de conducción (planos o croquis)?";
                     break;
                 case 6:
-                    res = "Red de Distribucion";
+                    p.tipo = "Red de Distribucion";
+                    p.p1 = "1. ¿Existen uniones ilícitas que pongan en riesgo la calidad del agua en la red de distribución? (crítica)";
+                    p.p2 = "2. ¿Se carece de micromedidores?";
+                    p.p3 = "3. ¿No se realizan pruebas periódicas de cloro residual en la red de distribución? (crítica)";
+                    p.p4 = "4. ¿Se observan fugas visibles en alguna parte de la red de distribución? (crítico)";
+                    p.p5 = "5. ¿Existen variaciones significativas de presión en la red de distribución?";
+                    p.p6 = "6. ¿Se carece de válvulas de control de presiones y para realizar reparaciones en la red de distribución sin necesidad de quitar todo el servicio de agua a la comunidad?";
+                    p.p7 = "7. ¿Existen interrupciones constantes en el servicio de distribución de agua? (crítica)";
+                    p.p8 = "8. ¿Se carece de sistema para purgar en la tubería de distribución?";
+                    p.p9 = "9. ¿Existe conexiones cruzadas de red de aguas negras con la red de distribución de agua potable? (crítica)";
+                    p.p10 = "10. ¿Se carece de un esquema del sistema de distribución (planos o croquis)?";
                     break;
                 case 7:
-                    res = "Quiebragradientes";
+                    p.tipo = "Quiebragradientes";
+                    p.p1 = "1. ¿Están las paredes agrietadas (concreto) o herrumbradas (metálico)? (crítica)";
+                    p.p2 = "2. ¿Está la tapa de inspección construida en  condiciones no sanitarias?";
+                    p.p3 = "3. ¿Es el borde de cemento alrededor del tanque menor a 1 metro?";
+                    p.p4 = "4. ¿Existen sedimentos, algas u hongos dentro del tanque? (crítico)";
+                    p.p5 = "5. ¿Está ausente o defectuosa la cerca de protección?";
+                    p.p6 = "6. ¿Carece la tapa de un sistema seguro de cierre (candado, cadena, tornillo)?";
+                    p.p7 = "7. ¿Carece el tanque de respiraderos o tubería de rebalse con rejilla de protección?";
+                    p.p8 = "8. ¿Existe alguna fuente de contaminación alrededor del tanque (letrinas, animales, viviendas, basura, actividad agrícola o industrial)? (crítico)";
+                    p.p9 = "9. ¿Se carece de válvula(s) de cierre para limpieza y/o reparación de la estructura?";
+                    p.p10 = "10. ¿La estructura  carece de pintura de protección tanto externa como interna?";
                     break;
                 case 8:
-                    res = "Desinfeccion";
+                    p.tipo = "Desinfeccion";
+                    p.p1 = "1. ¿Se carece de una zona/caseta debidamente acondicionada para la preparación y aplicación del cloro? (critica)";
+                    p.p2 = "2. ¿Carece el acueducto de bitácora de la dosificación del cloro? (crítica)";
+                    p.p3 = "3. ¿Carece el operario de la capacitación necesaria para la preparación y aplicación de la cloración? (crítica)";
+                    p.p4 = "4. ¿Se carece del equipo de protección necesaria para el personal operativo del sistema de cloración? (crítica)";
+                    p.p5 = "5. ¿Se carece del equipo para la medición de cloro residual?";
+                    p.p6 = "6. ¿Se carece de registros de la concentración y del caudal de la solución de cloro preparada y aplicada? (critica)";
+                    p.p7 = "7. ¿Se carece de registros de los niveles de cloro residual en tanque(s) de almacenamiento?";
+                    p.p8 = "8. ¿Se carece de registros de caudal del agua a ser clorada (caudal que ingresa al tanque donde se homogeniza el cloro)?";
+                    p.p9 = "9. ¿Se carece de mantenimiento periódico del sistema de cloración?";
+                    p.p10 = "10. ¿Se carece de registros de consumo de cloro día/semana/mes/año?";
                     break;
+             
                 case 9:
-                    res = "Planta de potabilizacion";
+                    p.tipo = "Planta de potabilizacion";
+                    p.p1 = "1. ¿Están las paredes agrietadas (concreto) o herrumbradas (metálico)? (critica)";
+                    p.p2 = "2. ¿Es el borde de cemento alrededor de los tanques menor a 1 metro?";
+                    p.p3 = "3. ¿Está la planta sin cerca de protección que impida el acceso de personas y animales? (crítica)";
+                    p.p4 = "4. ¿Carecen los operarios de la capacitación necesaria para la operación y mantenimiento de la planta? (critica)";
+                    p.p5 = "5. ¿Se carece de equipos para realizar las pruebas de laboratorio básicas para establecer la calidad del agua que ingresa a la planta parámetros Nivel I según la normatividad?";
+                    p.p6 = "6. ¿Se carece de registros de la calidad del agua que ingresa a la planta? (critica)";
+                    p.p7 = "7. ¿Se carece de registros de caudal del agua que ingresa a la planta? (critica)";
+                    p.p8 = "8. ¿Carece la planta de bitácora donde se anoten las actividades realizadas durante cada jornada de la cuadrilla de operadores? (critica)";
+                    p.p9 = "9. ¿Se carece de mantenimiento periódico de la planta?";
+                    p.p10 = "10. ¿Se carece de un esquema del sistema de potabilización (planos o croquis)?";
                     break;
             }
-            return res;
+            return p;
         }
 
         public DeviceRgb colorRiesgo(string riesgo)
@@ -310,5 +442,25 @@ namespace Sersa.Models
         }
     }
 
-    
+    public class Preguntas
+    {
+        public string p1 { get; set; }
+        public string p2 { get; set; }
+        public string p3 { get; set; }
+        public string p4 { get; set; }
+        public string p5 { get; set; }
+        public string p6 { get; set; }
+        public string p7 { get; set; }
+        public string p8 { get; set; }
+        public string p9 { get; set; }
+        public string p10 { get; set; }
+        public string tipo { get; set; }
+
+        public Preguntas() { }
+
+
+
+    }
+
+
 }
