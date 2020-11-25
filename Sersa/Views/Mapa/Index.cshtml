@@ -10,32 +10,55 @@
     <h1>Mapa</h1>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<div id="map" style="height:550px;width:80%;"></div>
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7MjaoxgpHSjhEttKh00FjyOXI_z6drl4&&region=CR&language=es&callback=initMap&libraries=&v=weekly"></script>
 <script>
-    $(document).ready(function () {
-
-
-        var latitude = 9.934739;
-        var longitude = -84.087502;
-
-        var options = {
-            zoom: 4,
-            center: new google.maps.LatLng(latitude, longitude),
-            mapTypeId: google.maps.MapTypeId.TERRAIN,
-            mapTypeControl: false
+    let map;
+    function initMap() {
+        var myLatLng = {
+            lat: 9.934739,
+            lng: -84.087502
         };
-
-        //init map
-        var map = new google.maps.Map(document.getElementById('map_canvas'), options);
-
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(latitude, longitude),
-            map: map
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 8,
+            center: myLatLng,
+            zoomControl: true,
+            scrollwheel: true,
+            draggable: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         });
+        new google.maps.Marker({
+            position: myLatLng,
+            map,
+            title: "Hello World!"
+        });
+    }
 
-    });
+    //$(document).ready(function () {
+
+
+    //    var latitude = 9.934739;
+    //    var longitude = -84.087502;
+
+    //    var options = {
+    //        zoom: 8,
+    //        center: new google.maps.LatLng(latitude, longitude),
+    //        mapTypeId: google.maps.MapTypeId.TERRAIN,
+    //        mapTypeControl: false
+    //    };
+
+    //    //init map
+    //    var map = new google.maps.Map(document.getElementById('map_canvas'), options);
+
+    //    var marker = new google.maps.Marker({
+    //        position: new google.maps.LatLng(latitude, longitude),
+    //        map: map
+    //    });
+
+    //});
 </script>
-<div style="width: 100%; height: 100%">
-    <div id="map_canvas" style="width: 100%; height: 100%; margin-left: 100px"></div>
-</div>
