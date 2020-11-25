@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Formularios\" />
-    <Folder Include="Views\Historial\" />
     <Folder Include="Views\Mapa\" />
     <Folder Include="Views\Login\" />
     <Folder Include="wwwroot\images\" />

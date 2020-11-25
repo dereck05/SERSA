@@ -1,12 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-    ViewData["Title"] = "Historial de reportes";
-}
+﻿@model IEnumerable<Historial>
 
-
-@*Link al pdf de ejemplo: https://www.pdfhost.net/index.php?Action=DownloadFile&id=77fbac8e92195a1f58734a7e972dc85d*@
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/select/1.2.3/css/select.dataTables.min.css" rel="stylesheet" />
 
 <!--Titulo-->
 <div class="text-center mt-2 mb-5">
@@ -16,22 +12,98 @@
 
 @*Tabla historial*@
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Fecha de creación</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Evaluación ASADA Higuito, San Isidro, El Guarco</td>
-            <td>11/2016</td>
-            <td>
-                <button id="btnEjemplo" class="btn btn-primary" onclick=" window.open('https://www.pdfhost.net/index.php?Action=DownloadFile&id=77fbac8e92195a1f58734a7e972dc85d', '_blank')" style="background-color: #4f83cc;color:#ffffff;float:right;">Descargar</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="x_panel">
+    <div class="x_title">
+        <table id="tablaHistorial" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th hidden>
+                        Id
+                    </th>
+                    <th>
+                        Acueducto
+                    </th>
+                    <th>
+                        Fecha
+                    </th>
+                    <th hidden>
+                        Identificadores
+                    </th>
+                    <th>
 
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody id="tablaListarCuerpo">
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td hidden>
+                        @item.id
+                    </td>
+                    <td hidden>
+                        @item.identificadores
+                    </td>
+                    <td>
+                        @item.nombre
+                    </td>
+                    <td>
+                        @item.Fecha
+                    </td>
+
+                    <td>
+                        <button id="btnDescargar" class="btn btn-primary btn-lg btnSubmit" onclick="Informe_Sersa('@item.identificadores')">Descargar</button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        var table = $("#tablaHistorial").dataTable({
+
+            responsive: true,
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            //"scrollY": "200px",
+            "scrollX": "700px",
+
+            language: {
+                processing: "Procesando...",
+                search: "Buscar",
+                lengthMenu: "Mostrar _MENU_ registros",
+                info: "_START_ al _END_ de _TOTAL_ registros",
+                infoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
+                infoFiltered: "(_MAX_ filtrados)",
+                infoPostFix: "",
+                loadingRecords: "Cargando...",
+                zeroRecords: "No se encontraron resultados",
+                emptyTable: "Ningún dato disponible en esta tabla",
+                paginate: {
+                    first: "Primero",
+                    previous: "Anterior",
+                    next: "Siguiente",
+                    last: "Ultimo"
+                },
+                aria: {
+                    sortAscending: ": Activar para ordenar la columna de manera ascendente",
+                    sortDescending: ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+
+        });
+    });
+
+</script>
