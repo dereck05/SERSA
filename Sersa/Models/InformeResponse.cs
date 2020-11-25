@@ -3,6 +3,7 @@ namespace Sersa.Models
 {
     public class InformeResponse
     {
+        public string id { get; set; }
         public string fecha { get; set; }
         public string acueducto { get; set; }
         public string encargado { get; set; }
