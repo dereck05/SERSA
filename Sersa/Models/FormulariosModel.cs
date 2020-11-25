@@ -27,8 +27,9 @@ namespace Sersa
         public async Task InsertFormularioFS(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, FSInfoGeneral ig, string NOTAS)
         {
+            string asada = Autenticacion.get_idAsada();
             using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
 
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
@@ -53,6 +54,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 1);
+            cmd.Parameters.AddWithValue("@asada", asada);
             await cmd.ExecuteNonQueryAsync();
 
         }
@@ -60,11 +62,13 @@ namespace Sersa
         public async Task InsertFormularioFN(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, FNInfoGeneral ig, string NOTAS)
         {
+            string asada = Autenticacion.get_idAsada();
             using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
 
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
+
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
             cmd.Parameters.AddWithValue("@usuario", "testuser");
@@ -74,6 +78,9 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
             var jsonIG = JsonSerializer.Serialize(ig);
             var jsonIF = JsonSerializer.Serialize(f);
+
+            //var stream = File.Open(@IMG, FileMode.Open);
+            //var task = new FirebaseStorage("sersa2020proyecto.appspot.com");
 
             cmd.Parameters.AddWithValue("@info_general", jsonIG);
             cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
@@ -82,6 +89,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 2);
+            cmd.Parameters.AddWithValue("@asada", asada);
             await cmd.ExecuteNonQueryAsync();
 
         }
@@ -89,11 +97,13 @@ namespace Sersa
         public async Task InsertFormularioP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, PInfoGeneral ig, string NOTAS)
         {
+            string asada = Autenticacion.get_idAsada();
             using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
 
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
+
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
             cmd.Parameters.AddWithValue("@usuario", "testuser");
@@ -103,6 +113,9 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
             var jsonIG = JsonSerializer.Serialize(ig);
             var jsonIF = JsonSerializer.Serialize(f);
+
+            //var stream = File.Open(@IMG, FileMode.Open);
+            //var task = new FirebaseStorage("sersa2020proyecto.appspot.com");
 
             cmd.Parameters.AddWithValue("@info_general", jsonIG);
             cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
@@ -111,6 +124,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 3);
+            cmd.Parameters.AddWithValue("@asada", asada);
             await cmd.ExecuteNonQueryAsync();
 
         }
@@ -119,11 +133,13 @@ namespace Sersa
         public async Task InsertFormularioA(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, AInfoGeneral ig, string NOTAS)
         {
+            string asada = Autenticacion.get_idAsada();
             using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
 
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
+
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
             cmd.Parameters.AddWithValue("@usuario", "testuser");
@@ -133,6 +149,9 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
             var jsonIG = JsonSerializer.Serialize(ig);
             var jsonIF = JsonSerializer.Serialize(f);
+
+            //var stream = File.Open(@IMG, FileMode.Open);
+            //var task = new FirebaseStorage("sersa2020proyecto.appspot.com");
 
             cmd.Parameters.AddWithValue("@info_general", jsonIG);
             cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
@@ -141,6 +160,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 4);
+            cmd.Parameters.AddWithValue("@asada", asada);
             await cmd.ExecuteNonQueryAsync();
 
         }
@@ -149,11 +169,13 @@ namespace Sersa
         public async Task InsertFormularioC(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, CInfoGeneral ig, string NOTAS)
         {
+            string asada = Autenticacion.get_idAsada();
             using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
 
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
+
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
             cmd.Parameters.AddWithValue("@usuario", "testuser");
@@ -163,6 +185,9 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
             var jsonIG = JsonSerializer.Serialize(ig);
             var jsonIF = JsonSerializer.Serialize(f);
+
+            //var stream = File.Open(@IMG, FileMode.Open);
+            //var task = new FirebaseStorage("sersa2020proyecto.appspot.com");
 
             cmd.Parameters.AddWithValue("@info_general", jsonIG);
             cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
@@ -171,6 +196,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 5);
+            cmd.Parameters.AddWithValue("@asada", asada);
             await cmd.ExecuteNonQueryAsync();
 
         }
@@ -178,11 +204,13 @@ namespace Sersa
         public async Task InsertFormularioD(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, DInfoGeneral ig, string NOTAS)
         {
+            string asada = Autenticacion.get_idAsada();
             using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
- 
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
+
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
             cmd.Parameters.AddWithValue("@usuario", "testuser");
@@ -192,6 +220,9 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
             var jsonIG = JsonSerializer.Serialize(ig);
             var jsonIF = JsonSerializer.Serialize(f);
+
+            //var stream = File.Open(@IMG, FileMode.Open);
+            //var task = new FirebaseStorage("sersa2020proyecto.appspot.com");
 
             cmd.Parameters.AddWithValue("@info_general", jsonIG);
             cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
@@ -200,6 +231,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 6);
+            cmd.Parameters.AddWithValue("@asada", asada);
             await cmd.ExecuteNonQueryAsync();
 
         }
@@ -207,11 +239,13 @@ namespace Sersa
         public async Task InsertFormularioQ(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, QInfoGeneral ig, string NOTAS)
         {
+            string asada = Autenticacion.get_idAsada();
             using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
 
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
+
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
             cmd.Parameters.AddWithValue("@usuario", "testuser");
@@ -221,6 +255,9 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
             var jsonIG = JsonSerializer.Serialize(ig);
             var jsonIF = JsonSerializer.Serialize(f);
+
+            //var stream = File.Open(@IMG, FileMode.Open);
+            //var task = new FirebaseStorage("sersa2020proyecto.appspot.com");
 
             cmd.Parameters.AddWithValue("@info_general", jsonIG);
             cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
@@ -229,6 +266,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 7);
+            cmd.Parameters.AddWithValue("@asada", asada);
             await cmd.ExecuteNonQueryAsync();
 
         }
@@ -236,10 +274,13 @@ namespace Sersa
         public async Task InsertFormularioCl(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, ClInfoGeneral ig, string NOTAS)
         {
+            string asada = Autenticacion.get_idAsada();
             using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
+
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
             cmd.Parameters.AddWithValue("@usuario", "testuser");
@@ -249,6 +290,9 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@funcionario", FUNCIONARIO);
             var jsonIG = JsonSerializer.Serialize(ig);
             var jsonIF = JsonSerializer.Serialize(f);
+
+            //var stream = File.Open(@IMG, FileMode.Open);
+            //var task = new FirebaseStorage("sersa2020proyecto.appspot.com");
 
             cmd.Parameters.AddWithValue("@info_general", jsonIG);
             cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
@@ -257,6 +301,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 8);
+            cmd.Parameters.AddWithValue("@asada", asada);
             await cmd.ExecuteNonQueryAsync();
 
         }
@@ -264,10 +309,13 @@ namespace Sersa
         public async Task InsertFormularioPP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, PPInfoGeneral ig, string NOTAS)
         {
+            string asada = Autenticacion.get_idAsada();
             using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario)";
+            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
+
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
             cmd.Parameters.AddWithValue("@usuario", "testuser");
@@ -278,6 +326,9 @@ namespace Sersa
             var jsonIG = JsonSerializer.Serialize(ig);
             var jsonIF = JsonSerializer.Serialize(f);
 
+            //var stream = File.Open(@IMG, FileMode.Open);
+            //var task = new FirebaseStorage("sersa2020proyecto.appspot.com");
+
             cmd.Parameters.AddWithValue("@info_general", jsonIG);
             cmd.Parameters.AddWithValue("@infraestructura", jsonIF);
             cmd.Parameters.AddWithValue("@imagen", IMG);
@@ -285,6 +336,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 9);
+            cmd.Parameters.AddWithValue("@asada", asada);
             await cmd.ExecuteNonQueryAsync();
 
         }

@@ -60,6 +60,8 @@ namespace Sersa.Controllers
             string nombre = obtenerNombreAsada(idAsada);
             long date = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             query.guardarInforme(nombre,listaFormularios,date);
+            string idInforme = query.getLastInserted();
+            query.guardarUsuarioxInforme(Autenticacion.get_idUsuario(), idInforme);
 
         }
 

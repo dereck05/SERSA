@@ -72,6 +72,28 @@ namespace Sersa.Models
             return nombre;
 
         }
+        public string getLastInserted()
+        {
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql2 = "SELECT id FROM Historial ORDER BY id DESC LIMIT 1";
+            MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
+            MySqlDataReader rdr = cmd2.ExecuteReader();
+            string id = "";
+            while (rdr.HasRows)
+            {
+
+                while (rdr.Read())
+                {
+
+                    id = rdr[0].ToString();
+
+                }
+                rdr.NextResult();
+            }
+            return id;
+        }
         public void guardarInforme(string titulo, string listIds, long fecha )
         {
             //Conexion escondida
@@ -85,9 +107,37 @@ namespace Sersa.Models
             cmd.Parameters.AddWithValue("@identificadores", listIds);
             cmd.ExecuteReader();
 
+            
+
 
         }
+        public void guardarUsuarioxInforme(int usuario, string informe)
+        {
 
+            //Conexion escondida
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO InformexUsuario (idInforme,idUsuario) values( @informe, @usuario)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@informe", informe);
+            cmd.Parameters.AddWithValue("@usuario", usuario);
+            cmd.ExecuteReader();
+        }
+
+        public void guardarRiesgoxFormulario(int riesgo, string formulario)
+        {
+
+            //Conexion escondida
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO RiesgoxFormulario (riesgo,idFormulario) values( @riesgo, @idFormulario)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@riesgo", riesgo);
+            cmd.Parameters.AddWithValue("@idFormulario", formulario);
+            cmd.ExecuteReader();
+        }
         public List<FormularioInforme> obtenerFormularioInforme(long fechaI, long fechaF)
         {
             //Conexion escondida
@@ -134,7 +184,7 @@ namespace Sersa.Models
             //Obtiene los formularios seleccionados de la BD
             foreach ( string idList in listaID)
             {
-                string sql = "SELECT fecha,acueducto,encargado,info_general,infraestructura,imagen,comentarios,tipo_formulario,asada FROM Formulario WHERE id = @formID";
+                string sql = "SELECT fecha,acueducto,encargado,info_general,infraestructura,imagen,comentarios,tipo_formulario,asada,id FROM Formulario WHERE id = @formID";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@formID", idList);
                 MySqlDataReader rdr = cmd.ExecuteReader();
@@ -164,6 +214,8 @@ namespace Sersa.Models
                         temp.tipo = col8Value;
                         string col9Value = rdr[8].ToString();
                         temp.asada = col9Value;
+                        string col10Value = rdr[9].ToString();
+                        temp.id = col10Value;
                         lista.Add(temp);
                     }
                     rdr.NextResult();
@@ -195,6 +247,7 @@ namespace Sersa.Models
                 else if (inf.si <= 4) { inf.riesgo = "Intermedio"; }
                 else if (inf.si <= 7) { inf.riesgo = "Alto"; }
                 else if (inf.si <= 10) { inf.riesgo = "Muy Alto"; }
+                guardarRiesgoxFormulario(inf.si, inf.id);
             }
 
 
@@ -226,39 +279,39 @@ namespace Sersa.Models
                 {
                     if (kv.Key == "P1")
                     {
-                        doc.Add(new Paragraph(preguntasObj.p1 + ": " + kv.Value).SetFontSize(8));
+                        doc.Add(new Paragraph(preguntasObj.p1 + ": " + kv.Value).SetFontSize(10));
                     }
                     else if (kv.Key == "P2")
                     {
-                        doc.Add(new Paragraph(preguntasObj.p2 + ": " + kv.Value).SetFontSize(8));
+                        doc.Add(new Paragraph(preguntasObj.p2 + ": " + kv.Value).SetFontSize(10));
                     }
                     else if (kv.Key == "P3")
                     {
-                        doc.Add(new Paragraph(preguntasObj.p3 + ": " + kv.Value).SetFontSize(8));
+                        doc.Add(new Paragraph(preguntasObj.p3 + ": " + kv.Value).SetFontSize(10));
                     }
                     else if (kv.Key == "P4")
                     {
-                        doc.Add(new Paragraph(preguntasObj.p4 + ": " + kv.Value).SetFontSize(8));
+                        doc.Add(new Paragraph(preguntasObj.p4 + ": " + kv.Value).SetFontSize(10));
                     }
                     else if (kv.Key == "P5")
                     {
-                        doc.Add(new Paragraph(preguntasObj.p5 + ": " + kv.Value).SetFontSize(8));
+                        doc.Add(new Paragraph(preguntasObj.p5 + ": " + kv.Value).SetFontSize(10));
                     }
                     else if (kv.Key == "P6")
                     {
-                        doc.Add(new Paragraph(preguntasObj.p6 + ": " + kv.Value).SetFontSize(8));
+                        doc.Add(new Paragraph(preguntasObj.p6 + ": " + kv.Value).SetFontSize(10));
                     }
                     else if (kv.Key == "P7")
                     {
-                        doc.Add(new Paragraph(preguntasObj.p7 + ": " + kv.Value).SetFontSize(8));
+                        doc.Add(new Paragraph(preguntasObj.p7 + ": " + kv.Value).SetFontSize(10));
                     }
                     else if (kv.Key == "P8")
                     {
-                        doc.Add(new Paragraph(preguntasObj.p8 + ": " + kv.Value).SetFontSize(8));
+                        doc.Add(new Paragraph(preguntasObj.p8 + ": " + kv.Value).SetFontSize(10));
                     }
                     else if (kv.Key == "P9")
                     {
-                        doc.Add(new Paragraph(preguntasObj.p9 +": "+ kv.Value).SetFontSize(8));
+                        doc.Add(new Paragraph(preguntasObj.p9 +": "+ kv.Value).SetFontSize(10));
                     }
 
 
