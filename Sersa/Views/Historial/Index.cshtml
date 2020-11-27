@@ -42,7 +42,7 @@
                     <td hidden>
                         @item.id
                     </td>
-                    <td hidden>
+                    <td  id ="identificadores" hidden>
                         @item.identificadores
                     </td>
                     <td>
@@ -53,7 +53,7 @@
                     </td>
 
                     <td>
-                        <button id="btnDescargar" class="btn btn-primary btn-lg btnSubmit" onclick="Informe_Sersa('@item.identificadores')">Descargar</button>
+                        <button data-id=@item.identificadores class="btn btn-primary btn-lg">Descargar</button>
                     </td>
                 </tr>
                 }
@@ -104,6 +104,11 @@
             }
 
         });
+
+        $(".btn.btn-primary").click(function(){
+            window.open('@Url.Action("Informe_Sersa", "Historial")' + '?ids=' + $(this).attr("data-id"))
+        });
+
     });
 
 </script>
