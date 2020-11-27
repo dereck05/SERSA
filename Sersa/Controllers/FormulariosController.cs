@@ -1,10 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Sersa.Models;
-
+using System.Web;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using WebApplication5.Controllers;
+using System.Net.Http.Headers;
+using Firebase.Auth;
+using System.Threading;
+using Firebase.Storage;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Sersa.Controllers
@@ -12,16 +21,25 @@ namespace Sersa.Controllers
     public class FormulariosController : Controller
     {
         internal DBConnector Database { get; set; }
-
+        private IHostingEnvironment hostingEnv;
+        //Configure firebase
+        private static string Apikey = "AIzaSyDnq2yTGZMJDPUEsi5zFyZRfr_zzx8rOJM ";
+        private static string Bucket = "sersa2020proyecto.appspot.com";
+        private static string AuthEmail = "indicasaneamiento@gmail.com";
+        private static string AuthPassword = "etapa2017";
+        private static string link = "";
         // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
         }
 
-        public FormulariosController(DBConnector db)
+
+
+        public FormulariosController(DBConnector db, IHostingEnvironment env)
         {
             Database = db;
+            hostingEnv = env;
         }
 
 
@@ -47,8 +65,9 @@ namespace Sersa.Controllers
             ig.Toma = TOMA;
             ig.Registro = REGISTRO;
             ig.Direccion = DIRECCION;
-
+            Debug.Write("\n\n\n"+IMG);
             await Database.Connection.OpenAsync();
+            IMG = link;
             var query = new FormulariosModel(Database);
             if (IOU == "I")
             {
@@ -88,7 +107,7 @@ namespace Sersa.Controllers
             ig.Captacion = CAPTACION;
             ig.Registro = REGISTRO;
             ig.Direccion = DIRECCION;
-
+            IMG = link;
             await Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
@@ -132,7 +151,7 @@ namespace Sersa.Controllers
             ig.DIAMETRO = DIAMETRO;
             ig.ESPESOR = ESPESOR;
             ig.TIPOP = TIPOP;
-
+            IMG = link;
             await Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
@@ -173,7 +192,7 @@ namespace Sersa.Controllers
             ig.TipoTanque = TIPOTANQUE;
             ig.MatTanque = MATTANQUE;
             ig.Limpieza = LIMPIEZA;
-
+            IMG = link;
             await Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
@@ -213,7 +232,7 @@ namespace Sersa.Controllers
             ig.Reparaciones = REPARACIONES;
             ig.FechaConstruccion = FECHACONSTRUCCION;
             ig.MatTuberia = MATTUBERIA;
-
+            IMG = link;
             await Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
@@ -252,7 +271,7 @@ namespace Sersa.Controllers
             ig.Reparaciones = REPARACIONES;
             ig.FechaConstruccion = FECHACONSTRUCCION;
             ig.MatTuberia = MATTUBERIA;
-
+            IMG = link;
             await Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
@@ -292,7 +311,7 @@ namespace Sersa.Controllers
             ig.Limpieza = LIMPIEZA;
             ig.FechaConstruccion = FECHACONSTRUCCION;
             ig.MatTuberia = MATTUBERIA;
-
+            IMG = link;
             await Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
@@ -310,7 +329,8 @@ namespace Sersa.Controllers
                 return resultado;
             }
         }
-
+       
+        [HttpPost]
         public async Task<IActionResult> guardarFormularioCl(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string FECHAINSTALACION, string TIPOSISTEMA, string TIPODOSIFICACION, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
@@ -335,17 +355,18 @@ namespace Sersa.Controllers
 
             await Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
+            string img = link;
             if (IOU == "I")
             {
                 await query.InsertFormularioCl(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
-                     FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
+                     FUNCIONARIO, LATITUD, LONGITUD, img, f, ig, NOTAS);
                 var resultado = new OkObjectResult(query);
                 return resultado;
             }
             else
             {
                 await query.UpdateFormularioCl(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
-                     FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS, ID);
+                     FUNCIONARIO, LATITUD, LONGITUD, img, f, ig, NOTAS, ID);
                 var resultado = new OkObjectResult(query);
                 return resultado;
             }
@@ -371,7 +392,7 @@ namespace Sersa.Controllers
             ig.SistemaPot = SISTEMAPOT;
             ig.FechaConstruccion = FECHACONSTRUCCION;
             ig.Especifique = ESPECIFIQUE;
-
+            IMG = link;
             await Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
@@ -599,7 +620,45 @@ namespace Sersa.Controllers
             return resultado;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> UploadFilesAjax()
+        {
+            long size = 0;
+            var files = Request.Form.Files;
+            link = "";
+            foreach (var file in files)
+            {
 
+                var filename = ContentDispositionHeaderValue
+                                .Parse(file.ContentDisposition)
+                                .FileName
+                                .Trim('"');
+                filename = hostingEnv.WebRootPath + $@"\{filename}";
+                size += file.Length;
+                FileStream fs = null;
+                using (fs = System.IO.File.Create(filename))
+                {
+                    file.CopyTo(fs);
+                    fs.Flush();
+                }
+                fs = System.IO.File.Open(filename, FileMode.Open);
+                
+                var auth = new FirebaseAuthProvider(new FirebaseConfig(Apikey));
+                var a = await auth.SignInWithEmailAndPasswordAsync(AuthEmail, AuthPassword);
+
+                var cancellation = new CancellationTokenSource();
+                var upload = new FirebaseStorage(Bucket, new FirebaseStorageOptions
+                {
+                    AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
+                    ThrowOnCancel = true
+                }).Child("images").Child($"{file.FileName}.{Path.GetExtension(file.FileName).Substring(1)}").PutAsync(fs, cancellation.Token);
+                link = await upload;
+                fs.Close();
+                System.IO.File.Delete(filename);
+            }
+            string message = $"{files.Count} file(s) / { size} bytes uploaded successfully!";
+            return Json(message);
+        }
     }
 }
 
