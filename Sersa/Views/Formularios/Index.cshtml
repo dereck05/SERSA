@@ -1857,7 +1857,7 @@
                         <div class="form-group">
                             <label for="Image">Imagen</label><br>
                             <span class="btn btn-default btn-file">
-                                <input type="file" id="imgCl">
+                                <input type="file" id="imgCl" name="imgCl">
                             </span>
                         </div>
 
@@ -2955,6 +2955,16 @@
         var latitud = document.getElementById('LatitudFS').value;
         var longitud = document.getElementById('LongitudFS').value;
         var img = document.getElementById('imgFS').value;
+        var fileUpload = document.getElementById('imgFS');
+
+
+        var files = fileUpload.files;
+        var data = new FormData();
+        if (files.length > 0) {
+            data.append(files[0].name, files[0]);
+        }
+
+
         var limpieza = document.getElementById('FSLimpieza').value;
         if (limpieza == "Otro") {
             var especifique = document.getElementById('otroDescripFS').value;
@@ -2984,55 +2994,68 @@
 
         try {
             $.ajax({
-                url: '/Formularios/guardarFormularioFS/',
-                type: 'Post',
-                datatype: 'application/json',
-                data: {
-                    FECHA: fecha,
-                    ACUEDUCTO: acueducto,
-                    TOMA: toma,
-                    REGISTRO: registro,
-                    DIRECCION: direccion,
-                    ENCARGADO: encargado,
-                    TELEFONO: telefono,
-                    FUNCIONARIO: funcionario,
-                    LATITUD: latitud,
-                    LONGITUD: longitud,
-                    IMG: img,
-                    LIMPIEZA: limpieza,
-                    ESPECIFIQUE: especifique,
-                    NOTAS: notas,
-                    P1: p1,
-                    P2: p2,
-                    P3: p3,
-                    P4: p4,
-                    P5: p5,
-                    P6: p6,
-                    P7: p7,
-                    P8: p8,
-                    P9: p9,
-                    P10: p10,
-                    IOU: IoU,
-                    ID: idForm,
+                type: "POST",
+                url: "/Formularios/UploadFilesAjax/",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    $.ajax({
+                        url: '/Formularios/guardarFormularioFS/',
+                        type: 'Post',
+                        datatype: 'application/json',
+                        data: {
+                            FECHA: fecha,
+                            ACUEDUCTO: acueducto,
+                            TOMA: toma,
+                            REGISTRO: registro,
+                            DIRECCION: direccion,
+                            ENCARGADO: encargado,
+                            TELEFONO: telefono,
+                            FUNCIONARIO: funcionario,
+                            LATITUD: latitud,
+                            LONGITUD: longitud,
+                            IMG: img,
+                            LIMPIEZA: limpieza,
+                            ESPECIFIQUE: especifique,
+                            NOTAS: notas,
+                            P1: p1,
+                            P2: p2,
+                            P3: p3,
+                            P4: p4,
+                            P5: p5,
+                            P6: p6,
+                            P7: p7,
+                            P8: p8,
+                            P9: p9,
+                            P10: p10,
+                            IOU: IoU,
+                            ID: idForm,
 
-                },
-                success: function (data) {
-                    console.log(data);
-                    $('#fuenteSup').modal('toggle');
-                    $("#infoGenFS")[0].reset();
-                    $("#preguntasFS")[0].reset();
-                    idForm = "";
-                    if (IoU == "I") {
-                        swal("Éxito", "Formulario ingresado correctamente", "success");
-                    }
-                    else {
-                        swal("Éxito", "Formulario actualizado correctamente", "success");
-                    }
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            $('#fuenteSup').modal('toggle');
+                            $("#infoGenFS")[0].reset();
+                            $("#preguntasFS")[0].reset();
+                            idForm = "";
+                            if (IoU == "I") {
+                                swal("Éxito", "Formulario ingresado correctamente", "success");
+                            }
+                            else {
+                                swal("Éxito", "Formulario actualizado correctamente", "success");
+                            }
+                        },
+                        error: function () {
+                            swal("Error", "Error al crear o actualizar el formulario", "error");
+                        }
+                    });
                 },
                 error: function () {
                     swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
+
         } catch (err) {
             console.log(err.message)
         }
@@ -3152,6 +3175,15 @@
         var latitud = document.getElementById('LatitudFN').value;
         var longitud = document.getElementById('LongitudFN').value;
         var img = document.getElementById('imgFN').value;
+
+        var fileUpload = document.getElementById('imgFN');
+
+
+        var files = fileUpload.files;
+        var data = new FormData();
+        if (files.length > 0) {
+            data.append(files[0].name, files[0]);
+        }
         var captacion = document.getElementById('FNCaptacion').value;
         var notas = document.getElementById('notasFN').value;
         var p1 = $('input:radio[name=infra1FN]:checked').val();
@@ -3175,53 +3207,66 @@
 
         try {
             $.ajax({
-                url: '/Formularios/guardarFormularioFN/',
-                type: 'Post',
-                datatype: 'application/json',
-                data: {
-                    FECHA: fecha,
-                    ACUEDUCTO: acueducto,
-                    NACIENTE: naciente,
-                    REGISTRO: registro,
-                    DIRECCION: direccion,
-                    ENCARGADO: encargado,
-                    TELEFONO: telefono,
-                    FUNCIONARIO: funcionario,
-                    LATITUD: latitud,
-                    LONGITUD: longitud,
-                    IMG: img,
-                    CAPTACION: captacion,
-                    NOTAS: notas,
-                    P1: p1,
-                    P2: p2,
-                    P3: p3,
-                    P4: p4,
-                    P5: p5,
-                    P6: p6,
-                    P7: p7,
-                    P8: p8,
-                    P9: p9,
-                    P10: p10,
-                    IOU: IoU,
-                    ID: idForm,
+                type: "POST",
+                url: "/Formularios/UploadFilesAjax/",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    $.ajax({
+                        url: '/Formularios/guardarFormularioFN/',
+                        type: 'Post',
+                        datatype: 'application/json',
+                        data: {
+                            FECHA: fecha,
+                            ACUEDUCTO: acueducto,
+                            NACIENTE: naciente,
+                            REGISTRO: registro,
+                            DIRECCION: direccion,
+                            ENCARGADO: encargado,
+                            TELEFONO: telefono,
+                            FUNCIONARIO: funcionario,
+                            LATITUD: latitud,
+                            LONGITUD: longitud,
+                            IMG: img,
+                            CAPTACION: captacion,
+                            NOTAS: notas,
+                            P1: p1,
+                            P2: p2,
+                            P3: p3,
+                            P4: p4,
+                            P5: p5,
+                            P6: p6,
+                            P7: p7,
+                            P8: p8,
+                            P9: p9,
+                            P10: p10,
+                            IOU: IoU,
+                            ID: idForm,
 
-                },
-                success: function (data) {
-                    console.log(data);
-                    $('#fuenteNac').modal('toggle');
-                    $("#infoGenFN")[0].reset();
-                    $("#preguntasFN")[0].reset();
-                    if (IoU == "I") {
-                        swal("Éxito", "Formulario ingresado correctamente", "success");
-                    }
-                    else {
-                        swal("Éxito", "Formulario actualizado correctamente", "success");
-                    }
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            $('#fuenteNac').modal('toggle');
+                            $("#infoGenFN")[0].reset();
+                            $("#preguntasFN")[0].reset();
+                            if (IoU == "I") {
+                                swal("Éxito", "Formulario ingresado correctamente", "success");
+                            }
+                            else {
+                                swal("Éxito", "Formulario actualizado correctamente", "success");
+                            }
+                        },
+                        error: function () {
+                            swal("Error", "Error al crear o actualizar el formulario", "error");
+                        }
+                    });
                 },
                 error: function () {
                     swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
+
         } catch (err) {
             console.log(err.message)
         }
@@ -3324,6 +3369,17 @@
         var latitud = document.getElementById('LatitudP').value;
         var longitud = document.getElementById('LongitudP').value;
         var img = document.getElementById('imgP').value;
+
+
+        var fileUpload = document.getElementById('imgP');
+
+
+        var files = fileUpload.files;
+        var data = new FormData();
+        if (files.length > 0) {
+            data.append(files[0].name, files[0]);
+        }
+
         var friatico = document.getElementById('pFriaticoP').value;
         var dinamico = document.getElementById('pDinamicoP').value;
         var diametro = document.getElementById('diametroP').value;
@@ -3351,58 +3407,72 @@
 
         try {
             $.ajax({
-                url: '/Formularios/guardarFormularioP/',
-                type: 'Post',
-                datatype: 'application/json',
-                data: {
-                    FECHA: fecha,
-                    ACUEDUCTO: acueducto,
-                    POZO: pozo,
-                    REGISTRO: registro,
-                    SENASA: senasa,
-                    ENCARGADO: encargado,
-                    TELEFONO: telefono,
-                    FUNCIONARIO: funcionario,
-                    LATITUD: latitud,
-                    LONGITUD: longitud,
-                    IMG: img,
-                    FRIATICO: friatico,
-                    DINAMICO: dinamico,
-                    DIAMETRO: diametro,
-                    ESPESOR: espesor,
-                    TIPOP: tipoP,
-                    NOTAS: notas,
-                    P1: p1,
-                    P2: p2,
-                    P3: p3,
-                    P4: p4,
-                    P5: p5,
-                    P6: p6,
-                    P7: p7,
-                    P8: p8,
-                    P9: p9,
-                    P10: p10,
-                    IOU: IoU,
-                    ID: idForm,
+                type: "POST",
+                url: "/Formularios/UploadFilesAjax/",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    $.ajax({
+                        url: '/Formularios/guardarFormularioP/',
+                        type: 'Post',
+                        datatype: 'application/json',
+                        data: {
+                            FECHA: fecha,
+                            ACUEDUCTO: acueducto,
+                            POZO: pozo,
+                            REGISTRO: registro,
+                            SENASA: senasa,
+                            ENCARGADO: encargado,
+                            TELEFONO: telefono,
+                            FUNCIONARIO: funcionario,
+                            LATITUD: latitud,
+                            LONGITUD: longitud,
+                            IMG: img,
+                            FRIATICO: friatico,
+                            DINAMICO: dinamico,
+                            DIAMETRO: diametro,
+                            ESPESOR: espesor,
+                            TIPOP: tipoP,
+                            NOTAS: notas,
+                            P1: p1,
+                            P2: p2,
+                            P3: p3,
+                            P4: p4,
+                            P5: p5,
+                            P6: p6,
+                            P7: p7,
+                            P8: p8,
+                            P9: p9,
+                            P10: p10,
+                            IOU: IoU,
+                            ID: idForm,
 
-                },
-                success: function (data) {
-                    console.log(data);
-                    $('#pozos').modal('toggle');
-                    $("#infoGenP")[0].reset();
-                    $("#preguntasP")[0].reset();
-                    console.log(IoU);
-                    if (IoU == "I") {
-                        swal("Éxito", "Formulario ingresado correctamente", "success");
-                    }
-                    else {
-                        swal("Éxito", "Formulario actualizado correctamente", "success");
-                    }
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            $('#pozos').modal('toggle');
+                            $("#infoGenP")[0].reset();
+                            $("#preguntasP")[0].reset();
+                            console.log(IoU);
+                            if (IoU == "I") {
+                                swal("Éxito", "Formulario ingresado correctamente", "success");
+                            }
+                            else {
+                                swal("Éxito", "Formulario actualizado correctamente", "success");
+                            }
+                        },
+                        error: function () {
+                            swal("Error", "Error al crear o actualizar el formulario", "error");
+                        }
+                    });
                 },
                 error: function () {
                     swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
+
+           
         } catch (err) {
             console.log(err.message)
         }
@@ -3504,6 +3574,16 @@
         var latitud = document.getElementById('LatitudA').value;
         var longitud = document.getElementById('LongitudA').value;
         var img = document.getElementById('imgA').value;
+
+        
+        var fileUpload = document.getElementById('imgA');
+
+
+        var files = fileUpload.files;
+        var data = new FormData();
+        if (files.length > 0) {
+            data.append(files[0].name, files[0]);
+        }
         var tipoTanque = document.getElementById('tipoTanqueA').value;
         var matTanque = document.getElementById('matTanqueA').value;
         var limpieza = document.getElementById('ALimpieza').value;
@@ -3529,54 +3609,67 @@
 
         try {
             $.ajax({
-                url: '/Formularios/guardarFormularioA/',
-                type: 'Post',
-                datatype: 'application/json',
-                data: {
-                    FECHA: fecha,
-                    ACUEDUCTO: acueducto,
-                    TANQUE: tanque,
-                    REGISTRO: registro,
-                    ENCARGADO: encargado,
-                    TELEFONO: telefono,
-                    FUNCIONARIO: funcionario,
-                    LATITUD: latitud,
-                    LONGITUD: longitud,
-                    IMG: img,
-                    TIPOTANQUE: tipoTanque,
-                    MATTANQUE: matTanque,
-                    LIMPIEZA: limpieza,
-                    NOTAS: notas,
-                    P1: p1,
-                    P2: p2,
-                    P3: p3,
-                    P4: p4,
-                    P5: p5,
-                    P6: p6,
-                    P7: p7,
-                    P8: p8,
-                    P9: p9,
-                    P10: p10,
-                    IOU: IoU,
-                    ID: idForm,
+                type: "POST",
+                url: "/Formularios/UploadFilesAjax/",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    $.ajax({
+                        url: '/Formularios/guardarFormularioA/',
+                        type: 'Post',
+                        datatype: 'application/json',
+                        data: {
+                            FECHA: fecha,
+                            ACUEDUCTO: acueducto,
+                            TANQUE: tanque,
+                            REGISTRO: registro,
+                            ENCARGADO: encargado,
+                            TELEFONO: telefono,
+                            FUNCIONARIO: funcionario,
+                            LATITUD: latitud,
+                            LONGITUD: longitud,
+                            IMG: img,
+                            TIPOTANQUE: tipoTanque,
+                            MATTANQUE: matTanque,
+                            LIMPIEZA: limpieza,
+                            NOTAS: notas,
+                            P1: p1,
+                            P2: p2,
+                            P3: p3,
+                            P4: p4,
+                            P5: p5,
+                            P6: p6,
+                            P7: p7,
+                            P8: p8,
+                            P9: p9,
+                            P10: p10,
+                            IOU: IoU,
+                            ID: idForm,
 
-                },
-                success: function (data) {
-                    console.log(data);
-                    $('#almacenamiento').modal('toggle');
-                    $("#infoGenA")[0].reset();
-                    $("#preguntasA")[0].reset();
-                    if (IoU == "I") {
-                        swal("Éxito", "Formulario ingresado correctamente", "success");
-                    }
-                    else {
-                        swal("Éxito", "Formulario actualizado correctamente", "success");
-                    }
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            $('#almacenamiento').modal('toggle');
+                            $("#infoGenA")[0].reset();
+                            $("#preguntasA")[0].reset();
+                            if (IoU == "I") {
+                                swal("Éxito", "Formulario ingresado correctamente", "success");
+                            }
+                            else {
+                                swal("Éxito", "Formulario actualizado correctamente", "success");
+                            }
+                        },
+                        error: function () {
+                            swal("Error", "Error al crear o actualizar el formulario", "error");
+                        }
+                    });
                 },
                 error: function () {
                     swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
+            
         } catch (err) {
             console.log(err.message)
         }
@@ -3677,6 +3770,14 @@
         var latitud = document.getElementById('LatitudC').value;
         var longitud = document.getElementById('LongitudC').value;
         var img = document.getElementById('imgC').value;
+        var fileUpload = document.getElementById('imgC');
+
+
+        var files = fileUpload.files;
+        var data = new FormData();
+        if (files.length > 0) {
+            data.append(files[0].name, files[0]);
+        }
         var fechaConstruccion = document.getElementById('fechaConstruC').value;
         var matTuberia = document.getElementById('materialC').value;
         var notas = document.getElementById('notasC').value;
@@ -3701,53 +3802,66 @@
 
         try {
             $.ajax({
-                url: '/Formularios/guardarFormularioC/',
-                type: 'Post',
-                datatype: 'application/json',
-                data: {
-                    FECHA: fecha,
-                    ACUEDUCTO: acueducto,
-                    CONDUCCIONTANQUE: conduccionTanque,
-                    REPARACIONES: reparacionesFuga,
-                    ENCARGADO: encargado,
-                    TELEFONO: telefono,
-                    FUNCIONARIO: funcionario,
-                    LATITUD: latitud,
-                    LONGITUD: longitud,
-                    IMG: img,
-                    FECHACONSTRUCCION: fechaConstruccion,
-                    MATTUBERIA: matTuberia,
-                    NOTAS: notas,
-                    P1: p1,
-                    P2: p2,
-                    P3: p3,
-                    P4: p4,
-                    P5: p5,
-                    P6: p6,
-                    P7: p7,
-                    P8: p8,
-                    P9: p9,
-                    P10: p10,
-                    IOU: IoU,
-                    ID: idForm,
+                type: "POST",
+                url: "/Formularios/UploadFilesAjax/",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    $.ajax({
+                        url: '/Formularios/guardarFormularioC/',
+                        type: 'Post',
+                        datatype: 'application/json',
+                        data: {
+                            FECHA: fecha,
+                            ACUEDUCTO: acueducto,
+                            CONDUCCIONTANQUE: conduccionTanque,
+                            REPARACIONES: reparacionesFuga,
+                            ENCARGADO: encargado,
+                            TELEFONO: telefono,
+                            FUNCIONARIO: funcionario,
+                            LATITUD: latitud,
+                            LONGITUD: longitud,
+                            IMG: img,
+                            FECHACONSTRUCCION: fechaConstruccion,
+                            MATTUBERIA: matTuberia,
+                            NOTAS: notas,
+                            P1: p1,
+                            P2: p2,
+                            P3: p3,
+                            P4: p4,
+                            P5: p5,
+                            P6: p6,
+                            P7: p7,
+                            P8: p8,
+                            P9: p9,
+                            P10: p10,
+                            IOU: IoU,
+                            ID: idForm,
 
-                },
-                success: function (data) {
-                    console.log(data);
-                    $('#conduccion').modal('toggle');
-                    $("#infoGenC")[0].reset();
-                    $("#preguntasC")[0].reset();
-                    if (IoU == "I") {
-                        swal("Éxito", "Formulario ingresado correctamente", "success");
-                    }
-                    else {
-                        swal("Éxito", "Formulario actualizado correctamente", "success");
-                    }
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            $('#conduccion').modal('toggle');
+                            $("#infoGenC")[0].reset();
+                            $("#preguntasC")[0].reset();
+                            if (IoU == "I") {
+                                swal("Éxito", "Formulario ingresado correctamente", "success");
+                            }
+                            else {
+                                swal("Éxito", "Formulario actualizado correctamente", "success");
+                            }
+                        },
+                        error: function () {
+                            swal("Error", "Error al crear o actualizar el formulario", "error");
+                        }
+                    });
                 },
                 error: function () {
                     swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
+            
         } catch (err) {
             console.log(err.message)
         }
@@ -3847,6 +3961,14 @@
         var latitud = document.getElementById('LatitudD').value;
         var longitud = document.getElementById('LongitudD').value;
         var img = document.getElementById('imgD').value;
+        var fileUpload = document.getElementById('imgD');
+
+
+        var files = fileUpload.files;
+        var data = new FormData();
+        if (files.length > 0) {
+            data.append(files[0].name, files[0]);
+        }
         var fechaConstruccion = document.getElementById('fechaConstruD').value;
         var matTuberia = document.getElementById('materialD').value;
         var notas = document.getElementById('notasD').value;
@@ -3871,52 +3993,65 @@
 
         try {
             $.ajax({
-                url: '/Formularios/guardarFormularioD/',
-                type: 'Post',
-                datatype: 'application/json',
-                data: {
-                    FECHA: fecha,
-                    ACUEDUCTO: acueducto,
-                    REPARACIONES: reparacionesFuga,
-                    ENCARGADO: encargado,
-                    TELEFONO: telefono,
-                    FUNCIONARIO: funcionario,
-                    LATITUD: latitud,
-                    LONGITUD: longitud,
-                    IMG: img,
-                    FECHACONSTRUCCION: fechaConstruccion,
-                    MATTUBERIA: matTuberia,
-                    NOTAS: notas,
-                    P1: p1,
-                    P2: p2,
-                    P3: p3,
-                    P4: p4,
-                    P5: p5,
-                    P6: p6,
-                    P7: p7,
-                    P8: p8,
-                    P9: p9,
-                    P10: p10,
-                    IOU: IoU,
-                    ID: idForm,
+                type: "POST",
+                url: "/Formularios/UploadFilesAjax/",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    $.ajax({
+                        url: '/Formularios/guardarFormularioD/',
+                        type: 'Post',
+                        datatype: 'application/json',
+                        data: {
+                            FECHA: fecha,
+                            ACUEDUCTO: acueducto,
+                            REPARACIONES: reparacionesFuga,
+                            ENCARGADO: encargado,
+                            TELEFONO: telefono,
+                            FUNCIONARIO: funcionario,
+                            LATITUD: latitud,
+                            LONGITUD: longitud,
+                            IMG: img,
+                            FECHACONSTRUCCION: fechaConstruccion,
+                            MATTUBERIA: matTuberia,
+                            NOTAS: notas,
+                            P1: p1,
+                            P2: p2,
+                            P3: p3,
+                            P4: p4,
+                            P5: p5,
+                            P6: p6,
+                            P7: p7,
+                            P8: p8,
+                            P9: p9,
+                            P10: p10,
+                            IOU: IoU,
+                            ID: idForm,
 
-                },
-                success: function (data) {
-                    console.log(data);
-                    $('#distribucion').modal('toggle');
-                    $("#infoGenD")[0].reset();
-                    $("#preguntasD")[0].reset();
-                    if (IoU == "I") {
-                        swal("Éxito", "Formulario ingresado correctamente", "success");
-                    }
-                    else {
-                        swal("Éxito", "Formulario actualizado correctamente", "success");
-                    }
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            $('#distribucion').modal('toggle');
+                            $("#infoGenD")[0].reset();
+                            $("#preguntasD")[0].reset();
+                            if (IoU == "I") {
+                                swal("Éxito", "Formulario ingresado correctamente", "success");
+                            }
+                            else {
+                                swal("Éxito", "Formulario actualizado correctamente", "success");
+                            }
+                        },
+                        error: function () {
+                            swal("Error", "Error al crear o actualizar el formulario", "error");
+                        }
+                    });
                 },
                 error: function () {
                     swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
+            
         } catch (err) {
             console.log(err.message)
         }
@@ -4015,6 +4150,14 @@
         var latitud = document.getElementById('LatitudQ').value;
         var longitud = document.getElementById('LongitudQ').value;
         var img = document.getElementById('imgQ').value;
+        var fileUpload = document.getElementById('imgQ');
+
+
+        var files = fileUpload.files;
+        var data = new FormData();
+        if (files.length > 0) {
+            data.append(files[0].name, files[0]);
+        }
         var fechaConstruccion = document.getElementById('fechaConstruQ').value;
         var matTuberia = document.getElementById('materialQ').value;
         var limpieza = document.getElementById('frecuenciaQ').value;
@@ -4040,52 +4183,65 @@
 
         try {
             $.ajax({
-                url: '/Formularios/guardarFormularioQ/',
-                type: 'Post',
-                datatype: 'application/json',
-                data: {
-                    FECHA: fecha,
-                    ACUEDUCTO: acueducto,
-                    ENCARGADO: encargado,
-                    TELEFONO: telefono,
-                    FUNCIONARIO: funcionario,
-                    LATITUD: latitud,
-                    LONGITUD: longitud,
-                    IMG: img,
-                    FECHACONSTRUCCION: fechaConstruccion,
-                    MATTUBERIA: matTuberia,
-                    LIMPIEZA: limpieza,
-                    NOTAS: notas,
-                    P1: p1,
-                    P2: p2,
-                    P3: p3,
-                    P4: p4,
-                    P5: p5,
-                    P6: p6,
-                    P7: p7,
-                    P8: p8,
-                    P9: p9,
-                    P10: p10,
-                    IOU: IoU,
-                    ID: idForm,
+                type: "POST",
+                url: "/Formularios/UploadFilesAjax/",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    $.ajax({
+                        url: '/Formularios/guardarFormularioQ/',
+                        type: 'Post',
+                        datatype: 'application/json',
+                        data: {
+                            FECHA: fecha,
+                            ACUEDUCTO: acueducto,
+                            ENCARGADO: encargado,
+                            TELEFONO: telefono,
+                            FUNCIONARIO: funcionario,
+                            LATITUD: latitud,
+                            LONGITUD: longitud,
+                            IMG: img,
+                            FECHACONSTRUCCION: fechaConstruccion,
+                            MATTUBERIA: matTuberia,
+                            LIMPIEZA: limpieza,
+                            NOTAS: notas,
+                            P1: p1,
+                            P2: p2,
+                            P3: p3,
+                            P4: p4,
+                            P5: p5,
+                            P6: p6,
+                            P7: p7,
+                            P8: p8,
+                            P9: p9,
+                            P10: p10,
+                            IOU: IoU,
+                            ID: idForm,
 
-                },
-                success: function (data) {
-                    console.log(data);
-                    $('#quiebragradientes').modal('toggle');
-                    $("#infoGenQ")[0].reset();
-                    $("#preguntasQ")[0].reset();
-                    if (IoU == "I") {
-                        swal("Éxito", "Formulario ingresado correctamente", "success");
-                    }
-                    else {
-                        swal("Éxito", "Formulario actualizado correctamente", "success");
-                    }
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            $('#quiebragradientes').modal('toggle');
+                            $("#infoGenQ")[0].reset();
+                            $("#preguntasQ")[0].reset();
+                            if (IoU == "I") {
+                                swal("Éxito", "Formulario ingresado correctamente", "success");
+                            }
+                            else {
+                                swal("Éxito", "Formulario actualizado correctamente", "success");
+                            }
+                        },
+                        error: function () {
+                            swal("Error", "Error al crear o actualizar el formulario", "error");
+                        }
+                    });
                 },
                 error: function () {
                     swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
+            
         } catch (err) {
             console.log(err.message)
         }
@@ -4182,6 +4338,14 @@
         var encargado = document.getElementById('encargadoCl').value;
         var latitud = document.getElementById('LatitudCl').value;
         var longitud = document.getElementById('LongitudCl').value;
+        var fileUpload = document.getElementById('imgCl');
+
+
+        var files = fileUpload.files;
+        var data = new FormData();
+        if (files.length > 0) {
+            data.append(files[0].name, files[0]);
+        }
         var img = document.getElementById('imgCl').value;
         var fechaConstruccion = document.getElementById('cloracion-gen-1').value;
         var fechaInstalacion = document.getElementById('cloracion-gen-2').value;
@@ -4209,53 +4373,66 @@
 
         try {
             $.ajax({
-                url: '/Formularios/guardarFormularioCl/',
-                type: 'Post',
-                datatype: 'application/json',
-                data: {
-                    FECHA: fecha,
-                    ACUEDUCTO: acueducto,
-                    ENCARGADO: encargado,
-                    TELEFONO: telefono,
-                    FUNCIONARIO: funcionario,
-                    LATITUD: latitud,
-                    LONGITUD: longitud,
-                    IMG: img,
-                    FECHACONSTRUCCION: fechaConstruccion,
-                    FECHAINSTALACION: fechaInstalacion,
-                    TIPOSISTEMA: tipoSistema,
-                    TIPODOSIFICACION: tipoDosificacion,
-                    NOTAS: notas,
-                    P1: p1,
-                    P2: p2,
-                    P3: p3,
-                    P4: p4,
-                    P5: p5,
-                    P6: p6,
-                    P7: p7,
-                    P8: p8,
-                    P9: p9,
-                    P10: p10,
-                    IOU: IoU,
-                    ID: idForm,
+                type: "POST",
+                url: "/Formularios/UploadFilesAjax/",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    $.ajax({
+                        url: '/Formularios/guardarFormularioCl/',
+                        type: 'Post',
+                        datatype: 'application/json',
+                        data: {
+                            FECHA: fecha,
+                            ACUEDUCTO: acueducto,
+                            ENCARGADO: encargado,
+                            TELEFONO: telefono,
+                            FUNCIONARIO: funcionario,
+                            LATITUD: latitud,
+                            LONGITUD: longitud,
+                            IMG: img,
+                            FECHACONSTRUCCION: fechaConstruccion,
+                            FECHAINSTALACION: fechaInstalacion,
+                            TIPOSISTEMA: tipoSistema,
+                            TIPODOSIFICACION: tipoDosificacion,
+                            NOTAS: notas,
+                            P1: p1,
+                            P2: p2,
+                            P3: p3,
+                            P4: p4,
+                            P5: p5,
+                            P6: p6,
+                            P7: p7,
+                            P8: p8,
+                            P9: p9,
+                            P10: p10,
+                            IOU: IoU,
+                            ID: idForm,
 
-                },
-                success: function (data) {
-                    console.log(data);
-                    $('#cloracion').modal('toggle');
-                    $("#infoGenCl")[0].reset();
-                    $("#preguntasCl")[0].reset();
-                    if (IoU == "I") {
-                        swal("Éxito", "Formulario ingresado correctamente", "success");
-                    }
-                    else {
-                        swal("Éxito", "Formulario actualizado correctamente", "success");
-                    }
+
+                        },
+                        success: function (data) {
+                            $('#cloracion').modal('toggle');
+                            $("#infoGenCl")[0].reset();
+                            $("#preguntasCl")[0].reset();
+                            if (IoU == "I") {
+                                swal("Éxito", "Formulario ingresado correctamente", "success");
+                            }
+                            else {
+                                swal("Éxito", "Formulario actualizado correctamente", "success");
+                            }
+                        },
+                        error: function () {
+                            swal("Error", "Error al crear o actualizar el formulario", "error");
+                        }
+                    });
                 },
                 error: function () {
                     swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
+
         } catch (err) {
             console.log(err.message)
         }
@@ -4355,6 +4532,15 @@
         var latitud = document.getElementById('LatitudPP').value;
         var longitud = document.getElementById('LongitudPP').value;
         var img = document.getElementById('imgPP').value;
+
+        var fileUpload = document.getElementById('imgPP');
+
+
+        var files = fileUpload.files;
+        var data = new FormData();
+        if (files.length > 0) {
+            data.append(files[0].name, files[0]);
+        }
         var fechaConstruccion = document.getElementById('potabilizacion-gen-1').value;
         var sistemaPotabilizacion = document.getElementById('potabilizacion-gen-3').value;
         if (sistemaPotabilizacion == "Otro") {
@@ -4385,52 +4571,65 @@
 
         try {
             $.ajax({
-                url: '/Formularios/guardarFormularioPP/',
-                type: 'Post',
-                datatype: 'application/json',
-                data: {
-                    FECHA: fecha,
-                    ACUEDUCTO: acueducto,
-                    ENCARGADO: encargado,
-                    TELEFONO: telefono,
-                    FUNCIONARIO: funcionario,
-                    LATITUD: latitud,
-                    LONGITUD: longitud,
-                    IMG: img,
-                    FECHACONSTRUCCION: fechaConstruccion,
-                    SISTEMAPOT: sistemaPotabilizacion,
-                    ESPECIFIQUE: especifique,
-                    NOTAS: notas,
-                    P1: p1,
-                    P2: p2,
-                    P3: p3,
-                    P4: p4,
-                    P5: p5,
-                    P6: p6,
-                    P7: p7,
-                    P8: p8,
-                    P9: p9,
-                    P10: p10,
-                    IOU: IoU,
-                    ID: idForm,
+                type: "POST",
+                url: "/Formularios/UploadFilesAjax/",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    $.ajax({
+                        url: '/Formularios/guardarFormularioPP/',
+                        type: 'Post',
+                        datatype: 'application/json',
+                        data: {
+                            FECHA: fecha,
+                            ACUEDUCTO: acueducto,
+                            ENCARGADO: encargado,
+                            TELEFONO: telefono,
+                            FUNCIONARIO: funcionario,
+                            LATITUD: latitud,
+                            LONGITUD: longitud,
+                            IMG: img,
+                            FECHACONSTRUCCION: fechaConstruccion,
+                            SISTEMAPOT: sistemaPotabilizacion,
+                            ESPECIFIQUE: especifique,
+                            NOTAS: notas,
+                            P1: p1,
+                            P2: p2,
+                            P3: p3,
+                            P4: p4,
+                            P5: p5,
+                            P6: p6,
+                            P7: p7,
+                            P8: p8,
+                            P9: p9,
+                            P10: p10,
+                            IOU: IoU,
+                            ID: idForm,
 
-                },
-                success: function (data) {
-                    console.log(data);
-                    $('#potabilizacion').modal('toggle');
-                    $("#infoGenPP")[0].reset();
-                    $("#preguntasPP")[0].reset();
-                    if (IoU == "I") {
-                        swal("Éxito", "Formulario ingresado correctamente", "success");
-                    }
-                    else {
-                        swal("Éxito", "Formulario actualizado correctamente", "success");
-                    }
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            $('#potabilizacion').modal('toggle');
+                            $("#infoGenPP")[0].reset();
+                            $("#preguntasPP")[0].reset();
+                            if (IoU == "I") {
+                                swal("Éxito", "Formulario ingresado correctamente", "success");
+                            }
+                            else {
+                                swal("Éxito", "Formulario actualizado correctamente", "success");
+                            }
+                        },
+                        error: function () {
+                            swal("Error", "Error al crear o actualizar el formulario", "error");
+                        }
+                    });
                 },
                 error: function () {
                     swal("Error", "Error al crear o actualizar el formulario", "error");
                 }
             });
+           
         } catch (err) {
             console.log(err.message)
         }

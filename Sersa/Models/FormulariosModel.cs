@@ -8,6 +8,11 @@ using Sersa.Models;
 using System.Collections.Generic;
 using Firebase.Storage;
 using System.IO;
+using WebApplication5.Controllers;
+using Microsoft.AspNetCore.Hosting;
+using Firebase.Auth;
+using System.Threading;
+using Microsoft.AspNetCore.Http;
 
 namespace Sersa
 
@@ -356,7 +361,7 @@ namespace Sersa
             }
             else
             {
-                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='1' and asada = '" + idAsada+ "'";
+                sql = "SELECT id, fecha,acueducto FROM Formulario WHERE tipo_formulario='1' and asada = '" + idAsada + "'";
             }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
@@ -862,7 +867,7 @@ namespace Sersa
                     string col13Value = rdr[12].ToString();
 
                     resultado += col1Value + "," + col2Value + "," + col3Value + "," + col4Value + "," + col5Value + "," + col6Value + "," + col7Value + "," +
-                        info.Naciente + "," + info.Registro + "," + info.Captacion + "," + info.Direccion + ","+
+                        info.Naciente + "," + info.Registro + "," + info.Captacion + "," + info.Direccion + "," +
                         preguntas.P1 + "," + preguntas.P2 + "," + preguntas.P3 + "," + preguntas.P4 + "," + preguntas.P5 + "," + preguntas.P6 + "," +
                         preguntas.P7 + "," + preguntas.P8 + "," + preguntas.P9 + "," + preguntas.P10 + "," + col10Value + "," + col11Value + "," + col12Value + "," + col13Value;
                 }
@@ -1017,7 +1022,7 @@ namespace Sersa
                     string col13Value = rdr[12].ToString();
 
                     resultado += col1Value + "," + col2Value + "," + col3Value + "," + col4Value + "," + col5Value + "," + col6Value + "," + col7Value + "," +
-                        info.Tanque + "," + info.Limpieza + "," + info.Registro + "," + info.MatTanque + "," + info.TipoTanque  + "," +
+                        info.Tanque + "," + info.Limpieza + "," + info.Registro + "," + info.MatTanque + "," + info.TipoTanque + "," +
                         preguntas.P1 + "," + preguntas.P2 + "," + preguntas.P3 + "," + preguntas.P4 + "," + preguntas.P5 + "," + preguntas.P6 + "," +
                         preguntas.P7 + "," + preguntas.P8 + "," + preguntas.P9 + "," + preguntas.P10 + "," + col10Value + "," + col11Value + "," + col12Value + "," + col13Value;
                 }
@@ -1172,7 +1177,7 @@ namespace Sersa
                     string col13Value = rdr[12].ToString();
 
                     resultado += col1Value + "," + col2Value + "," + col3Value + "," + col4Value + "," + col5Value + "," + col6Value + "," + col7Value + "," +
-                        info.MatTuberia + "," + info.Reparaciones + "," + info.FechaConstruccion + "," + 
+                        info.MatTuberia + "," + info.Reparaciones + "," + info.FechaConstruccion + "," +
                         preguntas.P1 + "," + preguntas.P2 + "," + preguntas.P3 + "," + preguntas.P4 + "," + preguntas.P5 + "," + preguntas.P6 + "," +
                         preguntas.P7 + "," + preguntas.P8 + "," + preguntas.P9 + "," + preguntas.P10 + "," + col10Value + "," + col11Value + "," + col12Value + "," + col13Value;
                 }
@@ -1249,7 +1254,7 @@ namespace Sersa
                     string col13Value = rdr[12].ToString();
 
                     resultado += col1Value + "," + col2Value + "," + col3Value + "," + col4Value + "," + col5Value + "," + col6Value + "," + col7Value + "," +
-                        info.Limpieza + "," + info.MatTuberia + "," + info.FechaConstruccion + "," + 
+                        info.Limpieza + "," + info.MatTuberia + "," + info.FechaConstruccion + "," +
                         preguntas.P1 + "," + preguntas.P2 + "," + preguntas.P3 + "," + preguntas.P4 + "," + preguntas.P5 + "," + preguntas.P6 + "," +
                         preguntas.P7 + "," + preguntas.P8 + "," + preguntas.P9 + "," + preguntas.P10 + "," + col10Value + "," + col11Value + "," + col12Value + "," + col13Value;
                 }
@@ -1326,7 +1331,7 @@ namespace Sersa
                     string col13Value = rdr[12].ToString();
 
                     resultado += col1Value + "," + col2Value + "," + col3Value + "," + col4Value + "," + col5Value + "," + col6Value + "," + col7Value + "," +
-                        info.TipoSistema + "," + info.FechaInstalacion + "," + info.TipoDosificacion + "," + info.FechaConstruccion + "," + 
+                        info.TipoSistema + "," + info.FechaInstalacion + "," + info.TipoDosificacion + "," + info.FechaConstruccion + "," +
                         preguntas.P1 + "," + preguntas.P2 + "," + preguntas.P3 + "," + preguntas.P4 + "," + preguntas.P5 + "," + preguntas.P6 + "," +
                         preguntas.P7 + "," + preguntas.P8 + "," + preguntas.P9 + "," + preguntas.P10 + "," + col10Value + "," + col11Value + "," + col12Value + "," + col13Value;
                 }
@@ -1403,7 +1408,7 @@ namespace Sersa
                     string col13Value = rdr[12].ToString();
 
                     resultado += col1Value + "," + col2Value + "," + col3Value + "," + col4Value + "," + col5Value + "," + col6Value + "," + col7Value + "," +
-                        info.SistemaPot + "," + info.Especifique + "," + info.FechaConstruccion + "," + 
+                        info.SistemaPot + "," + info.Especifique + "," + info.FechaConstruccion + "," +
                         preguntas.P1 + "," + preguntas.P2 + "," + preguntas.P3 + "," + preguntas.P4 + "," + preguntas.P5 + "," + preguntas.P6 + "," +
                         preguntas.P7 + "," + preguntas.P8 + "," + preguntas.P9 + "," + preguntas.P10 + "," + col10Value + "," + col11Value + "," + col12Value + "," + col13Value;
                 }
@@ -1457,5 +1462,4 @@ namespace Sersa
         }
 
     }
-    
 }
