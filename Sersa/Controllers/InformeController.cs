@@ -74,6 +74,7 @@ namespace Sersa.Controllers
             var query = new FormularioInforme(Database);
 
             List<InformeResponse> lista = obtenerInformes(idList);
+            
             string idAsada = lista[0].asada; //toma el primer formulario como referencia.
             guardarInforme(ids, idAsada);
             string nombreAsada = obtenerNombreAsada(idAsada);

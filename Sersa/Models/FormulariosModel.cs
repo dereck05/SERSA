@@ -8,7 +8,6 @@ using Sersa.Models;
 using System.Collections.Generic;
 using Firebase.Storage;
 using System.IO;
-using WebApplication5.Controllers;
 using Microsoft.AspNetCore.Hosting;
 using Firebase.Auth;
 using System.Threading;

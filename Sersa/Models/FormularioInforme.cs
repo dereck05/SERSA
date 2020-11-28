@@ -17,6 +17,12 @@ using PdfDocument = iText.Kernel.Pdf.PdfDocument;
 using iText.Layout.Element;
 using iText.Kernel.Colors;
 using iText.Layout.Borders;
+using iText.Kernel.Font;
+using iText.IO.Font.Constants;
+using iText.Layout.Properties;
+using Rectangle = iText.Kernel.Geom.Rectangle;
+using iText.IO.Image;
+using System.Net;
 
 namespace Sersa.Models
 {
@@ -29,6 +35,9 @@ namespace Sersa.Models
         public string id { get; set; }
         public string fecha { get; set; }
         public string acueducto { get; set; }
+        public string logoletra = "https://firebasestorage.googleapis.com/v0/b/sersa2020proyecto.appspot.com/o/images%2Flogoletra.png?alt=media&token=db4c3a3d-79e6-4cdc-9df7-4e196694b96e";
+        public string logotec = "https://firebasestorage.googleapis.com/v0/b/sersa2020proyecto.appspot.com/o/images%2Flogotec.png?alt=media&token=85a603fa-e075-4b3b-9e04-0b96df3518ac";
+
         public FormularioInforme() { }
         public FormularioInforme(string idFormulario, string acueductoForm, string fechaForm)
         {
@@ -255,7 +264,19 @@ namespace Sersa.Models
 
 
         }
+        public static Stream GetImageStreamFromUrl(string url)
+        {
+            HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(url);
 
+            using (HttpWebResponse httpWebReponse = (HttpWebResponse)httpWebRequest.GetResponse())
+            {
+                using (Stream stream = httpWebReponse.GetResponseStream())
+                {
+                    return stream;
+                }
+            }
+        }
+        
 
         public ActionResult buildPDF(List<InformeResponse> lista, string nombreAsada)
         {
@@ -263,7 +284,7 @@ namespace Sersa.Models
             PdfWriter pw = new PdfWriter(ms);
 
             PdfDocument pdfDocument = new PdfDocument(pw);
-            Document doc = new Document(pdfDocument, PageSize.LETTER);
+            Document doc = new Document(pdfDocument, PageSize.LETTER,false);
             doc.Add(new Paragraph("Reporte "+ nombreAsada).SetFontSize(20).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontColor(new DeviceRgb(4, 124, 188)));
             foreach ( InformeResponse item in lista)
             {
@@ -323,9 +344,58 @@ namespace Sersa.Models
                 cell.Add(new Paragraph("Riesgo "+item.riesgo).SetBorder(new SolidBorder(colorRiesgo(item.riesgo), 1)).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontSize(14));
                 doc.Add(cell);
 
+                WebClient webClient = new WebClient();
+                byte[] data = webClient.DownloadData(item.imagen);
+
+                ImageData imageData = ImageDataFactory.Create(data);
+                Image image = new Image(imageData);
+                var s = 0.4;
+                float fwi = (float)s;
+                float fhei = (float)s;
+                doc.Add(image.Scale(fwi,fhei).SetHorizontalAlignment(HorizontalAlignment.CENTER).SetMarginBottom(15).SetMarginTop(15));
+
+
 
 
             }
+            //imagen del logo de sersa
+            var s2 = 0.08;
+            float fwi2 = (float)s2;
+            float fhei2 = (float)s2;
+            WebClient webClient2 = new WebClient();
+            byte[] data2 = webClient2.DownloadData(logoletra);  
+            ImageData imageData2 = ImageDataFactory.Create(data2);
+            Image image2 = new Image(imageData2);
+            Paragraph header = new Paragraph("");
+            header.Add(image2.Scale(fwi2, fhei2).SetMarginBottom(15));
+
+
+            //imagen del logo de TEC
+            var s3 = 0.4;
+            float fwi3 = (float)s3;
+            float fhei3 = (float)s3;
+            WebClient webClient3 = new WebClient();
+            byte[] data3 = webClient3.DownloadData(logotec);
+            ImageData imageData3 = ImageDataFactory.Create(data3);
+            Image image3 = new Image(imageData3);
+            Paragraph header2 = new Paragraph("");
+            header2.Add(image3.Scale(fwi3, fhei3)).SetMarginBottom(10);
+
+
+
+            for (int i = 1; i <= pdfDocument.GetNumberOfPages(); i++)
+            {
+                Rectangle pageSize = pdfDocument.GetPage(i).GetPageSize();
+                float x1 = 20;
+                float y1 = pageSize.GetTop() - 55;
+                float x2 = pageSize.GetRight()-30;
+                float y2 = pageSize.GetTop() - 40;
+                doc.ShowTextAligned(header, x1, y1, i, TextAlignment.LEFT, VerticalAlignment.BOTTOM, 0);
+                doc.ShowTextAligned(header2, x2, y2, i, TextAlignment.RIGHT, VerticalAlignment.BOTTOM, 0);
+    
+            }
+
+
 
             doc.Close();
 
