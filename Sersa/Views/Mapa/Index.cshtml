@@ -8,16 +8,191 @@
     <h1>Mapa</h1>
 </div>
 
-<div id="map" style="height:550px;width:100%;"></div>
-<div style="margin-top:35px">
-    <h3>Simbología</h3>
+<!--Filtrado de datos para mostrar en el mapa-->
+<div class="container" style="margin-bottom:45px;">
+    <!--Rango de fechas-->
+    <div class="row" style="margin-bottom:25px;">
+        <div class="col-md">
+            <label for="fecha">Fecha Inicio</label>
+            <input class="form-control" type="date" id="fechaInicioMapa">
+        </div>
+        <div class="col-md">
+            <label for="fecha">Fecha Final</label>
+            <input class="form-control" type="date" id="fechaFinMapa">
+        </div>
+
+    </div>
+
+    <!--Checkboxes para los tipos-->
+    <p>Tipos de formularios:</p>
+    <div class="row">
+        <div class="col-md">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkAll">
+                <label class="form-check-label" for="checkAll">
+                    <strong>Todos los formularios</strong>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkFS">
+                <label class="form-check-label" for="checkFS">
+                    Fuente superficial
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkFN">
+                <label class="form-check-label" for="checkFN">
+                    Fuente naciente
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkP">
+                <label class="form-check-label" for="checkP">
+                    Fuente pozos
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkA">
+                <label class="form-check-label" for="checkA">
+                    Tanques de almacenamiento
+                </label>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkC">
+                <label class="form-check-label" for="checkC">
+                    Línea de conducción
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkD">
+                <label class="form-check-label" for="checkD">
+                    Línea de distribución
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkQ">
+                <label class="form-check-label" for="checkQ">
+                    Tanques quiebragradientes
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkCl">
+                <label class="form-check-label" for="checkCl">
+                    Desinfección
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="checkPP">
+                <label class="form-check-label" for="checkPP">
+                    Planta potabilización
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!--Boton-->
+    <div class="row">
+        <div class="col text-center mt-5">
+            <button id="btnMostrarMarcadores" class="btn btn-primary btn-lg" style="background-color: #4f83cc;color:#ffffff;">
+                Mostrar en mapa
+            </button>
+        </div>
+
+    </div>
+
 </div>
 
+
+<!--Mapa-->
+<div id="map" style="height:550px;width:100%;"></div>
+
+<!--Simbologia-->
+<div class="container" style="margin-top:35px">
+    <h3>Simbología</h3>
+    <div class="row justify-content-center">
+        <div class="col-md">
+            <p>
+                <img src="/images/symbol_FS.png" alt="Triángulo para representar fuente superficial" style="width:50px;margin-right:30px;">
+                Fuente superficial
+            </p>
+
+        </div>
+        <div class="col-md">
+            <p>
+                <img src="/images/symbol_FN.png" alt="Círculo para representar fuente superficial" style="width:50px;margin-right:30px;">
+                Fuente naciente
+            </p>
+
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md">
+            <p>
+                <img src="/images/symbol_P.png" alt="Estrella para representar fuente pozos" style="width:50px;margin-right:30px;">
+                Fuente pozos
+            </p>
+
+        </div>
+        <div class="col-md">
+            <p>
+                <img src="/images/symbol_A.png" alt="Pentágono para representar tanques de almacenamiento" style="width:50px;margin-right:30px;">
+                Tanques de almacenamiento
+            </p>
+
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md">
+            <p>
+                <img src="/images/symbol_C.png" alt="Triángulo invertido para representar línea de conducción" style="width:50px;margin-right:30px;">
+                Línea de conducción
+            </p>
+
+        </div>
+        <div class="col-md">
+            <p>
+                <img src="/images/symbol_D.png" alt="Hexágono para representar línea de distribución" style="width:50px;margin-right:30px;">
+                Línea de distribución
+            </p>
+
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md">
+            <p>
+                <img src="/images/symbol_Q.png" alt="Forma para representar tanques quiebragradientes" style="width:50px;margin-right:30px;">
+                Tanques quiebragradientes
+            </p>
+
+        </div>
+        <div class="col-md">
+            <p>
+                <img src="/images/symbol_Cl.png" alt="Cuadrilátero para representar desinfección" style="width:50px;margin-right:30px;">
+                Desinfección
+            </p>
+
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md">
+            <p>
+                <img src="/images/symbol_PP.png" alt="Flecha para representar planta potabilización" style="width:50px;margin-right:30px;">
+                Planta potabilización
+            </p>
+
+        </div>
+    </div>
+</div>
+
+<!--SCRIPTS--------------------------------------------------------------------------------------------------->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7MjaoxgpHSjhEttKh00FjyOXI_z6drl4&&region=CR&language=es&callback=initMap&libraries=&v=weekly"></script>
-<script>let map;
+<script>
+    let map;
     function initMap() {
         var myLatLng = {
             lat: 9.934739,
@@ -38,25 +213,50 @@
         });
     }
 
-    //$(document).ready(function () {
+                //$(document).ready(function () {
 
 
-    //    var latitude = 9.934739;
-    //    var longitude = -84.087502;
+                //    var latitude = 9.934739;
+                //    var longitude = -84.087502;
 
-    //    var options = {
-    //        zoom: 8,
-    //        center: new google.maps.LatLng(latitude, longitude),
-    //        mapTypeId: google.maps.MapTypeId.TERRAIN,
-    //        mapTypeControl: false
-    //    };
+                //    var options = {
+                //        zoom: 8,
+                //        center: new google.maps.LatLng(latitude, longitude),
+                //        mapTypeId: google.maps.MapTypeId.TERRAIN,
+                //        mapTypeControl: false
+                //    };
 
-    //    //init map
-    //    var map = new google.maps.Map(document.getElementById('map_canvas'), options);
+                //    //init map
+                //    var map = new google.maps.Map(document.getElementById('map_canvas'), options);
 
-    //    var marker = new google.maps.Marker({
-    //        position: new google.maps.LatLng(latitude, longitude),
-    //        map: map
-    //    });
+                //    var marker = new google.maps.Marker({
+                //        position: new google.maps.LatLng(latitude, longitude),
+                //        map: map
+                //    });
 
-    //});</script>
+                //});
+    $("#checkAll").click(function () {
+        if (document.getElementById('checkAll').checked) {
+
+            document.getElementById('checkFS').disabled = true
+            document.getElementById('checkFN').disabled = true
+            document.getElementById('checkP').disabled = true
+            document.getElementById('checkA').disabled = true
+            document.getElementById('checkC').disabled = true
+            document.getElementById('checkD').disabled = true
+            document.getElementById('checkQ').disabled = true
+            document.getElementById('checkCl').disabled = true
+            document.getElementById('checkPP').disabled = true
+        } else {
+            $("#checkFS").removeAttr("disabled");
+            $("#checkFN").removeAttr("disabled");
+            $("#checkP").removeAttr("disabled");
+            $("#checkA").removeAttr("disabled");
+            $("#checkC").removeAttr("disabled");
+            $("#checkD").removeAttr("disabled");
+            $("#checkQ").removeAttr("disabled");
+            $("#checkCl").removeAttr("disabled");
+            $("#checkPP").removeAttr("disabled");
+        }
+    });
+</script>
