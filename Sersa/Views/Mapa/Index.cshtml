@@ -1,7 +1,5 @@
-﻿@*
-    MAPA
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Mapa";
 }
 
 
@@ -19,8 +17,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7MjaoxgpHSjhEttKh00FjyOXI_z6drl4&&region=CR&language=es&callback=initMap&libraries=&v=weekly"></script>
-<script>
-    let map;
+<script>let map;
     function initMap() {
         var myLatLng = {
             lat: 9.934739,
@@ -62,5 +59,4 @@
     //        map: map
     //    });
 
-    //});
-</script>
+    //});</script>

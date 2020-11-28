@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<Historial>
 
+@{
+    ViewData["Title"] = "Historial";
+}
+
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.dataTables.min.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/select/1.2.3/css/select.dataTables.min.css" rel="stylesheet" />
@@ -38,24 +42,24 @@
             <tbody id="tablaListarCuerpo">
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td hidden>
-                        @item.id
-                    </td>
-                    <td  id ="identificadores" hidden>
-                        @item.identificadores
-                    </td>
-                    <td>
-                        @item.nombre
-                    </td>
-                    <td>
-                        @item.Fecha
-                    </td>
+                    <tr>
+                        <td hidden>
+                            @item.id
+                        </td>
+                        <td id="identificadores" hidden>
+                            @item.identificadores
+                        </td>
+                        <td>
+                            @item.nombre
+                        </td>
+                        <td>
+                            @item.Fecha
+                        </td>
 
-                    <td>
-                        <button data-id=@item.identificadores class="btn btn-primary btn-lg">Descargar</button>
-                    </td>
-                </tr>
+                        <td>
+                            <button data-id=@item.identificadores class="btn btn-primary btn-lg">Descargar</button>
+                        </td>
+                    </tr>
                 }
             </tbody>
 
