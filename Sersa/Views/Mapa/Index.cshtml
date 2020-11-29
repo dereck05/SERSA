@@ -104,6 +104,7 @@
 
 </div>
 
+<p id="respuesta"></p>
 
 <!--Mapa-->
 <div id="map" style="height:550px;width:100%;"></div>
@@ -186,7 +187,6 @@
     </div>
 </div>
 
-<p id="respuesta">Res?</p>
 
 <!--SCRIPTS--------------------------------------------------------------------------------------------------->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -195,6 +195,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7MjaoxgpHSjhEttKh00FjyOXI_z6drl4&&region=CR&language=es&callback=initMap&libraries=&v=weekly"></script>
 <script>
     var res = "";
+    let map;
     $(document).ready(function () {
         $("#btnMostrarMarcadores").on("click", function () {
             var strTipos = "";
@@ -236,28 +237,33 @@
 
             var fechaI = $("#fechaInicioMapa").val();
             var fechaF = $("#fechaFinMapa").val();
-            
+
             $.ajax({
                 type: "POST",
-                url:'@Url.Action("generarPuntos","Mapa")',
-                data: {fechaInicio: fechaI, fechaFin: fechaF, tipos: strTipos},
+                url: '@Url.Action("generarPuntos","Mapa")',
+                data: { fechaInicio: fechaI, fechaFin: fechaF, tipos: strTipos },
                 success: function (response) {
-                    
+
                     res = response;
-                    document.getElementById("respuesta").innerHTML = res[0].latitud;
-                    
-                    }
-                });
+
+                    res.forEach(addMarkers);
+                    document.getElementById("respuesta").innerHTML ="Mostrando " + res.length + " resultados:";
+                    //addMarkers(Number(res[0].latitud), Number(res[0].longitud), Number(res[1].latitud), Number(res[1].longitud));
+                },
+                error: function () {
+                    alert("Error while fetching data");
+                }
+            });
         });
     });
 
-    let map;
+    
     function initMap() {
         var myLatLng = {
             lat: 9.934739,
             lng: -84.087502
         };
-        var map = new google.maps.Map(document.getElementById("map"), {
+        map = new google.maps.Map(document.getElementById("map"), {
             zoom: 8,
             center: myLatLng,
             zoomControl: true,
@@ -265,35 +271,20 @@
             draggable: true,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
-        //new google.maps.Marker({
-            //position: myLatLng,
-            //map,
-            //title: "Hello World!"
-        //});
-    }
+    };
 
-                //$(document).ready(function () {
+    function addMarkers(item) {
+        
+        var latLng = {
+            lat: Number(item.latitud),
+            lng: Number(item.longitud)
+        };
+        var marker = new google.maps.Marker({
+            position: latLng
+        });
+        marker.setMap(map);
+    };
 
-
-                //    var latitude = 9.934739;
-                //    var longitude = -84.087502;
-
-                //    var options = {
-                //        zoom: 8,
-                //        center: new google.maps.LatLng(latitude, longitude),
-                //        mapTypeId: google.maps.MapTypeId.TERRAIN,
-                //        mapTypeControl: false
-                //    };
-
-                //    //init map
-                //    var map = new google.maps.Map(document.getElementById('map_canvas'), options);
-
-                //    var marker = new google.maps.Marker({
-                //        position: new google.maps.LatLng(latitude, longitude),
-                //        map: map
-                //    });
-
-                //});
     $("#checkAll").click(function () {
         if (document.getElementById('checkAll').checked) {
 

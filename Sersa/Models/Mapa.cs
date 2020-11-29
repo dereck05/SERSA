@@ -82,7 +82,14 @@ namespace Sersa.Models
                 sql1 += "'" + tipo.ToString() + "',";
             }
             string sql = sql1.Remove(sql1.Length - 1, 1);
-            sql += ")) AND (f.asada = @asada)";
+            if (asada != null)
+            {
+                sql += ")) AND (f.asada = @asada) AND (f.latitud BETWEEN -90 AND 90) AND (f.longitud BETWEEN -180 AND 180)";
+            }
+            else {
+                sql += ")) AND (f.asada is null) AND (f.latitud BETWEEN -90 AND 90) AND (f.longitud BETWEEN -180 AND 180)";
+            }
+            
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@fechaI", fechaInicio);
             cmd.Parameters.AddWithValue("@fechaF", fechaFin);
