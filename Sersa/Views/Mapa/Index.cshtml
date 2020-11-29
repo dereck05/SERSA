@@ -28,31 +28,31 @@
     <div class="row">
         <div class="col-md">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkAll">
+                <input class="form-check-input" type="checkbox" value="0" id="checkAll">
                 <label class="form-check-label" for="checkAll">
                     <strong>Todos los formularios</strong>
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkFS">
+                <input class="form-check-input" type="checkbox" value="1" id="checkFS">
                 <label class="form-check-label" for="checkFS">
                     Fuente superficial
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkFN">
+                <input class="form-check-input" type="checkbox" value="2" id="checkFN">
                 <label class="form-check-label" for="checkFN">
                     Fuente naciente
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkP">
+                <input class="form-check-input" type="checkbox" value="3" id="checkP">
                 <label class="form-check-label" for="checkP">
                     Fuente pozos
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkA">
+                <input class="form-check-input" type="checkbox" value="4" id="checkA">
                 <label class="form-check-label" for="checkA">
                     Tanques de almacenamiento
                 </label>
@@ -60,31 +60,31 @@
         </div>
         <div class="col-md">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkC">
+                <input class="form-check-input" type="checkbox" value="5" id="checkC">
                 <label class="form-check-label" for="checkC">
                     Línea de conducción
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkD">
+                <input class="form-check-input" type="checkbox" value="6" id="checkD">
                 <label class="form-check-label" for="checkD">
                     Línea de distribución
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkQ">
+                <input class="form-check-input" type="checkbox" value="7" id="checkQ">
                 <label class="form-check-label" for="checkQ">
                     Tanques quiebragradientes
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkCl">
+                <input class="form-check-input" type="checkbox" value="8" id="checkCl">
                 <label class="form-check-label" for="checkCl">
                     Desinfección
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="checkPP">
+                <input class="form-check-input" type="checkbox" value="9" id="checkPP">
                 <label class="form-check-label" for="checkPP">
                     Planta potabilización
                 </label>
@@ -186,12 +186,71 @@
     </div>
 </div>
 
+<p id="respuesta">Res?</p>
+
 <!--SCRIPTS--------------------------------------------------------------------------------------------------->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7MjaoxgpHSjhEttKh00FjyOXI_z6drl4&&region=CR&language=es&callback=initMap&libraries=&v=weekly"></script>
 <script>
+    var res = "";
+    $(document).ready(function () {
+        $("#btnMostrarMarcadores").on("click", function () {
+            var strTipos = "";
+
+            if (document.getElementById("checkAll").checked) {
+                strTipos = strTipos.concat("1,2,3,4,5,6,7,8,9")
+            } else {
+                if (document.getElementById("checkFS").checked) {
+                    strTipos = strTipos.concat("1,")
+                }
+                if (document.getElementById("checkFN").checked) {
+                    strTipos = strTipos.concat("2,")
+                }
+                if (document.getElementById("checkP").checked) {
+                    strTipos = strTipos.concat("3,")
+                }
+                if (document.getElementById("checkA").checked) {
+                    strTipos = strTipos.concat("4,")
+                }
+                if (document.getElementById("checkC").checked) {
+                    strTipos = strTipos.concat("5,")
+                }
+                if (document.getElementById("checkD").checked) {
+                    strTipos = strTipos.concat("6,")
+                }
+                if (document.getElementById("checkQ").checked) {
+                    strTipos = strTipos.concat("7,")
+                }
+                if (document.getElementById("checkCl").checked) {
+                    strTipos = strTipos.concat("8,")
+                }
+                if (document.getElementById("checkPP").checked) {
+                    strTipos = strTipos.concat("9,")
+                }
+                strTipos = strTipos.replace(/,\s*$/, "");
+
+            };
+
+
+            var fechaI = $("#fechaInicioMapa").val();
+            var fechaF = $("#fechaFinMapa").val();
+            
+            $.ajax({
+                type: "POST",
+                url:'@Url.Action("generarPuntos","Mapa")',
+                data: {fechaInicio: fechaI, fechaFin: fechaF, tipos: strTipos},
+                success: function (response) {
+                    
+                    res = response;
+                    document.getElementById("respuesta").innerHTML = res[0].latitud;
+                    
+                    }
+                });
+        });
+    });
+
     let map;
     function initMap() {
         var myLatLng = {
@@ -206,11 +265,11 @@
             draggable: true,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
-        new google.maps.Marker({
-            position: myLatLng,
-            map,
-            title: "Hello World!"
-        });
+        //new google.maps.Marker({
+            //position: myLatLng,
+            //map,
+            //title: "Hello World!"
+        //});
     }
 
                 //$(document).ready(function () {
