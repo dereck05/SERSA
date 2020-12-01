@@ -103,7 +103,7 @@
     </div>
 
 </div>
-
+<!--Respuesta de la cantidad de resultados que se muestran en el mapa-->
 <p id="respuesta"></p>
 
 <!--Mapa-->
@@ -196,7 +196,22 @@
 <script>
     var res = "";
     let map;
+    //Orden: FS, FN, P, A, C, D, Q, Cl, PP
+    //el primero es nulo, el que sigue es bajo, luego medio, luego alto, luego max y asi para cada tipo
+    const icons = ["/images/nulo_FS.png", "/images/bajo_FS.png", "/images/medio_FS.png", "/images/alto_FS.png", "/images/max_FS.png",
+        "/images/nulo_FN.png", "/images/bajo_FN.png", "/images/medio_FN.png", "/images/alto_FN.png", "/images/max_FN.png",
+        "/images/nulo_P.png", "/images/bajo_P.png", "/images/medio_P.png", "/images/alto_P.png", "/images/max_P.png",
+        "/images/nulo_A.png", "/images/bajo_A.png", "/images/medio_A.png", "/images/alto_A.png", "/images/max_A.png",
+        "/images/nulo_C.png", "/images/bajo_C.png", "/images/medio_C.png", "/images/alto_C.png", "/images/max_C.png",
+        "/images/nulo_D.png", "/images/bajo_D.png", "/images/medio_D.png", "/images/alto_D.png", "/images/max_D.png",
+        "/images/nulo_Q.png", "/images/bajo_Q.png", "/images/medio_Q.png", "/images/alto_Q.png", "/images/max_Q.png",
+        "/images/nulo_Cl.png", "/images/bajo_Cl.png", "/images/medio_Cl.png", "/images/alto_Cl.png", "/images/max_Cl.png",
+        "/images/nulo_PP.png", "/images/bajo_PP.png", "/images/medio_PP.png", "/images/alto_PP.png", "/images/max_PP.png" 
+    ]
+
+
     $(document).ready(function () {
+        //Cuando hace click en mostrar resultado
         $("#btnMostrarMarcadores").on("click", function () {
             var strTipos = "";
 
@@ -237,7 +252,7 @@
 
             var fechaI = $("#fechaInicioMapa").val();
             var fechaF = $("#fechaFinMapa").val();
-
+            //Busca los resultados en la BD
             $.ajax({
                 type: "POST",
                 url: '@Url.Action("generarPuntos","Mapa")',
@@ -246,9 +261,8 @@
 
                     res = response;
 
-                    res.forEach(addMarkers);
+                    res.forEach(addMarker);
                     document.getElementById("respuesta").innerHTML ="Mostrando " + res.length + " resultados:";
-                    //addMarkers(Number(res[0].latitud), Number(res[0].longitud), Number(res[1].latitud), Number(res[1].longitud));
                 },
                 error: function () {
                     alert("Error while fetching data");
@@ -257,7 +271,7 @@
         });
     });
 
-    
+    //Inicializa el mapa
     function initMap() {
         var myLatLng = {
             lat: 9.934739,
@@ -273,18 +287,96 @@
         });
     };
 
-    function addMarkers(item) {
-        
+    //Agrega un marcador en el mapa para el objeto dado
+    function addMarker(item) {
+        var tipo = item.tipo
+        var riesgo = item.riesgo
+        var valor = 0
+        //Busco el indice del path de la figura dependiendo del tipo de formulario y riesgo
+        //Si riesgo es 0, no le sumo nada
+        if (riesgo > 0 && riesgo <= 2) { //Riesgo bajo
+            valor++;
+        } else if (riesgo > 2 && riesgo <= 4) { //Riesgo medio
+            valor = valor + 2
+        } else if (riesgo > 4 && riesgo <= 7) { //Riesgo alto
+            valor = valor + 3
+        } else if (riesgo > 7 && riesgo <= 10) { //Riesgo muy alto (max)
+            valor = valor + 4
+        }
+        var iconIndex = (5 * (tipo - 1)) + valor //Valor final del indice
+        var shape;
+        //Defino los limites para hacer click en cada figura
+        if (tipo == 1) { //FS: Triangulo
+            shape = {
+                coords: [12, 2, 24, 23, 0, 23],
+                type: "poly"
+            }
+        } else if (tipo == 2) { //FN: Circulo
+            shape = {
+                coords: [0, 9, 9, 0, 15, 0, 24, 9, 24, 15, 15, 24, 9, 24, 0, 15],
+                type: "poly"
+            }
+        } else if (tipo == 3) { //P: Estrella
+            shape = {
+                coords: [0, 9, 9, 9, 12, 1, 15, 9, 24, 9, 17, 15, 19, 22, 12, 18, 5, 22, 7, 15],
+                type: "poly"
+            }
+        } else if (tipo == 4) { //A: Pentagono
+            shape = {
+                coords: [0, 9, 12, 0, 24, 9, 20, 24, 4, 24],
+                type: "poly"
+            };
+        } else if (tipo == 5) { //C: Triangulo invertido
+            shape = {
+                coords: [0, 4, 24, 4, 12, 20],
+                type: "poly"
+            }
+        } else if (tipo == 6) { //D: Hexagono
+            shape = {
+                coords: [4, 5, 12, 0, 21, 5, 21, 19, 13, 24, 4, 19],
+                type: "poly"
+            }
+        } else if (tipo == 7) { //Q: Figura
+            shape = {
+                coords: [2, 0, 21, 0, 21, 17, 20, 19, 18, 22, 14, 24, 9, 24, 5, 22, 3, 19, 2, 17],
+                type: "poly"
+            }
+
+        } else if (tipo == 8) { //Cl: Rombo
+            shape = {
+                coords: [1, 18, 12, 7, 23, 7, 12, 18],
+                type: "poly"
+            }
+
+        } else if (tipo == 9) { //PP: Flecha
+            shape = {
+                coords: [2, 11, 12, 1, 21, 11, 21, 23, 12, 14, 2, 23],
+                type: "poly"
+            }
+        }
+
+
         var latLng = {
             lat: Number(item.latitud),
             lng: Number(item.longitud)
         };
+        const image = {
+            url: icons[iconIndex],
+            size: new google.maps.Size(500, 500),
+            scaledSize: new google.maps.Size(25, 25),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(12,12)
+        }
         var marker = new google.maps.Marker({
-            position: latLng
+            position: latLng,
+            title: item.acueducto,
+            icon: image,
+            shape: shape
         });
-        marker.setMap(map);
+        marker.setMap(map); //Poner marker en el mapa
     };
 
+    //Deshabilita los otros checkboxes si la opcion de "todos" esta puesta
     $("#checkAll").click(function () {
         if (document.getElementById('checkAll').checked) {
 

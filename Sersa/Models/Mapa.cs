@@ -5,24 +5,6 @@ using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 using MySqlConnector;
 using Newtonsoft.Json;
-using Syncfusion.Pdf;
-using Syncfusion.Pdf.Graphics;
-using System.Drawing;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Kernel.Geom;
-using PdfDocument = iText.Kernel.Pdf.PdfDocument;
-using iText.Layout.Element;
-using iText.Kernel.Colors;
-using iText.Layout.Borders;
-using iText.Kernel.Font;
-using iText.IO.Font.Constants;
-using iText.Layout.Properties;
-using Rectangle = iText.Kernel.Geom.Rectangle;
-using iText.IO.Image;
-using System.Net;
 
 namespace Sersa.Models
 {
@@ -32,6 +14,8 @@ namespace Sersa.Models
         public string latitud { get; set; }
         public string longitud { get; set; }
         public int tipo { get; set; }
+        public string acueducto { get; set; }
+        public int riesgo { get; set; }
 
         public Mapa() { }
         public Mapa(string pLatitud, string pLongitud, int pTipo)
@@ -76,7 +60,7 @@ namespace Sersa.Models
             res.TrimEnd(',');
             res += ")";
 
-            string sql1 = "SELECT f.tipo_formulario, f.latitud, f.longitud FROM sersa.Formulario AS f WHERE (f.fecha BETWEEN @fechaI AND @fechaF) AND (f.tipo_formulario IN";
+            string sql1 = "SELECT f.tipo_formulario, f.latitud, f.longitud, f.acueducto, f.infraestructura FROM sersa.Formulario AS f WHERE (f.fecha BETWEEN @fechaI AND @fechaF) AND (f.tipo_formulario IN";
             sql1 += "(";
             foreach (int tipo in tipos) {
                 sql1 += "'" + tipo.ToString() + "',";
@@ -87,7 +71,7 @@ namespace Sersa.Models
                 sql += ")) AND (f.asada = @asada) AND (f.latitud BETWEEN -90 AND 90) AND (f.longitud BETWEEN -180 AND 180)";
             }
             else {
-                sql += ")) AND (f.asada is null) AND (f.latitud BETWEEN -90 AND 90) AND (f.longitud BETWEEN -180 AND 180)";
+                sql += ")) AND (f.latitud BETWEEN -90 AND 90) AND (f.longitud BETWEEN -180 AND 180)";
             }
             
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -110,6 +94,23 @@ namespace Sersa.Models
                     temp.latitud = col2Value;
                     string col3Value = rdr[2].ToString();
                     temp.longitud = col3Value;
+                    string col4Value = rdr[3].ToString();
+                    temp.acueducto = col4Value;
+                    string col5Value = rdr[4].ToString();
+                    int riesgoTotal = 0;
+
+                    var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(col5Value);
+                    foreach (var kv in dict)
+                    {
+                        if (kv.Value == "Si")
+                        {
+                            riesgoTotal++;
+                        }
+
+                    }
+
+                    temp.riesgo = riesgoTotal;
+
                     lista.Add(temp);
                 }
                 rdr.NextResult();
