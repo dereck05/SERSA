@@ -7,6 +7,7 @@ namespace Sersa.Models
         public int tipo;
 
         internal DBIrsassConnector Database { get; set; }
+        public Usuario() { }
         public Usuario(int pid, int type)
         {
             id = pid;

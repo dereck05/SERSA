@@ -22,12 +22,11 @@ namespace Sersa.Controllers
         {
             Database = db;
         }
-        public async Task<IActionResult> GetUsers(string USER, string PASSWORD)
+        public IActionResult GetUsers(string USER, string PASSWORD)
         {
-            await Database.Connection.OpenAsync();
+            Database.Connection.OpenAsync();
             var query = new LoginModel(Database);
-            var result = await query.credentialsValidate(USER,PASSWORD);
-            var result1 = await query.GetAsadas();
+            var result = query.credentialsValidate(USER,PASSWORD);
 
             return new OkObjectResult(result);
         }
