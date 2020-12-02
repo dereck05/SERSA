@@ -3034,7 +3034,6 @@
 
                         },
                         success: function (data) {
-                            console.log(data);
                             $('#fuenteSup').modal('toggle');
                             $("#infoGenFS")[0].reset();
                             $("#preguntasFS")[0].reset();
@@ -3246,7 +3245,6 @@
 
                         },
                         success: function (data) {
-                            console.log(data);
                             $('#fuenteNac').modal('toggle');
                             $("#infoGenFN")[0].reset();
                             $("#preguntasFN")[0].reset();
@@ -3450,11 +3448,9 @@
 
                         },
                         success: function (data) {
-                            console.log(data);
                             $('#pozos').modal('toggle');
                             $("#infoGenP")[0].reset();
                             $("#preguntasP")[0].reset();
-                            console.log(IoU);
                             if (IoU == "I") {
                                 swal("Éxito", "Formulario ingresado correctamente", "success");
                             }
@@ -3649,7 +3645,6 @@
 
                         },
                         success: function (data) {
-                            console.log(data);
                             $('#almacenamiento').modal('toggle');
                             $("#infoGenA")[0].reset();
                             $("#preguntasA")[0].reset();
@@ -3841,7 +3836,6 @@
 
                         },
                         success: function (data) {
-                            console.log(data);
                             $('#conduccion').modal('toggle');
                             $("#infoGenC")[0].reset();
                             $("#preguntasC")[0].reset();
@@ -4031,7 +4025,6 @@
 
                         },
                         success: function (data) {
-                            console.log(data);
                             $('#distribucion').modal('toggle');
                             $("#infoGenD")[0].reset();
                             $("#preguntasD")[0].reset();
@@ -4221,7 +4214,6 @@
 
                         },
                         success: function (data) {
-                            console.log(data);
                             $('#quiebragradientes').modal('toggle');
                             $("#infoGenQ")[0].reset();
                             $("#preguntasQ")[0].reset();
@@ -4609,7 +4601,6 @@
 
                         },
                         success: function (data) {
-                            console.log(data);
                             $('#potabilizacion').modal('toggle');
                             $("#infoGenPP")[0].reset();
                             $("#preguntasPP")[0].reset();
@@ -4740,7 +4731,6 @@
                     ID: id,
                 },
                 success: function (data) {
-                    console.log(data)
                     idForm = id;
                     var datos = data.split(",");
                     $('#fechaFS').val(datos[1]);
@@ -4843,7 +4833,6 @@
                     ID: id,
                 },
                 success: function (data) {
-                    console.log(data)
                     idForm = id;
                     var datos = data.split(",");
                     $('#fechaFN').val(datos[1]);
@@ -4945,10 +4934,8 @@
                     ID: id,
                 },
                 success: function (data) {
-                    console.log(data)
                     idForm = id;
                     var datos = data.split(",");
-                    console.log(datos)
                     $('#fechaP').val(datos[1]);
                     $('#acueductoP').val(datos[3]);
                     $('#pozoP').val(datos[7]);
@@ -5051,10 +5038,8 @@
                     ID: id,
                 },
                 success: function (data) {
-                    console.log(data)
                     idForm = id;
                     var datos = data.split(",");
-                    console.log(datos)
                     $('#fechaA').val(datos[1]);
                     $('#acueductoA').val(datos[3]);
                     $('#tanqueA').val(datos[7]);
@@ -5154,10 +5139,8 @@
                     ID: id,
                 },
                 success: function (data) {
-                    console.log(data)
                     idForm = id;
                     var datos = data.split(",");
-                    console.log(datos)
                     $('#fechaC').val(datos[1]);
                     $('#acueductoC').val(datos[3]);
                     $('#conduccionC').val(datos[9]);
@@ -5256,10 +5239,8 @@
                     ID: id,
                 },
                 success: function (data) {
-                    console.log(data)
                     idForm = id;
                     var datos = data.split(",");
-                    console.log(datos)
                     $('#fechaD').val(datos[1]);
                     $('#acueductoD').val(datos[3]);
                     $('#reparacionesD').val(datos[8]);
@@ -5357,10 +5338,8 @@
                     ID: id,
                 },
                 success: function (data) {
-                    console.log(data)
                     idForm = id;
                     var datos = data.split(",");
-                    console.log(datos)
                     $('#fechaQ').val(datos[1]);
                     $('#acueductoQ').val(datos[3]);
                     $('#encargadoQ').val(datos[4]);
@@ -5458,10 +5437,8 @@
                     ID: id,
                 },
                 success: function (data) {
-                    console.log(data)
                     idForm = id;
                     var datos = data.split(",");
-                    console.log(datos)
                     $('#fechaCl').val(datos[1]);
                     $('#acueductoCl').val(datos[3]);
                     $('#encargadoCl').val(datos[4]);
@@ -5578,10 +5555,8 @@
                     ID: id,
                 },
                 success: function (data) {
-                    console.log(data)
                     idForm = id;
                     var datos = data.split(",");
-                    console.log(datos)
                     $('#fechaPP').val(datos[1]);
                     $('#acueductoPP').val(datos[3]);
                     $('#encargadoPP').val(datos[4]);
@@ -5679,7 +5654,6 @@
                     ID: id,
                 },
                 success: function (data) {
-                    console.log(data)
                     idForm = id;
                     location.reload(true);
                 },

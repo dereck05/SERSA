@@ -141,7 +141,7 @@ namespace Sersa.Models
             var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connection);
             conn.Open();
-            string sql = "INSERT INTO RiesgoxFormulario (riesgo,idFormulario) values( @riesgo, @idFormulario)";
+            string sql = "INSERT IGNORE INTO RiesgoxFormulario (riesgo,idFormulario) values( @riesgo, @idFormulario)";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@riesgo", riesgo);
             cmd.Parameters.AddWithValue("@idFormulario", formulario);
@@ -285,7 +285,7 @@ namespace Sersa.Models
 
             PdfDocument pdfDocument = new PdfDocument(pw);
             Document doc = new Document(pdfDocument, PageSize.LETTER,false);
-            doc.Add(new Paragraph("Reporte "+ nombreAsada).SetFontSize(20).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontColor(new DeviceRgb(4, 124, 188)));
+            doc.Add(new Paragraph("Reporte "+ nombreAsada).SetFontSize(20).SetTextAlignment(TextAlignment.CENTER).SetFontColor(new DeviceRgb(4, 124, 188)));
             foreach ( InformeResponse item in lista)
             {
                 Preguntas preguntasObj = TipoFormulario(item.tipo);
@@ -341,7 +341,7 @@ namespace Sersa.Models
                 doc.Add(new Paragraph("Comentarios: " + item.comentarios).SetFontSize(12));
                 doc.Add(new Paragraph("Tipo de formulario: " + preguntasObj.tipo).SetFontSize(12));
                 Cell cell = new Cell();
-                cell.Add(new Paragraph("Riesgo "+item.riesgo).SetBorder(new SolidBorder(colorRiesgo(item.riesgo), 1)).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontSize(14));
+                cell.Add(new Paragraph("Riesgo "+item.riesgo).SetBorder(new SolidBorder(colorRiesgo(item.riesgo), 1)).SetBackgroundColor(colorRiesgo(item.riesgo)).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontSize(14).SetBold());
                 doc.Add(cell);
 
                 WebClient webClient = new WebClient();
