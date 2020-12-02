@@ -16,6 +16,9 @@ namespace Sersa.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            Autenticacion.set_idAsada(null);
+            Autenticacion.set_idUsuario(-1);
+            Autenticacion.set_tipo(-1);
             return View();
         }
         public LoginController(DBIrsassConnector db)
@@ -27,7 +30,7 @@ namespace Sersa.Controllers
             Database.Connection.OpenAsync();
             var query = new LoginModel(Database);
             var result = query.credentialsValidate(USER,PASSWORD);
-
+            var result1 = query.GetAsadas();
             return new OkObjectResult(result);
         }
 

@@ -40,7 +40,8 @@ namespace Sersa.Models
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@user", user);
             cmd.Parameters.AddWithValue("@password", password);
-            return ReadAllAsync(cmd.ExecuteReader());
+            List<Usuario> usuarios = ReadAllAsync(cmd.ExecuteReader());
+            return usuarios;
         }
 
         public async Task<List<Usuario>> GetUsers()
@@ -56,13 +57,13 @@ namespace Sersa.Models
         public string[] GetAsadas() {
             int idAsada = posts[0].id;
             //Conexion escondida
-            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Irsass").Value;
-            MySqlConnection conn = new MySqlConnection(connection);
-
-            string sql  = "SELECT * FROM USUARIOXASADA WHERE USUARIO_ID=@id";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@id", idAsada);
-            return ReadAllAsyncAsada(cmd.ExecuteReader());
+            var connection1 = GetConnection().GetSection("ConnectionStrings").GetSection("Irsass").Value;
+            MySqlConnection conn1 = new MySqlConnection(connection1);
+            conn1.Open();
+            string sql1  = "SELECT * FROM USUARIOXASADA WHERE USUARIO_ID=@id";
+            MySqlCommand cmd1 = new MySqlCommand(sql1, conn1);
+            cmd1.Parameters.AddWithValue("@id", idAsada);
+            return ReadAllAsyncAsada(cmd1.ExecuteReader());
         }
         private string[] ReadAllAsyncAsada(MySqlDataReader reader)
         {
@@ -82,7 +83,7 @@ namespace Sersa.Models
 
 
 
-
+            
             return asadas;
         }
         private List<Usuario> ReadAllAsync(MySqlDataReader reader)
@@ -105,7 +106,6 @@ namespace Sersa.Models
                 }
                 reader.NextResult();
             }
-
 
             Autenticacion.set_idUsuario(posts[0].id);
             Autenticacion.set_tipo(posts[0].tipo);
