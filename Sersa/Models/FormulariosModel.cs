@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Firebase.Auth;
 using System.Threading;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace Sersa
 
@@ -26,6 +27,16 @@ namespace Sersa
         internal FormulariosModel(DBConnector db)
         {
             Database = db;
+        }
+
+        public IConfigurationRoot GetConnection()
+
+        {
+
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appSettings.json").Build();
+
+            return builder;
+
         }
 
         public async Task InsertFormularioFS(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
@@ -350,7 +361,7 @@ namespace Sersa
         {
             int tipoUsuario = Autenticacion.get_tipo();
             string idAsada = Autenticacion.get_idAsada();
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "";
@@ -395,7 +406,7 @@ namespace Sersa
         {
             int tipoUsuario = Autenticacion.get_tipo();
             string idAsada = Autenticacion.get_idAsada();
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "";
@@ -440,7 +451,7 @@ namespace Sersa
         {
             int tipoUsuario = Autenticacion.get_tipo();
             string idAsada = Autenticacion.get_idAsada();
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "";
@@ -485,7 +496,7 @@ namespace Sersa
         {
             int tipoUsuario = Autenticacion.get_tipo();
             string idAsada = Autenticacion.get_idAsada();
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "";
@@ -530,7 +541,7 @@ namespace Sersa
         {
             int tipoUsuario = Autenticacion.get_tipo();
             string idAsada = Autenticacion.get_idAsada();
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "";
@@ -575,7 +586,7 @@ namespace Sersa
         {
             int tipoUsuario = Autenticacion.get_tipo();
             string idAsada = Autenticacion.get_idAsada();
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "";
@@ -620,7 +631,7 @@ namespace Sersa
         {
             int tipoUsuario = Autenticacion.get_tipo();
             string idAsada = Autenticacion.get_idAsada();
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "";
@@ -665,7 +676,7 @@ namespace Sersa
         {
             int tipoUsuario = Autenticacion.get_tipo();
             string idAsada = Autenticacion.get_idAsada();
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "";
@@ -710,7 +721,7 @@ namespace Sersa
         {
             int tipoUsuario = Autenticacion.get_tipo();
             string idAsada = Autenticacion.get_idAsada();
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "";
@@ -753,7 +764,7 @@ namespace Sersa
 
         public string obtenerFormularioFS(string ID)
         {
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "SELECT * FROM Formulario WHERE tipo_formulario='1' and id = '" + ID + "'";
@@ -830,7 +841,7 @@ namespace Sersa
 
         public string obtenerFormularioFN(string ID)
         {
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "SELECT * FROM Formulario WHERE tipo_formulario='2' and id = '" + ID + "'";
@@ -907,7 +918,7 @@ namespace Sersa
 
         public string obtenerFormularioP(string ID)
         {
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "SELECT * FROM Formulario WHERE tipo_formulario='3' and id = '" + ID + "'";
@@ -985,7 +996,7 @@ namespace Sersa
 
         public string obtenerFormularioA(string ID)
         {
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "SELECT * FROM Formulario WHERE tipo_formulario='4' and id = '" + ID + "'";
@@ -1063,7 +1074,7 @@ namespace Sersa
 
         public string obtenerFormularioC(string ID)
         {
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "SELECT * FROM Formulario WHERE tipo_formulario='5' and id = '" + ID + "'";
@@ -1140,7 +1151,7 @@ namespace Sersa
 
         public string obtenerFormularioD(string ID)
         {
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "SELECT * FROM Formulario WHERE tipo_formulario='6' and id = '" + ID + "'";
@@ -1217,7 +1228,7 @@ namespace Sersa
 
         public string obtenerFormularioQ(string ID)
         {
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "SELECT * FROM Formulario WHERE tipo_formulario='7' and id = '" + ID + "'";
@@ -1294,7 +1305,7 @@ namespace Sersa
 
         public string obtenerFormularioCl(string ID)
         {
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "SELECT * FROM Formulario WHERE tipo_formulario='8' and id = '" + ID + "'";
@@ -1371,7 +1382,7 @@ namespace Sersa
 
         public string obtenerFormularioPP(string ID)
         {
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "SELECT * FROM Formulario WHERE tipo_formulario='9' and id = '" + ID + "'";
@@ -1448,7 +1459,7 @@ namespace Sersa
 
         public string eliminarFormulario(string ID)
         {
-            string connStr = "server=35.202.203.47;port=3306;database=sersa;user=root;password=asada2020;";
+            string connStr = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
             string sql = "DELETE FROM Formulario WHERE id = '" + ID + "'";
