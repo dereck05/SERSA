@@ -58,7 +58,8 @@ namespace Sersa.Models
             MySqlConnection conn = new MySqlConnection(connection);
             conn.Open();
             string sql = "";
-            sql = "select h.id, h.nombre,h.fecha,h.identificadores from sersa.Historial h inner join sersa.InformexUsuario i on h.id = i.idInforme where i.idUsuario = '5'";
+            int id = Autenticacion.get_idUsuario();
+            sql = "select h.id, h.nombre,h.fecha,h.identificadores from sersa.Historial h inner join sersa.InformexUsuario i on h.id = i.idInforme where i.idUsuario = " + id;
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
