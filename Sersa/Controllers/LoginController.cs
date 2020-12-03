@@ -30,7 +30,10 @@ namespace Sersa.Controllers
             Database.Connection.OpenAsync();
             var query = new LoginModel(Database);
             var result = query.credentialsValidate(USER,PASSWORD);
-            var result1 = query.GetAsadas();
+            if (Autenticacion.get_idUsuario() != -1)
+            {
+                var result1 = query.GetAsadas();
+            }
             return new OkObjectResult(result);
         }
 

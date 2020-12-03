@@ -106,9 +106,14 @@ namespace Sersa.Models
                 }
                 reader.NextResult();
             }
-
-            Autenticacion.set_idUsuario(posts[0].id);
-            Autenticacion.set_tipo(posts[0].tipo);
+            try
+            {
+                Autenticacion.set_idUsuario(posts[0].id);
+                Autenticacion.set_tipo(posts[0].tipo);
+            }
+            catch (Exception e) {
+                return new List<Usuario>();
+            }
             return posts;
         }
     }
