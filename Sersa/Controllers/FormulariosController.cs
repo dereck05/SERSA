@@ -22,7 +22,7 @@ namespace Sersa.Controllers
         internal DBConnector Database { get; set; }
         private IHostingEnvironment hostingEnv;
         //Configure firebase
-        private static string Apikey = "AIzaSyDnq2yTGZMJDPUEsi5zFyZRfr_zzx8rOJM ";
+        private static string Apikey = "AIzaSyDnq2yTGZMJDPUEsi5zFyZRfr_zzx8rOJM";
         private static string Bucket = "sersa2020proyecto.appspot.com";
         private static string AuthEmail = "indicasaneamiento@gmail.com";
         private static string AuthPassword = "etapa2017";
@@ -646,11 +646,12 @@ namespace Sersa.Controllers
                 var a = await auth.SignInWithEmailAndPasswordAsync(AuthEmail, AuthPassword);
 
                 var cancellation = new CancellationTokenSource();
+                String timeStamp = DateTime.Now.ToString("yyyyMMddHHmmssffff");
                 var upload = new FirebaseStorage(Bucket, new FirebaseStorageOptions
                 {
                     AuthTokenAsyncFactory = () => Task.FromResult(a.FirebaseToken),
                     ThrowOnCancel = true
-                }).Child("images").Child($"{file.FileName}.{Path.GetExtension(file.FileName).Substring(1)}").PutAsync(fs, cancellation.Token);
+                }).Child("images").Child($"{timeStamp}.{Path.GetExtension(file.FileName).Substring(1)}").PutAsync(fs, cancellation.Token);
                 link = await upload;
                 fs.Close();
                 System.IO.File.Delete(filename);
