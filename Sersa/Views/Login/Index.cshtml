@@ -68,7 +68,8 @@
                             if (data == "") {
                                 $('#msg').text("Nombre o contraseña incorrectos");
                             } else {
-                                location.href = "Home/Index";
+                                location.href="@Url.Action("Index", "Home")";
+                             //   location.href = "/Home/Index";
 
                             }
                            // $('#fuenteSup').modal('toggle');

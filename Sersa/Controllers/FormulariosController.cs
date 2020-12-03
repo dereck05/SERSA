@@ -13,10 +13,12 @@ using System.Net.Http.Headers;
 using Firebase.Auth;
 using System.Threading;
 using Firebase.Storage;
+using Microsoft.AspNetCore.Authorization;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Sersa.Controllers
 {
+    [Authorize]
     public class FormulariosController : Controller
     {
         internal DBConnector Database { get; set; }
