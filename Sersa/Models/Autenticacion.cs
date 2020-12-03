@@ -9,7 +9,7 @@ namespace Sersa.Models
     {
         private static int tipo;
         private static int idUsuario;
-        private static string idAsada;
+        private static string idAsada = "";
 
 
         public static int get_tipo() {

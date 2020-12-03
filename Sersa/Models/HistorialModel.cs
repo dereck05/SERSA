@@ -59,7 +59,15 @@ namespace Sersa.Models
             conn.Open();
             string sql = "";
             int id = Autenticacion.get_idUsuario();
-            sql = "select h.id, h.nombre,h.fecha,h.identificadores from sersa.Historial h inner join sersa.InformexUsuario i on h.id = i.idInforme where i.idUsuario = " + id;
+            if (id == 5)
+            {
+                sql = "select h.id, h.nombre,h.fecha,h.identificadores from sersa.Historial h inner join sersa.InformexUsuario i on h.id = i.idInforme";
+            }
+            else
+            {
+                sql = "select h.id, h.nombre,h.fecha,h.identificadores from sersa.Historial h inner join sersa.InformexUsuario i on h.id = i.idInforme where i.idUsuario = " + id;
+
+            }
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -74,6 +82,10 @@ namespace Sersa.Models
                     temp.id = col1Value;
                     string col2Value = rdr[1].ToString();
                     temp.nombre = col2Value;
+                    if(temp.nombre == "")
+                    {
+                        temp.nombre = "Administrador";
+                    }
                     string col3Value = rdr[2].ToString();
                     double col3Double = Double.Parse(col3Value);
                     System.DateTime colDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);

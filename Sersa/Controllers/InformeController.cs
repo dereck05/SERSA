@@ -57,11 +57,12 @@ namespace Sersa.Controllers
         {
             Database.Connection.OpenAsync();
             var query = new FormularioInforme(Database);
+            int idUser = Autenticacion.get_idUsuario();
             string nombre = obtenerNombreAsada(idAsada);
             long date = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             query.guardarInforme(nombre,listaFormularios,date);
             string idInforme = query.getLastInserted();
-            query.guardarUsuarioxInforme(Autenticacion.get_idUsuario(), idInforme);
+            query.guardarUsuarioxInforme(idUser, idInforme);
 
         }
 
@@ -74,10 +75,17 @@ namespace Sersa.Controllers
             var query = new FormularioInforme(Database);
 
             List<InformeResponse> lista = obtenerInformes(idList);
-            
-            string idAsada = lista[0].asada; //toma el primer formulario como referencia.
+            string idAsada = Autenticacion.get_idAsada(); //toma el primer formulario como referencia.
             guardarInforme(ids, idAsada);
-            string nombreAsada = obtenerNombreAsada(idAsada);
+            string nombreAsada = "";
+            if (null == idAsada)
+            {
+                nombreAsada = "Administrador";
+            }
+            else
+            {
+                nombreAsada = obtenerNombreAsada(idAsada);
+            }
             ActionResult action = query.buildPDF(lista,nombreAsada);
             return action;
 
