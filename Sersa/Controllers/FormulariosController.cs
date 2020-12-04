@@ -44,7 +44,7 @@ namespace Sersa.Controllers
         }
 
 
-        public async Task<IActionResult> guardarFormularioFS(DateTime FECHA, string ACUEDUCTO, string TOMA, string REGISTRO, string DIRECCION,string ENCARGADO,string TELEFONO,
+        public void guardarFormularioFS(DateTime FECHA, string ACUEDUCTO, string TOMA, string REGISTRO, string DIRECCION,string ENCARGADO,string TELEFONO,
                     string FUNCIONARIO, string LATITUD,string LONGITUD, string IMG, string LIMPIEZA, string ESPECIFIQUE, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -67,27 +67,23 @@ namespace Sersa.Controllers
             ig.Registro = REGISTRO;
             ig.Direccion = DIRECCION;
             Debug.Write("\n\n\n"+IMG);
-            await Database.Connection.OpenAsync();
+            Database.Connection.OpenAsync();
             IMG = link;
             var query = new FormulariosModel(Database);
             if (IOU == "I")
             {
-                await query.InsertFormularioFS(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                query.InsertFormularioFS(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
-                var resultado = new OkObjectResult(query);
-                return resultado;
             }
             else
             {
-                await query.UpdateFormularioFS(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                query.UpdateFormularioFS(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS,ID);
-                var resultado = new OkObjectResult(query);
-                return resultado;
             }
 
         }
 
-        public async Task<IActionResult> guardarFormularioFN(DateTime FECHA, string ACUEDUCTO, string NACIENTE, string REGISTRO, string DIRECCION, string ENCARGADO, string TELEFONO,
+        public void guardarFormularioFN(DateTime FECHA, string ACUEDUCTO, string NACIENTE, string REGISTRO, string DIRECCION, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string CAPTACION, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -109,25 +105,23 @@ namespace Sersa.Controllers
             ig.Registro = REGISTRO;
             ig.Direccion = DIRECCION;
             IMG = link;
-            await Database.Connection.OpenAsync();
+             Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
             {
-                await query.InsertFormularioFN(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.InsertFormularioFN(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
             else
             {
-                await query.UpdateFormularioFN(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.UpdateFormularioFN(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS, ID);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
         }
 
-        public async Task<IActionResult> guardarFormularioP(DateTime FECHA, string ACUEDUCTO, string POZO, string REGISTRO, string SENASA, string ENCARGADO, string TELEFONO,
+        public void guardarFormularioP(DateTime FECHA, string ACUEDUCTO, string POZO, string REGISTRO, string SENASA, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FRIATICO, string DINAMICO, string DIAMETRO, string ESPESOR, string TIPOP, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -153,25 +147,23 @@ namespace Sersa.Controllers
             ig.ESPESOR = ESPESOR;
             ig.TIPOP = TIPOP;
             IMG = link;
-            await Database.Connection.OpenAsync();
+             Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
             {
-                await query.InsertFormularioP(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.InsertFormularioP(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
             else
             {
-                await query.UpdateFormularioP(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.UpdateFormularioP(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS, ID);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
         }
 
-        public async Task<IActionResult> guardarFormularioA(DateTime FECHA, string ACUEDUCTO, string TANQUE, string REGISTRO, string ENCARGADO, string TELEFONO,
+        public void guardarFormularioA(DateTime FECHA, string ACUEDUCTO, string TANQUE, string REGISTRO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string TIPOTANQUE, string MATTANQUE, string LIMPIEZA, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -194,25 +186,23 @@ namespace Sersa.Controllers
             ig.MatTanque = MATTANQUE;
             ig.Limpieza = LIMPIEZA;
             IMG = link;
-            await Database.Connection.OpenAsync();
+             Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
             {
-                await query.InsertFormularioA(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.InsertFormularioA(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
             else
             {
-                await query.UpdateFormularioA(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.UpdateFormularioA(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS, ID);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
         }
 
-        public async Task<IActionResult> guardarFormularioC(DateTime FECHA, string ACUEDUCTO, string CONDUCCIONTANQUE, string REPARACIONES, string ENCARGADO, string TELEFONO,
+        public void guardarFormularioC(DateTime FECHA, string ACUEDUCTO, string CONDUCCIONTANQUE, string REPARACIONES, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string MATTUBERIA, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -234,25 +224,23 @@ namespace Sersa.Controllers
             ig.FechaConstruccion = FECHACONSTRUCCION;
             ig.MatTuberia = MATTUBERIA;
             IMG = link;
-            await Database.Connection.OpenAsync();
+             Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
             {
-                await query.InsertFormularioC(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.InsertFormularioC(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
             else
             {
-                await query.UpdateFormularioC(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.UpdateFormularioC(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS, ID);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
         }
 
-        public async Task<IActionResult> guardarFormularioD(DateTime FECHA, string ACUEDUCTO, string REPARACIONES, string ENCARGADO, string TELEFONO,
+        public void guardarFormularioD(DateTime FECHA, string ACUEDUCTO, string REPARACIONES, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string MATTUBERIA, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -273,26 +261,24 @@ namespace Sersa.Controllers
             ig.FechaConstruccion = FECHACONSTRUCCION;
             ig.MatTuberia = MATTUBERIA;
             IMG = link;
-            await Database.Connection.OpenAsync();
+             Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
             {
-                await query.InsertFormularioD(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.InsertFormularioD(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
             else
             {
-                await query.UpdateFormularioD(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.UpdateFormularioD(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS, ID);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
         }
 
 
-        public async Task<IActionResult> guardarFormularioQ(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void guardarFormularioQ(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string MATTUBERIA, string LIMPIEZA, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -313,26 +299,24 @@ namespace Sersa.Controllers
             ig.FechaConstruccion = FECHACONSTRUCCION;
             ig.MatTuberia = MATTUBERIA;
             IMG = link;
-            await Database.Connection.OpenAsync();
+             Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
             {
-                await query.InsertFormularioQ(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.InsertFormularioQ(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
             else
             {
-                await query.UpdateFormularioQ(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.UpdateFormularioQ(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS, ID);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
         }
        
         [HttpPost]
-        public async Task<IActionResult> guardarFormularioCl(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void guardarFormularioCl(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string FECHAINSTALACION, string TIPOSISTEMA, string TIPODOSIFICACION, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -354,26 +338,24 @@ namespace Sersa.Controllers
             ig.TipoSistema = TIPOSISTEMA;
             ig.TipoDosificacion = TIPODOSIFICACION;
 
-            await Database.Connection.OpenAsync();
+             Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             string img = link;
             if (IOU == "I")
             {
-                await query.InsertFormularioCl(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.InsertFormularioCl(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, img, f, ig, NOTAS);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
             else
             {
-                await query.UpdateFormularioCl(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.UpdateFormularioCl(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, img, f, ig, NOTAS, ID);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
         }
 
-        public async Task<IActionResult> guardarFormularioPP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void guardarFormularioPP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, string FECHACONSTRUCCION, string SISTEMAPOT, string ESPECIFIQUE, string NOTAS, string P1,
                     string P2, string P3, string P4, string P5, string P6, string P7, string P8, string P9, string P10, string IOU, string ID)
         {
@@ -394,21 +376,19 @@ namespace Sersa.Controllers
             ig.FechaConstruccion = FECHACONSTRUCCION;
             ig.Especifique = ESPECIFIQUE;
             IMG = link;
-            await Database.Connection.OpenAsync();
+             Database.Connection.OpenAsync();
             var query = new FormulariosModel(Database);
             if (IOU == "I")
             {
-                await query.InsertFormularioPP(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.InsertFormularioPP(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
             else
             {
-                await query.UpdateFormularioPP(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
+                 query.UpdateFormularioPP(FECHA, ACUEDUCTO, ENCARGADO, TELEFONO,
                      FUNCIONARIO, LATITUD, LONGITUD, IMG, f, ig, NOTAS, ID);
                 var resultado = new OkObjectResult(query);
-                return resultado;
             }
         }
 

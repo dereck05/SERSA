@@ -39,19 +39,21 @@ namespace Sersa
 
         }
 
-        public async Task InsertFormularioFS(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void InsertFormularioFS(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, FSInfoGeneral ig, string NOTAS)
         {
             string asada = Autenticacion.get_idAsada();
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
-
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO Formulario ( fecha ,  usuario ,  acueducto ,  encargado ,  telefono ,  funcionario ,  info_general ,  infraestructura ,  imagen , latitud , longitud , comentarios , tipo_formulario , asada ) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -70,23 +72,25 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 1);
             cmd.Parameters.AddWithValue("@asada", asada);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
-        public async Task InsertFormularioFN(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void InsertFormularioFN(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, FNInfoGeneral ig, string NOTAS)
         {
             string asada = Autenticacion.get_idAsada();
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
-
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO Formulario ( fecha ,  usuario ,  acueducto ,  encargado ,  telefono ,  funcionario ,  info_general ,  infraestructura ,  imagen , latitud , longitud , comentarios , tipo_formulario , asada ) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -105,23 +109,25 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 2);
             cmd.Parameters.AddWithValue("@asada", asada);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
-        public async Task InsertFormularioP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void InsertFormularioP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, PInfoGeneral ig, string NOTAS)
         {
             string asada = Autenticacion.get_idAsada();
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
-
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO Formulario ( fecha ,  usuario ,  acueducto ,  encargado ,  telefono ,  funcionario ,  info_general ,  infraestructura ,  imagen , latitud , longitud , comentarios , tipo_formulario , asada ) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -140,24 +146,26 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 3);
             cmd.Parameters.AddWithValue("@asada", asada);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
 
-        public async Task InsertFormularioA(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void InsertFormularioA(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, AInfoGeneral ig, string NOTAS)
         {
             string asada = Autenticacion.get_idAsada();
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
-
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO Formulario ( fecha ,  usuario ,  acueducto ,  encargado ,  telefono ,  funcionario ,  info_general ,  infraestructura ,  imagen , latitud , longitud , comentarios , tipo_formulario , asada ) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -176,24 +184,26 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 4);
             cmd.Parameters.AddWithValue("@asada", asada);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
 
-        public async Task InsertFormularioC(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void InsertFormularioC(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, CInfoGeneral ig, string NOTAS)
         {
             string asada = Autenticacion.get_idAsada();
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
-
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO Formulario ( fecha ,  usuario ,  acueducto ,  encargado ,  telefono ,  funcionario ,  info_general ,  infraestructura ,  imagen , latitud , longitud , comentarios , tipo_formulario , asada ) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -212,23 +222,25 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 5);
             cmd.Parameters.AddWithValue("@asada", asada);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
-        public async Task InsertFormularioD(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void InsertFormularioD(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, DInfoGeneral ig, string NOTAS)
         {
             string asada = Autenticacion.get_idAsada();
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
-
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO Formulario ( fecha ,  usuario ,  acueducto ,  encargado ,  telefono ,  funcionario ,  info_general ,  infraestructura ,  imagen , latitud , longitud , comentarios , tipo_formulario , asada ) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -247,23 +259,25 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 6);
             cmd.Parameters.AddWithValue("@asada", asada);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
-        public async Task InsertFormularioQ(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void InsertFormularioQ(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, QInfoGeneral ig, string NOTAS)
         {
             string asada = Autenticacion.get_idAsada();
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
-
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO Formulario ( fecha ,  usuario ,  acueducto ,  encargado ,  telefono ,  funcionario ,  info_general ,  infraestructura ,  imagen , latitud , longitud , comentarios , tipo_formulario , asada ) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -282,23 +296,25 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 7);
             cmd.Parameters.AddWithValue("@asada", asada);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
-        public async Task InsertFormularioCl(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void InsertFormularioCl(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, ClInfoGeneral ig, string NOTAS)
         {
             string asada = Autenticacion.get_idAsada();
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
-
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO Formulario ( fecha ,  usuario ,  acueducto ,  encargado ,  telefono ,  funcionario ,  info_general ,  infraestructura ,  imagen , latitud , longitud , comentarios , tipo_formulario , asada ) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -317,23 +333,25 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 8);
             cmd.Parameters.AddWithValue("@asada", asada);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
-        public async Task InsertFormularioPP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void InsertFormularioPP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, PPInfoGeneral ig, string NOTAS)
         {
             string asada = Autenticacion.get_idAsada();
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO `Formulario` (`fecha`, `usuario`, `acueducto`, `encargado`, `telefono`, `funcionario`, `info_general`, `infraestructura`, `imagen`,`latitud`,`longitud`,`comentarios`,`tipo_formulario`,`asada`) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
-
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "INSERT INTO Formulario ( fecha ,  usuario ,  acueducto ,  encargado ,  telefono ,  funcionario ,  info_general ,  infraestructura ,  imagen , latitud , longitud , comentarios , tipo_formulario , asada ) values (@fecha, @usuario, @acueducto, @encargado, @telefono, @funcionario, @info_general, @infraestructura,@imagen,@latitud,@longitud,@comentarios,@tipo_formulario,@asada)";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
 
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -352,7 +370,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@tipo_formulario", 9);
             cmd.Parameters.AddWithValue("@asada", asada);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
@@ -811,16 +829,20 @@ namespace Sersa
 
         }
 
-        public async Task UpdateFormularioFS(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void UpdateFormularioFS(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, FSInfoGeneral ig, string NOTAS, string ID)
         {
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
+
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -835,7 +857,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@id", ID);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
@@ -888,16 +910,20 @@ namespace Sersa
 
         }
 
-        public async Task UpdateFormularioFN(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void UpdateFormularioFN(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, FNInfoGeneral ig, string NOTAS, string ID)
         {
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
+
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -912,7 +938,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@id", ID);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
@@ -966,16 +992,20 @@ namespace Sersa
 
         }
 
-        public async Task UpdateFormularioP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void UpdateFormularioP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, PInfoGeneral ig, string NOTAS, string ID)
         {
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
+
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -990,7 +1020,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@id", ID);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
@@ -1043,16 +1073,20 @@ namespace Sersa
 
         }
 
-        public async Task UpdateFormularioA(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void UpdateFormularioA(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, AInfoGeneral ig, string NOTAS, string ID)
         {
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
+
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -1067,7 +1101,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@id", ID);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
@@ -1121,16 +1155,20 @@ namespace Sersa
 
         }
 
-        public async Task UpdateFormularioC(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void UpdateFormularioC(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, CInfoGeneral ig, string NOTAS, string ID)
         {
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
+
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -1145,7 +1183,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@id", ID);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
@@ -1198,16 +1236,20 @@ namespace Sersa
 
         }
 
-        public async Task UpdateFormularioD(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void UpdateFormularioD(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, DInfoGeneral ig, string NOTAS, string ID)
         {
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
+
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -1222,7 +1264,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@id", ID);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
@@ -1275,16 +1317,20 @@ namespace Sersa
 
         }
 
-        public async Task UpdateFormularioQ(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void UpdateFormularioQ(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, QInfoGeneral ig, string NOTAS, string ID)
         {
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
+
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -1299,7 +1345,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@id", ID);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
@@ -1352,16 +1398,20 @@ namespace Sersa
 
         }
 
-        public async Task UpdateFormularioCl(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void UpdateFormularioCl(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, ClInfoGeneral ig, string NOTAS, string ID)
         {
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
+
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -1376,7 +1426,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@id", ID);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
@@ -1429,16 +1479,20 @@ namespace Sersa
 
         }
 
-        public async Task UpdateFormularioPP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
+        public void UpdateFormularioPP(DateTime FECHA, string ACUEDUCTO, string ENCARGADO, string TELEFONO,
                     string FUNCIONARIO, string LATITUD, string LONGITUD, string IMG, FormularioRespuesta f, PPInfoGeneral ig, string NOTAS, string ID)
         {
-            using var cmd = Database.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            var connection = GetConnection().GetSection("ConnectionStrings").GetSection("Sersa").Value;
+            MySqlConnection conn = new MySqlConnection(connection);
+            conn.Open();
+            string sql = "UPDATE Formulario SET fecha = @fecha, usuario = @usuario, acueducto = @acueducto, encargado = @encargado, telefono = @telefono, funcionario = @funcionario, info_general = @info_general, infraestructura = @infraestructura, imagen = @imagen, latitud = @latitud, longitud = @longitud, comentarios = @comentarios WHERE id = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
             var timestamp1 = new DateTimeOffset(FECHA);
             var timestamp = timestamp1.ToUnixTimeSeconds();
 
+
             cmd.Parameters.AddWithValue("@fecha", timestamp);
-            cmd.Parameters.AddWithValue("@usuario", "testuser");
+            cmd.Parameters.AddWithValue("@usuario", Autenticacion.get_idUsuario());
             cmd.Parameters.AddWithValue("@acueducto", ACUEDUCTO);
             cmd.Parameters.AddWithValue("@encargado", ENCARGADO);
             cmd.Parameters.AddWithValue("@telefono", TELEFONO);
@@ -1453,7 +1507,7 @@ namespace Sersa
             cmd.Parameters.AddWithValue("@longitud", LONGITUD);
             cmd.Parameters.AddWithValue("@comentarios", NOTAS);
             cmd.Parameters.AddWithValue("@id", ID);
-            await cmd.ExecuteNonQueryAsync();
+            cmd.ExecuteReader();
 
         }
 
