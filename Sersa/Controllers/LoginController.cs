@@ -26,9 +26,9 @@ namespace Sersa.Controllers
         {
             Database = db;
         }
-        public async Task<IActionResult> GetUsers(string USER, string PASSWORD)
+        public IActionResult GetUsers(string USER, string PASSWORD)
         {
-            await Database.Connection.OpenAsync();
+            Database.Connection.OpenAsync();
             var query = new LoginModel(Database);
             var result = query.credentialsValidate(USER,PASSWORD);
             if (Autenticacion.get_idUsuario() != -1)
@@ -41,15 +41,15 @@ namespace Sersa.Controllers
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, result[0].id.ToString()));
                 identity.AddClaim(new Claim(ClaimTypes.Name, result[0].tipo.ToString()));
                 var principal = new ClaimsPrincipal(identity);
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,principal, new AuthenticationProperties { ExpiresUtc=DateTime.Now.AddDays(1), IsPersistent=true});
+                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,principal, new AuthenticationProperties { ExpiresUtc=DateTime.Now.AddDays(1), IsPersistent=true});
             }
             return new OkObjectResult(result);
         }
-        public async Task<IActionResult> Logout() {
+        public IActionResult Logout() {
             Autenticacion.set_idAsada("");
             Autenticacion.set_idUsuario(-1);
             Autenticacion.set_tipo(-1);
-            await HttpContext.SignOutAsync();
+            HttpContext.SignOutAsync();
             return Redirect("/Login");
         }
 
